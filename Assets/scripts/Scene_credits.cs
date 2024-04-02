@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Scene_credits : MonoBehaviour
 {
-    public string credits;
-    public AudioClip sonClic;
     AudioSource audioSource;
+    public AudioClip Click;
+
+    bool sonJoue = false;
 
 
     private void Start()
@@ -16,14 +17,30 @@ public class Scene_credits : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void allerSurCredits()
+    private void Update()
     {
-        audioSource.PlayOneShot(sonClic, 1.2f);
-        Invoke("DelaiChargementScene", 1f);
+
     }
 
-    void DelaiChargementScene()
+    public void allerSurCredits()
     {
-        SceneManager.LoadScene(credits);
+        if (!sonJoue)
+        {
+            sonJoue = true;
+            audioSource.PlayOneShot(Click);
+
+            if (audioSource.isPlaying)
+            {
+                Debug.Log(Click);
+            }
+        }
+
+        StartCoroutine(DelaiChargementScene());
+    }
+
+    IEnumerator DelaiChargementScene()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Credits");
     }
 }
