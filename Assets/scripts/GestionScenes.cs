@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class GestionScenes : MonoBehaviour
 {
@@ -12,24 +14,20 @@ public class GestionScenes : MonoBehaviour
     //Pour insérer la scène visée
     public string nomScene;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Fonction pour changer les scènes au clic d'un button
-    public void changerScene()
+    //Couroutine pour avoir un délai selon l'information fournie dans le WaitForSeconds
+    public void DelaiScene()
     {
-        //Charger la scène
+        StartCoroutine (ChangerScene());
+    }
+
+    public IEnumerator ChangerScene()
+    {
+        //Charger la scène après 1 seconde pour donner au son le temps de jouer
+        yield return new WaitForSeconds(1);
+        //Charger la scène indiquée dans l'inspecteur
         SceneManager.LoadScene(nomScene);
         //Jouer un son défini dans l'inspecteur
-        GetComponent<AudioSource>().PlayOneShot(sonClic);
+        //GetComponent<AudioSource>().PlayOneShot(sonClic);
     }
 }
