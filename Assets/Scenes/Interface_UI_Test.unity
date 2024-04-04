@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1421,8 +1421,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283241362}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875036, y: -0.68145156, z: 0.18875158, w: 0.681447}
-  m_LocalPosition: {x: 285.175, y: 8.144988, z: 306.70016}
+  m_LocalRotation: {x: 0.18874869, y: -0.6814541, z: 0.18875124, w: 0.681445}
+  m_LocalPosition: {x: 285.17502, y: 8.144961, z: 306.70016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3996,7 +3996,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 971984038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1778505853}
+        m_TargetAssemblyTypeName: Scene_credits, Assembly-CSharp
+        m_MethodName: allerSurReglages
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &971984038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5300,7 +5312,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1426325644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1778505853}
+        m_TargetAssemblyTypeName: Scene_credits, Assembly-CSharp
+        m_MethodName: allerMenuPrincipal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1426325644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7660,8 +7684,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815592902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875036, y: -0.68145156, z: 0.18875158, w: 0.681447}
-  m_LocalPosition: {x: 285.175, y: 8.144988, z: 306.70016}
+  m_LocalRotation: {x: 0.18874869, y: -0.6814541, z: 0.18875124, w: 0.681445}
+  m_LocalPosition: {x: 285.17502, y: 8.144961, z: 306.70016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

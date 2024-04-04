@@ -31,16 +31,60 @@ public class Scene_credits : MonoBehaviour
 
             if (audioSource.isPlaying)
             {
-                Debug.Log(Click);
+                //Debug.Log(Click);
             }
         }
 
-        StartCoroutine(DelaiChargementScene());
+        StartCoroutine(DelaiChargementCredits());
     }
 
-    IEnumerator DelaiChargementScene()
+    IEnumerator DelaiChargementCredits()
     {
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Credits");
+    }
+
+    public void allerSurReglages()
+    {
+        if (!sonJoue)
+        {
+            sonJoue = true;
+            audioSource.PlayOneShot(Click);
+
+            if (audioSource.isPlaying)
+            {
+                //Debug.Log(Click);
+            }
+        }
+
+        StartCoroutine(DelaiChargementReglages());
+    }
+
+    IEnumerator DelaiChargementReglages()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Reglages");
+    }
+
+    public void allerMenuPrincipal()
+    {
+        if (!sonJoue)
+        {
+            sonJoue = true;
+            audioSource.PlayOneShot(Click);
+
+            if (audioSource.isPlaying)
+            {
+                //Debug.Log(Click);
+            }
+        }
+
+        StartCoroutine(DelaiChargementMenu());
+    }
+
+    IEnumerator DelaiChargementMenu()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("EcranTitre");
     }
 }
