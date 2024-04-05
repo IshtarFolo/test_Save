@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -43,30 +44,6 @@ public class deplacementPerso : MonoBehaviour
             transform.position = transform.position += new Vector3(-vMonte * Time.deltaTime, 0, 0);
         }
 
-        // Saut
-        switch (toucheSol)
-        {
-            case false:
-                animateur.SetBool("saute", true);
-                break;
-            case true:
-                animateur.SetBool("saute", false);
-                break;
-        }
-
-        if (velociteY == 0)
-        {
-            animateur.SetBool("tombe", false);
-        }
-        else if (rb.velocity.y > 0)
-        {
-            animateur.SetBool("tombe", false);
-        }
-        else if (rb.velocity.y == 0 && animateur.GetBool("tombe") == false)
-        {
-            animateur.SetBool("tombe", true); 
-        }
-
         /*-------------
          * ANIMATIONS *
          -------------*/
@@ -85,7 +62,7 @@ public class deplacementPerso : MonoBehaviour
         // Association des paramètres de l'animator avec les directions de déplacement du personnage
         animateur.SetFloat("VelocityX", vDeplacement);
         animateur.SetFloat("VelocityZ", vMonte);
-        animateur.SetFloat("VelocityY", Mathf.Clamp(velociteY, 0 ,1));
+        animateur.SetFloat("VelocityY", Mathf.Clamp(velociteY, -1 ,1));
 
         // Si le joueur a tourné à gauche, le personnage va faire face à gauche et il fera de même pour la droite
         if (vDeplacement > 0 || vDeplacement < 0)
@@ -111,7 +88,43 @@ public class deplacementPerso : MonoBehaviour
 
         // pour voir si le joueur touche le sol
         // Debug.Log(toucheSol == true);
-        Debug.Log(Mathf.Clamp(velociteY, 0, 1));
+        Debug.Log(Mathf.Clamp(velociteY, -1, 1));
+
+        // Saut
+        switch (toucheSol)
+        {
+            case false:
+                animateur.SetBool("saute", true);
+                break;
+            case true:
+                animateur.SetBool("saute", false);
+                break;
+        }
+
+        // Fin du Saut Droite
+        if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut") && toucheSol)
+        {
+            animateur.Play("FinSaut");
+        }
+
+        // Fin Saut gauche
+        if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Gauche") && toucheSol)
+        {
+            animateur.Play("FinSaut_Gauche");
+        }
+
+        // On verifie, ici, si le saut est active a partir de la gauche ou de la droite 
+        // on regarde si la velocite X est plus grande que 0...
+        if (animateur.GetFloat("VelocityX") > 0)
+        {
+            // Si oui, on confirme que le mouvement ne se fait pas a gauche
+            animateur.SetBool("aGauche", false);
+        }
+        // Sinon, on confirme que le mouvement se fait a gauche
+        else if (animateur.GetFloat("VelocityX") < 0)
+        {
+            animateur.SetBool("aGauche", true);
+        }
     }
 
     void LateUpdate()
