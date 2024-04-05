@@ -1,0 +1,152 @@
+{
+  "dialogues_villageois": [
+    {
+      "id": 1,
+      "contenu": "Encore un autre qui disparait !"
+    },
+    {
+      "id": 2,
+      "contenu": "500 ans que cela dure, c'est assez !"
+    },
+    {
+      "id": 3,
+      "contenu": "Les pauvres enfants"
+    },
+    {
+      "id": 4,
+      "contenu": "Parle à ton mari. Il faut renforcer la sécurité durant la nuit."
+    },
+    {
+      "id": 5,
+      "contenu": "Combien d'enfants ont disparus cette décennie ? Il faudrait jeter un coup d'œil au tableau d'affichage à l'entrée du village."
+    },
+    {
+      "id": 6,
+      "contenu": "Oublie ton frère Kirie. Il ne reviendra pas comme mes petits-enfants, il y a des années."
+    },
+    {
+      "id": 7,
+      "contenu": "J'ai entendu dire qu'un détective privé louait ses services, mais où est-il passé ?"
+    },
+    {
+      "id": 8,
+      "contenu": "La pêche à ce temps-ci de l'année est le moment idéal. 3 saumons et 10 crevettes pour le souper : ce sera un régal !"
+    }
+  ],
+  "dialogues_gatito": [
+    {
+      "id": 1,
+      "contenu": "La faim me prend trop mon énergie, repassez plus tard"
+    },
+    {
+      "id": 2,
+      "contenu": "J'ai tant envie d'une bonne bouchée de saumon."
+    },
+    {
+      "id": 3,
+      "contenu": "Un poisson par réponse (pas la meilleur)"
+    },
+    {
+      "id": 4,
+      "contenu": "3 poissons avalés, ma langue à tes côtés (celle-là je l'aime)"
+    },
+    {
+      "id": 5,
+      "contenu": "Il est difficile, mais pas impossible, de dire qu'un jeune loup se soit égaré par ces bois."
+    },
+    {
+      "id": 6,
+      "contenu": "Peut-être que oui, peut-être que non."
+    },
+    {
+      "id": 7,
+      "contenu": "Chat et museau cousu /Motus et museau cousu"
+    },
+    {
+      "id": 8,
+      "contenu": "Tu me donnes ta langue ? Je n'ai pas de couteau pour cela... Tu as de la chance. (MDR)"
+    },
+    {
+      "id": 9,
+      "contenu": "Une preuve, une seule preuve, ne peut conclure une affaire. Une conclusion hâtive est comme ne manger que le même poisson sans connaitre d'autres possibilités. (lorsque la lettre a été retrouvée, si Gatito réapparait)"
+    },
+    {
+      "id": 10,
+      "contenu": "Cherche-moi des paniers en échange de légumes, je dois me laver les pattes à force de vous suivre dans cette forêt pleine de boue."
+    },
+    {
+      "id": 11,
+      "contenu": "Soyez un peu égoïste !"
+    },
+    {
+      "id": 12,
+      "contenu": "Mes moustaches frétillent d'excitation !"
+    },
+    {
+      "id": 13,
+      "contenu": "Mes pensées sont prises par une urgence, de l'aide ne serait pas de trop. Je dois partir. Arrivederci !"
+    },
+    {
+      "id": 14,
+      "contenu": "Oh je suis ravi de votre proposition !"
+    },
+    {
+      "id": 15,
+      "contenu": "Une récompense vous y attendra si vous m'apportez ce panier d'osier."
+    },
+    {
+      "id": 16,
+      "contenu": "Les rumeurs ne mentent pas, les chats des environs sont plus idiots que moi. Je vois tout, je sais tout qui compense à mon éternelle faim d'ogre (si ogre existe)"
+    },
+    {
+      "id": 17,
+      "contenu": "Il est difficile de le dire. Ma mémoire me fait parfois défaut, une tasse de lait me ferait sûrement du bien"
+    },
+    {
+      "id": 18,
+      "contenu": "Dans ces dialogues, ils demandent trop de choses par rapport à notre temps de jeu, mais l'ambiance de Gatito se ressent je trouve."
+    }
+  ],
+  "pensees_kirie_gatito": [
+    {
+      "id": 1,
+      "contenu": "Quel étrange personnage"
+    },
+    {
+      "id": 2,
+      "contenu": "Je ne sais pas comment il pense."
+    },
+    {
+      "id": 3,
+      "contenu": "Il me déstabilise à chaque fois qu'il me parle"
+    },
+    {
+      "id": 4,
+      "contenu": "J'espère qu'il pourra m'aider"
+    }
+  ],
+  "pensees_kirie": [
+    {
+      "id": 5,
+      "contenu": "Beaucoup d'enfants ont disparu et cela depuis 500 ans. Il faudrait que j'en sache plus."
+    },
+    {
+      "id": 6,
+      "contenu": "Depuis ma naissance, on enferme les enfants à la tombée de la nuit. Ô j'aurais dû ne pas entraîner mon frère avec moi ce jour-là. Je m'en veux d'avoir désobéi, mais 17 ans en prison, c'est pénible."
+    }
+  ],
+  "pensees_kirie_aasha": [
+    {
+      "id": 7,
+      "contenu": "Mon petit frère me manque énormément. Qui l'a enlevé ?"
+    },
+    {
+      "id": 8,
+      "contenu": "Je le ferais payer !"
+    },
+    {
+      "id": 9,
+      "contenu": "Une lumière rouge est apparue. Serait-ce un tour de magie"
+    }
+  ]
+}
