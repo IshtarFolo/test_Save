@@ -36,8 +36,8 @@ ModelImporter:
       name: MilieuSaut
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 14
-      lastFrame: 25
+      firstFrame: 10
+      lastFrame: 23
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
