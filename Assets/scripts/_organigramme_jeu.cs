@@ -4,6 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using UnityEngine.Playables;
+using Scene = UnityEngine.SceneManagement.Scene;
+using UnityEngine.SceneManagement;
 
 public class _organigramme_jeu : MonoBehaviour
 {
@@ -32,6 +34,14 @@ public class _organigramme_jeu : MonoBehaviour
     public GameObject UIforet;
     public GameObject UIbarreLettre;
 
+    [Header("Scenes")]
+    private Scene scene;
+
+
+    public void Start()
+    {
+        scene = SceneManager.GetActiveScene();
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -66,5 +76,11 @@ public class _organigramme_jeu : MonoBehaviour
         // terminé donc true.Le joueur va pouvoir sortir de la maison avec la porte et on joue un son
         // de la porte qui s’ouvre. début du niveau 1.
 
+
+// Si on est dans le niveau tutoriel...
+        if (scene.name == "Niveau1_Maison-Int")
+        {
+
+        }
     }
 }

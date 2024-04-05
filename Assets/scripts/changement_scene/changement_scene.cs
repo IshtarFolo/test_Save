@@ -31,24 +31,39 @@ public class changement_scene : MonoBehaviour
         }
 
         //Lorsque le joueur a TERMINÉ le niveau1, on lui permet d'aller dans le niveau2
-        if (other.gameObject.tag == "triggerNiv2")
+        if (other.gameObject.tag == "triggerNiv2" || niveau1Termine == true)
         {
             Invoke("niveau2", 2f);
 
         }
+        else
+        {
+            notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
+        }
 
         //Lorsque le joueur a TERMINÉ le niveau2, on lui permet d'aller dans le niveau3
-        if (other.gameObject.tag == "triggerNiv3")
+        if (other.gameObject.tag == "triggerNiv3" || niveau2Termine == true)
         {
             Invoke("niveau3", 2f);
 
         }
+        else
+        {
+            notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
+        }
 
         // Allons-nous garder le niveau 4?**
-        if (other.gameObject.tag == "triggerNiv4")
+        if (other.gameObject.tag == "triggerNiv4" || niveau3Termine == true)
         {
             Invoke("niveau4", 2f);
 
+        }
+        else
+        {
+            notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
         }
 
 
