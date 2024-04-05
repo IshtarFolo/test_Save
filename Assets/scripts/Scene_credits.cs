@@ -87,4 +87,27 @@ public class Scene_credits : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("EcranTitre");
     }
+
+
+    public void allerJeu()
+    {
+        if (!sonJoue)
+        {
+            sonJoue = true;
+            audioSource.PlayOneShot(Click);
+
+            if (audioSource.isPlaying)
+            {
+                //Debug.Log(Click);
+            }
+        }
+
+        StartCoroutine(DelaiChargementJeu());
+    }
+
+    IEnumerator DelaiChargementJeu()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("EcranTitre");
+    }
 }
