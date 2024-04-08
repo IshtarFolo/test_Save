@@ -10,7 +10,8 @@ public class deplacementPerso : MonoBehaviour
      *** VARIABLES ***
      -----------------*/
     private float vitesseDeplacement = 15f; // Vitesse de déplacement du personnage
-    private float forceSaut = 15f; // Force du saut
+    private float forceSaut =  15f; // Force du saut
+    private float multiplicateurDescente = 4.5f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
     Vector3 dernierMouvement; // Enregistrement du dernier mouvement du joueur
 
@@ -75,22 +76,26 @@ public class deplacementPerso : MonoBehaviour
          ----------*/
         RaycastHit infoCollision;
         // Cast des spheres vers bas perso + variable infoCollision prends valeurs
-        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 1f, 0f), 1f, -transform.up, out infoCollision, 1f);
+        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 1.8f, 0f), 1f, -transform.up, out infoCollision, 1f);
 
         // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
         if (Input.GetKeyDown(KeyCode.Space) && toucheSol)
         {
-            velociteY += forceSaut;
+            rb.velocity = new Vector3(rb.velocity.x, forceSaut, rb.velocity.z);
+        }
+        // Si la velocite Y est plus petite que 2...
+        else if (rb.velocity.y < 2)
+        {
+            // On applique une force de descente au personnage pour le forcer au sol
+            rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
         }
 
         // Les velocitees se font passer les valeurs des variables vDeplacement et velociteY
-        rb.velocity = transform.forward * vDeplacement + new Vector3(0, velociteY, 0);
+        rb.velocity = new Vector3(transform.forward.x * vDeplacement, rb.velocity.y, transform.forward.z * vDeplacement);
 
-        // pour voir si le joueur touche le sol
-        // Debug.Log(toucheSol == true);
-        Debug.Log(Mathf.Clamp(velociteY, -1, 1));
+        Debug.Log(velociteY);
 
-        // Saut
+        // On vérifie si le personnage touche le sol ou non
         switch (toucheSol)
         {
             case false:
@@ -105,12 +110,14 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut") && toucheSol)
         {
             animateur.Play("FinSaut");
+            StartCoroutine(RecupSaut());
         }
 
         // Fin Saut gauche
         if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Gauche") && toucheSol)
         {
             animateur.Play("FinSaut_Gauche");
+            StartCoroutine(RecupSaut());
         }
 
         // On verifie, ici, si le saut est active a partir de la gauche ou de la droite 
@@ -129,10 +136,10 @@ public class deplacementPerso : MonoBehaviour
 
     void LateUpdate()
     {
+        // On vérifie dans quel angle le personnage se dirige et on active l'animation idle correspondante à son mouvement
         // Si la velocite du rigidbody est égale à 0...
         if (rb.velocity.magnitude == 0)
         {
-            // On vérifie dans quel angle il se dirige et on active l'animation idle correspondante à son mouvement
             float angle = Vector3.SignedAngle(Vector3.forward, dernierMouvement, Vector3.up);
             if (angle < 0)
             {
@@ -151,6 +158,17 @@ public class deplacementPerso : MonoBehaviour
     {
         // On dessine la sphère sous la capsule (perso), là où le sphereCast se fait
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 1f, 0f), 1f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 1.8f, 0f), 1f);
+    }
+
+    /*--------------
+     * IENUMERATOR *
+     --------------*/
+    // La couroutine qui permet de donner un effet de récupération du saut
+    IEnumerator RecupSaut()
+    {
+         rb.constraints = RigidbodyConstraints.FreezePosition;
+        yield return new WaitForSeconds(0.5f);
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }
