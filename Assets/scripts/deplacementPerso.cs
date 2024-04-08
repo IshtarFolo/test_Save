@@ -13,6 +13,7 @@ public class deplacementPerso : MonoBehaviour
     private float forceSaut =  15f; // Force du saut
     private float multiplicateurDescente = 4.5f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
+    bool peutBouger = true; // Verification si le personnage peut bouger
     Vector3 dernierMouvement; // Enregistrement du dernier mouvement du joueur
 
     // Raccourcis GetComponent
@@ -40,9 +41,12 @@ public class deplacementPerso : MonoBehaviour
         float velociteY = rb.velocity.y;
 
         // Controles pour faire avancer le perso sur l'axe des X avec les touches Horizontales (W et S)
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (peutBouger)
         {
-            transform.position = transform.position += new Vector3(-vMonte * Time.deltaTime, 0, 0);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                transform.position = transform.position += new Vector3(-vMonte * Time.deltaTime, 0, 0);
+            }
         }
 
         /*-------------
@@ -91,7 +95,11 @@ public class deplacementPerso : MonoBehaviour
         }
 
         // Les velocitees se font passer les valeurs des variables vDeplacement et velociteY
-        rb.velocity = new Vector3(transform.forward.x * vDeplacement, rb.velocity.y, transform.forward.z * vDeplacement);
+        if (peutBouger)
+        {
+            rb.velocity = new Vector3(transform.forward.x * vDeplacement, rb.velocity.y, transform.forward.z * vDeplacement);
+        }
+     
 
         Debug.Log(velociteY);
 
@@ -167,8 +175,8 @@ public class deplacementPerso : MonoBehaviour
     // La couroutine qui permet de donner un effet de récupération du saut
     IEnumerator RecupSaut()
     {
-         rb.constraints = RigidbodyConstraints.FreezePosition;
+        peutBouger = false;
         yield return new WaitForSeconds(0.5f);
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        peutBouger = true;
     }
 }
