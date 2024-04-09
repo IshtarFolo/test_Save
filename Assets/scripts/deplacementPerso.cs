@@ -9,7 +9,7 @@ public class deplacementPerso : MonoBehaviour
     /*----------------
      *** VARIABLES ***
      -----------------*/
-    private float vitesseDeplacement = 15f; // Vitesse de déplacement du personnage
+    private float vitesseDeplacement = 15f; // Vitesse de dï¿½placement du personnage
     private float forceSaut =  15f; // Force du saut
     private float multiplicateurDescente = 4.5f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
@@ -47,7 +47,7 @@ public class deplacementPerso : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
-                Vector3 newPosition = transform.position + new Vector3(-vMonte * (Time.deltaTime*2), 0, 0);
+                Vector3 newPosition = transform.position + new Vector3(-vMonte * (Time.deltaTime*8), 0, 0);
                 rb.MovePosition(newPosition);
             }
         }
@@ -55,7 +55,7 @@ public class deplacementPerso : MonoBehaviour
         /*-------------
          * ANIMATIONS *
          -------------*/
-        // On regarde si les paramètres de l'animator sont égaux à 0...
+        // On regarde si les paramï¿½tres de l'animator sont ï¿½gaux ï¿½ 0...
         if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") == 0)
         {
             // Si oui, l'animation idle est true
@@ -67,12 +67,12 @@ public class deplacementPerso : MonoBehaviour
             animateur.SetBool("idle", false);
         }
 
-        // Association des paramètres de l'animator avec les directions de déplacement du personnage
+        // Association des paramï¿½tres de l'animator avec les directions de dï¿½placement du personnage
         animateur.SetFloat("VelocityX", vDeplacement);
         animateur.SetFloat("VelocityZ", vMonte);
         animateur.SetFloat("VelocityY", Mathf.Clamp(velociteY, -1 ,1));
 
-        // Si le joueur a tourné à gauche, le personnage va faire face à gauche et il fera de même pour la droite
+        // Si le joueur a tournï¿½ ï¿½ gauche, le personnage va faire face ï¿½ gauche et il fera de mï¿½me pour la droite
         if (vDeplacement > 0 || vDeplacement < 0)
         {
             dernierMouvement = new Vector3(vDeplacement, 0f, vMonte).normalized;
@@ -105,7 +105,7 @@ public class deplacementPerso : MonoBehaviour
 
         Debug.Log(velociteY);
 
-        // On vérifie si le personnage touche le sol ou non
+        // On vï¿½rifie si le personnage touche le sol ou non
         switch (toucheSol)
         {
             case false:
@@ -146,8 +146,8 @@ public class deplacementPerso : MonoBehaviour
 
     void LateUpdate()
     {
-        // On vérifie dans quel angle le personnage se dirige et on active l'animation idle correspondante à son mouvement
-        // Si la velocite du rigidbody est égale à 0...
+        // On vï¿½rifie dans quel angle le personnage se dirige et on active l'animation idle correspondante ï¿½ son mouvement
+        // Si la velocite du rigidbody est ï¿½gale ï¿½ 0...
         if (rb.velocity.magnitude == 0)
         {
             float angle = Vector3.SignedAngle(Vector3.forward, dernierMouvement, Vector3.up);
@@ -166,7 +166,7 @@ public class deplacementPerso : MonoBehaviour
      ---------------------------------------------------------------------------*/
     private void OnDrawGizmos()
     {
-        // On dessine la sphère sous la capsule (perso), là où le sphereCast se fait
+        // On dessine la sphï¿½re sous la capsule (perso), lï¿½ oï¿½ le sphereCast se fait
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 1.8f, 0f), 1f);
     }
@@ -174,7 +174,7 @@ public class deplacementPerso : MonoBehaviour
     /*--------------
      * IENUMERATOR *
      --------------*/
-    // La couroutine qui permet de donner un effet de récupération du saut
+    // La couroutine qui permet de donner un effet de rï¿½cupï¿½ration du saut
     IEnumerator RecupSaut()
     {
         peutBouger = false;
