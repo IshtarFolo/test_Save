@@ -47,7 +47,7 @@ public class deplacementPerso : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
-                Vector3 newPosition = transform.position + new Vector3(-vMonte * (Time.deltaTime*2), 0, 0);
+                Vector3 newPosition = transform.position + new Vector3(-vMonte * (Time.deltaTime*7), 0, 0);
                 rb.MovePosition(newPosition);
             }
         }
