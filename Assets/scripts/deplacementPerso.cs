@@ -24,6 +24,8 @@ public class deplacementPerso : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); //Rigidbody
         animateur = GetComponent<Animator>(); // Animator
+
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     void Update()
@@ -45,7 +47,8 @@ public class deplacementPerso : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
-                transform.position = transform.position += new Vector3(-vMonte * Time.deltaTime, 0, 0);
+                Vector3 newPosition = transform.position + new Vector3(-vMonte * (Time.deltaTime*2), 0, 0);
+                rb.MovePosition(newPosition);
             }
         }
 
@@ -99,7 +102,6 @@ public class deplacementPerso : MonoBehaviour
         {
             rb.velocity = new Vector3(transform.forward.x * vDeplacement, rb.velocity.y, transform.forward.z * vDeplacement);
         }
-     
 
         Debug.Log(velociteY);
 
