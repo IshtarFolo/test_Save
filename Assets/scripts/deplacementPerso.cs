@@ -34,21 +34,39 @@ public class deplacementPerso : MonoBehaviour
          ** MOUVEMENT **
          ---------------*/
         // Deplacement horizontal perso
-        var vDeplacement = Input.GetAxis("Horizontal") * vitesseDeplacement;
+        var vDeplacement = Input.GetAxis("Horizontal") * vitesseDeplacement * Time.deltaTime;
 
         // Deplacement vertical perso
-        var vMonte = Input.GetAxis("Vertical") * vitesseDeplacement;
+        var vMonte = Input.GetAxis("Vertical") * vitesseDeplacement * Time.deltaTime;
 
         // Raccourci pour la velocite du saut
         float velociteY = rb.velocity.y;
 
-        // Controles pour faire avancer le perso sur l'axe des X avec les touches Horizontales (W et S)
+        // Controles pour faire avancer le perso sur l'axe des X avec les touches Horizontales (A and D)
+        if (peutBouger)
+        {
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                // On regarde avec le raycasting si un obstacle est sur le chemin
+                if (!Physics.Raycast(rb.position, new Vector3(0, 0, vDeplacement), vDeplacement))
+                {
+                    // Si il n'y a pas d'obstacle, le personnage bouge
+                    rb.MovePosition(rb.position + new Vector3(0, 0, vDeplacement));
+                }
+            }
+        }
+
+        // Controles pour faire avancer le perso sur l'axe des Z avec les touches Verticales (W and S)
         if (peutBouger)
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
-                Vector3 newPosition = transform.position + new Vector3(-vMonte * (Time.deltaTime*7), 0, 0);
-                rb.MovePosition(newPosition);
+                // On regarde avec le raycasting si un obstacle est sur le chemin
+                if (!Physics.Raycast(rb.position, new Vector3(-vMonte, 0, 0), vMonte))
+                {
+                    // Si il n'y a pas d'obstacle, le personnage bouge
+                    rb.MovePosition(rb.position + new Vector3(-vMonte, 0, 0));
+                }
             }
         }
 
