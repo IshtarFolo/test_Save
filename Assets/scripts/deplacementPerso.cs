@@ -10,8 +10,8 @@ public class deplacementPerso : MonoBehaviour
      *** VARIABLES ***
      -----------------*/
     private float vitesseDeplacement = 15f; // Vitesse de d�placement du personnage
-    private float forceSaut =  15f; // Force du saut
-    private float multiplicateurDescente = 4.5f; // La force de descente du personnage lorsqu'il est en l'air
+    private float forceSaut =  1000f; // Force du saut
+    private float multiplicateurDescente = 30f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
     bool peutBouger = true; // Verification si le personnage peut bouger
     Vector3 dernierMouvement; // Enregistrement du dernier mouvement du joueur
@@ -24,8 +24,6 @@ public class deplacementPerso : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); //Rigidbody
         animateur = GetComponent<Animator>(); // Animator
-
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     void Update()
@@ -42,31 +40,20 @@ public class deplacementPerso : MonoBehaviour
         // Raccourci pour la velocite du saut
         float velociteY = rb.velocity.y;
 
-        // Controles pour faire avancer le perso sur l'axe des X avec les touches Horizontales (A and D)
-        if (peutBouger)
-        {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            {
-                // On regarde avec le raycasting si un obstacle est sur le chemin
-                if (!Physics.Raycast(rb.position, new Vector3(0, 0, vDeplacement), vDeplacement))
-                {
-                    // Si il n'y a pas d'obstacle, le personnage bouge
-                    rb.MovePosition(rb.position + new Vector3(0, 0, vDeplacement));
-                }
-            }
-        }
+        // Normalize pour le vecteur de direction
+        Vector3 direction = new Vector3(-vMonte, 0, vDeplacement).normalized;
 
-        // Controles pour faire avancer le perso sur l'axe des Z avec les touches Verticales (W and S)
+        // Multiplier la velocite par le temps
+        direction *= vitesseDeplacement * Time.deltaTime;
+
+        // Controles pour faire avancer le perso avec les touches Horizontales (A and D) et Verticales (W and S)
         if (peutBouger)
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            // On regarde avec le raycasting si un obstacle est sur le chemin
+            if (!Physics.Raycast(rb.position, direction, direction.magnitude))
             {
-                // On regarde avec le raycasting si un obstacle est sur le chemin
-                if (!Physics.Raycast(rb.position, new Vector3(-vMonte, 0, 0), vMonte))
-                {
-                    // Si il n'y a pas d'obstacle, le personnage bouge
-                    rb.MovePosition(rb.position + new Vector3(-vMonte, 0, 0));
-                }
+                // Si il n'y a pas d'obstacle, le personnage bouge
+                rb.AddForce(direction * vitesseDeplacement, ForceMode.VelocityChange);
             }
         }
 
@@ -106,22 +93,14 @@ public class deplacementPerso : MonoBehaviour
         // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
         if (Input.GetKeyDown(KeyCode.Space) && toucheSol)
         {
-            rb.velocity = new Vector3(rb.velocity.x, forceSaut, rb.velocity.z);
+            rb.AddForce(new Vector3(0, forceSaut, 0), ForceMode.Impulse);
         }
         // Si la velocite Y est plus petite que 2...
-        else if (rb.velocity.y < 2)
+        else if (rb.velocity.y < 0 && !toucheSol)
         {
             // On applique une force de descente au personnage pour le forcer au sol
-            rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
+             rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
         }
-
-        // Les velocitees se font passer les valeurs des variables vDeplacement et velociteY
-        if (peutBouger)
-        {
-            rb.velocity = new Vector3(transform.forward.x * vDeplacement, rb.velocity.y, transform.forward.z * vDeplacement);
-        }
-
-        Debug.Log(velociteY);
 
         // On v�rifie si le personnage touche le sol ou non
         switch (toucheSol)
@@ -160,16 +139,16 @@ public class deplacementPerso : MonoBehaviour
         {
             animateur.SetBool("aGauche", true);
         }
-    }
 
-    void LateUpdate()
-    {
         // On v�rifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
         // Si la velocite du rigidbody est �gale � 0...
-        if (rb.velocity.magnitude == 0)
+        // If the character is moving...
+        if (direction != Vector3.zero)
         {
-            float angle = Vector3.SignedAngle(Vector3.forward, dernierMouvement, Vector3.up);
-            if (angle < 0)
+            float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+
+            // Trigger the appropriate animation based on the angle
+            if (angle > 0)
             {
                 animateur.SetTrigger("idleGauche");
             }
@@ -177,7 +156,14 @@ public class deplacementPerso : MonoBehaviour
             {
                 animateur.SetTrigger("idleDroite");
             }
+
+            Debug.Log(angle);
         }
+    }
+
+    void LateUpdate()
+    {
+
     }
 
     /* Pour voir le spherecast 

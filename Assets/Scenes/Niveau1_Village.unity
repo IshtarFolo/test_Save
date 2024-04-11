@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42359763, g: 0.3726426, b: 0.35722134, a: 1}
+  m_IndirectSpecularColor: {r: 0.4235966, g: 0.37266392, b: 0.35713908, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2452,8 +2452,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875022, y: -0.68145585, z: 0.18875404, w: 0.6814421}
-  m_LocalPosition: {x: -9.739131, y: 113.23502, z: 488.4303}
+  m_LocalRotation: {x: 0.18875064, y: -0.6814536, z: 0.18875317, w: 0.6814444}
+  m_LocalPosition: {x: -9.739124, y: 113.235, z: 488.4301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3352,7 +3352,7 @@ GameObject:
   - component: {fileID: 706436109}
   - component: {fileID: 706436111}
   - component: {fileID: 706436110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4843,8 +4843,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875022, y: -0.68145585, z: 0.18875404, w: 0.6814421}
-  m_LocalPosition: {x: -9.739131, y: 113.23502, z: 488.4303}
+  m_LocalRotation: {x: 0.18875064, y: -0.6814536, z: 0.18875317, w: 0.6814444}
+  m_LocalPosition: {x: -9.739124, y: 113.235, z: 488.4301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5831,7 +5831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6dd834b804cc47f8aa54c8b802fe0fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6dd834b804cc47f8aa54c8b802fe0fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5879,10 +5879,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f6dd834b804cc47f8aa54c8b802fe0fd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1056685565}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f6dd834b804cc47f8aa54c8b802fe0fd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1056685564}
+      addedObject: {fileID: 1056685568}
   m_SourcePrefab: {fileID: 100100000, guid: f6dd834b804cc47f8aa54c8b802fe0fd, type: 3}
 --- !u!4 &1056685562 stripped
 Transform:
@@ -5894,7 +5891,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6dd834b804cc47f8aa54c8b802fe0fd, type: 3}
   m_PrefabInstance: {fileID: 1056685561}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1056685564
+--- !u!65 &1056685568
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5913,31 +5910,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00991493, y: 0.033614155, z: 0.023953762}
-  m_Center: {x: -0.0024219372, y: 0.0096345255, z: -0.011261358}
---- !u!136 &1056685565
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056685563}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.011183984
-  m_Height: 0.04962959
-  m_Direction: 1
-  m_Center: {x: -0.0071620746, y: 0.008464972, z: -0.010996239}
+  m_Size: {x: 0.021209596, y: 0.033614155, z: 0.022881866}
+  m_Center: {x: -0.0070544668, y: 0.00963454, z: -0.010725461}
 --- !u!1 &1060225808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d6018a2ff227a44a48a198bfd7c08690, type: 3}
@@ -6567,9 +6541,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.298
       objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609145667655734672, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3957782524123411102, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8140499575222096, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
       propertyPath: m_Name
       value: stand_nu
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5898855749840620490, guid: 9f2c578fe0fed4ad198ad93af9b3f0e6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7392,7 +7386,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.10999256, y: 0.13340409, z: 0.042932656}
@@ -7871,7 +7865,7 @@ GameObject:
   - component: {fileID: 1413503927}
   - component: {fileID: 1413503929}
   - component: {fileID: 1413503928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10624,7 +10618,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10646,8 +10640,8 @@ Rigidbody:
   m_GameObject: {fileID: 1962921364}
   serializedVersion: 4
   m_Mass: 10
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Drag: 10
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
