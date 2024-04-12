@@ -157,7 +157,7 @@ public class deplacementPerso : MonoBehaviour
                 animateur.SetTrigger("idleDroite");
             }
 
-            Debug.Log(angle);
+            Debug.Log(toucheSol);
         }
     }
 
