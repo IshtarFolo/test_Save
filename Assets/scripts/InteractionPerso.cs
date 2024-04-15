@@ -57,7 +57,7 @@ public class interactionPerso: MonoBehaviour
         if (scriptVillageois != null)
         {
             scriptVillageois.AfficherDialogueSuivant();
-            scriptVillageois.dialogueVillagois.enabled = true;
+            scriptVillageois.dialogueVillageois.enabled = true;
         }
     }
 }
