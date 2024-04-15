@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/EcranTitre.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/CinematiqueIntro.unity
+    path: Assets/Scenes/Cinematique1 - Intro.unity
     guid: 7e715498f928a8e45bc084407c6f4c97
+  - enabled: 1
+    path: Assets/Scenes/Cinematique2 - Kirie.unity
+    guid: 86d9c820128734f44a1396ca18020ebe
   - enabled: 1
     path: Assets/Scenes/Niveau1_Maison-Int.unity
     guid: 5d995f4c6b634814f93addb337bdcf08
+  - enabled: 1
+    path: Assets/Scenes/Niveau1_Village.unity
+    guid: e159411402f47de40b4b8f6853a60af1
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: c22e388d31438b348b003d3b63df78c5
