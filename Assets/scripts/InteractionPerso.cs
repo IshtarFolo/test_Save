@@ -6,10 +6,12 @@ using TMPro;
 public class interactionPerso: MonoBehaviour
 {
     public TextMeshProUGUI lettreE; // Texte "Appuyez sur E" pour interagir
-    public bool peutInteragir = false; // Indique si le joueur peut interagir avec un villageois
+    public bool veutParler = false; // Indique si le joueur peut interagir avec un villageois
     public GameObject villageois; // Référence au villageois avec lequel le joueur interagit
 
     private interactionVillageois scriptVillageois; // Script du villageois avec lequel le joueur interagit
+
+    //public GameObject bulle;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class interactionPerso: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (peutInteragir)
+        if (veutParler)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -34,7 +36,7 @@ public class interactionPerso: MonoBehaviour
         if (infoCollision.gameObject.tag == "villageois")
         {
             lettreE.enabled = true;
-            peutInteragir = true;
+            veutParler = true;
             villageois = infoCollision.gameObject;
             scriptVillageois = villageois.GetComponent<interactionVillageois>();
         }
@@ -45,9 +47,10 @@ public class interactionPerso: MonoBehaviour
         if (infoCollision.gameObject.tag == "villageois")
         {
             lettreE.enabled = false;
-            peutInteragir = false;
+            veutParler = false;
             villageois = null;
             scriptVillageois = null;
+            
         }
     }
 

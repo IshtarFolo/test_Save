@@ -7897,7 +7897,6 @@ Cloth:
   - {fileID: 940964349}
   - {fileID: 1664447682}
   - {fileID: 1548386545}
-  - {fileID: 0}
   m_SphereColliders:
   - first: {fileID: 1548386543}
     second: {fileID: 1220536497}
