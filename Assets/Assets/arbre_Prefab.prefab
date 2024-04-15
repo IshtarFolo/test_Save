@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7962464111923926893}
   - component: {fileID: 5010007725894742489}
+  - component: {fileID: 4261168065779184559}
   m_Layer: 0
   m_Name: arbre_Prefab
   m_TagString: Untagged
@@ -61,7 +62,7 @@ LODGroup:
     - renderer: {fileID: 4917032813574025376}
     - renderer: {fileID: 4340682883051192900}
     - renderer: {fileID: 5228104405974971733}
-  - screenRelativeHeight: 0.1
+  - screenRelativeHeight: 0.028590327
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1494297154299304209}
@@ -69,6 +70,29 @@ LODGroup:
     - renderer: {fileID: 4340682883051192900}
     - renderer: {fileID: 5228104405974971733}
   m_Enabled: 1
+--- !u!136 &4261168065779184559
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219905721414896525}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5687139
+  m_Height: 13.288342
+  m_Direction: 1
+  m_Center: {x: -0.06954098, y: 4.2855353, z: -0.22206473}
 --- !u!1001 &3950218927605917915
 PrefabInstance:
   m_ObjectHideFlags: 0

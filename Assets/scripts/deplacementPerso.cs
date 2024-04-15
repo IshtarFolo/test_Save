@@ -172,7 +172,7 @@ public class deplacementPerso : MonoBehaviour
     {
         // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 1.8f, 0f), 1f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.2f, 0f), 1f);
     }
 
     /*--------------

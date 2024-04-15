@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4972300762413526585}
   - component: {fileID: 7427218751577903395}
+  - component: {fileID: 305290202953259139}
   m_Layer: 0
   m_Name: sapinPrefab
   m_TagString: Untagged
@@ -57,12 +58,35 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6225711600801978866}
     - renderer: {fileID: 9077849512496909993}
-  - screenRelativeHeight: 0.1
+  - screenRelativeHeight: 0.034183744
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6225711600801978866}
     - renderer: {fileID: 9077849512496909993}
   m_Enabled: 1
+--- !u!136 &305290202953259139
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207750380584208664}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9859138
+  m_Height: 12.144859
+  m_Direction: 1
+  m_Center: {x: -0.16803902, y: 5.826107, z: 0}
 --- !u!1001 &6657826637912146237
 PrefabInstance:
   m_ObjectHideFlags: 0

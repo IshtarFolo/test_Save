@@ -22,7 +22,17 @@ public class controlePoncho : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  // Make the poncho follow the kirie with a delay
-    poncho.transform.position = Vector3.Lerp(poncho.transform.position, kirie.transform.position, Time.deltaTime * speed);
+        // 
+        poncho.transform.position = Vector3.Lerp(poncho.transform.position, kirie.transform.position, Time.deltaTime * speed);
+
+        // 
+        if (kirie.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("idleDroite"))
+        {
+            poncho.transform.position = new Vector3(poncho.transform.position.x, 2.57f, kirie.transform.position.z - 0.4f);
+        }
+        else
+        {
+            poncho.transform.position = new Vector3(poncho.transform.position.x, 2.57f, kirie.transform.position.z - 0.2f);
+        }
     }
 }
