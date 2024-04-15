@@ -8,7 +8,7 @@ public class interactionVillageois : MonoBehaviour
     public TextMeshProUGUI lettreE;
     public bool veutParler = false;
 
-    public TextMeshProUGUI dialogueVilleagois; // Référence au texte du villageois actuel
+    public TextMeshPro dialogueVillageois; // Référence au texte du villageois actuel
     public GameObject bulle; // Référence à la bulle de dialogue
     private int DialogueActuelleIndex = 0; // Index du dialogue actuel
 
@@ -16,10 +16,14 @@ public class interactionVillageois : MonoBehaviour
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
+    public float paddingHorizontal = 20;
+    public float paddingVertical = 20;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        dialogueVilleagois.enabled = true;
+        dialogueVillageois.enabled = true;
         bulle.SetActive(true);
     }
 
@@ -57,7 +61,7 @@ public class interactionVillageois : MonoBehaviour
         else
         {
             // Si tous les dialogues ont été affichés, désactiver le dialogue
-            dialogueVilleagois.enabled = false;
+            dialogueVillageois.enabled = false;
             bulle.SetActive(false);
             lettreE.enabled = false;
             veutParler = false;
@@ -69,14 +73,15 @@ public class interactionVillageois : MonoBehaviour
     // Coroutine pour afficher les dialogues lettre par lettre
     IEnumerator AfficherDialogueCoroutine(string dialogue)
     {
-        dialogueVilleagois.text = "";
+        dialogueVillageois.text = "";
         bulle.SetActive(true);
 
         foreach (char lettre in dialogue)
         {
-            dialogueVilleagois.text += lettre;
+            dialogueVillageois.text += lettre;
             yield return new WaitForSeconds(0.10f); // Attendre un court laps de temps entre chaque lettre
         }
-            DialogueActuelleIndex++;
+
+        DialogueActuelleIndex++;
     }
 }
