@@ -57,7 +57,7 @@ public class _organigramme_jeu : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider infoTrigger)
     {
         //Partie manquante pour le menu principal? Cinématique?
         //Tant que les cinématiques ne sont pas terminés, le personnage ne peut pas bouger!
@@ -90,6 +90,16 @@ public class _organigramme_jeu : MonoBehaviour
         // terminé donc true.Le joueur va pouvoir sortir de la maison avec la porte et on joue un son
         // de la porte qui s’ouvre. début du niveau 1.
 
+        if (infoTrigger.gameObject.name == "cle")
+        {
+            Debug.Log("touché la clé");
+            cle.SetActive(false);
+        }
+
+        if (infoTrigger.gameObject.tag == "murTest")
+        {
+            Debug.Log("touché le mur");
+        }
     }
 
     private void tutoriel()
