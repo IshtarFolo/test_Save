@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class changement_scene : MonoBehaviour
 {
     [Header("Booléennes")]
-    public bool tutorielTermine;
-    public bool niveau1Termine;
-    public bool niveau2Termine;
-    public bool niveau3Termine;
-    public bool niveau4Termine;
+    public static bool tutorielTermine = false;
+    public static bool niveau1Termine = false;
+    public static bool niveau2Termine = false;
+    public static bool niveau3Termine = false;
+    public static bool niveau4Termine = false;
 
     [Header("Gameobjects")]
     public GameObject notificationPasFini; //Vérifier s'il s'agit d'un gameobject qu'on active et désactive

@@ -37,12 +37,24 @@ public class _organigramme_jeu : MonoBehaviour
     public GameObject UIbarreLettre;
 
     [Header("Scenes")]
-    private Scene scene;
+    public Scene scene;
 
 
     public void Start()
     {
-        scene = SceneManager.GetActiveScene();
+        Scene scene = SceneManager.GetActiveScene();
+        Debug.Log(scene.name);
+
+        // Si on est dans le niveau tutoriel...
+        if (scene.name == "Niveau1_Maison-Int")
+        {
+            Invoke("tutoriel", 0.1f);
+        }
+    }
+
+    public void Update()
+    {
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -78,12 +90,15 @@ public class _organigramme_jeu : MonoBehaviour
         // terminé donc true.Le joueur va pouvoir sortir de la maison avec la porte et on joue un son
         // de la porte qui s’ouvre. début du niveau 1.
 
+    }
 
-// Si on est dans le niveau tutoriel...
-        if (scene.name == "Niveau1_Maison-Int")
-        {
-            UIJournalKirie.SetActive(false);
+    private void tutoriel()
+    {
+        Debug.Log("Le script tutoriel roule");
 
-        }
+        UIJournalKirie.SetActive(false);
+        UIblabla.SetActive(false);
+        UItutoriel.SetActive(true);
+        UIcle.SetActive(true);
     }
 }

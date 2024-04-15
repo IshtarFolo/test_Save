@@ -3,7 +3,22 @@ guid: 978d3030226554d3bb5eff3adfade398
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cle: {fileID: 919132149155446097, guid: e46952be0f58144329ac4291ff922cce, type: 3}
+  - UIMaisonKirie: {instanceID: 0}
+  - UIJournalKirie: {instanceID: 0}
+  - UInotification: {instanceID: 0}
+  - UIblabla: {instanceID: 0}
+  - UItutoriel: {instanceID: 0}
+  - UIcle: {instanceID: 0}
+  - UIbarreCle: {instanceID: 0}
+  - UIfiniTuto: {instanceID: 0}
+  - UIfiniTuto2: {instanceID: 0}
+  - UIvillage: {instanceID: 0}
+  - UIbarreCanne: {instanceID: 0}
+  - UIbarrePoisson: {instanceID: 0}
+  - UIforet: {instanceID: 0}
+  - UIbarreLettre: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
