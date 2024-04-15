@@ -12,9 +12,16 @@ public class controlePoncho : MonoBehaviour
     float speed = 1.0f; // Vitesse de suivi du poncho (pas de delai)
     float ponchoY; // La positionY du poncho par rapport a Kirie
 
+    Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        // le poncho suit kirie peu importe sa position
+        // le poncho suit la rotation de kirie 
         poncho.transform.position = Vector3.Lerp(poncho.transform.position, kirie.transform.position, Time.deltaTime * speed);
 
         // si Kirie fait face a une direction ou une autre
@@ -42,6 +49,25 @@ public class controlePoncho : MonoBehaviour
         else
         {
             ponchoY = 2.57f;
+        }
+
+        // mouvement lateral sur les X
+        if (kirie.GetComponent<Animator>().GetFloat("VelocityX") > 0)
+        {
+            ponchoY = kirie.transform.position.y + 1.8f;
+            poncho.transform.position = new Vector3(poncho.transform.position.x, ponchoY, kirie.transform.position.z - 0.1f);
+        }
+        else if (kirie.GetComponent<Animator>().GetFloat("VelocityX") < 0)
+        {
+            ponchoY = kirie.transform.position.y + 1.8f;
+            poncho.transform.position = new Vector3(poncho.transform.position.x, ponchoY, kirie.transform.position.z - 0.5f);
+        }
+        else if (kirie.GetComponent<Animator>().GetFloat("VelocityX") > 0 && kirie.GetComponent<Animator>().GetFloat("VelocityZ") > 0)
+        {
+            ponchoY = kirie.transform.position.y + 1.8f;
+            poncho.transform.position = new Vector3(poncho.transform.position.x, ponchoY, kirie.transform.position.z - 0.1f);
+            Quaternion rotation = Quaternion.Euler(0, 50, 0);
+            transform.rotation = rotation;
         }
     }
 }
