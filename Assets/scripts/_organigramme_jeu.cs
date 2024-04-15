@@ -12,9 +12,6 @@ public class _organigramme_jeu : MonoBehaviour
     [Header("Booléennes")]
     public bool notification;
 
-    public bool cinematiqueDebutFinie;
-    public bool persoPeutMaintenantBouger;
-
     [Header("Gameobjects")]
     public GameObject cle;
 
@@ -24,8 +21,13 @@ public class _organigramme_jeu : MonoBehaviour
     public GameObject UInotification; //Regarder si peut gérer avec Canvas
 
     [Header("Gameobjects des quêtes")]
+    public GameObject UIblabla;
+
     public GameObject UItutoriel;
+    public GameObject UIcle;
     public GameObject UIbarreCle;
+    public GameObject UIfiniTuto;
+    public GameObject UIfiniTuto2;
 
     public GameObject UIvillage;
     public GameObject UIbarreCanne;
@@ -80,6 +82,7 @@ public class _organigramme_jeu : MonoBehaviour
 // Si on est dans le niveau tutoriel...
         if (scene.name == "Niveau1_Maison-Int")
         {
+            UIJournalKirie.SetActive(false);
 
         }
     }

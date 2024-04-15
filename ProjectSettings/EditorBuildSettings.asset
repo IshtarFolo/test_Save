@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EcranTitre.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Cinematique1 - Intro.unity
+    path: Assets/Scenes/CinematiqueIntro.unity
     guid: 7e715498f928a8e45bc084407c6f4c97
   - enabled: 1
     path: Assets/Scenes/Cinematique2 - Kirie.unity
