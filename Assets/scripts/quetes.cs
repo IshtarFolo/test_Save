@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class quetes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private string[] tableauQuetes;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        
+
     }
 }
