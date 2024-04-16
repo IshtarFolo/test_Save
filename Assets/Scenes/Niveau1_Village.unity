@@ -5025,12 +5025,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7827279356987065726, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1531693904}
-    - targetCorrespondingSourceObject: {fileID: 7827279356987065726, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1531693903}
     - targetCorrespondingSourceObject: {fileID: -6185289856176990484, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1142867287}
+    - targetCorrespondingSourceObject: {fileID: -6185289856176990484, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1142867289}
   m_SourcePrefab: {fileID: 100100000, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
 --- !u!1 &283366541
 GameObject:
@@ -9294,8 +9294,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875018, y: -0.681453, z: 0.18875231, w: 0.68144536}
-  m_LocalPosition: {x: -7.2250776, y: 113.14497, z: 485.80014}
+  m_LocalRotation: {x: 0.18875018, y: -0.6814544, z: 0.18875314, w: 0.6814437}
+  m_LocalPosition: {x: -7.225086, y: 113.14498, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11139,6 +11139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joueur: {fileID: 1155865124}
+  newG: {fileID: 0}
   load: {fileID: 0}
   loadingScreen: {fileID: 0}
   positionX: 0
@@ -18767,8 +18768,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875018, y: -0.681453, z: 0.18875231, w: 0.68144536}
-  m_LocalPosition: {x: -7.2250776, y: 113.14497, z: 485.80014}
+  m_LocalRotation: {x: 0.18875018, y: -0.6814544, z: 0.18875314, w: 0.6814437}
+  m_LocalPosition: {x: -7.225086, y: 113.14498, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22805,6 +22806,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.032572627
   m_Center: {x: -0.0000021606672, y: -0.00006824235, z: 2.8904327e-12}
+--- !u!135 &1142867289
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142867285}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.034449976
+  m_Center: {x: 0.096537344, y: -0.10410131, z: 0.12203352}
 --- !u!1001 &1143534756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22937,9 +22959,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.18358104
-  m_Height: 1.4742998
+  m_Height: 1.446606
   m_Direction: 1
-  m_Center: {x: -0.019874573, y: 0.7052371, z: -0.07490158}
+  m_Center: {x: -0.019874573, y: 0.71908396, z: -0.07490158}
 --- !u!54 &1155865128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26474,6 +26496,8 @@ Cloth:
   - {fileID: 1531693904}
   m_SphereColliders:
   - first: {fileID: 1636010969}
+    second: {fileID: 1142867287}
+  - first: {fileID: 1142867287}
     second: {fileID: 1142867287}
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 0.2
@@ -31608,29 +31632,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7827279356987065726, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
   m_PrefabInstance: {fileID: 278315092}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1531693903
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531693901}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.029657999
-  m_Height: 0.19631958
-  m_Direction: 0
-  m_Center: {x: 0.4018402, y: -0.00574553, z: -0.014328003}
 --- !u!136 &1531693904
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39872,6 +39873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joueur: {fileID: 0}
+  newG: {fileID: 0}
   load: {fileID: 0}
   loadingScreen: {fileID: 0}
   positionX: 0
