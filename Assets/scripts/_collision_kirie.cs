@@ -19,6 +19,13 @@ public class _collision_kirie : MonoBehaviour
     public bool notification;
     public bool cleRamasse;
 
+    [Header("Booléennes des scènes Unity")]
+    public static bool tutorielTermine = false;
+    public static bool niveau1Termine = false;
+    public static bool niveau2Termine = false;
+    public static bool niveau3Termine = false;
+    public static bool niveau4Termine = false;
+
     [Header("Gameobjects des UI")]
     public GameObject UIMaisonKirie;
     public GameObject UIJournalKirie;
@@ -26,6 +33,8 @@ public class _collision_kirie : MonoBehaviour
 
     [Header("Gameobjects des quêtes")]
     public GameObject UIblabla;
+    public GameObject UInoirFadeIn;
+    public GameObject UInoirFadeOut;
 
     public GameObject UItutoriel;
     public GameObject UIcle;
@@ -54,6 +63,7 @@ public class _collision_kirie : MonoBehaviour
         if (scene.name == "Niveau1_Maison-Int")
         {
             Invoke("tutoriel", 0.1f);
+            Invoke("enleverNoirFadeOut", 2f);
         }
     }
 
@@ -62,6 +72,9 @@ public class _collision_kirie : MonoBehaviour
 
     }
 
+
+// INFO TRIGGER
+// ////////////////////////////////////////////////
     public void OnTriggerEnter(Collider infoTrigger)
     {
         //Partie manquante pour le menu principal? Cinématique?
@@ -97,32 +110,88 @@ public class _collision_kirie : MonoBehaviour
 
         if (infoTrigger.gameObject.name == "cle")
         {
-            Debug.Log("touché la clé");
+            //Debug.Log("touché la clé");
+            UIbarreCle.SetActive(true);
             cle.SetActive(false);
             cleRamasse = true;
         }
     }
 
+
+// INFO COLLISION
+// ////////////////////////////////////////////////
     public void OnCollisionEnter(Collision infoCollision)
     {
         if (infoCollision.gameObject.name == "garde_robe_ferme")
         {
             if(cleRamasse == false)
             {
-                Debug.Log("Armoire barré");
+                //Debug.Log("Armoire barré");
             }
             else if(cleRamasse == true)
             {
                 armoireFerme.SetActive(false);
                 armoireOuverte.SetActive(true);
 
-                changement_scene.tutorielTermine = true;
+                tutorielTermine = true;
 
-                Invoke("accesALinventaire", 0.5f);
+                Invoke("accesALinventaire", 0.1f);
             }
+        }
+
+
+        //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
+        if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
+        {
+            //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
+            UInoirFadeIn.SetActive(true);
+            Invoke("niveau1", 2f);
+        }
+        else
+        {
+            //notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
+        }
+
+        //Lorsque le joueur a TERMINÉ le niveau1, on lui permet d'aller dans le niveau2
+        if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
+        {
+            Invoke("niveau2", 2f);
+
+        }
+        else
+        {
+            //notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
+        }
+
+        //Lorsque le joueur a TERMINÉ le niveau2, on lui permet d'aller dans le niveau3
+        if (infoCollision.gameObject.tag == "triggerNiv3" && niveau2Termine == true)
+        {
+            Invoke("niveau3", 2f);
+
+        }
+        else
+        {
+            //notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
+        }
+
+        // Allons-nous garder le niveau 4?**
+        if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
+        {
+            Invoke("niveau4", 2f);
+
+        }
+        else
+        {
+            //notificationPasFini.SetActive(true);
+            Invoke("fermerNotif", 5f);
         }
     }
 
+// DANS LE TUTORIEL
+// ////////////////////////////////////////////////
     private void tutoriel()
     {
         //Debug.Log("Le script tutoriel roule");
@@ -133,9 +202,49 @@ public class _collision_kirie : MonoBehaviour
         UIcle.SetActive(true);
     }
 
+// ACCÈS À L'INVENTAIRE
+// ////////////////////////////////////////////////
     public void accesALinventaire()
     {
+        UIbarreCle.SetActive(false);
+        UIcle.SetActive(false);
+        UItutoriel.SetActive(false);
+
+        UIfiniTuto.SetActive(true);
+        UIfiniTuto2.SetActive(true);
+
         UIJournalKirie.SetActive(true);
-        Debug.Log("Le journal apparait...");
+        //Debug.Log("Le journal apparait...");
+    }
+
+    void niveau1()
+    {
+        SceneManager.LoadScene("Niveau1_Village");
+    }
+
+    void niveau2()
+    {
+        SceneManager.LoadScene("MsgFinDemo");
+    }
+
+    void niveau3()
+    {
+        SceneManager.LoadScene("niveau3");
+    }
+
+    // Allons-nous garder le niveau 4?**
+    void niveau4()
+    {
+        SceneManager.LoadScene("niveau4");
+    }
+
+    void fermerNotif()
+    {
+        //notificationPasFini.SetActive(false);
+    }
+
+    void enleverNoirFadeOut()
+    {
+        UInoirFadeOut.SetActive(false);
     }
 }

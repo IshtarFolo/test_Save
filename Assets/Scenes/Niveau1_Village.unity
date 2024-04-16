@@ -9817,7 +9817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3b63e36297f4b47a0304ab24577224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: b443af86015fc354f905b8da39c66a2c, type: 3}
+  Click: {fileID: 8300000, guid: 7359751756a9bd94f9b3c8e9451be1f4, type: 3}
   nbSecondes: 0
 --- !u!4 &535191522
 Transform:
