@@ -1626,6 +1626,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cle: {fileID: 1162374604}
+  armoireFerme: {fileID: 190530064}
+  armoireOuverte: {fileID: 1585069231}
+  notification: 0
+  cleRamasse: 0
+  UIMaisonKirie: {fileID: 0}
+  UIJournalKirie: {fileID: 1587842870}
+  UInotification: {fileID: 0}
+  UIblabla: {fileID: 2122386651}
+  UItutoriel: {fileID: 525942559}
+  UIcle: {fileID: 1168024160}
+  UIbarreCle: {fileID: 551590975}
+  UIfiniTuto: {fileID: 1089743286}
+  UIfiniTuto2: {fileID: 660580420}
+  UIvillage: {fileID: 0}
+  UIbarreCanne: {fileID: 0}
+  UIbarrePoisson: {fileID: 0}
+  UIforet: {fileID: 0}
+  UIbarreLettre: {fileID: 0}
+  scene:
+    m_Handle: 0
 --- !u!65 &174257820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1773,8 +1793,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.066877216, y: 0.11561052, z: 0.07457903}
-  m_Center: {x: 0.00005990082, y: 0.0012790897, z: -0.007598954}
+  m_Size: {x: 0.066877216, y: 0.11561052, z: 0.079439186}
+  m_Center: {x: 0.000059900933, y: 0.0012790897, z: -0.005168862}
 --- !u!1 &204558757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,8 +4622,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19837895, y: -0.6976619, z: 0.21123363, w: 0.6552054}
-  m_LocalPosition: {x: 406.14832, y: 5.9170094, z: 278.65985}
+  m_LocalRotation: {x: 0.19837882, y: -0.6976619, z: 0.2112335, w: 0.6552055}
+  m_LocalPosition: {x: 406.14832, y: 5.9169974, z: 278.65985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5114,7 +5134,7 @@ GameObject:
   - component: {fileID: 881282549}
   m_Layer: 0
   m_Name: murFond (1)
-  m_TagString: murTest
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6774,69 +6794,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153064793}
   m_CullTransparentMesh: 1
---- !u!1 &1154364516
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1154364518}
-  - component: {fileID: 1154364517}
-  m_Layer: 0
-  m_Name: histoireManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1154364517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154364516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978d3030226554d3bb5eff3adfade398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notification: 0
-  Kirie: {fileID: 170303644}
-  cle: {fileID: 1162374604}
-  UIMaisonKirie: {fileID: 0}
-  UIJournalKirie: {fileID: 1587842870}
-  UInotification: {fileID: 0}
-  UIblabla: {fileID: 2122386651}
-  UItutoriel: {fileID: 525942559}
-  UIcle: {fileID: 1168024160}
-  UIbarreCle: {fileID: 551590975}
-  UIfiniTuto: {fileID: 1089743286}
-  UIfiniTuto2: {fileID: 660580420}
-  UIvillage: {fileID: 0}
-  UIbarreCanne: {fileID: 0}
-  UIbarrePoisson: {fileID: 0}
-  UIforet: {fileID: 0}
-  UIbarreLettre: {fileID: 0}
-  scene:
-    m_Handle: 0
---- !u!4 &1154364518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154364516}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 394.83868, y: 0.16111553, z: 277.91577}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1162374584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5749084721653927270, guid: 1e810540176ff86408fe819b8ab3e916, type: 3}
@@ -10270,8 +10227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19837895, y: -0.6976619, z: 0.21123363, w: 0.6552054}
-  m_LocalPosition: {x: 406.14832, y: 5.9170094, z: 278.65985}
+  m_LocalRotation: {x: 0.19837882, y: -0.6976619, z: 0.2112335, w: 0.6552055}
+  m_LocalPosition: {x: 406.14832, y: 5.9169974, z: 278.65985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12205,4 +12162,3 @@ SceneRoots:
   - {fileID: 134936915}
   - {fileID: 2074612495}
   - {fileID: 1407813076}
-  - {fileID: 1154364518}

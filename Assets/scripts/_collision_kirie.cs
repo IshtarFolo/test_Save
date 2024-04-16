@@ -1,13 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
+using UnityEngine.Playables;
+using Scene = UnityEngine.SceneManagement.Scene;
+using UnityEngine.SceneManagement;
 
 public class _collision_kirie : MonoBehaviour
 {
 
     [Header("Gameobjects")]
     public GameObject cle;
+    public GameObject armoireFerme;
+    public GameObject armoireOuverte;
 
+    [Header("Booléennes")]
+    public bool notification;
+    public bool cleRamasse;
+
+    [Header("Gameobjects des UI")]
+    public GameObject UIMaisonKirie;
+    public GameObject UIJournalKirie;
+    public GameObject UInotification;
+
+    [Header("Gameobjects des quêtes")]
+    public GameObject UIblabla;
+
+    public GameObject UItutoriel;
+    public GameObject UIcle;
+    public GameObject UIbarreCle;
+    public GameObject UIfiniTuto;
+    public GameObject UIfiniTuto2;
+
+    public GameObject UIvillage;
+    public GameObject UIbarreCanne;
+    public GameObject UIbarrePoisson;
+
+    public GameObject UIforet;
+    public GameObject UIbarreLettre;
+
+    [Header("Scenes")]
+    public Scene scene;
+
+
+// Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
+    public void Start()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        //Debug.Log(scene.name);
+
+        // Si on est dans le niveau tutoriel...
+        if (scene.name == "Niveau1_Maison-Int")
+        {
+            Invoke("tutoriel", 0.1f);
+        }
+    }
+
+    public void Update()
+    {
+
+    }
 
     public void OnTriggerEnter(Collider infoTrigger)
     {
@@ -46,11 +99,43 @@ public class _collision_kirie : MonoBehaviour
         {
             Debug.Log("touché la clé");
             cle.SetActive(false);
+            cleRamasse = true;
         }
+    }
 
-        if (infoTrigger.gameObject.tag == "murTest")
+    public void OnCollisionEnter(Collision infoCollision)
+    {
+        if (infoCollision.gameObject.name == "garde_robe_ferme")
         {
-            Debug.Log("touché le mur");
+            if(cleRamasse == false)
+            {
+                Debug.Log("Armoire barré");
+            }
+            else if(cleRamasse == true)
+            {
+                armoireFerme.SetActive(false);
+                armoireOuverte.SetActive(true);
+
+                changement_scene.tutorielTermine = true;
+
+                Invoke("accesALinventaire", 0.5f);
+            }
         }
+    }
+
+    private void tutoriel()
+    {
+        //Debug.Log("Le script tutoriel roule");
+
+        UIJournalKirie.SetActive(false);
+        UIblabla.SetActive(false);
+        UItutoriel.SetActive(true);
+        UIcle.SetActive(true);
+    }
+
+    public void accesALinventaire()
+    {
+        UIJournalKirie.SetActive(true);
+        Debug.Log("Le journal apparait...");
     }
 }

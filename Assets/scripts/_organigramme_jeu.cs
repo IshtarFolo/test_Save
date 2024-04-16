@@ -43,7 +43,7 @@ public class _organigramme_jeu : MonoBehaviour
     public void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
-        Debug.Log(scene.name);
+        //Debug.Log(scene.name);
 
         // Si on est dans le niveau tutoriel...
         if (scene.name == "Niveau1_Maison-Int")
@@ -59,7 +59,7 @@ public class _organigramme_jeu : MonoBehaviour
 
     private void tutoriel()
     {
-        Debug.Log("Le script tutoriel roule");
+        //Debug.Log("Le script tutoriel roule");
 
         UIJournalKirie.SetActive(false);
         UIblabla.SetActive(false);
