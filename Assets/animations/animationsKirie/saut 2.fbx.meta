@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f2655be060e9a2448480b66db65a138
+guid: 6ce7572749d4b8f419231c248c4c15e7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,13 +33,13 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: MilieuSaut
+      name: MilieuSaut_Gauche
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 10
       lastFrame: 23
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: 180
       level: 0
       cycleOffset: 0
       loop: 0
