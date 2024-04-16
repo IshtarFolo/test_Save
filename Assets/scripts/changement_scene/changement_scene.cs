@@ -12,6 +12,8 @@ public class changement_scene : MonoBehaviour
     public static bool niveau3Termine = false;
     public static bool niveau4Termine = false;
 
+    public static int noScenes = 2;
+
     [Header("Gameobjects")]
     public GameObject notificationPasFini; //Vérifier s'il s'agit d'un gameobject qu'on active et désactive
 
@@ -23,6 +25,7 @@ public class changement_scene : MonoBehaviour
         if (other.gameObject.tag == "porte" || tutorielTermine == true)
         {
             Invoke("niveau1", 2f);
+            noScenes++;
         }
         else
         {
@@ -34,6 +37,7 @@ public class changement_scene : MonoBehaviour
         if (other.gameObject.tag == "triggerNiv2" || niveau1Termine == true)
         {
             Invoke("niveau2", 2f);
+            noScenes++;
 
         }
         else
@@ -46,6 +50,7 @@ public class changement_scene : MonoBehaviour
         if (other.gameObject.tag == "triggerNiv3" || niveau2Termine == true)
         {
             Invoke("niveau3", 2f);
+            noScenes++;
 
         }
         else
@@ -58,6 +63,7 @@ public class changement_scene : MonoBehaviour
         if (other.gameObject.tag == "triggerNiv4" || niveau3Termine == true)
         {
             Invoke("niveau4", 2f);
+            noScenes++;
 
         }
         else

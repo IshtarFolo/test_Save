@@ -20,13 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niveau1_Village.unity
     guid: e159411402f47de40b4b8f6853a60af1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MsgFinDemo.unity
     guid: 0a5d71ec0816d494bbf11acffc346c3a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: c22e388d31438b348b003d3b63df78c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Interface_UI_Test.unity
     guid: 83424a2185d534641afd018b8b30a0e9
   - enabled: 1

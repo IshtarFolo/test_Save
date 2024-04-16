@@ -142,12 +142,11 @@ public class deplacementPerso : MonoBehaviour
 
         // On v�rifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
         // Si la velocite du rigidbody est �gale � 0...
-        // If the character is moving...
         if (direction != Vector3.zero)
         {
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
 
-            // Trigger the appropriate animation based on the angle
+            // On lance la bonne animation dependemment de l'angle du perso
             if (angle > 0)
             {
                 animateur.SetTrigger("idleGauche");
@@ -159,11 +158,6 @@ public class deplacementPerso : MonoBehaviour
 
             //Debug.Log(toucheSol);
         }
-    }
-
-    void LateUpdate()
-    {
-
     }
 
     /* Pour voir le spherecast 
