@@ -49,6 +49,9 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIforet;
     public GameObject UIbarreLettre;
 
+    // Le numero de l'index de la scene a charger 
+    public static int noScene = 3;
+
     [Header("Scenes")]
     public Scene scene;
 
@@ -69,7 +72,8 @@ public class _collision_kirie : MonoBehaviour
 
     public void Update()
     {
-
+        // Pour voir a quel index nous sommes (AKA quelle scene)
+        Debug.Log(noScene);
     }
 
 
@@ -146,6 +150,7 @@ public class _collision_kirie : MonoBehaviour
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
             Invoke("niveau1", 1f);
+            noScene++;
         }
         else
         {
@@ -157,6 +162,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
         {
             Invoke("niveau2", 2f);
+            noScene++;
 
         }
         else
@@ -169,6 +175,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv3" && niveau2Termine == true)
         {
             Invoke("niveau3", 2f);
+            noScene++;
 
         }
         else
@@ -181,6 +188,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
         {
             Invoke("niveau4", 2f);
+            noScene++;
 
         }
         else

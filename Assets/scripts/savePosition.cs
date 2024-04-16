@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class savePosition : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class savePosition : MonoBehaviour
      ============*/
     public GameObject joueur; // Le joueur
     public Button load; // Bouton de chargement
-    public GameObject loadingScreen; // L'écran de chargement
+    public GameObject loadingScreen; // L'ï¿½cran de chargement
 
-    // Les positions et rotations à enregistrer
+    // Les positions et rotations ï¿½ enregistrer
     public float positionX;
     public float positionY;
     public float positionZ;
@@ -21,15 +22,25 @@ public class savePosition : MonoBehaviour
     public float rotationY;
     public float rotationZ;
 
+    public static int scene; // Numero de la scene a charger
+
     // Passer les valeurs de la save
     public void Start()
     {
         if (positionX != 0)
         {
-            // On regarde si le personnage a bougé précédemment
+            // On regarde si le personnage a bougï¿½ prï¿½cï¿½demment
             transform.position = new Vector3(positionX, positionY, positionZ);
             transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
+
+            // Enregistrement du numero de la scene au depart
+            scene = _collision_kirie.noScene;
         }
+    }
+
+    private void Update()
+    {
+        scene = _collision_kirie.noScene;
     }
 
     // Sauvegarder les valeurs de positions 
@@ -42,6 +53,9 @@ public class savePosition : MonoBehaviour
         PlayerPrefs.SetFloat("laRotationX", transform.eulerAngles.x);
         PlayerPrefs.SetFloat("laRotationY", transform.eulerAngles.y);
         PlayerPrefs.SetFloat("laRotationZ", transform.eulerAngles.z);
+
+        // On cree une sauvegarde du numero de la scene
+        PlayerPrefs.SetInt("laScene", scene);
     }
 
     // Avoir les valeurs pour la position de base 
@@ -55,11 +69,11 @@ public class savePosition : MonoBehaviour
     {
         // On pause le jeu
         Time.timeScale = 0f;
-        // l'écran de chargement est activé
+        // l'ï¿½cran de chargement est activï¿½
         loadingScreen.SetActive(true);
         // On attend 1 seconde...
         yield return new WaitForSecondsRealtime(1f);
-        // Les positions et rotations du joueur sont rechargées
+        // Les positions et rotations du joueur sont rechargï¿½es
         // Les postions
         positionX = PlayerPrefs.GetFloat("laPositionX");
         positionY = PlayerPrefs.GetFloat("laPositionY");
@@ -69,12 +83,17 @@ public class savePosition : MonoBehaviour
         rotationY = PlayerPrefs.GetFloat("laRotationY");
         rotationZ = PlayerPrefs.GetFloat("laRotationZ");
 
+        PlayerPrefs.GetInt("laScene", scene);
 
-        // On regarde si le personnage a bougé précédemment
+
+        // On charge la bonne scene 
+        SceneManager.LoadScene(scene);
+
+        // On regarde si le personnage a bougï¿½ prï¿½cï¿½demment
         transform.position = new Vector3(positionX, positionY, positionZ);
         transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
 
-        // On désactive l'écran de chargement
+        // On dï¿½sactive l'ï¿½cran de chargement
         loadingScreen.SetActive(false); 
         // On arrete la pause
         Time.timeScale = 1f;
