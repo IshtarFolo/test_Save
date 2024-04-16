@@ -16,9 +16,6 @@ public class interactionVillageois : MonoBehaviour
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
-    public float paddingHorizontal = 20;
-    public float paddingVertical = 20;
-
 
     // Start is called before the first frame update
     void Start()
@@ -83,5 +80,30 @@ public class interactionVillageois : MonoBehaviour
         }
 
         DialogueActuelleIndex++;
+        // Ajuster dynamiquement la taille du texte et de la boîte de dialogue
+        AdjustTextSize(dialogue);
+        AdjustDialogueBoxSize(dialogue);
+    }
+
+    // Méthode pour ajuster la taille du texte en fonction de la longueur du dialogue
+    private void AdjustTextSize(string dialogue)
+    {
+        float baseFontSize = 1f; // Taille de police de base
+        float scaleFactor = 1f; // Facteur d'échelle initial
+        if (dialogue.Length > 50)
+        {
+            scaleFactor = 50f / dialogue.Length; // Ajuster le facteur d'échelle en fonction de la longueur du dialogue
+        }
+        dialogueVillageois.fontSize = baseFontSize * scaleFactor; // Ajuster la taille de la police
+    }
+
+    // Méthode pour ajuster la taille de la boîte de dialogue en fonction de la longueur du dialogue
+    public void AdjustDialogueBoxSize(string dialogue)
+    {
+        // Calculer la taille du texte
+        Vector2 textSize = dialogueVillageois.GetPreferredValues(dialogue);
+        // Ajuster la taille de la boîte de dialogue en fonction de la taille du texte
+        Vector2 boxSize = new Vector2(textSize.x + 20f, textSize.y + 20f); // Ajouter un padding
+        bulle.GetComponent<RectTransform>().sizeDelta = boxSize;
     }
 }
