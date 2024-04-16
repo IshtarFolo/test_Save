@@ -1495,6 +1495,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51b415b4804708042af931563d252442, type: 3}
       insertIndex: -1
       addedObject: {fileID: 170303645}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51b415b4804708042af931563d252442, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 170303651}
   m_SourcePrefab: {fileID: 100100000, guid: 51b415b4804708042af931563d252442, type: 3}
 --- !u!1 &170303644 stripped
 GameObject:
@@ -1610,6 +1613,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51b415b4804708042af931563d252442, type: 3}
   m_PrefabInstance: {fileID: 170303643}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &170303651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170303644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21ff007e6c624bccb02f7e7b5febc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cle: {fileID: 1162374604}
 --- !u!65 &174257820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6788,6 +6804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notification: 0
+  Kirie: {fileID: 170303644}
   cle: {fileID: 1162374604}
   UIMaisonKirie: {fileID: 0}
   UIJournalKirie: {fileID: 1587842870}
@@ -10365,7 +10382,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
