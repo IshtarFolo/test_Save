@@ -50,7 +50,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarreLettre;
 
     // Le numero de l'index de la scene a charger 
-    public static int noScene = 3;
+    public static int noScene;
 
     [Header("Scenes")]
     public Scene scene;
@@ -68,12 +68,14 @@ public class _collision_kirie : MonoBehaviour
             Invoke("tutoriel", 0.1f);
             Invoke("enleverNoirFadeOut", 1f);
         }
+
+        // au debut du jeu, on trouve l'index de la scene a activer
+        noScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void Update()
     {
-        // Pour voir a quel index nous sommes (AKA quelle scene)
-        Debug.Log(noScene);
+
     }
 
 
@@ -150,7 +152,6 @@ public class _collision_kirie : MonoBehaviour
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
             Invoke("niveau1", 1f);
-            noScene++;
         }
         else
         {
@@ -162,8 +163,6 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
         {
             Invoke("niveau2", 2f);
-            noScene++;
-
         }
         else
         {
@@ -175,8 +174,6 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv3" && niveau2Termine == true)
         {
             Invoke("niveau3", 2f);
-            noScene++;
-
         }
         else
         {
@@ -188,8 +185,6 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
         {
             Invoke("niveau4", 2f);
-            noScene++;
-
         }
         else
         {
@@ -228,6 +223,8 @@ public class _collision_kirie : MonoBehaviour
     void niveau1()
     {
         SceneManager.LoadScene("Niveau1_Village");
+        // On prends l'index de la scene et on sauvegarde sa valeur pour le script de sauvegarde
+        noScene = SceneManager.GetSceneByName("Niveau1_Village").buildIndex;
     }
 
     void niveau2()
@@ -238,12 +235,16 @@ public class _collision_kirie : MonoBehaviour
     void niveau3()
     {
         SceneManager.LoadScene("niveau3");
+        // On prends l'index de la scene et on sauvegarde sa valeur pour le script de sauvegarde
+        noScene = SceneManager.GetSceneByName("niveau3").buildIndex;
     }
 
     // Allons-nous garder le niveau 4?**
     void niveau4()
     {
         SceneManager.LoadScene("niveau4");
+        // On prends l'index de la scene et on sauvegarde sa valeur pour le script de sauvegarde
+        noScene = SceneManager.GetSceneByName("niveau4").buildIndex;
     }
 
     void fermerNotif()
@@ -254,5 +255,23 @@ public class _collision_kirie : MonoBehaviour
     void enleverNoirFadeOut()
     {
         UInoirFadeOut.SetActive(false);
+    }
+
+
+    // ----------------- SAUVEGARDE ET CHARGEMENT ---------------------
+    // Lorsque la scene commence
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    // Lorsque la scene est quittee
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    // Lors du chargement de la scene
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        noScene = SceneManager.GetActiveScene().buildIndex;
     }
 }
