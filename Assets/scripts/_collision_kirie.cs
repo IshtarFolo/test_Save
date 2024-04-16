@@ -63,7 +63,7 @@ public class _collision_kirie : MonoBehaviour
         if (scene.name == "Niveau1_Maison-Int")
         {
             Invoke("tutoriel", 0.1f);
-            Invoke("enleverNoirFadeOut", 2f);
+            Invoke("enleverNoirFadeOut", 1f);
         }
     }
 
@@ -145,7 +145,7 @@ public class _collision_kirie : MonoBehaviour
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
-            Invoke("niveau1", 2f);
+            Invoke("niveau1", 1f);
         }
         else
         {
