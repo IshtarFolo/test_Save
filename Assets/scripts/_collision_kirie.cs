@@ -73,11 +73,6 @@ public class _collision_kirie : MonoBehaviour
         noScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void Update()
-    {
-
-    }
-
 
 // INFO TRIGGER
 // ////////////////////////////////////////////////
