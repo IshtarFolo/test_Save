@@ -75,7 +75,7 @@ public class deplacementPerso : MonoBehaviour
         // Association des param�tres de l'animator avec les directions de d�placement du personnage
         animateur.SetFloat("VelocityX", vDeplacement);
         animateur.SetFloat("VelocityZ", vMonte);
-        animateur.SetFloat("VelocityY", Mathf.Clamp(velociteY, -1 ,1));
+        animateur.SetFloat("VelocityY", velociteY);
 
         // Si le joueur a tourn� � gauche, le personnage va faire face � gauche et il fera de m�me pour la droite
         if (vDeplacement > 0 || vDeplacement < 0)
