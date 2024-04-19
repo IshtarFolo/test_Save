@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557083846023600147}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278211327
-  m_fontColor: {r: 1, g: 0.32156864, b: 0, a: 1}
+    rgba: 4278199924
+  m_fontColor: {r: 0.45490196, g: 0.14901961, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -380,7 +380,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -1908006246, guid: 2ed0162dfde5b41e3a3c5869e18a116b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9607843, g: 0.9607843, b: 0.8627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -429,8 +429,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8180322051840703036}
   m_LocalRotation: {x: -0, y: 0.09641472, z: -0, w: 0.99534124}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalPosition: {x: 0, y: 0, z: 2.39}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7997270254162125406}
@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 101.066, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.54, y: -0.71}
+  m_AnchoredPosition: {x: 0.35, y: 0.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907649467725648255
@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laCible: {fileID: 0}
+  texteDialogue: {fileID: 0}
 --- !u!1001 &9128560388867966744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245599019894602313}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 200
   m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -653,8 +654,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.8239322, z: 4.4322286}
-  m_Center: {x: -2.1287852e-15, y: 0.4119661, z: 0.6497998}
+  m_Size: {x: 4.324706, y: 1.3475697, z: 6.1995525}
+  m_Center: {x: -0.15468526, y: 0.6501473, z: 1.0880067}
 --- !u!114 &6920987028918175212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,8 +674,9 @@ MonoBehaviour:
   bulle: {fileID: 6863407201665395261}
   dialogues:
   - Bonjour
-  - Mon nom est vivi
-  - "Je vai aller \xE0 la boulangerie uis \xE0 '\xE9picerie"
+  - J'ai entendu dire
+  - "qu'un d\xE9tective priv\xE9 louait ses services"
+  - louait ses services
 --- !u!4 &8729542003719676147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51b415b4804708042af931563d252442, type: 3}
