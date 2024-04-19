@@ -8378,10 +8378,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 907649467725648255, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: laCible
+      value: 
+      objectReference: {fileID: 486395326}
+    - target: {fileID: 907649467725648255, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: texteDialogue
+      value: 
+      objectReference: {fileID: 681612286}
+    - target: {fileID: 955312973927564979, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 955312973927564979, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955312973927564979, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955312973927564979, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955312973927564979, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1248506172175822066, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.52
       objectReference: {fileID: 0}
+    - target: {fileID: 5190527925253947511, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 486395325}
     - target: {fileID: 6920987028918175212, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
       propertyPath: lettreE
       value: 
@@ -9698,8 +9730,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875033, y: -0.6814523, z: 0.18875203, w: 0.6814462}
-  m_LocalPosition: {x: -7.2250795, y: 113.145004, z: 485.8002}
+  m_LocalRotation: {x: 0.18875036, y: -0.681453, z: 0.18875244, w: 0.6814453}
+  m_LocalPosition: {x: -7.225084, y: 113.14499, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14432,6 +14464,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac0b92f68195443abce5941e87fac8d, type: 3}
   m_PrefabInstance: {fileID: 671605725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &681612286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3075135661327301218, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+  m_PrefabInstance: {fileID: 435174408}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &686880244 stripped
 Transform:
@@ -19178,8 +19215,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875033, y: -0.6814523, z: 0.18875203, w: 0.6814462}
-  m_LocalPosition: {x: -7.2250795, y: 113.145004, z: 485.8002}
+  m_LocalRotation: {x: 0.18875036, y: -0.681453, z: 0.18875244, w: 0.6814453}
+  m_LocalPosition: {x: -7.225084, y: 113.14499, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33492,6 +33529,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1fae459834bdf46de80dee848ec0d707, type: 3}
   m_PrefabInstance: {fileID: 1599489199}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1600905460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5651818434204518168, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+  m_PrefabInstance: {fileID: 2025438210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1603508280
 GameObject:
   m_ObjectHideFlags: 0
@@ -42078,6 +42120,18 @@ PrefabInstance:
       propertyPath: dialogues.Array.data[1]
       value: Voulez-vous acheter un lapin ?
       objectReference: {fileID: 0}
+    - target: {fileID: 6825526517206457976, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 486395325}
+    - target: {fileID: 7936952717955459418, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: laCible
+      value: 
+      objectReference: {fileID: 486395326}
+    - target: {fileID: 7936952717955459418, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: texteDialogue
+      value: 
+      objectReference: {fileID: 1600905460}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
