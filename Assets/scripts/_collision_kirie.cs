@@ -49,6 +49,11 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIforet;
     public GameObject UIbarreLettre;
 
+    [Header("Gameobjects des UI")]
+    public GameObject UInotifArmoire;
+    public GameObject UInotifPorte;
+    public GameObject UInotifCle;
+
     // Le numero de l'index de la scene a charger 
     public static int noScene;
 
@@ -115,6 +120,8 @@ public class _collision_kirie : MonoBehaviour
             UIbarreCle.SetActive(true);
             cle.SetActive(false);
             cleRamasse = true;
+            UInotification.SetActive(true);
+            Invoke("notifCle", 0.1f);
         }
     }
 
@@ -128,6 +135,8 @@ public class _collision_kirie : MonoBehaviour
             if(cleRamasse == false)
             {
                 //Debug.Log("Armoire barré");
+                UInotification.SetActive(true);
+                Invoke("notifArmoire", 0.1f);
             }
             else if(cleRamasse == true)
             {
@@ -151,7 +160,8 @@ public class _collision_kirie : MonoBehaviour
         else
         {
             //notificationPasFini.SetActive(true);
-            Invoke("fermerNotif", 5f);
+            //UInotification.SetActive(true);
+            //Invoke("notifPorte", 0.1f);
         }
 
         //Lorsque le joueur a TERMINÉ le niveau1, on lui permet d'aller dans le niveau2
@@ -242,14 +252,40 @@ public class _collision_kirie : MonoBehaviour
         noScene = SceneManager.GetSceneByName("niveau4").buildIndex;
     }
 
-    void fermerNotif()
-    {
-        //notificationPasFini.SetActive(false);
-    }
-
     void enleverNoirFadeOut()
     {
         UInoirFadeOut.SetActive(false);
+    }
+
+    // PARTIE DÉDIÉ AU NOTIFICATION
+    // ////////////////////////////////////////////////
+
+    void notifArmoire()
+    {
+        UInotifArmoire.SetActive(true);
+
+        Invoke("fermerNotif", 6f);
+    }
+
+    void notifPorte()
+    {
+        UInotifPorte.SetActive(true);
+    }
+
+    void notifCle()
+    {
+        UInotifCle.SetActive(true);
+    }
+
+    void fermerNotif()
+    {
+        if (scene.name == "Niveau1_Maison-Int")
+        {
+            UInotification.SetActive(false);
+            UInotifArmoire.SetActive(false);
+            UInotifCle.SetActive(false);
+            UInotifPorte.SetActive(false);
+        }
     }
 
 
