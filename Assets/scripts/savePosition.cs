@@ -25,6 +25,7 @@ public class savePosition : MonoBehaviour
     public float rotationZ;
 
     public static int scene; // Numero de la scene a charger
+    public static bool tutoFini; // Le journal est en la possession du joueur
 
     // Passer les valeurs de la save
     public void Start()
@@ -46,6 +47,12 @@ public class savePosition : MonoBehaviour
 
             // Enregistrement du numero de la scene au depart
             scene = _collision_kirie.noScene;
+
+            // Load la variable tutoFini si tutoFini existe
+            if (PlayerPrefs.HasKey("tutoFini"))
+            {
+                tutoFini = PlayerPrefsX.GetBool("tutoFini");
+            }
         }
     }
 
@@ -58,7 +65,10 @@ public class savePosition : MonoBehaviour
     {
         // Supprime toutes les sauvegardes
         PlayerPrefs.DeleteAll();
-
+        // tutoFini redevient false
+        _collision_kirie.tutorielTermine = false;
+        // Supprime les données de PlayerPrefsX
+        PlayerPrefsX.SetBool("tutoFini", tutoFini);
         // Load la premiere scene
         SceneManager.LoadScene(1);
     }
@@ -78,8 +88,10 @@ public class savePosition : MonoBehaviour
         scene = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("laScene", scene);
 
-        PlayerPrefs.Save();
+        // Sauvegarde de l,acquisition du journal
+        PlayerPrefsX.SetBool("Journal", tutoFini);
 
+        PlayerPrefs.Save();
     }
 
     // Avoir les valeurs pour la position de base 
@@ -110,20 +122,22 @@ public class savePosition : MonoBehaviour
         // On charge l'index de la scene enregistre dans PlayerPrefs
         scene = PlayerPrefs.GetInt("laScene", scene);
 
+        // Chargement de l'acquisition du journal
+        PlayerPrefsX.GetBool("Journal", tutoFini);
+
         // On charge la scene
         SceneManager.LoadScene(scene);
     }
 
 private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 {
-    // On trouve le joueur dans la scene
-    GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-    if (player != null)
+    if (joueur != null)
     {
         // On passe les valeurs de position et de rotation au joueur
-        player.transform.position = new Vector3(positionX, positionY, positionZ);
-        player.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
+        joueur.transform.position = new Vector3(positionX, positionY, positionZ);
+        joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
+
+        tutoFini = _collision_kirie.tutorielTermine;
     }
 
     // On d�sactive l'�cran de chargement
