@@ -8,14 +8,14 @@ using TMPro;
 
 public class GestionScenes : MonoBehaviour
 {
-    //Variable de son une fois un bouton cliqué
+    //Variable de son une fois un bouton cliquï¿½
     public AudioClip sonClic;
 
-    //Pour insérer la scène visée
+    //Pour insï¿½rer la scï¿½ne visï¿½e
     public string nomScene;
 
-    //Fonction pour changer les scènes au clic d'un button
-    //Couroutine pour avoir un délai selon l'information fournie dans le WaitForSeconds
+    //Fonction pour changer les scï¿½nes au clic d'un button
+    //Couroutine pour avoir un dï¿½lai selon l'information fournie dans le WaitForSeconds
     public void DelaiScene()
     {
         StartCoroutine (ChangerScene());
@@ -23,11 +23,11 @@ public class GestionScenes : MonoBehaviour
 
     public IEnumerator ChangerScene()
     {
-        //Charger la scène après 1 seconde pour donner au son le temps de jouer
+        //Charger la scï¿½ne aprï¿½s 1 seconde pour donner au son le temps de jouer
         yield return new WaitForSeconds(1);
-        //Charger la scène indiquée dans l'inspecteur
+        //Charger la scï¿½ne indiquï¿½e dans l'inspecteur
         SceneManager.LoadScene(nomScene);
-        //Jouer un son défini dans l'inspecteur
+        //Jouer un son dï¿½fini dans l'inspecteur
         //GetComponent<AudioSource>().PlayOneShot(sonClic);
     }
 }
