@@ -1869,6 +1869,9 @@ MonoBehaviour:
   UIbarrePoisson: {fileID: 0}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
+  UInotifArmoire: {fileID: 0}
+  UInotifPorte: {fileID: 0}
+  UInotifCle: {fileID: 0}
   scene:
     m_Handle: 0
 --- !u!65 &174257820
@@ -2544,7 +2547,7 @@ GameObject:
   - component: {fileID: 205874642}
   - component: {fileID: 205874641}
   m_Layer: 5
-  m_Name: armoire
+  m_Name: notifArmoire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4020,7 +4023,7 @@ MonoBehaviour:
   cleRamasse: 0
   UIMaisonKirie: {fileID: 0}
   UIJournalKirie: {fileID: 1587842870}
-  UInotification: {fileID: 0}
+  UInotification: {fileID: 43078268}
   UIblabla: {fileID: 2122386651}
   UInoirFadeIn: {fileID: 618138597}
   UInoirFadeOut: {fileID: 2034676852}
@@ -4034,6 +4037,9 @@ MonoBehaviour:
   UIbarrePoisson: {fileID: 0}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
+  UInotifArmoire: {fileID: 205874639}
+  UInotifPorte: {fileID: 1060935810}
+  UInotifCle: {fileID: 1753689968}
   scene:
     m_Handle: 0
 --- !u!95 &357199599
@@ -6034,8 +6040,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490636, y: -0.67677104, z: 0.20490912, w: 0.67676187}
-  m_LocalPosition: {x: 403.40054, y: 5.697007, z: 276.28015}
+  m_LocalRotation: {x: 0.20490712, y: -0.67676836, z: 0.2049082, w: 0.67676467}
+  m_LocalPosition: {x: 403.4006, y: 5.6970325, z: 276.2801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9732,7 +9738,7 @@ GameObject:
   - component: {fileID: 1060935813}
   - component: {fileID: 1060935812}
   m_Layer: 5
-  m_Name: porte_maison
+  m_Name: notifPorte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13822,7 +13828,7 @@ GameObject:
   - component: {fileID: 1753689971}
   - component: {fileID: 1753689970}
   m_Layer: 5
-  m_Name: cle
+  m_Name: notifCle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14453,8 +14459,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490636, y: -0.67677104, z: 0.20490912, w: 0.67676187}
-  m_LocalPosition: {x: 403.40054, y: 5.697007, z: 276.28015}
+  m_LocalRotation: {x: 0.20490712, y: -0.67676836, z: 0.2049082, w: 0.67676467}
+  m_LocalPosition: {x: 403.4006, y: 5.6970325, z: 276.2801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
