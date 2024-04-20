@@ -12,6 +12,10 @@ public class interactionVillageois : MonoBehaviour
     public GameObject bulle; // Référence à la bulle de dialogue
     private int DialogueActuelleIndex = 0; // Index du dialogue actuel
 
+    public bool aParle = false; // Variable pour vérifier si le joueur a parlé
+    public bool dialoguesTermines = false; // Variable pour vérifier si tous les dialogues ont été affichés
+
+
     public string[] dialogues; // Tableau de textes pour les dialogues
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
@@ -37,6 +41,11 @@ public class interactionVillageois : MonoBehaviour
                 }
 
                 AfficherDialogueSuivant();
+                // Si tous les dialogues ont été affichés, marquer que le joueur a parlé au villageois
+                if (dialoguesTermines)
+                {
+                    aParle = true;
+                }
             }
         }
     }
@@ -62,8 +71,7 @@ public class interactionVillageois : MonoBehaviour
             bulle.SetActive(false);
             lettreE.enabled = false;
             veutParler = false;
-            // Réinitialiser l'index du dialogue
-            DialogueActuelleIndex = 0;
+            dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
         }
     }
 
@@ -80,30 +88,16 @@ public class interactionVillageois : MonoBehaviour
         }
 
         DialogueActuelleIndex++;
-        // Ajuster dynamiquement la taille du texte et de la boîte de dialogue
-        AdjustTextSize(dialogue);
-        AdjustDialogueBoxSize(dialogue);
+    }
+    
+    //Moyen pour que le dialogue recommence après avoir fini son itération
+    public void RecommencerDialogue()
+    {
+        DialogueActuelleIndex = 0;
+        dialogueVillageois.enabled = true;
+        bulle.SetActive(true);
+        dialoguesTermines = false;
+        AfficherDialogueSuivant();
     }
 
-    // Méthode pour ajuster la taille du texte en fonction de la longueur du dialogue
-    private void AdjustTextSize(string dialogue)
-    {
-        float baseFontSize = 1f; // Taille de police de base
-        float scaleFactor = 1f; // Facteur d'échelle initial
-        if (dialogue.Length > 50)
-        {
-            scaleFactor = 50f / dialogue.Length; // Ajuster le facteur d'échelle en fonction de la longueur du dialogue
-        }
-        dialogueVillageois.fontSize = baseFontSize * scaleFactor; // Ajuster la taille de la police
-    }
-
-    // Méthode pour ajuster la taille de la boîte de dialogue en fonction de la longueur du dialogue
-    public void AdjustDialogueBoxSize(string dialogue)
-    {
-        // Calculer la taille du texte
-        Vector2 textSize = dialogueVillageois.GetPreferredValues(dialogue);
-        // Ajuster la taille de la boîte de dialogue en fonction de la taille du texte
-        Vector2 boxSize = new Vector2(textSize.x + 20f, textSize.y + 20f); // Ajouter un padding
-        bulle.GetComponent<RectTransform>().sizeDelta = boxSize;
-    }
 }

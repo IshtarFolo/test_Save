@@ -5,7 +5,7 @@ using TMPro;
 
 public class interactionPerso: MonoBehaviour
 {
-    public TextMeshProUGUI lettreE; // Texte "Appuyez sur E" pour interagir
+    public TextMeshProUGUI lettreE; // L'interaction avec la letttre E
     public bool veutParler = false; // Indique si le joueur peut interagir avec un villageois
     public GameObject villageois; // Référence au villageois avec lequel le joueur interagit
 
@@ -40,6 +40,12 @@ public class interactionPerso: MonoBehaviour
             villageois = infoCollision.gameObject;
             scriptVillageois = villageois.GetComponent<interactionVillageois>();
         }
+        // Si le joueur a déjà parlé au villageois, réactiver la bulle de dialogue
+        if (scriptVillageois.aParle)
+        {
+            scriptVillageois.dialogueVillageois.enabled = true;
+            scriptVillageois.bulle.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider infoCollision)
@@ -49,7 +55,6 @@ public class interactionPerso: MonoBehaviour
             lettreE.enabled = false;
             veutParler = false;
             villageois = null;
-            scriptVillageois = null;
             
         }
     }

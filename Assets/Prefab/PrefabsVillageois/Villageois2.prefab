@@ -282,12 +282,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 3
   m_fontSizeBase: 1
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 3
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -485,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b415b4804708042af931563d252442, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b415b4804708042af931563d252442, type: 3}
       propertyPath: m_LocalRotation.z
@@ -497,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b415b4804708042af931563d252442, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b415b4804708042af931563d252442, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -678,6 +678,5 @@ MonoBehaviour:
   dialogueVillageois: {fileID: 6536105471267480478}
   bulle: {fileID: 4291454676250647157}
   dialogues:
-  - Bonjour
-  - Voulez-vous acheter
-  - un lapin ?
+  - DEUX LAPINS ACHTER UN OFFERT !
+  - "OFFRE LIMIT\xC9E"
