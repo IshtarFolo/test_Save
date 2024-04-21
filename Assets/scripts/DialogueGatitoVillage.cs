@@ -21,6 +21,8 @@ public class DialogueGatitoVillage : MonoBehaviour
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
+    public interactionVillageois scriptVillageois;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,24 +42,27 @@ public class DialogueGatitoVillage : MonoBehaviour
                     StopCoroutine(dialogueCoroutine);
                 }
 
-                AfficherDialogueSuivant(dialoguesSansAction);
-
-                //if (peutActiverAction) // Si Gatito peut activer l'action du joueur
-                //{
-                //    ExecuteActionDuJoueur();
-                //}
-                //else // Sinon, gérer le dialogue avec Gatito normalement
-                //{
-                //    if (aParle) // Si le joueur a déjà parlé, afficher les dialogues avec action préalable
-                //    {
-                //        AfficherDialogueSuivant(dialoguesAvecAction);
-                //    }
-                //    else // Sinon, afficher les dialogues sans action préalable
-                //    {
-                //        AfficherDialogueSuivant(dialoguesSansAction);
-                //    }
-                //}
+                if (peutActiverAction) // Si Gatito peut activer l'action du joueur
+                {
+                    ExecuteActionDuJoueur();
+                }
+                else // Sinon, gérer le dialogue avec Gatito normalement
+                {
+                    if (aParle) // Si le joueur a déjà parlé, afficher les dialogues avec action préalable
+                    {
+                        AfficherDialogueSuivant(dialoguesAvecAction);
+                    }
+                    else // Sinon, afficher les dialogues sans action préalable
+                    {
+                        AfficherDialogueSuivant(dialoguesSansAction);
+                    }
+                }
             }
+        }
+
+        if (dialoguesTermines)
+        {
+            RecommencerDialogue();
         }
     }
 
@@ -71,7 +76,24 @@ public class DialogueGatitoVillage : MonoBehaviour
     // Méthode pour afficher le dialogue suivant
     public void AfficherDialogueSuivant(string[] dialogues)
     {
-        GetComponent<interactionVillageois>().AfficherDialogueSuivant();
+        if (dialogueActuelIndex < dialogues.Length)
+        {
+            // Vérifier si la coroutine est déjà en cours d'exécution
+            if (dialogueCoroutine != null)
+            {
+                StopCoroutine(dialogueCoroutine);
+            }
+            dialogueCoroutine = StartCoroutine(AfficherDialogueCoroutine(dialogues[dialogueActuelIndex]));
+        }
+        else
+        {
+            // Si tous les dialogues ont été affichés, désactiver le dialogue
+            dialogueGatito.enabled = false;
+            bulle.SetActive(false);
+            lettreE.enabled = false;
+            veutParler = false;
+            dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
+        }
     }
 
     // Coroutine pour afficher les dialogues lettre par lettre
@@ -92,6 +114,11 @@ public class DialogueGatitoVillage : MonoBehaviour
     // Méthode pour réinitialiser le dialogue
     public void RecommencerDialogue()
     {
-        GetComponent<interactionVillageois>().RecommencerDialogue();
+        dialogueActuelIndex = 0;
+        dialogueGatito.enabled = true;
+        bulle.SetActive(true);
+        dialoguesTermines = false;
+        aParle = false;
+        veutParler = true; // Permettre au joueur de parler à nouveau
     }
 }

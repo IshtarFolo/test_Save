@@ -11,7 +11,7 @@ public class interactionPerso: MonoBehaviour
     public GameObject gatito; // Référence au villageois avec lequel le joueur interagit
 
     private interactionVillageois scriptVillageois; // Script du villageois avec lequel le joueur interagit
-    private DialogueGatitoVillage scriptGatito; // Script du villageois avec lequel le joueur interagit
+    public DialogueGatitoVillage scriptGatito; // Script du villageois avec lequel le joueur interagit
 
     //public GameObject bulle;
 
@@ -55,6 +55,7 @@ public class interactionPerso: MonoBehaviour
             veutParler = true;
             gatito = infoCollision.gameObject;
             scriptGatito = gatito.GetComponent<DialogueGatitoVillage>();
+            scriptVillageois.veutParler = true;
         }
     }
 
@@ -72,7 +73,7 @@ public class interactionPerso: MonoBehaviour
         {
             lettreE.enabled = false;
             veutParler = false;
-            villageois = null;
+            gatito= null;
 
         }
     }

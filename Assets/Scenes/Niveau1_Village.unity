@@ -7154,7 +7154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lettreE: {fileID: 1645815944}
-  veutParler: 0
+  veutParler: 1
   peutActiverAction: 0
   dialogueGatito: {fileID: 1510778979}
   bulle: {fileID: 610323901}
@@ -7164,6 +7164,7 @@ MonoBehaviour:
   - "Je sens le poisson, mais le go\xFBt s'est \xE9vapor\xE9 !"
   dialoguesAvecAction:
   - Oh des poissons ! Ce n'est pas beaucoup.
+  scriptVillageois: {fileID: 0}
 --- !u!136 &444299241
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7998,8 +7999,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875033, y: -0.6814523, z: 0.18875203, w: 0.6814462}
-  m_LocalPosition: {x: -7.2250795, y: 113.145004, z: 485.8002}
+  m_LocalRotation: {x: 0.18874979, y: -0.6814538, z: 0.18875234, w: 0.68144464}
+  m_LocalPosition: {x: -7.22508, y: 113.14499, z: 485.80014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14944,8 +14945,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875033, y: -0.6814523, z: 0.18875203, w: 0.6814462}
-  m_LocalPosition: {x: -7.2250795, y: 113.145004, z: 485.8002}
+  m_LocalRotation: {x: 0.18874979, y: -0.6814538, z: 0.18875234, w: 0.68144464}
+  m_LocalPosition: {x: -7.22508, y: 113.14499, z: 485.80014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18222,6 +18223,8 @@ MonoBehaviour:
   lettreE: {fileID: 1645815944}
   veutParler: 0
   villageois: {fileID: 487758034}
+  gatito: {fileID: 444299237}
+  scriptGatito: {fileID: 0}
 --- !u!114 &1155865133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18237,6 +18240,8 @@ MonoBehaviour:
   lettreE: {fileID: 1645815944}
   veutParler: 0
   villageois: {fileID: 1045359827}
+  gatito: {fileID: 0}
+  scriptGatito: {fileID: 0}
 --- !u!114 &1155865134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18251,7 +18256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettreE: {fileID: 1645815944}
   veutParler: 0
-  villageois: {fileID: 444299237}
+  villageois: {fileID: 1045359827}
+  gatito: {fileID: 444299237}
+  scriptGatito: {fileID: 0}
 --- !u!1 &1156071172
 GameObject:
   m_ObjectHideFlags: 0
