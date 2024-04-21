@@ -2377,7 +2377,7 @@ GameObject:
   - component: {fileID: 184139771}
   - component: {fileID: 184139772}
   m_Layer: 0
-  m_Name: BulleDialogue2
+  m_Name: BulleDialogueGatito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7931,8 +7931,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875045, y: -0.6814522, z: 0.1887521, w: 0.6814462}
-  m_LocalPosition: {x: -7.2250805, y: 113.14501, z: 485.8002}
+  m_LocalRotation: {x: 0.18874979, y: -0.6814538, z: 0.18875234, w: 0.68144464}
+  m_LocalPosition: {x: -7.22508, y: 113.14499, z: 485.80014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14877,8 +14877,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875045, y: -0.6814522, z: 0.1887521, w: 0.6814462}
-  m_LocalPosition: {x: -7.2250805, y: 113.14501, z: 485.8002}
+  m_LocalRotation: {x: 0.18874979, y: -0.6814538, z: 0.18875234, w: 0.68144464}
+  m_LocalPosition: {x: -7.22508, y: 113.14499, z: 485.80014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24728,7 +24728,7 @@ GameObject:
   - component: {fileID: 1490502952}
   - component: {fileID: 1490502951}
   m_Layer: 0
-  m_Name: ImageBulle2
+  m_Name: ImageBulleGatito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24983,7 +24983,7 @@ GameObject:
   - component: {fileID: 1510778979}
   - component: {fileID: 1510778978}
   m_Layer: 0
-  m_Name: DialogueVillageois2
+  m_Name: DialogueGatito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
