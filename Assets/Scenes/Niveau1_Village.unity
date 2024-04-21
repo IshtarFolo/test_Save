@@ -7088,11 +7088,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610323905}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 444299238}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 444299240}
   m_SourcePrefab: {fileID: 100100000, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
 --- !u!1 &444299237 stripped
 GameObject:
@@ -7120,6 +7126,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7567838, y: 1, z: 2.9267778}
   m_Center: {x: 0.021376707, y: 0, z: 0.05270481}
+--- !u!4 &444299239 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
+  m_PrefabInstance: {fileID: 444299236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &444299240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444299237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f4a5a032a4248618fb12b15b67e721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lettreE: {fileID: 1645815944}
+  veutParler: 0
+  peutActiverAction: 0
+  dialogueGatito: {fileID: 1510778979}
+  bulle: {fileID: 1490502949}
+  aParle: 0
+  dialoguesTermines: 0
+  dialoguesSansAction:
+  - "Je sens le poisson, mais le go\xFBt s'est \xE9vapor\xE9 !"
+  dialoguesAvecAction:
+  - Oh des poissons ! Ce n'est pas beaucoup.
 --- !u!1 &447301240
 GameObject:
   m_ObjectHideFlags: 0
@@ -7931,8 +7965,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18874979, y: -0.6814538, z: 0.18875234, w: 0.68144464}
-  m_LocalPosition: {x: -7.22508, y: 113.14499, z: 485.80014}
+  m_LocalRotation: {x: 0.18875018, y: -0.6814544, z: 0.18875314, w: 0.6814437}
+  m_LocalPosition: {x: -7.225086, y: 113.14498, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10780,17 +10814,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610323901}
-  m_LocalRotation: {x: 0, y: 0.65130424, z: -0, w: -0.7588167}
-  m_LocalPosition: {x: 0, y: 0, z: 600.52}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.9998473, z: -0, w: -0.017479092}
+  m_LocalPosition: {x: 0, y: 0, z: -1.0349184}
+  m_LocalScale: {x: 0.3999999, y: 0.4, z: 0.3999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 184139771}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 444299239}
   m_LocalEulerAnglesHint: {x: 0, y: 278.72, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -34.46, y: 112.77}
+  m_AnchoredPosition: {x: -0.92876434, y: 2.5077515}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &613167253
@@ -14877,8 +14911,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18874979, y: -0.6814538, z: 0.18875234, w: 0.68144464}
-  m_LocalPosition: {x: -7.22508, y: 113.14499, z: 485.80014}
+  m_LocalRotation: {x: 0.18875018, y: -0.6814544, z: 0.18875314, w: 0.6814437}
+  m_LocalPosition: {x: -7.225086, y: 113.14498, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34339,7 +34373,6 @@ SceneRoots:
   - {fileID: 375711847}
   - {fileID: 1876404151}
   - {fileID: 444299236}
-  - {fileID: 610323905}
   - {fileID: 1915886758}
   - {fileID: 521522459}
   - {fileID: 885442142}

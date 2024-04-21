@@ -21,8 +21,6 @@ public class DialogueGatitoVillage : MonoBehaviour
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
-    public interactionVillageois scriptVillageois;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +69,7 @@ public class DialogueGatitoVillage : MonoBehaviour
     // Méthode pour afficher le dialogue suivant
     public void AfficherDialogueSuivant(string[] dialogues)
     {
-        scriptVillageois.AfficherDialogueSuivant();
+        GetComponent<interactionVillageois>().AfficherDialogueSuivant();
     }
 
     // Coroutine pour afficher les dialogues lettre par lettre
@@ -92,6 +90,6 @@ public class DialogueGatitoVillage : MonoBehaviour
     // Méthode pour réinitialiser le dialogue
     public void RecommencerDialogue()
     {
-        scriptVillageois.RecommencerDialogue();
+        GetComponent<interactionVillageois>().RecommencerDialogue();
     }
 }
