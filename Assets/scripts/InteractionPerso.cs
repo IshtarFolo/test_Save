@@ -8,8 +8,10 @@ public class interactionPerso: MonoBehaviour
     public TextMeshProUGUI lettreE; // L'interaction avec la letttre E
     public bool veutParler = false; // Indique si le joueur peut interagir avec un villageois
     public GameObject villageois; // Référence au villageois avec lequel le joueur interagit
+    public GameObject gatito; // Référence au villageois avec lequel le joueur interagit
 
     private interactionVillageois scriptVillageois; // Script du villageois avec lequel le joueur interagit
+    private DialogueGatitoVillage scriptGatito; // Script du villageois avec lequel le joueur interagit
 
     //public GameObject bulle;
 
@@ -46,6 +48,14 @@ public class interactionPerso: MonoBehaviour
             scriptVillageois.dialogueVillageois.enabled = true;
             scriptVillageois.bulle.SetActive(true);
         }
+        //Si le joueur parle à Gatito
+        if (infoCollision.gameObject.tag == "Gatito")
+        {
+            lettreE.enabled = true;
+            veutParler = true;
+            gatito = infoCollision.gameObject;
+            scriptGatito = gatito.GetComponent<DialogueGatitoVillage>();
+        }
     }
 
     private void OnTriggerExit(Collider infoCollision)
@@ -56,6 +66,14 @@ public class interactionPerso: MonoBehaviour
             veutParler = false;
             villageois = null;
             
+        }
+
+        if (infoCollision.gameObject.tag == "Gatito")
+        {
+            lettreE.enabled = false;
+            veutParler = false;
+            villageois = null;
+
         }
     }
 
