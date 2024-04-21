@@ -7099,6 +7099,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 444299240}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 444299241}
   m_SourcePrefab: {fileID: 100100000, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
 --- !u!1 &444299237 stripped
 GameObject:
@@ -7120,7 +7123,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7154,6 +7157,29 @@ MonoBehaviour:
   - "Je sens le poisson, mais le go\xFBt s'est \xE9vapor\xE9 !"
   dialoguesAvecAction:
   - Oh des poissons ! Ce n'est pas beaucoup.
+--- !u!136 &444299241
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444299237}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8868809
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0210406, z: 0}
 --- !u!1 &447301240
 GameObject:
   m_ObjectHideFlags: 0
@@ -7965,8 +7991,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875018, y: -0.6814544, z: 0.18875314, w: 0.6814437}
-  m_LocalPosition: {x: -7.225086, y: 113.14498, z: 485.8001}
+  m_LocalRotation: {x: 0.18875033, y: -0.6814523, z: 0.18875203, w: 0.6814462}
+  m_LocalPosition: {x: -7.2250795, y: 113.145004, z: 485.8002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14911,8 +14937,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875018, y: -0.6814544, z: 0.18875314, w: 0.6814437}
-  m_LocalPosition: {x: -7.225086, y: 113.14498, z: 485.8001}
+  m_LocalRotation: {x: 0.18875033, y: -0.6814523, z: 0.18875203, w: 0.6814462}
+  m_LocalPosition: {x: -7.2250795, y: 113.145004, z: 485.8002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

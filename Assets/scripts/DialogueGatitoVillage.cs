@@ -40,21 +40,23 @@ public class DialogueGatitoVillage : MonoBehaviour
                     StopCoroutine(dialogueCoroutine);
                 }
 
-                if (peutActiverAction) // Si Gatito peut activer l'action du joueur
-                {
-                    ExecuteActionDuJoueur();
-                }
-                else // Sinon, gérer le dialogue avec Gatito normalement
-                {
-                    if (aParle) // Si le joueur a déjà parlé, afficher les dialogues avec action préalable
-                    {
-                        AfficherDialogueSuivant(dialoguesAvecAction);
-                    }
-                    else // Sinon, afficher les dialogues sans action préalable
-                    {
-                        AfficherDialogueSuivant(dialoguesSansAction);
-                    }
-                }
+                AfficherDialogueSuivant(dialoguesSansAction);
+
+                //if (peutActiverAction) // Si Gatito peut activer l'action du joueur
+                //{
+                //    ExecuteActionDuJoueur();
+                //}
+                //else // Sinon, gérer le dialogue avec Gatito normalement
+                //{
+                //    if (aParle) // Si le joueur a déjà parlé, afficher les dialogues avec action préalable
+                //    {
+                //        AfficherDialogueSuivant(dialoguesAvecAction);
+                //    }
+                //    else // Sinon, afficher les dialogues sans action préalable
+                //    {
+                //        AfficherDialogueSuivant(dialoguesSansAction);
+                //    }
+                //}
             }
         }
     }
