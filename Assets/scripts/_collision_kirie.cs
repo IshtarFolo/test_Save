@@ -40,6 +40,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UItutoriel;
     public GameObject UIcle;
     public GameObject UIbarreCle;
+    public GameObject UIarmoire;
     public GameObject UIfiniTuto;
     public GameObject UIfiniTuto2;
 
@@ -143,19 +144,19 @@ public class _collision_kirie : MonoBehaviour
             {
                 armoireFerme.SetActive(false);
                 armoireOuverte.SetActive(true);
+                tutorielTermine = true;
 
-                journalRamasse = true;
                 Invoke("accesALinventaire", 0.1f);
             }
         }
 
 
         //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
-        if (infoCollision.gameObject.tag == "porte")
+        if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
-            tutorielTermine = true;
+            journalRamasse = true;
             Invoke("niveau1", 1f);
         }
         else
@@ -209,6 +210,7 @@ public class _collision_kirie : MonoBehaviour
         UIblabla.SetActive(false);
         UItutoriel.SetActive(true);
         UIcle.SetActive(true);
+        UIarmoire.SetActive(true);
     }
 
 // ACCÈS À L'INVENTAIRE
@@ -218,6 +220,7 @@ public class _collision_kirie : MonoBehaviour
         UIbarreCle.SetActive(false);
         UIcle.SetActive(false);
         UItutoriel.SetActive(false);
+        UIarmoire.SetActive(false);
 
         UIfiniTuto.SetActive(true);
         UIfiniTuto2.SetActive(true);
