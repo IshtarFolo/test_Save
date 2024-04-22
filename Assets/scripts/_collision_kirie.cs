@@ -287,19 +287,32 @@ public class _collision_kirie : MonoBehaviour
 
     void notifArmoire()
     {
-        UInotifArmoire.SetActive(true);
-
-        Invoke("fermerNotif", 6f);
+        if(notification == false)
+        {
+            UInotifArmoire.SetActive(true);
+            Invoke("fermerNotif", 6f);
+            notification = true;
+        }
     }
 
     void notifPorte()
     {
-        UInotifPorte.SetActive(true);
+        if(notification == false)
+        {
+            UInotifPorte.SetActive(true);
+            Invoke("fermerNotif", 6f);
+            notification = true;
+        }
     }
 
     void notifCle()
     {
-        UInotifCle.SetActive(true);
+        if(notification == false)
+        {
+            UInotifCle.SetActive(true);
+            Invoke("fermerNotif", 6f);
+            notification = true;
+        }
     }
 
     void fermerNotif()
@@ -310,6 +323,8 @@ public class _collision_kirie : MonoBehaviour
             UInotifArmoire.SetActive(false);
             UInotifCle.SetActive(false);
             UInotifPorte.SetActive(false);
+
+            notification = false;
         }
     }
 
