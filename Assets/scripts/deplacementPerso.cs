@@ -9,7 +9,7 @@ public class deplacementPerso : MonoBehaviour
     /*----------------
      *** VARIABLES ***
      -----------------*/
-    private float vitesseDeplacement = 15f; // Vitesse de d�placement du personnage
+    private float vitesseDeplacement; // Vitesse de d�placement du personnage
     private float forceSaut; // Force du saut
     private float multiplicateurDescente = 30f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
@@ -91,9 +91,11 @@ public class deplacementPerso : MonoBehaviour
         {
             case false:
                 forceSaut = 500f;
+                vitesseDeplacement = 14f;
                 break;
             case true:
                 forceSaut = 1000f;
+                vitesseDeplacement = 15f;
                 break;
         }
 

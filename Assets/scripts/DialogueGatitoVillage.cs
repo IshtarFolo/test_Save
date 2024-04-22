@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DialogueGatitoVillage : MonoBehaviour
 {
-    public TextMeshProUGUI lettreE;
+    public GameObject lettreE;
     public bool veutParler = false;
     public bool peutActiverAction = false; // Indique si Gatito peut activer l'action du joueur
 
@@ -90,9 +90,10 @@ public class DialogueGatitoVillage : MonoBehaviour
             // Si tous les dialogues ont été affichés, désactiver le dialogue
             dialogueGatito.enabled = false;
             bulle.SetActive(false);
-            lettreE.enabled = false;
+            lettreE.SetActive(false);
             veutParler = false;
             dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
+            interactionPerso.villageois.GetComponent<BoxCollider>().enabled = false;
         }
     }
 

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class interactionVillageois : MonoBehaviour
 {
-    public TextMeshProUGUI lettreE;
+    public GameObject lettreE;
     public bool veutParler = false;
 
     public TextMeshPro dialogueVillageois; // Référence au texte du villageois actuel
@@ -53,7 +54,6 @@ public class interactionVillageois : MonoBehaviour
     // Méthode pour afficher le dialogue suivant
     public void AfficherDialogueSuivant()
     {
-
         if (DialogueActuelleIndex < dialogues.Length)
         {
             // Vérifier si la coroutine est déjà en cours d'exécution
@@ -61,17 +61,17 @@ public class interactionVillageois : MonoBehaviour
             {
                 StopCoroutine(dialogueCoroutine);
             }
-            dialogueCoroutine = StartCoroutine(AfficherDialogueCoroutine(dialogues[DialogueActuelleIndex]));
-           
+                dialogueCoroutine = StartCoroutine(AfficherDialogueCoroutine(dialogues[DialogueActuelleIndex]));
         }
         else
         {
             // Si tous les dialogues ont été affichés, désactiver le dialogue
             dialogueVillageois.enabled = false;
             bulle.SetActive(false);
-            lettreE.enabled = false;
+            lettreE.SetActive(false);
             veutParler = false;
             dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
+            interactionPerso.villageois.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
