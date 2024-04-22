@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d4e47fedd1a46543aadd2271fb27a9b
+guid: 59b0365c99fb940faad775d8732c51af
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: 07738fe01e0ca4c0eaaa52696017f854, type: 2}
+      name: PoissonTexture
+    second: {fileID: 2100000, guid: d9ab09915cf4941b3897ff647b8e2a66, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
