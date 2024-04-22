@@ -2218,8 +2218,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06427799, y: 0.11561052, z: 0.052100718}
-  m_Center: {x: 0.00135951, y: 0.0012790897, z: 0.008500327}
+  m_Size: {x: 0.14555593, y: 0.11561052, z: 0.052100718}
+  m_Center: {x: -0.039279502, y: 0.0012790897, z: 0.008500326}
 --- !u!1 &204558757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3787,11 +3787,15 @@ MonoBehaviour:
   UItutoriel: {fileID: 525942559}
   UIcle: {fileID: 1168024160}
   UIbarreCle: {fileID: 551590975}
+  UIarmoire: {fileID: 0}
   UIfiniTuto: {fileID: 1089743286}
   UIfiniTuto2: {fileID: 660580420}
   UIvillage: {fileID: 0}
+  UIcanne: {fileID: 0}
   UIbarreCanne: {fileID: 0}
+  UIpoisson: {fileID: 0}
   UIbarrePoisson: {fileID: 0}
+  UIfiniVillage: {fileID: 0}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
   UInotifArmoire: {fileID: 205874639}
@@ -5714,8 +5718,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490679, y: -0.67676926, z: 0.20490845, w: 0.6767638}
-  m_LocalPosition: {x: 403.40057, y: 5.697026, z: 276.2801}
+  m_LocalRotation: {x: 0.2049063, y: -0.6767702, z: 0.2049085, w: 0.6767629}
+  m_LocalPosition: {x: 403.40054, y: 5.6969886, z: 276.2801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18995,8 +18999,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490679, y: -0.67676926, z: 0.20490845, w: 0.6767638}
-  m_LocalPosition: {x: 403.40057, y: 5.697026, z: 276.2801}
+  m_LocalRotation: {x: 0.2049063, y: -0.6767702, z: 0.2049085, w: 0.6767629}
+  m_LocalPosition: {x: 403.40054, y: 5.6969886, z: 276.2801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
