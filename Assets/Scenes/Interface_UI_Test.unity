@@ -1589,8 +1589,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283241362}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23405628, y: -0.6672477, z: 0.23405735, w: 0.6672446}
-  m_LocalPosition: {x: 265.47772, y: 10.246984, z: 291.16907}
+  m_LocalRotation: {x: 0.23405673, y: -0.66724753, z: 0.23405781, w: 0.66724443}
+  m_LocalPosition: {x: 265.4777, y: 10.246962, z: 291.169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9897,7 +9897,7 @@ GameObject:
   - component: {fileID: 1180224564}
   - component: {fileID: 1180224563}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: lucioles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16215,8 +16215,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815592902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23405628, y: -0.6672477, z: 0.23405735, w: 0.6672446}
-  m_LocalPosition: {x: 265.47772, y: 10.246984, z: 291.16907}
+  m_LocalRotation: {x: 0.23405673, y: -0.66724753, z: 0.23405781, w: 0.66724443}
+  m_LocalPosition: {x: 265.4777, y: 10.246962, z: 291.169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
