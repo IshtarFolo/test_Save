@@ -144,19 +144,19 @@ public class _collision_kirie : MonoBehaviour
             {
                 armoireFerme.SetActive(false);
                 armoireOuverte.SetActive(true);
+                tutorielTermine = true;
 
-                journalRamasse = true;
                 Invoke("accesALinventaire", 0.1f);
             }
         }
 
 
         //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
-        if (infoCollision.gameObject.tag == "porte")
+        if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
-            tutorielTermine = true;
+            journalRamasse = true;
             Invoke("niveau1", 1f);
         }
         else
