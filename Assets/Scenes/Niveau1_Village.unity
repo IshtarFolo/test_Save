@@ -7999,8 +7999,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875, y: -0.6814544, z: 0.18875293, w: 0.6814438}
-  m_LocalPosition: {x: -7.2250776, y: 113.14498, z: 485.80017}
+  m_LocalRotation: {x: 0.16245946, y: -0.6881942, z: 0.16246106, w: 0.68818754}
+  m_LocalPosition: {x: -1.8557323, y: 114.472145, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15044,8 +15044,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18875, y: -0.6814544, z: 0.18875293, w: 0.6814438}
-  m_LocalPosition: {x: -7.2250776, y: 113.14498, z: 485.80017}
+  m_LocalRotation: {x: 0.16245946, y: -0.6881942, z: 0.16246106, w: 0.68818754}
+  m_LocalPosition: {x: -1.8557323, y: 114.472145, z: 485.8001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31742,7 +31742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 5, y: 3, z: 0}
+  m_TrackedObjectOffset: {x: 10, y: 5, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
