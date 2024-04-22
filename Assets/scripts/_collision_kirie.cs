@@ -25,6 +25,7 @@ public class _collision_kirie : MonoBehaviour
     public static bool niveau2Termine = false;
     public static bool niveau3Termine = false;
     public static bool niveau4Termine = false;
+    public static bool journalRamasse = false;
 
     [Header("Gameobjects des UI")]
     public GameObject UIMaisonKirie;
@@ -143,18 +144,18 @@ public class _collision_kirie : MonoBehaviour
                 armoireFerme.SetActive(false);
                 armoireOuverte.SetActive(true);
 
-                tutorielTermine = true;
-
+                journalRamasse = true;
                 Invoke("accesALinventaire", 0.1f);
             }
         }
 
 
         //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
-        if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
+        if (infoCollision.gameObject.tag == "porte")
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
+            tutorielTermine = true;
             Invoke("niveau1", 1f);
         }
         else

@@ -10,7 +10,7 @@ public class deplacementPerso : MonoBehaviour
      *** VARIABLES ***
      -----------------*/
     private float vitesseDeplacement = 15f; // Vitesse de d�placement du personnage
-    private float forceSaut =  1000f; // Force du saut
+    private float forceSaut; // Force du saut
     private float multiplicateurDescente = 30f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
     bool peutBouger = true; // Verification si le personnage peut bouger
@@ -86,6 +86,20 @@ public class deplacementPerso : MonoBehaviour
         /*---------
          ** SAUT **
          ----------*/
+        // Si on est dans le tutoriel, Kirie saute moins haut que dans les autres scènes
+        switch (_collision_kirie.tutorielTermine)
+        {
+            case false:
+                forceSaut = 500f;
+                break;
+            case true:
+                forceSaut = 1000f;
+                break;
+        }
+
+        Debug.Log(forceSaut);
+        Debug.Log(changement_scene.tutorielTermine);
+
         RaycastHit infoCollision;
         // Cast des spheres vers bas perso + variable infoCollision prends valeurs
         toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.2f, 1f), 0f, -transform.up, out infoCollision, 1f);

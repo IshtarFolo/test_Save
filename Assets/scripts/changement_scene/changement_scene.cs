@@ -78,6 +78,7 @@ public class changement_scene : MonoBehaviour
     void niveau1()
     {
         SceneManager.LoadScene("niveau1");
+        tutorielTermine = true;
     }
 
     void niveau2()
