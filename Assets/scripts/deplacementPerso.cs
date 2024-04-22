@@ -87,7 +87,7 @@ public class deplacementPerso : MonoBehaviour
          ** SAUT **
          ----------*/
         // Si on est dans le tutoriel, Kirie saute moins haut que dans les autres scènes
-        switch (_collision_kirie.tutorielTermine)
+        switch (_collision_kirie.journalRamasse)
         {
             case false:
                 forceSaut = 500f;
