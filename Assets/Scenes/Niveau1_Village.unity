@@ -13560,8 +13560,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245963, y: -0.68819416, z: 0.16246119, w: 0.68818754}
-  m_LocalPosition: {x: 116.63428, y: 115.51218, z: 477.13016}
+  m_LocalRotation: {x: 0.1624597, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 116.63428, y: 115.51215, z: 477.13007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21372,8 +21372,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245963, y: -0.68819416, z: 0.16246119, w: 0.68818754}
-  m_LocalPosition: {x: 116.63428, y: 115.51218, z: 477.13016}
+  m_LocalRotation: {x: 0.1624597, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 116.63428, y: 115.51215, z: 477.13007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24983,25 +24983,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1155865124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978d3030226554d3bb5eff3adfade398, type: 3}
+  m_Script: {fileID: 11500000, guid: c21ff007e6c624bccb02f7e7b5febc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notification: 1
-  Kirie: {fileID: 1155865124}
+  cle: {fileID: 0}
+  armoireFerme: {fileID: 0}
+  armoireOuverte: {fileID: 0}
+  notification: 0
+  cleRamasse: 0
   UIMaisonKirie: {fileID: 0}
   UIJournalKirie: {fileID: 8778763}
   UInotification: {fileID: 1740149910}
   UIblabla: {fileID: 2044266179}
+  UInoirFadeIn: {fileID: 1400902411}
+  UInoirFadeOut: {fileID: 2075900172}
   UItutoriel: {fileID: 0}
   UIcle: {fileID: 0}
   UIbarreCle: {fileID: 0}
+  UIarmoire: {fileID: 0}
   UIfiniTuto: {fileID: 0}
   UIfiniTuto2: {fileID: 0}
   UIvillage: {fileID: 425131196}
+  UIcanne: {fileID: 642845357}
   UIbarreCanne: {fileID: 191584607}
+  UIpoisson: {fileID: 548321201}
   UIbarrePoisson: {fileID: 2041106945}
+  UIfiniVillage: {fileID: 2050984137}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
+  UInotifArmoire: {fileID: 0}
+  UInotifPorte: {fileID: 0}
+  UInotifCle: {fileID: 0}
   scene:
     m_Handle: 0
 --- !u!1 &1156071172
