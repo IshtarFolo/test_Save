@@ -40,6 +40,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UItutoriel;
     public GameObject UIcle;
     public GameObject UIbarreCle;
+    public GameObject UIarmoire;
     public GameObject UIfiniTuto;
     public GameObject UIfiniTuto2;
 
@@ -209,6 +210,7 @@ public class _collision_kirie : MonoBehaviour
         UIblabla.SetActive(false);
         UItutoriel.SetActive(true);
         UIcle.SetActive(true);
+        UIarmoire.SetActive(true);
     }
 
 // ACCÈS À L'INVENTAIRE
@@ -218,6 +220,7 @@ public class _collision_kirie : MonoBehaviour
         UIbarreCle.SetActive(false);
         UIcle.SetActive(false);
         UItutoriel.SetActive(false);
+        UIarmoire.SetActive(false);
 
         UIfiniTuto.SetActive(true);
         UIfiniTuto2.SetActive(true);
