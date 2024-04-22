@@ -97,15 +97,12 @@ public class deplacementPerso : MonoBehaviour
                 break;
         }
 
-        Debug.Log(forceSaut);
-        Debug.Log(changement_scene.tutorielTermine);
-
         RaycastHit infoCollision;
         // Cast des spheres vers bas perso + variable infoCollision prends valeurs
         toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.2f, 1f), 0f, -transform.up, out infoCollision, 1f);
 
         // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
-        if (Input.GetKeyDown(KeyCode.Space) && toucheSol)
+        if (Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             rb.AddForce(new Vector3(0, forceSaut, 0), ForceMode.Impulse);
         }
@@ -115,7 +112,6 @@ public class deplacementPerso : MonoBehaviour
             // On applique une force de descente au personnage pour le forcer au sol
              rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
         }
-
         // On v�rifie si le personnage touche le sol ou non
         switch (toucheSol)
         {
@@ -189,7 +185,7 @@ public class deplacementPerso : MonoBehaviour
     IEnumerator RecupSaut()
     {
         peutBouger = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         peutBouger = true;
     }
 }
