@@ -317,6 +317,7 @@ public class _collision_kirie : MonoBehaviour
 
     void fermerNotif()
     {
+        Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "Niveau1_Maison-Int")
         {
             UInotification.SetActive(false);
