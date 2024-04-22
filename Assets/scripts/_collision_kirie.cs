@@ -45,8 +45,11 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIfiniTuto2;
 
     public GameObject UIvillage;
+    public GameObject UIcanne;
     public GameObject UIbarreCanne;
+    public GameObject UIpoisson;
     public GameObject UIbarrePoisson;
+    public GameObject UIfiniVillage;
 
     public GameObject UIforet;
     public GameObject UIbarreLettre;
@@ -73,6 +76,13 @@ public class _collision_kirie : MonoBehaviour
         if (scene.name == "Niveau1_Maison-Int")
         {
             Invoke("tutoriel", 0.1f);
+            Invoke("enleverNoirFadeOut", 1f);
+        }
+
+        // Si on est dans le niveau tutoriel...
+        if (scene.name == "Niveau1_Village")
+        {
+            Invoke("village", 0.1f);
             Invoke("enleverNoirFadeOut", 1f);
         }
 
@@ -227,6 +237,17 @@ public class _collision_kirie : MonoBehaviour
 
         UIJournalKirie.SetActive(true);
         //Debug.Log("Le journal apparait...");
+    }
+
+    // DANS LE VILLAGE
+    // ////////////////////////////////////////////////
+    public void village()
+    {
+        UIblabla.SetActive(false);
+
+        UIvillage.SetActive(true);
+        UIpoisson.SetActive(true);
+        UIcanne.SetActive(true);
     }
 
     void niveau1()
