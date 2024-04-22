@@ -3,7 +3,17 @@ guid: bf95182b51466714c910e42332e79d3d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: C_Bouchon_Liege
+    second: {fileID: 2800000, guid: 21a2bbe9d6c15f5489dcefb3a0f4e30a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: C_Etiquette_Vin2
+    second: {fileID: 2800000, guid: b1525f0ddba26d448a7cdf8152124dc5, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

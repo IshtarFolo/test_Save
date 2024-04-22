@@ -3,7 +3,12 @@ guid: 2d51a0d7deb06414b9f830fc2a965905
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: C_Poulet_Cru
+    second: {fileID: 2800000, guid: 09160bd10647bc54aa4545a44496cfc4, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
