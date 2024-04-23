@@ -45,6 +45,10 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIfiniTuto2;
 
     public GameObject UIvillage;
+    public GameObject UIvillageois;
+    public GameObject UIbarrevillageois;
+    public GameObject UIgatito;
+    public GameObject UIbarregatito;
     public GameObject UIcanne;
     public GameObject UIbarreCanne;
     public GameObject UIpoisson;
@@ -58,6 +62,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UInotifArmoire;
     public GameObject UInotifPorte;
     public GameObject UInotifCle;
+    public GameObject UInotifSauve;
 
     // Le numero de l'index de la scene a charger 
     public static int noScene;
@@ -134,6 +139,29 @@ public class _collision_kirie : MonoBehaviour
             cleRamasse = true;
             UInotification.SetActive(true);
             Invoke("notifCle", 0.1f);
+        }
+
+        if (infoTrigger.gameObject.tag == "villageois")
+        {
+            UIbarrevillageois.SetActive(true);
+            UIgatito.SetActive(true);
+        }
+
+        if (infoTrigger.gameObject.tag == "Gatito")
+        {
+            UIbarrevillageois.SetActive(false);
+            UIvillageois.SetActive(false);
+            UIgatito.SetActive(false);
+
+            UIpoisson.SetActive(true);
+            UIcanne.SetActive(true);
+        }
+
+        if (infoTrigger.gameObject.tag == "save")
+        {
+            //Debug.Log("Partie Sauvegardée");
+            UInotification.SetActive(true);
+            Invoke("notifSauvegarde", 0.1f);
         }
     }
 
@@ -246,8 +274,9 @@ public class _collision_kirie : MonoBehaviour
         UIblabla.SetActive(false);
 
         UIvillage.SetActive(true);
-        UIpoisson.SetActive(true);
-        UIcanne.SetActive(true);
+        //UIpoisson.SetActive(true);
+        //UIcanne.SetActive(true);
+        UIvillageois.SetActive(true);
     }
 
     void niveau1()
@@ -315,6 +344,16 @@ public class _collision_kirie : MonoBehaviour
         }
     }
 
+    void notifSauvegarde()
+    {
+        if(notification == false)
+        {
+            UInotifSauve.SetActive(true);
+            Invoke("fermerNotif", 6f);
+            notification = true;
+        }
+    }
+
     void fermerNotif()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -324,6 +363,14 @@ public class _collision_kirie : MonoBehaviour
             UInotifArmoire.SetActive(false);
             UInotifCle.SetActive(false);
             UInotifPorte.SetActive(false);
+
+            notification = false;
+        }
+
+        if(scene.name == "Niveau1_Village")
+        {
+            UInotification.SetActive(false);
+            UInotifSauve.SetActive(false);
 
             notification = false;
         }
