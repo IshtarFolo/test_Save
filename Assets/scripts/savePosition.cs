@@ -26,6 +26,7 @@ public class savePosition : MonoBehaviour
 
     public static int scene; // Numero de la scene a charger
     public static bool tutoFini; // Le journal est en la possession du joueur
+    public static int poissons; // Les poissons ramasses
 
     // Passer les valeurs de la save
     public void Start()
@@ -66,7 +67,7 @@ public class savePosition : MonoBehaviour
         // Supprime toutes les sauvegardes
         PlayerPrefs.DeleteAll();
         // tutoFini redevient false
-        _collision_kirie.tutorielTermine = false;
+        _collision_kirie.journalRamasse = false;
         // Supprime les données de PlayerPrefsX
         PlayerPrefsX.SetBool("tutoFini", tutoFini);
         // Load la premiere scene
@@ -137,7 +138,7 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         joueur.transform.position = new Vector3(positionX, positionY, positionZ);
         joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
 
-        tutoFini = _collision_kirie.tutorielTermine;
+        tutoFini = _collision_kirie.journalRamasse;
     }
 
     // On d�sactive l'�cran de chargement
