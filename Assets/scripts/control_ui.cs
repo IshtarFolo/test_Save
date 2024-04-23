@@ -18,7 +18,7 @@ public class control_ui : MonoBehaviour
     {
 
 // LORSQUE LE JOUEUR APPUIE SUR J, ON OUVRE L'INVENTAIRE, L'INTERFACE DE JEU EST INACTIVE
-        if (Input.GetKeyDown(KeyCode.J) && journal.activeSelf == false && pasOuvrirJournal == false && _collision_kirie.journalRamasse == true)
+        if (Input.GetKeyDown(KeyCode.J) && journal.activeSelf == false && pasOuvrirJournal == false && _collision_kirie.tutorielTermine == true)
         {
             journal.SetActive(true);
             interfacejeu.SetActive(false);

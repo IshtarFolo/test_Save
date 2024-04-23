@@ -11,6 +11,7 @@ public class triggerSave : MonoBehaviour
     {
         if (infoTrigger.gameObject.tag == "save")
         {
+            //Debug.Log("Partie Sauvegardée");
             manager.GetComponent<savePosition>().Save();
         }
     }
