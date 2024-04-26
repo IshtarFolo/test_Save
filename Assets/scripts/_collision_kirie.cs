@@ -27,16 +27,31 @@ public class _collision_kirie : MonoBehaviour
     public static bool niveau4Termine = false;
     public static bool journalRamasse = false;
 
-    [Header("Gameobjects des UI")]
-    public GameObject UIMaisonKirie;
+    [Header("Gameobjects des UI généraux")]
+    //public GameObject UIMaisonKirie;
     public GameObject UIJournalKirie;
     public GameObject UInotification;
 
-    [Header("Gameobjects des quêtes")]
     public GameObject UIblabla;
     public GameObject UInoirFadeIn;
     public GameObject UInoirFadeOut;
 
+    [Header("Gameobjects des éléments de journal")]
+    public GameObject UIcontenu1;
+    public GameObject UIcontenu2;
+    public GameObject UIcontenu3;
+
+    public GameObject OBJimageGatito;
+    public GameObject OBJimageThays;
+
+    public GameObject INVcle;
+    public GameObject INVcanne;
+    public GameObject INVpoisson;
+    public GameObject INVechelle;
+    public GameObject INVcarotte;
+    public GameObject INVlettre;
+
+    [Header("Gameobjects des quêtes du tutoriel")]
     public GameObject UItutoriel;
     public GameObject UIcle;
     public GameObject UIbarreCle;
@@ -44,6 +59,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIfiniTuto;
     public GameObject UIfiniTuto2;
 
+    [Header("Gameobjects des quêtes du village")]
     public GameObject UIvillage;
     public GameObject UIvillageois;
     public GameObject UIbarrevillageois;
@@ -55,10 +71,11 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarrePoisson;
     public GameObject UIfiniVillage;
 
+    [Header("Gameobjects des quêtes de la forêt")]
     public GameObject UIforet;
     public GameObject UIbarreLettre;
 
-    [Header("Gameobjects des UI")]
+    [Header("Gameobjects des Notifications")]
     public GameObject UInotifArmoire;
     public GameObject UInotifPorte;
     public GameObject UInotifCle;
@@ -155,6 +172,12 @@ public class _collision_kirie : MonoBehaviour
 
             UIpoisson.SetActive(true);
             UIcanne.SetActive(true);
+
+            if (UIcontenu2)
+            {
+                UIcontenu3.SetActive(true);
+                UIcontenu2.SetActive(false);
+            }
         }
 
         if (infoTrigger.gameObject.tag == "save")
