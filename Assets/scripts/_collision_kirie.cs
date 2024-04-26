@@ -180,6 +180,7 @@ public class _collision_kirie : MonoBehaviour
             {
                 UIcontenu2.SetActive(false);
                 UIcontenu3.SetActive(true);
+                OBJimageGatito.SetActive(true);
             }
         }
 
