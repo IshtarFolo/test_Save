@@ -162,9 +162,12 @@ public class _collision_kirie : MonoBehaviour
         {
             UIbarrevillageois.SetActive(true);
             UIgatito.SetActive(true);
+
+            UIcontenu1.SetActive(false);
+            UIcontenu2.SetActive(true);
         }
 
-        if (infoTrigger.gameObject.tag == "Gatito")
+        if (infoTrigger.gameObject.tag == "Gatito" && UIbarrevillageois.activeInHierarchy == true)
         {
             UIbarrevillageois.SetActive(false);
             UIvillageois.SetActive(false);
@@ -173,10 +176,10 @@ public class _collision_kirie : MonoBehaviour
             UIpoisson.SetActive(true);
             UIcanne.SetActive(true);
 
-            if (UIcontenu2)
+            if (UIcontenu2.activeInHierarchy == false)
             {
-                UIcontenu3.SetActive(true);
                 UIcontenu2.SetActive(false);
+                UIcontenu3.SetActive(true);
             }
         }
 
