@@ -3837,12 +3837,22 @@ MonoBehaviour:
   armoireOuverte: {fileID: 1585069231}
   notification: 0
   cleRamasse: 0
-  UIMaisonKirie: {fileID: 0}
   UIJournalKirie: {fileID: 1587842870}
   UInotification: {fileID: 43078268}
   UIblabla: {fileID: 2122386651}
   UInoirFadeIn: {fileID: 618138597}
   UInoirFadeOut: {fileID: 2034676852}
+  UIcontenu1: {fileID: 0}
+  UIcontenu2: {fileID: 0}
+  UIcontenu3: {fileID: 0}
+  OBJimageGatito: {fileID: 0}
+  OBJimageThays: {fileID: 0}
+  INVcle: {fileID: 0}
+  INVcanne: {fileID: 0}
+  INVpoisson: {fileID: 0}
+  INVechelle: {fileID: 0}
+  INVcarotte: {fileID: 0}
+  INVlettre: {fileID: 0}
   UItutoriel: {fileID: 525942559}
   UIcle: {fileID: 1168024160}
   UIbarreCle: {fileID: 551590975}
@@ -5854,8 +5864,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2049067, y: -0.67676926, z: 0.20490836, w: 0.6767638}
-  m_LocalPosition: {x: 403.4005, y: 5.6969886, z: 276.28006}
+  m_LocalRotation: {x: 0.20490643, y: -0.6767694, z: 0.20490812, w: 0.6767639}
+  m_LocalPosition: {x: 403.4006, y: 5.697031, z: 276.28015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13839,7 +13849,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -40, y: 85.926}
+  m_AnchoredPosition: {x: -34, y: 88.32596}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &928755560
@@ -13873,8 +13883,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278674120
-  m_fontColor: {r: 0.7830189, g: 0.38518205, b: 0.025854412, a: 1}
+    rgba: 4288182017
+  m_fontColor: {r: 0.0028034954, g: 0.4679568, b: 0.5943396, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17511,7 +17521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -43.90011, y: 88.6}
+  m_AnchoredPosition: {x: -37.90027, y: 91}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1551171353
@@ -17545,8 +17555,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286235113
-  m_fontColor: {r: 0.9150943, g: 0.7560222, b: 0.47912958, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19506,8 +19516,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2049067, y: -0.67676926, z: 0.20490836, w: 0.6767638}
-  m_LocalPosition: {x: 403.4005, y: 5.6969886, z: 276.28006}
+  m_LocalRotation: {x: 0.20490643, y: -0.6767694, z: 0.20490812, w: 0.6767639}
+  m_LocalPosition: {x: 403.4006, y: 5.697031, z: 276.28015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
