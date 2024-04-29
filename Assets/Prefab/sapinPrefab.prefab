@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4972300762413526585}
   - component: {fileID: 7427218751577903395}
   - component: {fileID: 305290202953259139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sapinPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6225711600801978866}
     - renderer: {fileID: 9077849512496909993}
-  - screenRelativeHeight: 0.018572751
+  - screenRelativeHeight: 0.010987853
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6225711600801978866}
@@ -147,9 +147,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4652362950509309947, guid: 2b4012545e6524a5e87fcb8df93fa0d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2b4012545e6524a5e87fcb8df93fa0d1, type: 3}
       propertyPath: m_Name
       value: sapin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b4012545e6524a5e87fcb8df93fa0d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952311870858051751, guid: 2b4012545e6524a5e87fcb8df93fa0d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
