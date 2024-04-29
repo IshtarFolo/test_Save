@@ -6,40 +6,50 @@ using UnityEngine.UI;
 
 public class GestionDialogueThays : MonoBehaviour
 {
-
+    [Header("Les différents dialogues des personnages selon l'option choisi")]
     [SerializeField]
-    private string[] phrase1;
+    private string[] choixDiplomateKirie;
     [SerializeField]
-    private string[] phrase2;
-    public GameObject[] reponses;
+    private string[] choixDiplomateThays;
+    [SerializeField]
+    private string[] choixColereKirie;
+    [SerializeField]
+    private string[] choixColereThays;
 
-    public TextMeshProUGUI dialogue;
-    void Start()
+    [Header("Choix proposés")]
+    public GameObject[] lesOptions;
+
+    [Header("Les dialogues des personnages")]
+    public TextMeshProUGUI dialogueKirie;
+    public TextMeshProUGUI dialogueThays;
+
+    [Header("Les bulles des dialogues des personnages")]
+    public GameObject bulleKirie;
+    public GameObject bulleThays;
+
+    [Header("booleen des type des choix")]
+    public bool choixDiplomate = false;
+    public bool choixColere = false;
+
+    private void Start()
     {
-        DialogueOption1();
-       for (int i=0; i< reponses.Length; i++)
-        {
-            reponses[i].SetActive(true);
-        } 
+        
     }
 
-    public void DialogueOption1()
+    private void Update()
     {
-        for (int i = 0; i < reponses.Length; i++)
-        {
-            reponses[i].SetActive(false);
-        }
-        dialogue.gameObject.SetActive(true);
-        dialogue.text = (phrase1[0]);
+        
     }
 
-    public void DialogueOption2()
+    public void ChoixDiplomate()
     {
-        for (int i = 0; i < reponses.Length; i++)
-        {
-            reponses[i].SetActive(false);
-        }
-        dialogue.gameObject.SetActive(true);
-        dialogue.text = (phrase2[0]);
+        choixDiplomate = true;
+        lesOptions[1].SetActive(false);
+    }
+
+    public void ChoixColere()
+    {
+        choixColere = true;
+        lesOptions[0].SetActive(false);
     }
 }
