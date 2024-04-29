@@ -31,9 +31,7 @@ public class GestionDialogueThays : MonoBehaviour
     public bool choixDiplomate = false;
     public bool choixColere = false;
 
-    [Header("l'index du dialogue actuelle")]
-    int ligneDialogueActuelle = 0;
-
+    [Header("Variables pour animation des letttre")]
     float delaiEntreLettres = 0.10f;
     bool ecrit = false;
 
