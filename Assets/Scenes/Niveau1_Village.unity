@@ -28299,8 +28299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
-  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245982, y: -0.688192, z: 0.16246031, w: 0.68818986}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29602,6 +29602,18 @@ PrefabInstance:
       propertyPath: lettreE
       value: 
       objectReference: {fileID: 1190833914}
+    - target: {fileID: 6920987028918175212, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: Eh... Bonjour!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920987028918175212, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: "J'ai entendu dire qu'un d\xE9tective priv\xE9 louait ses services..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920987028918175212, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: "J'ai retrouv\xE9 des objets perdus gr\xE2ce \xE0 lui!"
+      objectReference: {fileID: 0}
     - target: {fileID: 7606059882381874103, guid: 195a75bb32c724cbdb736415d7e1c406, type: 3}
       propertyPath: m_Size.y
       value: 4.4715366
@@ -56085,6 +56097,22 @@ PrefabInstance:
       propertyPath: lettreE
       value: 
       objectReference: {fileID: 1190833914}
+    - target: {fileID: 2842958498126592437, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842958498126592437, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: "Deux lapins! Deus lapins \xE0 vendre!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842958498126592437, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: "Offre limit\xE9!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842958498126592437, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3543640551500493131, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
       propertyPath: m_Constraints
       value: 126
@@ -57391,8 +57419,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
-  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245982, y: -0.688192, z: 0.16246031, w: 0.68818986}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
