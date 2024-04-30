@@ -28794,8 +28794,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245933, y: -0.6881948, z: 0.16246116, w: 0.688187}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
+  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55878,7 +55878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842958498126592437, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
       propertyPath: dialogues.Array.data[0]
-      value: "Deux lapins! Deus lapins \xE0 vendre!"
+      value: "Deux lapins! Deux lapins \xE0 vendre!"
       objectReference: {fileID: 0}
     - target: {fileID: 2842958498126592437, guid: b9152b8bae7f447ea91d89e21c316ab0, type: 3}
       propertyPath: dialogues.Array.data[1]
@@ -57098,8 +57098,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245933, y: -0.6881948, z: 0.16246116, w: 0.688187}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
+  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
