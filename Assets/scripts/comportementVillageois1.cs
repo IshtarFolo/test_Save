@@ -33,14 +33,14 @@ public class comportementVillageois1 : MonoBehaviour
         }
 
         // Declenchement de la marche du personnage
-        if (!agent.isStopped)
+        switch (agent.isStopped)
         {
-            animateur.SetBool("marche", true);
-        }
-        // Arret de la marche
-        else
-        {
-            animateur.SetBool("marche", false);
+            case true:
+                animateur.SetBool("marche", false);
+                break;
+            case false:
+                animateur.SetBool("marche", true);
+                break;
         }
     }
 
