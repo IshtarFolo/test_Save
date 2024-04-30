@@ -529,9 +529,6 @@ PrefabInstance:
       addedObject: {fileID: 1914626195091364815}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51b415b4804708042af931563d252442, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2147391913461111857}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51b415b4804708042af931563d252442, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7606059882381874103}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51b415b4804708042af931563d252442, type: 3}
       insertIndex: -1
@@ -613,28 +610,6 @@ CapsuleCollider:
   m_Height: 3.9428394
   m_Direction: 1
   m_Center: {x: 0, y: 1.8545367, z: 0}
---- !u!114 &2147391913461111857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8245599019894602313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390eec4a5196baa4097ad408bcc74e4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joueur: {fileID: 8245599019894602313}
-  newG: {fileID: 0}
-  load: {fileID: 0}
-  loadingScreen: {fileID: 0}
-  positionX: 0
-  positionY: 0
-  positionZ: 0
-  rotationX: 0
-  rotationY: 0
-  rotationZ: 0
 --- !u!65 &7606059882381874103
 BoxCollider:
   m_ObjectHideFlags: 0
