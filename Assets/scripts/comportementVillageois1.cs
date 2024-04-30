@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,12 @@ public class comportementVillageois1 : MonoBehaviour
     /*============
      * VARIABLES *
      ============*/
-    NavMeshAgent agent;
-    Animator animateur;
-
     int indexDestinations = 0;
     public Transform[] destinations;
+
+    /* References aux composants */
+    NavMeshAgent agent;
+    Animator animateur;
 
     void Start()
     {
@@ -28,6 +30,17 @@ public class comportementVillageois1 : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance < 0.5f && agent.enabled)
         {
             StartCoroutine(ChangerDestination());
+        }
+
+        // Declenchement de la marche du personnage
+        if (!agent.isStopped)
+        {
+            animateur.SetBool("marche", true);
+        }
+        // Arret de la marche
+        else
+        {
+            animateur.SetBool("marche", false);
         }
     }
 
