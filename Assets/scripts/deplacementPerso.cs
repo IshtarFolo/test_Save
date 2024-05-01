@@ -139,6 +139,82 @@ public class deplacementPerso : MonoBehaviour
             StartCoroutine(RecupSaut());
         }
 
+        /*
+        * Gestion des animations de saut dans differents angles
+        -------------------------------------------------------------------------------------------------------------------------------------------*/
+        /* A Droite en Haut */
+        // On regarde si le joueur bouge vers le haut a droite et appuie sur espace
+        if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
+        {
+            animateur.Play("MilieuSaut_DiagoHDroite");
+        }
+        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
+        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHDroite") && toucheSol && peutBouger)
+        {
+            animateur.Play("FinSaut_DiagoHDroite");
+            StartCoroutine(RecupSaut());
+        }
+        /* A Droite en Bas */
+        // On regarde si le joueur bouge vers le bas a droite et appuie sur espace
+        if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
+        {
+            animateur.Play("MilieuSaut_DiagoBDroite");
+        }
+        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
+        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoBDroite") && toucheSol && peutBouger)
+        {
+            animateur.Play("FinSaut_DiagoBDroite");
+            StartCoroutine(RecupSaut());
+        }
+        /* A Gauche en Haut */
+        // On regarde si le joueur bouge vers le haut a gauche et appuie sur espace
+        if (animateur.GetFloat("VelocityX") < 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
+        {
+            animateur.Play("MilieuSaut_DiagoHGauche");
+        }
+        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
+        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHGauche") && toucheSol && peutBouger)
+        {
+            animateur.Play("FinSaut_DiagoHGauche");
+            StartCoroutine(RecupSaut());
+        }
+        /* A Gauche en Bas */
+        // On regarde si le joueur bouge vers le bas a gauche et appuie sur espace
+        if (animateur.GetFloat("VelocityX") < 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
+        {
+            animateur.Play("MilieuSaut_DiagoBGauche");
+        }
+        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
+        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoBGauche") && toucheSol && peutBouger)
+        {
+            animateur.Play("FinSaut_DiagoBGauche");
+            StartCoroutine(RecupSaut());
+        }
+        /* Vers le Bas */
+        // On regarde si le joueur bouge vers le bas
+        if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
+        {
+            animateur.Play("MilieuSaut_Bas");
+        }
+        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
+        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Bas") && toucheSol && peutBouger)
+        {
+            animateur.Play("FinSaut_Bas");
+            StartCoroutine(RecupSaut());
+        }
+        /* Vers le Haut */ 
+        // On regarde si le joueur bouge vers le bas
+        if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
+        {
+            animateur.Play("MilieuSaut_Haut");
+        }
+        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
+        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Haut") && toucheSol && peutBouger)
+        {
+            animateur.Play("FinSaut_Haut");
+            StartCoroutine(RecupSaut());
+        }
+      
         // On verifie, ici, si le saut est active a partir de la gauche ou de la droite 
         // on regarde si la velocite X est plus grande que 0...
         if (animateur.GetFloat("VelocityX") > 0)
@@ -151,9 +227,15 @@ public class deplacementPerso : MonoBehaviour
         {
             animateur.SetBool("aGauche", true);
         }
+        /*
+        * Fin de la gestion des angles de saut
+        ------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-        // On v�rifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
-        // Si la velocite du rigidbody est �gale � 0...
+        /* 
+        * Gestion des angles dans l'animation idle
+        --------------------------------------------------------------------------------------------------------------------------- */
+        // On verifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
+        // Si la velocite du rigidbody est egale a 0...
         if (direction != Vector3.zero)
         {
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
@@ -167,18 +249,17 @@ public class deplacementPerso : MonoBehaviour
             {
                 animateur.SetTrigger("idleDroite");
             }
-            //Debug.Log(toucheSol);
         }
     }
 
     /* Pour voir le spherecast 
      ---------------------------------------------------------------------------*/
-    private void OnDrawGizmos()
+  /*  private void OnDrawGizmos()
     {
         // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.2f, 0f), 1f);
-    }
+    } */
 
     /*--------------
      * IENUMERATOR *

@@ -29545,8 +29545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245937, y: -0.6881952, z: 0.16246144, w: 0.6881864}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29659,7 +29659,7 @@ GameObject:
   - component: {fileID: 486709985}
   - component: {fileID: 486709987}
   - component: {fileID: 486709986}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: clothFoulard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57443,7 +57443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927473599}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: parentFoulard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57840,8 +57840,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245937, y: -0.6881952, z: 0.16246144, w: 0.6881864}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69286,7 +69286,7 @@ GameObject:
   - component: {fileID: 1210897363}
   - component: {fileID: 1210897365}
   - component: {fileID: 1210897364}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: cloth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99563,7 +99563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1917309667}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: parentPoncho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
