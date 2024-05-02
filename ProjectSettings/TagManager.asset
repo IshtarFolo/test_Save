@@ -9,6 +9,7 @@ TagManager:
   - save
   - Gatito
   - arbres
+  - zonePeche
   layers:
   - Default
   - TransparentFX

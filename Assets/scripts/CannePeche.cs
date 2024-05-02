@@ -65,6 +65,12 @@ public class CannePeche : MonoBehaviour
                 {
                     peutPecher = true;
 
+                    //Afficher le mini jeu UI
+                    SystemePeche.Instance.minijeu.SetActive(true);
+
+                    //Ajouter un bouton pour commencer la pêche
+
+
                     //Clic du bouton gauche de la souris
                     if (Input.GetMouseButtonDown(0) && !estLance && !tire)
                     {
