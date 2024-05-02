@@ -5716,6 +5716,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d4e47fedd1a46543aadd2271fb27a9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1001352159}
+    - targetCorrespondingSourceObject: {fileID: 3245523766145951891, guid: 4d4e47fedd1a46543aadd2271fb27a9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1156403681}
   m_SourcePrefab: {fileID: 100100000, guid: 4d4e47fedd1a46543aadd2271fb27a9b, type: 3}
 --- !u!1001 &60807959
 PrefabInstance:
@@ -29971,8 +29974,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
-  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
+  m_LocalRotation: {x: 0.16245951, y: -0.68819416, z: 0.16246107, w: 0.68818754}
+  m_LocalPosition: {x: 118.04426, y: 115.512146, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63546,8 +63549,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
-  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
+  m_LocalRotation: {x: 0.16245951, y: -0.68819416, z: 0.16246107, w: 0.68818754}
+  m_LocalPosition: {x: 118.04426, y: 115.512146, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -73934,6 +73937,32 @@ Transform:
   - {fileID: 1253723731}
   m_Father: {fileID: 53654566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1156403677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3245523766145951891, guid: 4d4e47fedd1a46543aadd2271fb27a9b, type: 3}
+  m_PrefabInstance: {fileID: 60601688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1156403681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156403677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.015149489, y: 0.007600866, z: 0.082931854}
+  m_Center: {x: 0.000007299185, y: 0.003143613, z: 0.000014324189}
 --- !u!1 &1157882841
 GameObject:
   m_ObjectHideFlags: 0
