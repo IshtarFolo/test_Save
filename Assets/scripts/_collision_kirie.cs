@@ -32,7 +32,6 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIJournalKirie;
     public GameObject UInotification;
 
-    public GameObject UIblabla;
     public GameObject UInoirFadeIn;
     public GameObject UInoirFadeOut;
 
@@ -76,9 +75,6 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarreLettre;
 
     [Header("Gameobjects des Notifications")]
-    public GameObject UInotifArmoire;
-    public GameObject UInotifPorte;
-    public GameObject UInotifCle;
     public GameObject UInotifSauve;
 
     // Le numero de l'index de la scene a charger 
@@ -154,8 +150,6 @@ public class _collision_kirie : MonoBehaviour
             UIbarreCle.SetActive(true);
             cle.SetActive(false);
             cleRamasse = true;
-            UInotification.SetActive(true);
-            Invoke("notifCle", 0.1f);
         }
 
         if (infoTrigger.gameObject.tag == "villageois")
@@ -202,8 +196,6 @@ public class _collision_kirie : MonoBehaviour
             if(cleRamasse == false)
             {
                 //Debug.Log("Armoire barré");
-                UInotification.SetActive(true);
-                Invoke("notifArmoire", 0.1f);
             }
             else if(cleRamasse == true)
             {
@@ -236,32 +228,17 @@ public class _collision_kirie : MonoBehaviour
         {
             Invoke("niveau2", 2f);
         }
-        else
-        {
-            //notificationPasFini.SetActive(true);
-            Invoke("fermerNotif", 5f);
-        }
 
         //Lorsque le joueur a TERMINÉ le niveau2, on lui permet d'aller dans le niveau3
         if (infoCollision.gameObject.tag == "triggerNiv3" && niveau2Termine == true)
         {
             Invoke("niveau3", 2f);
         }
-        else
-        {
-            //notificationPasFini.SetActive(true);
-            Invoke("fermerNotif", 5f);
-        }
 
         // Allons-nous garder le niveau 4?**
         if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
         {
             Invoke("niveau4", 2f);
-        }
-        else
-        {
-            //notificationPasFini.SetActive(true);
-            Invoke("fermerNotif", 5f);
         }
     }
 
@@ -272,7 +249,6 @@ public class _collision_kirie : MonoBehaviour
         //Debug.Log("Le script tutoriel roule");
 
         UIJournalKirie.SetActive(false);
-        UIblabla.SetActive(false);
         UItutoriel.SetActive(true);
         UIcle.SetActive(true);
         UIarmoire.SetActive(true);
@@ -298,8 +274,6 @@ public class _collision_kirie : MonoBehaviour
     // ////////////////////////////////////////////////
     public void village()
     {
-        UIblabla.SetActive(false);
-
         UIvillage.SetActive(true);
         //UIpoisson.SetActive(true);
         //UIcanne.SetActive(true);
@@ -341,36 +315,6 @@ public class _collision_kirie : MonoBehaviour
     // PARTIE DÉDIÉ AU NOTIFICATION
     // ////////////////////////////////////////////////
 
-    void notifArmoire()
-    {
-        if(notification == false)
-        {
-            UInotifArmoire.SetActive(true);
-            Invoke("fermerNotif", 6f);
-            notification = true;
-        }
-    }
-
-    void notifPorte()
-    {
-        if(notification == false)
-        {
-            UInotifPorte.SetActive(true);
-            Invoke("fermerNotif", 6f);
-            notification = true;
-        }
-    }
-
-    void notifCle()
-    {
-        if(notification == false)
-        {
-            UInotifCle.SetActive(true);
-            Invoke("fermerNotif", 6f);
-            notification = true;
-        }
-    }
-
     void notifSauvegarde()
     {
         if(notification == false)
@@ -384,15 +328,6 @@ public class _collision_kirie : MonoBehaviour
     void fermerNotif()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "Niveau1_Maison-Int")
-        {
-            UInotification.SetActive(false);
-            UInotifArmoire.SetActive(false);
-            UInotifCle.SetActive(false);
-            UInotifPorte.SetActive(false);
-
-            notification = false;
-        }
 
         if(scene.name == "Niveau1_Village")
         {
