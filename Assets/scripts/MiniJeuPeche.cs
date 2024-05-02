@@ -86,8 +86,8 @@ public class MiniJeuPeche : MonoBehaviour
     //Transforms et méthode overlaps pour vérifier le chevauchement et retournera vrai ou faux
     private bool TesterOverlap(RectTransform rect1, RectTransform rect2)
     {
-        Rect r1 = new Rect(rect1.position.x, rect1.position.y, rect1.rect.width, rect1.rect.height);
-        Rect r2 = new Rect(rect2.position.x, rect2.position.y, rect2.rect.width, rect2.rect.height);
+        Rect r1 = new Rect(rect1.position.x, rect1.position.y, rect1.rect.width/5, rect1.rect.height);
+        Rect r2 = new Rect(rect2.position.x, rect2.position.y, rect2.rect.width/5, rect2.rect.height);
         return r1.Overlaps(r2);
     }
 }
