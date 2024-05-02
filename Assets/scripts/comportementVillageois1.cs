@@ -42,6 +42,15 @@ public class comportementVillageois1 : MonoBehaviour
                 animateur.SetBool("marche", true);
                 break;
         }
+
+        if (agent.remainingDistance >= agent.stoppingDistance && agent.isStopped && indexDestinations == 0)
+        {
+            animateur.SetBool("triste", true);
+        }
+        else
+        {
+            animateur.SetBool("triste", false);
+        }
     }
 
     IEnumerator ChangerDestination()
