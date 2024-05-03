@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +30,7 @@ public class GestionDialogueThays : MonoBehaviour
     public bool choixDiplomate = false;
     public bool choixColere = false;
 
-    [Header("Variables pour animation des letttre")]
+    [Header("Variables pour animation des lettres")]
     float delaiEntreLettres = 0.10f;
     bool ecrit = false;
 
@@ -39,11 +38,11 @@ public class GestionDialogueThays : MonoBehaviour
     {
         //bulleKirie.SetActive(false);
         //bulleThays.SetActive(false);
-       
+
     }
 
 
-   IEnumerator CommencerConversation()
+    IEnumerator CommencerConversation()
     {
         if (choixDiplomate)
         {
@@ -86,6 +85,7 @@ public class GestionDialogueThays : MonoBehaviour
     public void ChoixDiplomate()
     {
         choixDiplomate = true;
+        lesOptions[0].GetComponent<Button>().interactable = false; // Désactive le composant Button du bouton
         lesOptions[1].SetActive(false);
         StartCoroutine(CommencerConversation());
     }
@@ -93,6 +93,7 @@ public class GestionDialogueThays : MonoBehaviour
     public void ChoixColere()
     {
         choixColere = true;
+        lesOptions[1].GetComponent<Button>().interactable = false; // Désactive le composant Button du bouton
         lesOptions[0].SetActive(false);
         StartCoroutine(CommencerConversation());
     }
@@ -106,5 +107,4 @@ public class GestionDialogueThays : MonoBehaviour
         }
         ecrit = false;
     }
-
 }
