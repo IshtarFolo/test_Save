@@ -152,7 +152,7 @@ public class _collision_kirie : MonoBehaviour
             cleRamasse = true;
         }
 
-        if (infoTrigger.gameObject.tag == "villageois")
+        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.DialogueActuelleIndex == 2)
         {
             UIbarrevillageois.SetActive(true);
             UIgatito.SetActive(true);

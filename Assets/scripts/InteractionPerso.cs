@@ -37,7 +37,7 @@ public class interactionPerso: MonoBehaviour
     //Affichage du E
     private void OnTriggerEnter(Collider infoCollision)
     {
-        if (infoCollision.gameObject.tag == "villageois")
+        if (infoCollision.gameObject.tag == "villageois" || infoCollision.gameObject.tag == "villageois1")
         {
             lettreE.SetActive(true);
             veutParler = true;
