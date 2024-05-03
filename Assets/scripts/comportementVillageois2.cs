@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class comportementVillageois1 : MonoBehaviour
+public class comportementVillageois2 : MonoBehaviour
 {
     /*============
      * VARIABLES *
@@ -21,7 +21,7 @@ public class comportementVillageois1 : MonoBehaviour
         // Associationdes variables des GetCompoenent
         agent = GetComponent<NavMeshAgent>();
         animateur = GetComponent<Animator>();
-        
+
         // Declenchement de la coroutine
         StartCoroutine(ChangerDestination());
     }
@@ -44,16 +44,6 @@ public class comportementVillageois1 : MonoBehaviour
                 animateur.SetBool("marche", true);
                 break;
         }
-
-        // On declenche l'animation du villageois triste
-        if (agent.remainingDistance >= agent.stoppingDistance && agent.isStopped && indexDestinations == 0)
-        {
-            animateur.SetBool("triste", true);
-        }
-        else
-        {
-            animateur.SetBool("triste", false);
-        }
     }
 
     // Pour changer de destination
@@ -71,7 +61,7 @@ public class comportementVillageois1 : MonoBehaviour
         agent.isStopped = true;
 
         // On attend un peu avant de relancer le mouvement du NPC
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
 
         agent.isStopped = false;
     }
