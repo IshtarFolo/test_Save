@@ -30003,8 +30003,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
-  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36715,7 +36715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab5583bbf07d93e4784d0d8cea6fad7b, type: 3}
       propertyPath: m_TagString
-      value: villageois
+      value: villageois1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ab5583bbf07d93e4784d0d8cea6fad7b, type: 3}
       propertyPath: m_Controller
@@ -64023,8 +64023,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
-  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
