@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffetVent : MonoBehaviour
+public class AfficheEZonePeche : MonoBehaviour
 {
     public GameObject lettreE; // L'interaction avec la letttre E
     //Affichage du E
