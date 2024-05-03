@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Click: {fileID: 8300000, guid: b443af86015fc354f905b8da39c66a2c, type: 3}
-  nbSecondes: 24
+  nbSecondes: 30
 --- !u!4 &937899343
 Transform:
   m_ObjectHideFlags: 0
