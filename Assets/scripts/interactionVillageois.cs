@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class interactionVillageois : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class interactionVillageois : MonoBehaviour
 
     public TextMeshPro dialogueVillageois; // Référence au texte du villageois actuel
     public GameObject bulle; // Référence à la bulle de dialogue
-    private int DialogueActuelleIndex = 0; // Index du dialogue actuel
+    public static int DialogueActuelleIndex = 0; // Index du dialogue actuel
 
     public bool aParle = false; // Variable pour vérifier si le joueur a parlé
     public bool dialoguesTermines = false; // Variable pour vérifier si tous les dialogues ont été affichés
@@ -49,6 +50,8 @@ public class interactionVillageois : MonoBehaviour
                 }
             }
         }
+
+        Debug.Log(DialogueActuelleIndex);
     }
 
     // Méthode pour afficher le dialogue suivant
