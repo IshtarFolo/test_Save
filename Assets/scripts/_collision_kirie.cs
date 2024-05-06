@@ -77,6 +77,15 @@ public class _collision_kirie : MonoBehaviour
     [Header("Gameobjects des Notifications")]
     public GameObject UInotifSauve;
 
+    [Header("AudioSource")]
+    public AudioSource gameManager;
+
+    [Header("AudioClip")]
+    public AudioClip prendreCle;
+    public AudioClip armoireBarre;
+    public AudioClip armoireSouvre;
+    public AudioClip ouvrirPorte;
+
     // Le numero de l'index de la scene a charger 
     public static int noScene;
 
@@ -150,6 +159,7 @@ public class _collision_kirie : MonoBehaviour
             UIbarreCle.SetActive(true);
             cle.SetActive(false);
             cleRamasse = true;
+            gameManager.PlayOneShot(prendreCle, 0.7f);
         }
 
         if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.DialogueActuelleIndex == 2)
@@ -196,12 +206,14 @@ public class _collision_kirie : MonoBehaviour
             if(cleRamasse == false)
             {
                 //Debug.Log("Armoire barré");
+                gameManager.PlayOneShot(armoireBarre, 0.7f);
             }
             else if(cleRamasse == true)
             {
                 armoireFerme.SetActive(false);
                 armoireOuverte.SetActive(true);
                 tutorielTermine = true;
+                gameManager.PlayOneShot(armoireSouvre, 0.7f);
 
                 Invoke("accesALinventaire", 0.1f);
             }
@@ -212,15 +224,10 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
+            gameManager.PlayOneShot(ouvrirPorte, 0.7f);
             UInoirFadeIn.SetActive(true);
             journalRamasse = true;
             Invoke("niveau1", 1f);
-        }
-        else
-        {
-            //notificationPasFini.SetActive(true);
-            //UInotification.SetActive(true);
-            //Invoke("notifPorte", 0.1f);
         }
 
         //Lorsque le joueur a TERMINÉ le niveau1, on lui permet d'aller dans le niveau2
