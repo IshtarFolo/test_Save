@@ -5960,7 +5960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 105111086}
   m_Layer: 0
-  m_Name: cubeSauvegarde (1)
+  m_Name: cubeSauvegarde_Quai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5975,8 +5975,8 @@ Transform:
   m_GameObject: {fileID: 105111085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.64, y: 111.33, z: 739.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.64, y: 111.33, z: 732.31}
+  m_LocalScale: {x: 0.21627, y: 0.21627, z: 0.21627}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1656596675}
@@ -24349,8 +24349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245964, y: -0.68819314, z: 0.1624607, w: 0.6881887}
-  m_LocalPosition: {x: 27.114267, y: 120.22217, z: 740.8002}
+  m_LocalRotation: {x: 0.1624594, y: -0.6881984, z: 0.16246307, w: 0.6881829}
+  m_LocalPosition: {x: 27.114256, y: 120.222176, z: 740.8002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53496,8 +53496,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245964, y: -0.68819314, z: 0.1624607, w: 0.6881887}
-  m_LocalPosition: {x: 27.114267, y: 120.22217, z: 740.8002}
+  m_LocalRotation: {x: 0.1624594, y: -0.6881984, z: 0.16246307, w: 0.6881829}
+  m_LocalPosition: {x: 27.114256, y: 120.222176, z: 740.8002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55860,6 +55860,11 @@ MonoBehaviour:
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
   UInotifSauve: {fileID: 678461952}
+  gameManager: {fileID: 0}
+  prendreCle: {fileID: 0}
+  armoireBarre: {fileID: 0}
+  armoireSouvre: {fileID: 0}
+  ouvrirPorte: {fileID: 0}
   scene:
     m_Handle: 0
 --- !u!114 &1155865136
