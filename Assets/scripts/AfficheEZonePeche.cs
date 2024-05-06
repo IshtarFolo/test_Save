@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Script pour débuter le mini-jeu de pêche par Minji et Camilia
 public class AfficheEZonePeche : MonoBehaviour
@@ -36,8 +37,9 @@ public class AfficheEZonePeche : MonoBehaviour
         //Si le joueur veut jouer au mini jeu de pêche afficher la lettre E
         if (infoCollision.gameObject.tag == "zonePeche")
         {
-            lettreE.SetActive(true);
+            //lettreE.SetActive(true);
             Debug.LogWarning("je touche la planche 2");
+            SceneManager.LoadScene("Niveau1_MiniJeuPeche");
         }
     }
 
