@@ -3886,6 +3886,8 @@ MonoBehaviour:
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
   UInotifSauve: {fileID: 0}
+  gameManager: {fileID: 2074612493}
+  prendreCle: {fileID: 8300000, guid: 6de6160b016564958aa8371ee2637613, type: 3}
   scene:
     m_Handle: 0
 --- !u!95 &357199599
@@ -6429,8 +6431,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490566, y: -0.67677045, z: 0.20490783, w: 0.6767631}
-  m_LocalPosition: {x: 403.40057, y: 5.696985, z: 276.28012}
+  m_LocalRotation: {x: 0.20490634, y: -0.6767702, z: 0.20490855, w: 0.6767629}
+  m_LocalPosition: {x: 403.40054, y: 5.6969905, z: 276.28012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21091,8 +21093,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490566, y: -0.67677045, z: 0.20490783, w: 0.6767631}
-  m_LocalPosition: {x: 403.40057, y: 5.696985, z: 276.28012}
+  m_LocalRotation: {x: 0.20490634, y: -0.6767702, z: 0.20490855, w: 0.6767629}
+  m_LocalPosition: {x: 403.40054, y: 5.6969905, z: 276.28012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

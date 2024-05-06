@@ -77,6 +77,12 @@ public class _collision_kirie : MonoBehaviour
     [Header("Gameobjects des Notifications")]
     public GameObject UInotifSauve;
 
+    [Header("AudioSource")]
+    public AudioSource gameManager;
+
+    [Header("AudioClip")]
+    public AudioClip prendreCle;
+
     // Le numero de l'index de la scene a charger 
     public static int noScene;
 
@@ -150,6 +156,7 @@ public class _collision_kirie : MonoBehaviour
             UIbarreCle.SetActive(true);
             cle.SetActive(false);
             cleRamasse = true;
+            gameManager.PlayOneShot(prendreCle, 0.7f);
         }
 
         if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.DialogueActuelleIndex == 2)
