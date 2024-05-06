@@ -14412,6 +14412,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1eb0edc9959eaf641ba77846310203cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 869931032}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1eb0edc9959eaf641ba77846310203cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 869931033}
   m_SourcePrefab: {fileID: 100100000, guid: 1eb0edc9959eaf641ba77846310203cc, type: 3}
 --- !u!4 &233211595 stripped
 Transform:
@@ -30015,8 +30018,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245933, y: -0.6881948, z: 0.16246116, w: 0.688187}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
+  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62697,6 +62700,27 @@ MonoBehaviour:
   finCorde: {fileID: 0}
   debutCorde: {fileID: 0}
   debutCanne: {fileID: 0}
+--- !u!95 &869931033
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869931029}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8aead0c4997af83488ce0b5d700c780b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &873136706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64035,8 +64059,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245933, y: -0.6881948, z: 0.16246116, w: 0.688187}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
+  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -107891,6 +107915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1986339393}
+  - component: {fileID: 1986339394}
   m_Layer: 0
   m_Name: CtrlCannePeche
   m_TagString: Untagged
@@ -107914,6 +107939,27 @@ Transform:
   - {fileID: 233211595}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1986339394
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986339392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64d41a724109ada408cb9f67da0cac3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1992708768
 GameObject:
   m_ObjectHideFlags: 0
