@@ -51,7 +51,7 @@ public class interactionVillageois : MonoBehaviour
             }
         }
 
-        Debug.Log(DialogueActuelleIndex);
+        //Debug.Log(DialogueActuelleIndex);
     }
 
     // Méthode pour afficher le dialogue suivant
