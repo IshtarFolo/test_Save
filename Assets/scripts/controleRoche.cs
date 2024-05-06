@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class controleRoche : MonoBehaviour
 {
+    private float temps = 10f; // Timer pour remonter la roche
+
     Animator animateur;
 
     void Start()
@@ -13,14 +15,22 @@ public class controleRoche : MonoBehaviour
 
     void Update()
     {
-        StartCoroutine(remonterRoche());
-    }
-
-    IEnumerator remonterRoche()
-    {
-        yield return new WaitForSeconds(5f);
-        animateur.SetBool("remonte", true);
-        yield return new WaitForSeconds(10f);
-        animateur.SetBool("remonte", false);
+        if (temps <= 0f)
+        {
+            temps = 10f;
+            animateur.SetBool("remonte", false);
+        }
+        else if (temps < 5f)
+        {
+            temps -= Time.deltaTime;
+            animateur.SetBool("remonte", false);
+        }
+        else if (temps > 5f)
+        {
+            temps -= Time.deltaTime;
+            animateur.SetBool("remonte", true);
+            return;
+        }
+        Debug.Log(temps);
     }
 }

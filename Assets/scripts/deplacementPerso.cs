@@ -9,9 +9,9 @@ public class deplacementPerso : MonoBehaviour
     /*----------------
      *** VARIABLES ***
      -----------------*/
-    private float vitesseDeplacement; // Vitesse de d�placement du personnage
-    private float forceSaut; // Force du saut
-    private float multiplicateurDescente = 30f; // La force de descente du personnage lorsqu'il est en l'air
+    private float vitesseDeplacement = 15f; // Vitesse de d�placement du personnage
+    private float forceSaut = 500f; // Force du saut
+    private float multiplicateurDescente = 15f; // La force de descente du personnage lorsqu'il est en l'air
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
     bool peutBouger = true; // Verification si le personnage peut bouger
     Vector3 dernierMouvement; // Enregistrement du dernier mouvement du joueur
@@ -87,7 +87,7 @@ public class deplacementPerso : MonoBehaviour
          ** SAUT **
          ----------*/
         // Si on est dans le tutoriel, Kirie saute moins haut que dans les autres scènes
-        switch (_collision_kirie.journalRamasse)
+    /*    switch (_collision_kirie.journalRamasse)
         {
             case false:
                 forceSaut = 500f;
@@ -97,11 +97,11 @@ public class deplacementPerso : MonoBehaviour
                 forceSaut = 1000f;
                 vitesseDeplacement = 15f;
                 break;
-        }
+        }*/
 
         RaycastHit infoCollision;
         // Cast des spheres vers bas perso + variable infoCollision prends valeurs
-        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.2f, 1f), 0f, -transform.up, out infoCollision, 1f);
+        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.1f, 1f), 0f, -transform.up, out infoCollision, 1f);
 
         // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
         if (Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
@@ -147,11 +147,13 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             animateur.Play("MilieuSaut_DiagoHDroite");
+            animateur.SetBool("tombe", false);
         }
         // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
         if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHDroite") && toucheSol && peutBouger)
         {
             animateur.Play("FinSaut_DiagoHDroite");
+            animateur.SetBool("tombe", true);
             StartCoroutine(RecupSaut());
         }
         /* A Droite en Bas */
@@ -159,11 +161,13 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             animateur.Play("MilieuSaut_DiagoBDroite");
+            animateur.SetBool("tombe", false);
         }
         // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
         if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoBDroite") && toucheSol && peutBouger)
         {
             animateur.Play("FinSaut_DiagoBDroite");
+            animateur.SetBool("tombe", true);
             StartCoroutine(RecupSaut());
         }
         /* A Gauche en Haut */
@@ -171,11 +175,13 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetFloat("VelocityX") < 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             animateur.Play("MilieuSaut_DiagoHGauche");
+            animateur.SetBool("tombe", false);
         }
         // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
         if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHGauche") && toucheSol && peutBouger)
         {
             animateur.Play("FinSaut_DiagoHGauche");
+            animateur.SetBool("tombe", true);
             StartCoroutine(RecupSaut());
         }
         /* A Gauche en Bas */
@@ -183,11 +189,13 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetFloat("VelocityX") < 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             animateur.Play("MilieuSaut_DiagoBGauche");
+            animateur.SetBool("tombe", false);
         }
         // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
         if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoBGauche") && toucheSol && peutBouger)
         {
             animateur.Play("FinSaut_DiagoBGauche");
+            animateur.SetBool("tombe", true);
             StartCoroutine(RecupSaut());
         }
         /* Vers le Bas */
@@ -195,23 +203,27 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             animateur.Play("MilieuSaut_Bas");
+            animateur.SetBool("tombe", false);
         }
         // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
         if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Bas") && toucheSol && peutBouger)
         {
             animateur.Play("FinSaut_Bas");
-            StartCoroutine(RecupSaut());
+            animateur.SetBool("tombe", true);
+            StartCoroutine(RecupSaut()); 
         }
         /* Vers le Haut */ 
         // On regarde si le joueur bouge vers le bas
         if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
             animateur.Play("MilieuSaut_Haut");
+            animateur.SetBool("tombe", false);
         }
         // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
         if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Haut") && toucheSol && peutBouger)
         {
             animateur.Play("FinSaut_Haut");
+            animateur.SetBool("tombe", true);
             StartCoroutine(RecupSaut());
         }
       
@@ -254,12 +266,12 @@ public class deplacementPerso : MonoBehaviour
 
     /* Pour voir le spherecast 
      ---------------------------------------------------------------------------*/
-  /*  private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.2f, 0f), 1f);
-    } */
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.1f, 0f), 1f);
+    } 
 
     /*--------------
      * IENUMERATOR *
