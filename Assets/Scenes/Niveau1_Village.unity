@@ -20310,6 +20310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: kirie
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 923820498596701239, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -20499,15 +20503,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1155865131}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1155865133}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1155865132}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1155865134}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1155865135}
@@ -29482,7 +29477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lettreE: {fileID: 126932175}
-  veutParler: 1
+  veutParler: 0
   peutActiverAction: 0
   dialogueGatito: {fileID: 1510778979}
   bulle: {fileID: 610323901}
@@ -30112,8 +30107,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245933, y: -0.6881948, z: 0.16246116, w: 0.688187}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
+  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65682,8 +65677,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245933, y: -0.6881948, z: 0.16246116, w: 0.688187}
-  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
+  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
+  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -75977,54 +75972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 535191519}
---- !u!114 &1155865132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155865124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8985847ffbec94aebaba69f633730972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lettreE: {fileID: 126932175}
-  veutParler: 0
-  gatito: {fileID: 444299237}
-  scriptGatito: {fileID: 0}
---- !u!114 &1155865133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155865124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8985847ffbec94aebaba69f633730972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lettreE: {fileID: 126932175}
-  veutParler: 0
-  gatito: {fileID: 1155865124}
-  scriptGatito: {fileID: 0}
---- !u!114 &1155865134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155865124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8985847ffbec94aebaba69f633730972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lettreE: {fileID: 126932175}
-  veutParler: 0
-  gatito: {fileID: 444299237}
-  scriptGatito: {fileID: 0}
 --- !u!114 &1155865135
 MonoBehaviour:
   m_ObjectHideFlags: 0

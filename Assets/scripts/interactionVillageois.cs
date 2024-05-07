@@ -54,6 +54,27 @@ public class interactionVillageois : MonoBehaviour
         //Debug.Log(DialogueActuelleIndex);
     }
 
+    private void OnTriggerEnter(Collider infoCollision)
+    {
+        if(infoCollision.gameObject.tag == "Player")
+        {
+        lettreE.SetActive(true);
+        veutParler = true;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider infoCollision)
+    {
+        if (infoCollision.gameObject.tag == "Player")
+        {
+            lettreE.SetActive(false);
+            veutParler = false;
+
+        }
+
+    }
+
     // Méthode pour afficher le dialogue suivant
     public void AfficherDialogueSuivant()
     {

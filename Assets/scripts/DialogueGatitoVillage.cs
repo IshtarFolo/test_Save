@@ -66,6 +66,27 @@ public class DialogueGatitoVillage : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider infoCollision)
+    {
+        if (infoCollision.gameObject.tag == "Player")
+        {
+            lettreE.SetActive(true);
+            veutParler = true;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider infoCollision)
+    {
+        if (infoCollision.gameObject.tag == "Player")
+        {
+            lettreE.SetActive(false);
+            veutParler = false;
+
+        }
+
+    }
+
     // Méthode pour exécuter l'action spécifique du joueur
     private void ExecuteActionDuJoueur()
     {
