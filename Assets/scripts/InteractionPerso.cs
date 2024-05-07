@@ -44,11 +44,13 @@ public class interactionPerso: MonoBehaviour
             villageois = infoCollision.gameObject;
 
             // Si le joueur a déjà parlé au villageois, réactiver la bulle de dialogue
-            //if (scriptVillageois.aParle)
-            //{
-            //    scriptVillageois.dialogueVillageois.enabled = true;
-            //    scriptVillageois.bulle.SetActive(true);
-            //}
+
+            //scriptVillageois = villageois.GetComponent<interactionVillageois>();
+            if (scriptVillageois.aParle)
+            {
+                scriptVillageois.dialogueVillageois.enabled = true;
+                scriptVillageois.bulle.SetActive(true);
+            }
         }
 
         //Si le joueur parle à Gatito
