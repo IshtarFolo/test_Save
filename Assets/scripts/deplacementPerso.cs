@@ -38,7 +38,7 @@ public class deplacementPerso : MonoBehaviour
         var vMonte = Input.GetAxis("Vertical") * vitesseDeplacement * Time.deltaTime;
 
         // Raccourci pour la velocite du saut
-        float velociteY = rb.velocity.y;
+        float velociteY = (rb.velocity.y);
 
         // Normalize pour le vecteur de direction
         Vector3 direction = new Vector3(-vMonte, 0, vDeplacement).normalized;
@@ -101,7 +101,7 @@ public class deplacementPerso : MonoBehaviour
 
         RaycastHit infoCollision;
         // Cast des spheres vers bas perso + variable infoCollision prends valeurs
-        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.1f, 1f), 0f, -transform.up, out infoCollision, 1f);
+        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.3f, 1f), 0f, -transform.up, out infoCollision, 1f);
 
         // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
         if (Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
@@ -270,7 +270,7 @@ public class deplacementPerso : MonoBehaviour
     {
         // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.1f, 0f), 1f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.3f, 0f), 1f);
     } 
 
     /*--------------
