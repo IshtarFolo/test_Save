@@ -11,6 +11,7 @@ TagManager:
   - arbres
   - zonePeche
   - villageois1
+  - piege
   layers:
   - Default
   - TransparentFX
