@@ -34,7 +34,7 @@ public class AfficheEZonePeche : MonoBehaviour
     private void OnTriggerEnter(Collider infoCollision)
     {
 
-        //Si le joueur veut jouer au mini jeu de pêche afficher la lettre E
+        //Charger la scène de pêche lorsque le joueur entre en collision avec la planche 2
         if (infoCollision.gameObject.tag == "zonePeche")
         {
             //lettreE.SetActive(true);
