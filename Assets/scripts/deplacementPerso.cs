@@ -280,7 +280,7 @@ public class deplacementPerso : MonoBehaviour
     IEnumerator RecupSaut()
     {
         peutBouger = false;
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.8f);
         peutBouger = true;
     }
 }

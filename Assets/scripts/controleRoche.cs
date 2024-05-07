@@ -31,6 +31,5 @@ public class controleRoche : MonoBehaviour
             animateur.SetBool("remonte", true);
             return;
         }
-        Debug.Log(temps);
     }
 }
