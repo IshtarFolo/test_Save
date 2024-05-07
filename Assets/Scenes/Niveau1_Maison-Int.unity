@@ -6551,8 +6551,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490658, y: -0.6767709, z: 0.20490935, w: 0.6767618}
-  m_LocalPosition: {x: 403.40045, y: 5.696975, z: 276.2801}
+  m_LocalRotation: {x: 0.20490617, y: -0.67677104, z: 0.20490895, w: 0.67676204}
+  m_LocalPosition: {x: 403.4006, y: 5.697026, z: 276.28018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12305,6 +12305,9 @@ MonoBehaviour:
   interfacejeu: {fileID: 823204377}
   journal: {fileID: 731393476}
   menuPause: {fileID: 543573775}
+  gameManager: {fileID: 2074612493}
+  ouvrirJournal: {fileID: 8300000, guid: 9cd62c772cf2c2c4dab8f4149c590024, type: 3}
+  fermerJournal: {fileID: 8300000, guid: d44586c83aab4d543810b4f4b08b6832, type: 3}
 --- !u!114 &914198460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21318,8 +21321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490658, y: -0.6767709, z: 0.20490935, w: 0.6767618}
-  m_LocalPosition: {x: 403.40045, y: 5.696975, z: 276.2801}
+  m_LocalRotation: {x: 0.20490617, y: -0.67677104, z: 0.20490895, w: 0.67676204}
+  m_LocalPosition: {x: 403.4006, y: 5.697026, z: 276.28018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26285,7 +26288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1884111927
 RectTransform:
   m_ObjectHideFlags: 0

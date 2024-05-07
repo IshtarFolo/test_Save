@@ -30112,8 +30112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
-  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
+  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65678,8 +65678,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
-  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
+  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76035,6 +76035,7 @@ MonoBehaviour:
   armoireOuverte: {fileID: 0}
   notification: 0
   cleRamasse: 0
+  audioJoue: 0
   UIJournalKirie: {fileID: 1810911502}
   UInotification: {fileID: 1113341616}
   UInoirFadeIn: {fileID: 184628780}

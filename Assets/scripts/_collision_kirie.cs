@@ -183,7 +183,7 @@ public class _collision_kirie : MonoBehaviour
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             if(audioJoue == false)
             {
-                gameManager.PlayOneShot(ouvrirPorte, 0.7f);
+                gameManager.PlayOneShot(ouvrirPorte, 1f);
                 audioJoue = true;
                 Invoke("AudioPeutJouer", 2f);
             }
