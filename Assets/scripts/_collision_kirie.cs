@@ -18,6 +18,7 @@ public class _collision_kirie : MonoBehaviour
     [Header("Booléennes")]
     public bool notification;
     public bool cleRamasse;
+    public bool audioJoue;
 
     [Header("Booléennes des scènes Unity")]
     public static bool tutorielTermine = false;
@@ -96,6 +97,7 @@ public class _collision_kirie : MonoBehaviour
 // Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
     public void Start()
     {
+        audioJoue = false;
         Scene scene = SceneManager.GetActiveScene();
         //Debug.Log(scene.name);
 
@@ -162,6 +164,31 @@ public class _collision_kirie : MonoBehaviour
             gameManager.PlayOneShot(prendreCle, 0.7f);
         }
 
+        if (infoTrigger.gameObject.name == "trigger_garde_robe_ferme")
+        {
+            if (cleRamasse == false)
+            {
+                if(audioJoue == false)
+                {
+                    //Debug.Log("Armoire barré");
+                    gameManager.PlayOneShot(armoireBarre, 0.7f);
+                    audioJoue = true;
+                    Invoke("AudioPeutJouer", 2f);
+                }
+            }
+        }
+
+        if (infoTrigger.gameObject.name == "trigger_porte" && tutorielTermine == true)
+        {
+            //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
+            if(audioJoue == false)
+            {
+                gameManager.PlayOneShot(ouvrirPorte, 0.7f);
+                audioJoue = true;
+                Invoke("AudioPeutJouer", 2f);
+            }
+        }
+
         if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.DialogueActuelleIndex == 2)
         {
             UIbarrevillageois.SetActive(true);
@@ -196,9 +223,14 @@ public class _collision_kirie : MonoBehaviour
         }
     }
 
+    void AudioPeutJouer()
+    {
+        audioJoue = false;
+    }
 
-// INFO COLLISION
-// ////////////////////////////////////////////////
+
+    // INFO COLLISION
+    // ////////////////////////////////////////////////
     public void OnCollisionEnter(Collision infoCollision)
     {
         if (infoCollision.gameObject.name == "garde_robe_ferme")
@@ -206,7 +238,6 @@ public class _collision_kirie : MonoBehaviour
             if(cleRamasse == false)
             {
                 //Debug.Log("Armoire barré");
-                gameManager.PlayOneShot(armoireBarre, 0.7f);
             }
             else if(cleRamasse == true)
             {
@@ -224,7 +255,6 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
-            gameManager.PlayOneShot(ouvrirPorte, 0.7f);
             UInoirFadeIn.SetActive(true);
             journalRamasse = true;
             Invoke("niveau1", 1f);

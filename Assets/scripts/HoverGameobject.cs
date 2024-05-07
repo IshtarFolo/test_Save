@@ -14,7 +14,7 @@ public class HoverGameobject : MonoBehaviour
 
     void OnMouseOver()
     {
-        if(gameObject.name == "garde_robe_ferme")
+        if (gameObject.name == "garde_robe_ferme" && gameObject.activeInHierarchy)
         {
             //Debug.Log(" Ceci est le test de la roche 1");
             kiriePense.text = "L'armoire est barré...";
