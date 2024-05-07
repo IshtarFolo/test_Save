@@ -42,13 +42,15 @@ public class interactionPerso: MonoBehaviour
             lettreE.SetActive(true);
             veutParler = true;
             villageois = infoCollision.gameObject;
+
+            // Si le joueur a déjà parlé au villageois, réactiver la bulle de dialogue
+            //if (scriptVillageois.aParle)
+            //{
+            //    scriptVillageois.dialogueVillageois.enabled = true;
+            //    scriptVillageois.bulle.SetActive(true);
+            //}
         }
-        // Si le joueur a déjà parlé au villageois, réactiver la bulle de dialogue
-        if (scriptVillageois.aParle)
-        {
-            scriptVillageois.dialogueVillageois.enabled = true;
-            scriptVillageois.bulle.SetActive(true);
-        }
+
         //Si le joueur parle à Gatito
         if (infoCollision.gameObject.tag == "Gatito")
         {
