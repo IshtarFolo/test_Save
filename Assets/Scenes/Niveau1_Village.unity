@@ -69530,6 +69530,9 @@ MonoBehaviour:
   interfacejeu: {fileID: 1906113324}
   journal: {fileID: 1810911502}
   menuPause: {fileID: 1515562457}
+  gameManager: {fileID: 535191520}
+  ouvrirJournal: {fileID: 8300000, guid: 9cd62c772cf2c2c4dab8f4149c590024, type: 3}
+  fermerJournal: {fileID: 8300000, guid: d44586c83aab4d543810b4f4b08b6832, type: 3}
 --- !u!114 &1074579704
 MonoBehaviour:
   m_ObjectHideFlags: 0
