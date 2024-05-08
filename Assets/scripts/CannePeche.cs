@@ -17,6 +17,7 @@ public class CannePeche : MonoBehaviour
     public bool estLance;
     public bool tire;
 
+    //Variables pour les animations de la canne à pêche
     Animator animator;
     public GameObject appatPrefab;
     public GameObject finCorde;  
@@ -26,12 +27,23 @@ public class CannePeche : MonoBehaviour
     Transform positionAppat;
     GameObject appatRef;
 
+    //GameObject du canvas de minijeu pêche
+    public GameObject canvas;
+
     private void Start()
     {
         //R�cup�rer l'animator pour la canne � p�che
         //Elle comporte 4 animations 
         animator = GetComponent<Animator>();
         estEquipe = true;
+
+        peutPecher = true;
+
+        //Le canvas du miniJeu de pêche est désactivé au début, il sera réactivé lorsque le joueur clique sur le lac
+        //SystemePeche.Instance.minijeu.SetActive(false);
+        //systemePecheUI.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
+
     }
 
     public void OnEnable()
@@ -52,42 +64,48 @@ public class CannePeche : MonoBehaviour
 
     void Update()
     {
-        if (estEquipe)
+        //Désactivé en attendant parce que je suis en train de rager
+        //if (estEquipe)
+        //{
+            ////Detecter la zone de p�che lorsque la caméra pointe vers le lac
+            //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            ////Debug.Log("Je pointe vers l'eau");
+
+            //RaycastHit hit;
+            //if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            //{
+            //    //Lorsque la souris pointe sur le lac, il est possible de p�cher
+            //    if (hit.collider.CompareTag("zonePeche"))
+            //    {
+            //        peutPecher = true;
+            //        // && !estLance && !tire
+            //        //Clic du bouton gauche de la souris
+            //    }
+            //    else
+            //    {
+            //        //peutPecher = false;
+            //    }
+            //}
+            //else
+            //{
+            //    //peutPecher = false;
+            //}
+        //}
+
+        if (Input.GetMouseButtonDown(0))
         {
-            //Detecter la zone de p�che
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            //SourceDeau source = hit.collider.gameObject.GetComponent<ZonePeche>().sourceDeau;
+            estLance = true;
+            Debug.Log("je clique man! bon sang");
+            //Jouer l'animation de lancer de la canne
+            animator.SetTrigger("LancerCanne");
+            //StartCoroutine(CastRod(hit.point, source));
 
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                //Lorsque la souris pointe sur le lac, il est possible de p�cher
-                if (hit.collider.CompareTag("zonePeche"))
-                {
-                    peutPecher = true;
-
-                    //Afficher le mini jeu UI
-                    SystemePeche.Instance.minijeu.SetActive(true);
-
-                    //Ajouter un bouton pour commencer la p�che
-
-
-                    //Clic du bouton gauche de la souris
-                    if (Input.GetMouseButtonDown(0) && !estLance && !tire)
-                    {
-                        SourceDeau source = hit.collider.gameObject.GetComponent<ZonePeche>().sourceDeau;
-                        StartCoroutine(CastRod(hit.point, source));
-                    }
-                }
-                else
-                {
-                    peutPecher = false;
-                }
-
-            }
-            else
-            {
-                peutPecher = false;
-            }
+            //Ajouter un bouton pour commencer la p�che
+            //Afficher le canvas du mini jeu UI
+            SystemePeche.Instance.minijeu.SetActive(true);
+            //systemePecheUI.gameObject.SetActive(true);
+            canvas.gameObject.SetActive(true);
         }
 
         //Si la corde est utilis�e
@@ -105,14 +123,14 @@ public class CannePeche : MonoBehaviour
             }
             else
             {
-                //Debug.Log("La canne � p�che est lanc�e");
+                Debug.Log("La canne � p�che est lanc�e");
             }
         }
 
         //Clic droit de la souris seulement si un poisson est d�tect�
         if (estLance && Input.GetMouseButtonDown(1) && SystemePeche.Instance.siContactPoisson) //Se d�clenche seulement s'il y a contact
         {
-            PullRod();
+            TirerCanne();
             Debug.Log("Je tire");
         }
     }
@@ -140,7 +158,7 @@ public class CannePeche : MonoBehaviour
         SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
     }
 
-    private void PullRod()
+    private void TirerCanne()
     {
         animator.SetTrigger("Pull");
         estLance = false;
