@@ -1,170 +1,81 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-//Script pour le mini-jeu de pï¿½che par Camilia El Moustarih
-//Inspirï¿½ du code de Mike's Code - 3D Survival Game Tutorial sur YouTube
 public class CannePeche : MonoBehaviour
 {
-    //Dï¿½claration des variables
-    //Des animations pour chaque ï¿½tat sont disponibles ****** ï¿½ AJOUTER ******
+    // Déclaration des variables
+    // Des animations pour chaque état sont disponibles **À AJOUTER**
     public bool estEquipe;
     public bool peutPecher;
     public bool estLance;
     public bool tire;
 
-    //Variables pour les animations de la canne Ã  pÃªche
+    // Pour les animations de la canne 
     Animator animator;
     public GameObject appatPrefab;
-    public GameObject finCorde;  
-    public GameObject debutCorde;    
-    public GameObject debutCanne;       
+    public GameObject finCorde;
+    public GameObject debutCorde;
+    public GameObject debutCanne;
 
     Transform positionAppat;
-    GameObject appatRef;
 
-    //GameObject du canvas de minijeu pÃªche
-    public GameObject canvas;
-
-    private void Start()
+    public void Start()
     {
-        //Rï¿½cupï¿½rer l'animator pour la canne ï¿½ pï¿½che
-        //Elle comporte 4 animations 
+        // Récupérer l'animator de la canne peche
         animator = GetComponent<Animator>();
         estEquipe = true;
-
+        // Always set peutPecher to true at start
         peutPecher = true;
-
-        //Le canvas du miniJeu de pÃªche est dÃ©sactivÃ© au dÃ©but, il sera rÃ©activÃ© lorsque le joueur clique sur le lac
-        //SystemePeche.Instance.minijeu.SetActive(false);
-        //systemePecheUI.gameObject.SetActive(false);
-        canvas.gameObject.SetActive(false);
-
+        // Start fishing automatically
+        StartCoroutine(StartFishing());
     }
 
-    public void OnEnable()
+    // Coroutine pour débuter la peche après un court délai
+    IEnumerator StartFishing()
     {
-        SystemePeche.OnPecheTerminee += GestionFinPeche;
-    }
+        //Attendre 1 seconde avant de lancer la canne a peche
+        yield return new WaitForSeconds(1f);
 
-    private void GestionFinPeche()
-    {
-        //Dï¿½truire l'appï¿½t
-        Destroy(appatRef);
-    }
-
-    public void OnDestroy()
-    {
-        SystemePeche.OnPecheTerminee -= GestionFinPeche;
+        //Commencer la peche automatiquement lorsque les conditions sont atteintes
+        if (estEquipe && peutPecher && !estLance && !tire)
+        {
+            Debug.Log("Je peche");
+            StartCoroutine(CastRod(transform.position));
+        }
     }
 
     void Update()
     {
-        //DÃ©sactivÃ© en attendant parce que je suis en train de rager
-        //if (estEquipe)
-        //{
-            ////Detecter la zone de pï¿½che lorsque la camÃ©ra pointe vers le lac
-            //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            ////Debug.Log("Je pointe vers l'eau");
-
-            //RaycastHit hit;
-            //if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            //{
-            //    //Lorsque la souris pointe sur le lac, il est possible de pï¿½cher
-            //    if (hit.collider.CompareTag("zonePeche"))
-            //    {
-            //        peutPecher = true;
-            //        // && !estLance && !tire
-            //        //Clic du bouton gauche de la souris
-            //    }
-            //    else
-            //    {
-            //        //peutPecher = false;
-            //    }
-            //}
-            //else
-            //{
-            //    //peutPecher = false;
-            //}
-        //}
-
-        if (Input.GetMouseButtonDown(0))
+        //Tirer la canne a peche sur le clic droit de la souris
+        if (estLance && Input.GetMouseButtonDown(1))
         {
-            //SourceDeau source = hit.collider.gameObject.GetComponent<ZonePeche>().sourceDeau;
-            estLance = true;
-            Debug.Log("je clique man! bon sang");
-            //Jouer l'animation de lancer de la canne
-            animator.SetTrigger("LancerCanne");
-            //StartCoroutine(CastRod(hit.point, source));
-
-            //Ajouter un bouton pour commencer la pï¿½che
-            //Afficher le canvas du mini jeu UI
-            SystemePeche.Instance.minijeu.SetActive(true);
-            //systemePecheUI.gameObject.SetActive(true);
-            canvas.gameObject.SetActive(true);
-        }
-
-        //Si la corde est utilisï¿½e
-        // ï¿½ AJOUTER DIFFï¿½RENTS ï¿½Lï¿½MENTS DE LA CANNE ï¿½ Pï¿½CHE
-        if (estLance || tire)
-        {
-            if (debutCorde != null && debutCanne != null && finCorde != null)
-            {
-                debutCorde.transform.position = debutCanne.transform.position;
-
-                if (positionAppat != null)
-                {
-                    finCorde.transform.position = positionAppat.position;
-                }
-            }
-            else
-            {
-                Debug.Log("La canne ï¿½ pï¿½che est lancï¿½e");
-            }
-        }
-
-        //Clic droit de la souris seulement si un poisson est dï¿½tectï¿½
-        if (estLance && Input.GetMouseButtonDown(1) && SystemePeche.Instance.siContactPoisson) //Se dï¿½clenche seulement s'il y a contact
-        {
-            TirerCanne();
-            Debug.Log("Je tire");
+            PullRod();
         }
     }
 
-
-    IEnumerator CastRod(Vector3 targetPosition, SourceDeau source)
+    // Coroutine pour lancer la canne 
+    IEnumerator CastRod(Vector3 targetPosition)
     {
-        //Ajouter une animation de lancer de canne ï¿½ pï¿½che
         estLance = true;
-        animator.SetTrigger("Cast");
-
-        //Dï¿½lai entre l'animation et l'apparition de l'appï¿½t sur la zone de pï¿½che
+        animator.SetTrigger("LancerCanne");
         yield return new WaitForSeconds(1f);
 
-        //Crï¿½e un appï¿½t qui flotte sur l'eau
-        GameObject appatInstance = Instantiate(appatPrefab);
-        appatInstance.transform.position = targetPosition;
+        GameObject instanceAppat = Instantiate(appatPrefab);
+        instanceAppat.transform.position = targetPosition;
 
-        positionAppat = appatInstance.transform;
+        positionAppat = instanceAppat.transform;
 
-        appatRef = appatInstance;
-
-        //Dï¿½but des conditions des poissons
-        //Rï¿½fï¿½rence au script de pï¿½che. Dans ce cas, il ira chercher les poissons trouvï¿½s dans le lac
-        SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
+        // Start Fish Bite Logic
     }
 
-    private void TirerCanne()
+    // Methode pour tirer la canne peche
+    private void PullRod()
     {
-        animator.SetTrigger("Pull");
+        animator.SetTrigger("TirerCanne");
+        Debug.Log("je tire");
         estLance = false;
         tire = true;
 
-        //Dï¿½but du mini jeu
-        SystemePeche.Instance.SetEstEnTrainDeTirer();
+        // Start Minigame Logic
     }
 }
