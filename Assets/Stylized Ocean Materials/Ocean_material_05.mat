@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FoamTexture:
-        m_Texture: {fileID: 2800000, guid: 5f9b6fb959d19a241b3efbcaa90b5a77, type: 3}
+        m_Texture: {fileID: 2800000, guid: 352eedab30797fa41b34ec4e4abecb97, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Higlight:
@@ -99,5 +99,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _WaterColor: {r: 0.4926471, g: 0.6011156, b: 1, a: 1}
+    - _WaterColor: {r: 0.31763974, g: 0.66041964, b: 0.8113208, a: 1}
   m_BuildTextureStacks: []
