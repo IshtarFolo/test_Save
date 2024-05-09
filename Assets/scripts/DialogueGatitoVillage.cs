@@ -114,7 +114,12 @@ public class DialogueGatitoVillage : MonoBehaviour
             lettreE.SetActive(false);
             veutParler = false;
             dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
-            interactionPerso.villageois.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        // Si tous les dialogues ont été terminés et que le joueur appuie sur la touche "E", recommencer le dialogue
+        if (dialoguesTermines && Input.GetKeyDown(KeyCode.E))
+        {
+            RecommencerDialogue();
         }
     }
 
@@ -137,6 +142,7 @@ public class DialogueGatitoVillage : MonoBehaviour
     public void RecommencerDialogue()
     {
         dialogueActuelIndex = 0;
+        lettreE.SetActive(true);
         dialogueGatito.enabled = true;
         bulle.SetActive(true);
         dialoguesTermines = false;
