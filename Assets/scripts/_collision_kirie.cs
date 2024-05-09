@@ -94,7 +94,8 @@ public class _collision_kirie : MonoBehaviour
     public Scene scene;
 
 
-// Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
+
+    // Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
     public void Start()
     {
         audioJoue = false;
@@ -119,9 +120,8 @@ public class _collision_kirie : MonoBehaviour
         noScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-
-// INFO TRIGGER
-// ////////////////////////////////////////////////
+    // INFO TRIGGER
+    // ////////////////////////////////////////////////
     public void OnTriggerEnter(Collider infoTrigger)
     {
         //Partie manquante pour le menu principal? Cinématique?
@@ -189,7 +189,7 @@ public class _collision_kirie : MonoBehaviour
             }
         }
 
-        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.DialogueActuelleIndex == 2)
+        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true)
         {
             UIbarrevillageois.SetActive(true);
             UIgatito.SetActive(true);

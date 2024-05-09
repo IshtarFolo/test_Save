@@ -8105,10 +8105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e6f06d4903b9d419a00138d1380c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poissonTransform: {fileID: 0}
-  attrapePoissonTransform: {fileID: 0}
-  siOverlap: 0
-  reussiteSlider: {fileID: 0}
 --- !u!114 &147571531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30145,8 +30141,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
-  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245951, y: -0.68819416, z: 0.16246107, w: 0.68818754}
+  m_LocalPosition: {x: 118.04426, y: 115.512146, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58452,12 +58448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94131d1322c852d40b1412b1980df45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxGaucheUI: -250
-  maxDroiteUI: 250
-  vitessePoisson: 250
-  changerFrequence: 0.01
-  poissonPosition: 0
-  mouvementGaucheDroite: 1
 --- !u!114 &824966854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64348,14 +64338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403187b0648ff154b91064cbc5af1b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  estEquipe: 0
-  peutPecher: 0
-  estLance: 0
-  tire: 0
-  appatPrefab: {fileID: 0}
-  finCorde: {fileID: 0}
-  debutCorde: {fileID: 0}
-  debutCanne: {fileID: 0}
 --- !u!95 &869931033
 Animator:
   serializedVersion: 5
@@ -64945,7 +64927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7a8ba9f237f9042b15eadc1e19a07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceDeau: 0
 --- !u!1001 &916766939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65715,8 +65696,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
-  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245951, y: -0.68819416, z: 0.16246107, w: 0.68818754}
+  m_LocalPosition: {x: 118.04426, y: 115.512146, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -107836,9 +107817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29a512ffa92784d8fe3e070bdce2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxGaucheUI: -250
-  maxDroiteUI: 250
-  vitesseBarre: 250
 --- !u!114 &1905873518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115100,9 +115078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393e06ee51e580b49b17582c632653a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poissonsDeLac: []
-  siContactPoisson: 0
-  minijeu: {fileID: 147571527}
 --- !u!4 &2075105501
 Transform:
   m_ObjectHideFlags: 0

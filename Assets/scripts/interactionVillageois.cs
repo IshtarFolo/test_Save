@@ -12,9 +12,9 @@ public class interactionVillageois : MonoBehaviour
 
     public TextMeshPro dialogueVillageois; // Référence au texte du villageois actuel
     public GameObject bulle; // Référence à la bulle de dialogue
-    public static int DialogueActuelleIndex = 0; // Index du dialogue actuel
 
     public bool aParle = false; // Variable pour vérifier si le joueur a parlé
+    public static bool aParleVillageois1 = false;
     public bool dialoguesTermines = false; // Variable pour vérifier si tous les dialogues ont été affichés
 
 
@@ -66,7 +66,7 @@ public class interactionVillageois : MonoBehaviour
     }
 
     //Méthode coroutine pour faire défiler le dialogue automatiquement
-    IEnumerator AfficherDialoguesAuto()
+    public IEnumerator AfficherDialoguesAuto()
     {
         //Désactiver la lettre E après avoir appuyé une seule fois pour démarrer la conversation
         lettreE.SetActive(false);
@@ -76,6 +76,7 @@ public class interactionVillageois : MonoBehaviour
             dialogueVillageois.text = "";
             bulle.SetActive(true);
 
+
             foreach (char lettre in dialogue)
             {
                 dialogueVillageois.text += lettre;
@@ -83,6 +84,7 @@ public class interactionVillageois : MonoBehaviour
             }
 
             yield return new WaitForSeconds(0.5f); // Attendre un court laps de temps avant d'afficher le prochain dialogue
+            //DialogueActuelleIndex++;
         }
 
         // Si tous les dialogues ont été affichés, désactiver le dialogue
@@ -91,7 +93,16 @@ public class interactionVillageois : MonoBehaviour
         lettreE.SetActive(false);
         veutParler = false;
         dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
-        aParle = true; // Marquer que le joueur a parlé au villageois
+        if(dialoguesTermines == true)
+        {
+            aParle = true; // Marquer que le joueur a parlé au villageois
+        }
+
+        if (gameObject.CompareTag("villageois1") && dialoguesTermines) // Vérifie si le villageois est celui que vous souhaitez suivre
+        {
+            aParleVillageois1 = true;
+        }
+
     }
 
 }
