@@ -93,15 +93,13 @@ public class interactionVillageois : MonoBehaviour
         lettreE.SetActive(false);
         veutParler = false;
         dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
-        if(dialoguesTermines == true)
-        {
-            aParle = true; // Marquer que le joueur a parlé au villageois
-        }
 
-        if (gameObject.CompareTag("villageois1") && dialoguesTermines) // Vérifie si le villageois est celui que vous souhaitez suivre
+        if (gameObject.CompareTag("villageois1") && dialoguesTermines)
         {
             aParleVillageois1 = true;
         }
+
+        aParle = true; // Marquer que le joueur a parlé au villageois
 
     }
 
