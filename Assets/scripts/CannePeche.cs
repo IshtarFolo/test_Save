@@ -25,8 +25,8 @@ public class CannePeche : MonoBehaviour
     public GameObject debutCanne;
 
     //Animations de Kirie
-    //public GameObject kiriePerso;
-    //Animator animatorKirie;
+    public GameObject kiriePerso;
+    Animator animatorKirie;
 
     Transform positionAppat;
     GameObject appatRef;
@@ -41,7 +41,7 @@ public class CannePeche : MonoBehaviour
         StartCoroutine(DebutPeche());
 
         //Activer l'animation de pêche de Kirie
-        //animatorKirie = kiriePerso.GetComponent<Animator>();
+        animatorKirie = kiriePerso.GetComponent<Animator>();
            
     }
 
@@ -72,7 +72,9 @@ public class CannePeche : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && estEquipe && peutPecher && !estLance && !tire)
             {
                 Debug.Log("Je peche - clic gauche");
-                //animatorKirie.SetTrigger("Cast");
+
+                //Déclencer l'animation de Kirie de lancer de canne à pêche
+                animatorKirie.SetTrigger("Cast");
                 SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
                 StartCoroutine(LancerCannePeche(transform.position));
                 yield break;

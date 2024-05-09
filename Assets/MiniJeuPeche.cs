@@ -65,9 +65,7 @@ public class MiniJeuPeche : MonoBehaviour
         //Vérifier si les limites sont atteintes
         if (compteurReussite >= reussiteLimite)
         {
-            Debug.Log("Bravo! 1 poisson ajouté à l'inventaire !");
-
-          
+            Debug.Log("Bravo! 1 poisson ajouté à l'inventaire !");          
 
             //Jouer une animation d'un poisson sorti de l'eau
             animatorPoisson.SetTrigger("PoissonSorti");
@@ -80,6 +78,9 @@ public class MiniJeuPeche : MonoBehaviour
 
             //Terminer le jeu
             SystemePeche.Instance.TerminerMiniJeu(true);
+
+            //Recommencer la pêche
+            //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);            
 
         }
         else if(compteurReussite <= echecLimite)
@@ -97,6 +98,7 @@ public class MiniJeuPeche : MonoBehaviour
             SystemePeche.Instance.PecheTerminee();
             SystemePeche.Instance.ResetEstEnTrainDeTirer();
 
+            //Recommencer le jeu
             //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
         }
     }
