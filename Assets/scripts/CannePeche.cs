@@ -18,7 +18,7 @@ public class CannePeche : MonoBehaviour
     public bool tire;
 
     //Pour les animations de la canne 
-    Animator animatorCanne;
+    public Animator animatorCanne;
     public GameObject appatPrefab;
     public GameObject finCorde;
     public GameObject debutCorde;

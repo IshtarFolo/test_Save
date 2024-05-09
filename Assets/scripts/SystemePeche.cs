@@ -133,6 +133,10 @@ public class SystemePeche : MonoBehaviour
             //Jouer le son de poisson capturé
             audioSource.PlayOneShot(poissonPerdu);
 
+            //Terminer la pêche
+            SystemePeche.Instance.PecheTerminee();
+            estEnTrainDeTirer = false;
+
             //CommencerMiniJeuPeche();
         }
     }
@@ -150,7 +154,11 @@ public class SystemePeche : MonoBehaviour
         //Afficher le canvas
         canvas.gameObject.SetActive(true);
     }
-    
+
+    public void ResetEstEnTrainDeTirer()
+    {
+        estEnTrainDeTirer = false;
+    }
 
     private InfosPoissons CalculerProbPoisson(SourceDeau sourceDeau)
     {
@@ -183,7 +191,7 @@ public class SystemePeche : MonoBehaviour
         //En cas d'erreur de nombre aléatoire pigé
         return null;
     }
-    private void PecheTerminee()
+    public void PecheTerminee()
     {
         siContactPoisson = false;
         estEnTrainDeTirer = false;

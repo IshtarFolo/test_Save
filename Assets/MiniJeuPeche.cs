@@ -86,14 +86,18 @@ public class MiniJeuPeche : MonoBehaviour
         {
             Debug.Log("Échec... Gatito commence à avoir faim là...");
 
-           
-
             //Remettre le compteur à 0
             compteurReussite = 0;
             reussiteSlider.value = 0;
 
             //Terminer le jeu
             SystemePeche.Instance.TerminerMiniJeu(false);
+
+            //Terminer la pêche
+            SystemePeche.Instance.PecheTerminee();
+            SystemePeche.Instance.ResetEstEnTrainDeTirer();
+
+            //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
         }
     }
 
