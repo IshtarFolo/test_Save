@@ -56,7 +56,7 @@ public class SystemePeche : MonoBehaviour
         //Si le poisson touché s'appelle AucunPoisson, le jeu s'arrête. Sinon, continuer avec les autres probabilités
         if (poisson.nomPoisson == "AucunPoisson")
         {
-            Debug.Log("Aucun contact");
+            Debug.Log("Aucun contact, la session de pêche est terminée");
             //La session de pêche se termine
             PecheTerminee();
         }
@@ -85,6 +85,7 @@ public class SystemePeche : MonoBehaviour
         }
 
         Debug.LogWarning("Commencer mini-jeu");
+        Debug.Log("Afficher maintenant le UI pour le miniJeu");
 
         //Commencer le mini-jeu de pêche avec le ui
         //CommencerMiniJeuPeche();

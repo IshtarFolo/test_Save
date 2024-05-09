@@ -24,6 +24,10 @@ public class CannePeche : MonoBehaviour
     public GameObject debutCorde;
     public GameObject debutCanne;
 
+    //Animations de Kirie
+    //public GameObject kiriePerso;
+    //Animator animatorKirie;
+
     Transform positionAppat;
     GameObject appatRef;
 
@@ -35,6 +39,10 @@ public class CannePeche : MonoBehaviour
         peutPecher = true;
         //Commencer la peche automatiquement
         StartCoroutine(DebutPeche());
+
+        //Activer l'animation de pêche de Kirie
+        //animatorKirie = kiriePerso.GetComponent<Animator>();
+           
     }
 
     private void OnEnable()
@@ -58,12 +66,13 @@ public class CannePeche : MonoBehaviour
     {
         yield return null;
 
-        while (true) // Loop indefinitely
+        while (true) 
         {
             //Sur clic gauche, commencer la peche
             if (Input.GetMouseButtonDown(0) && estEquipe && peutPecher && !estLance && !tire)
             {
-                Debug.Log("Je peche");
+                Debug.Log("Je peche - clic gauche");
+                //animatorKirie.SetTrigger("Cast");
                 SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
                 StartCoroutine(LancerCannePeche(transform.position));
                 yield break;
@@ -81,6 +90,7 @@ public class CannePeche : MonoBehaviour
         if (estLance && Input.GetMouseButtonDown(1) && SystemePeche.Instance.siContactPoisson) //Se declenche seulement s'il y a contact
         {
             TirerCanne();
+            Debug.Log("Appel de la fonction TirerCanne - clic droit");
         }
     }
 
@@ -105,7 +115,7 @@ public class CannePeche : MonoBehaviour
     //Methode pour tirer la canne peche
     private void TirerCanne()
     {
-        animator.SetTrigger("TirerCanne");
+        animator.SetTrigger("ResistanceCanne");
         Debug.Log("je tire");
         estLance = false;
         tire = true;
