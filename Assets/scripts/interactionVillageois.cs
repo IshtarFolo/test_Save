@@ -33,21 +33,11 @@ public class interactionVillageois : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (veutParler)
+        if (veutParler && Input.GetKeyDown(KeyCode.E) && !aParle)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (dialogueCoroutine == null)
             {
-                if (dialogueCoroutine != null)
-                {
-                    StopCoroutine(dialogueCoroutine);
-                }
-
-                AfficherDialogueSuivant();
-                // Si tous les dialogues ont été affichés, marquer que le joueur a parlé au villageois
-                if (dialoguesTermines)
-                {
-                    aParle = true;
-                }
+                dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto());
             }
         }
 
@@ -56,7 +46,7 @@ public class interactionVillageois : MonoBehaviour
 
     private void OnTriggerEnter(Collider infoCollision)
     {
-        if(infoCollision.gameObject.tag == "Player")
+        if(infoCollision.gameObject.tag == "Player" && !aParle)
         {
         lettreE.SetActive(true);
         veutParler = true;
@@ -66,7 +56,7 @@ public class interactionVillageois : MonoBehaviour
 
     private void OnTriggerExit(Collider infoCollision)
     {
-        if (infoCollision.gameObject.tag == "Player")
+        if (infoCollision.gameObject.tag == "Player" && !aParle)
         {
             lettreE.SetActive(false);
             veutParler = false;
@@ -75,53 +65,33 @@ public class interactionVillageois : MonoBehaviour
 
     }
 
-    // Méthode pour afficher le dialogue suivant
-    public void AfficherDialogueSuivant()
+    //Méthode coroutine pour faire défiler le dialogue automatiquement
+    IEnumerator AfficherDialoguesAuto()
     {
-        if (DialogueActuelleIndex < dialogues.Length)
+        //Désactiver la lettre E après avoir appuyé une seule fois pour démarrer la conversation
+        lettreE.SetActive(false);
+
+        foreach (string dialogue in dialogues)
         {
-            // Vérifier si la coroutine est déjà en cours d'exécution
-            if (dialogueCoroutine != null)
+            dialogueVillageois.text = "";
+            bulle.SetActive(true);
+
+            foreach (char lettre in dialogue)
             {
-                StopCoroutine(dialogueCoroutine);
+                dialogueVillageois.text += lettre;
+                yield return new WaitForSeconds(0.10f); // Attendre un court laps de temps entre chaque lettre
             }
-                dialogueCoroutine = StartCoroutine(AfficherDialogueCoroutine(dialogues[DialogueActuelleIndex]));
-        }
-        else
-        {
-            // Si tous les dialogues ont été affichés, désactiver le dialogue
-            dialogueVillageois.enabled = false;
-            bulle.SetActive(false);
-            lettreE.SetActive(false);
-            veutParler = false;
-            dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
-            interactionPerso.villageois.GetComponent<BoxCollider>().enabled = false;
-        }
-    }
 
-    // Coroutine pour afficher les dialogues lettre par lettre
-    IEnumerator AfficherDialogueCoroutine(string dialogue)
-    {
-        dialogueVillageois.text = "";
-        bulle.SetActive(true);
-
-        foreach (char lettre in dialogue)
-        {
-            dialogueVillageois.text += lettre;
-            yield return new WaitForSeconds(0.10f); // Attendre un court laps de temps entre chaque lettre
+            yield return new WaitForSeconds(0.5f); // Attendre un court laps de temps avant d'afficher le prochain dialogue
         }
 
-        DialogueActuelleIndex++;
-    }
-    
-    //Moyen pour que le dialogue recommence après avoir fini son itération
-    public void RecommencerDialogue()
-    {
-        DialogueActuelleIndex = 0;
-        dialogueVillageois.enabled = true;
-        bulle.SetActive(true);
-        dialoguesTermines = false;
-        AfficherDialogueSuivant();
+        // Si tous les dialogues ont été affichés, désactiver le dialogue
+        dialogueVillageois.enabled = false;
+        bulle.SetActive(false);
+        lettreE.SetActive(false);
+        veutParler = false;
+        dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
+        aParle = true; // Marquer que le joueur a parlé au villageois
     }
 
 }

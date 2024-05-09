@@ -88,7 +88,7 @@ public class interactionPerso: MonoBehaviour
     {
         if (scriptVillageois != null)
         {
-            scriptVillageois.AfficherDialogueSuivant();
+            //scriptVillageois.AfficherDialogueSuivant();
             scriptVillageois.dialogueVillageois.enabled = true;
         }
     }
