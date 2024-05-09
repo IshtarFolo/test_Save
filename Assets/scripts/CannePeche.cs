@@ -108,7 +108,8 @@ public class CannePeche : MonoBehaviour
 
             appatRef = instanceAppat;
 
-            //Start Fish Bite Logic 
+            //Début du système de pêche
+            //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
                    
     }
 

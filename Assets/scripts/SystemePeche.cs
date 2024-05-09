@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script pour le système de pêche du niveau 2 de lac - Le joueur devra pêcher 3 poissons pour continuer la quête
+//Par Camilia El Moustarih
 
 //Liste d'énumération au cas où il y aurait plusieurs sources d'eau offrant différents poissons
 //Exemples océan, rivière, marécage, etc.
@@ -46,8 +48,8 @@ public class SystemePeche : MonoBehaviour
 
     IEnumerator PecheCoroutine(SourceDeau sourceDeau)
     {
-        //Délai de 3 secondes avant contact avec poisson
-        yield return new WaitForSeconds(3f);
+        //Délai de 5 secondes avant contact avec poisson
+        yield return new WaitForSeconds(5f);
 
         //Récupérer la liste des poissons de cette source d'eau
         InfosPoissons poisson = CalculerProbPoisson(sourceDeau);
