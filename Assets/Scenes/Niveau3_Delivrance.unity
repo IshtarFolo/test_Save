@@ -123,27 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1796218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3c3de1a7dab4a34a85f698daf8bcf5b, type: 3}
-  m_PrefabInstance: {fileID: 1284023998}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1796220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5fc6206ced7e4e9da4d61c3f3e8e561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogues:
-  - "THAYS ! RENDS-MON FR\xC8RE !"
-  reponses:
-  - "Qu'estce qui vous est arriv\xE9 ?"
 --- !u!1 &37537580
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,10 +303,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 531630982}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
 --- !u!1001 &330793679
 PrefabInstance:
@@ -749,29 +725,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04edb489002c040c6af7568186e21e30, type: 3}
---- !u!1 &531630980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cc220c0304cb32641a15e85fac7f9b71, type: 3}
-  m_PrefabInstance: {fileID: 100450954}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &531630982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531630980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6321d69123e54f1f9e351e0f3d20168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogues:
-  - "Mais qui vois-je ? Personne l'a le droit de p\xE9n\xE9trer chez moi. Pas apr\xE8s
-    ce que vous m'avez fait  !"
-  - Ouh la la
-  reponses:
-  - Jamais
 --- !u!1 &575065017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,10 +1624,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3c3de1a7dab4a34a85f698daf8bcf5b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1796220}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3c3de1a7dab4a34a85f698daf8bcf5b, type: 3}
 --- !u!1001 &1308321376
 PrefabInstance:
