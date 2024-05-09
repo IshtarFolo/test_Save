@@ -13,6 +13,7 @@ public enum SourceDeau
 {
     Lac
 }
+
 public class SystemePeche : MonoBehaviour
 {
     public static SystemePeche Instance { get; set; }
@@ -20,6 +21,8 @@ public class SystemePeche : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         //S'assurer qu'il n'y a pas d'autre système de pêche dupliqué dans le jeu. Si oui, le supprimer.
         if (Instance != null && Instance != this)
         {
@@ -29,6 +32,9 @@ public class SystemePeche : MonoBehaviour
         {
             Instance = this;
         }
+
+        //Le canvas du mini jeu est désactivé au début de la pêche, il sera réactivé seulement lorsqu'il y a contact avec un poisson autre que "Aucun poisson"
+        minijeu.SetActive(false);
     }
 
     //Dans le cas où nous voudrions différentes sources d'eau qui offrent différents poissons
@@ -44,7 +50,14 @@ public class SystemePeche : MonoBehaviour
     private bool estEnTrainDeTirer;
 
     //public static event Action OnPecheTerminee;
- 
+
+    //Variables pour le mini jeu UI
+    public GameObject canvas;
+    public GameObject minijeu;
+
+    //Variables de son
+    [SerializeField] AudioClip poissonCapture, poissonPerdu;
+    private AudioSource audioSource;    
 
     IEnumerator PecheCoroutine(SourceDeau sourceDeau)
     {
@@ -66,6 +79,9 @@ public class SystemePeche : MonoBehaviour
         {
             Debug.Log(poisson.nomPoisson + " a mordu !");
             StartCoroutine(CommencerResistancePoisson(poisson));
+
+            //afficher le canvas du mini jeu
+            canvas.SetActive(true);
         }
     }
 
@@ -90,12 +106,49 @@ public class SystemePeche : MonoBehaviour
         Debug.Log("Afficher maintenant le UI pour le miniJeu");
 
         //Commencer le mini-jeu de pêche avec le ui
-        //CommencerMiniJeuPeche();
+        CommencerMiniJeuPeche();
+    }
+
+    internal void TerminerMiniJeu(bool reussite)
+    {
+        //Désactiver le mini jeu et son canvas
+        minijeu.gameObject.SetActive(false);
+
+        //Terminer la session de pêche
+        if (reussite)
+        {
+            PecheTerminee();
+            Debug.Log("poisson attrapé");
+            //Jouer le son de poisson capturé
+            audioSource.PlayOneShot(poissonCapture);
+
+            //Ajouter à l'inventaire
+
+            //CommencerMiniJeuPeche();
+        }
+        else
+        {
+            PecheTerminee();
+            Debug.Log("poisson perdu");
+            //Jouer le son de poisson capturé
+            audioSource.PlayOneShot(poissonPerdu);
+
+            //CommencerMiniJeuPeche();
+        }
+    }
+
+    private void CommencerMiniJeuPeche()
+    {
+        //Activer le mini jeu de pêche
+        minijeu.SetActive(true);
+       
     }
 
     public void SetEstEnTrainDeTirer()
     {
         estEnTrainDeTirer = true;
+        //Afficher le canvas
+        canvas.gameObject.SetActive(true);
     }
     
 

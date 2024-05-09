@@ -18,10 +18,11 @@ public class MouvementAttrappePoissonUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Controller la barre attrape poisson à l'aide des flèches gauche et droite
         float moveInput = Input.GetAxis("Horizontal");
 
         //La barre rouge Attrape Poisson sera gérée par le joueur.
-        //Éxécuter ce code lorsque le joueur manipule la barre rouge
+        //Éxécuter ce code lorsque le joueur manipule la barre rouge attrape poisson
         if (moveInput != 0)
         {
             MouvementBarre(moveInput);
