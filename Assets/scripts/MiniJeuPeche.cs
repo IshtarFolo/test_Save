@@ -33,6 +33,8 @@ public class MiniJeuPeche : MonoBehaviour
     //Petite animation de poisson qui sort de l'eau lorsque la pêche est réussie
     public Animator animatorPoisson;       
     
+
+
     //Pour calculer le chevauchement entre les deux éléments du UI (le poisson et l'attrape poisson)
     private void Update()
     {
@@ -125,6 +127,7 @@ public class MiniJeuPeche : MonoBehaviour
     //DANS L'ESPOIR QUE ÇA GARDE MES POISSONS EN STOCK
     void ReloadPeche()
     {
+        DontDestroyOnLoad(compteurPoissons);
         SceneManager.LoadScene("Niveau1_MiniJeuPeche");
     }
 }
