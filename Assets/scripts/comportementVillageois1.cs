@@ -21,15 +21,18 @@ public class comportementVillageois1 : MonoBehaviour
         // Associationdes variables des GetCompoenent
         agent = GetComponent<NavMeshAgent>();
         animateur = GetComponent<Animator>();
-        
-        // Declenchement de la coroutine
-        StartCoroutine(ChangerDestination());
+
+        if (!agent.isStopped)
+        {
+            // Declenchement de la coroutine
+            StartCoroutine(ChangerDestination());
+        }
     }
 
     void Update()
     {
         // On regarde si le NPC a atteint sa destination
-        if (!agent.pathPending && agent.remainingDistance < 0.5f && agent.enabled)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && agent.enabled && !agent.isStopped)
         {
             StartCoroutine(ChangerDestination());
         }
@@ -44,6 +47,7 @@ public class comportementVillageois1 : MonoBehaviour
                 animateur.SetBool("marche", true);
                 break;
         }
+
 
         // On declenche l'animation du villageois triste
         if (agent.remainingDistance >= agent.stoppingDistance && agent.isStopped && indexDestinations == 0)
@@ -67,12 +71,12 @@ public class comportementVillageois1 : MonoBehaviour
 
         // On choisi une nouvelle destination
         indexDestinations = (indexDestinations + 1) % destinations.Length;
-
+        // Arrete le NavMeshAgent
         agent.isStopped = true;
 
         // On attend un peu avant de relancer le mouvement du NPC
-        yield return new WaitForSeconds(10);
-
+        yield return new WaitForSeconds(10f);
+        // On arrete le personnage
         agent.isStopped = false;
     }
 }

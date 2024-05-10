@@ -22,14 +22,17 @@ public class comportementVillageois2 : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animateur = GetComponent<Animator>();
 
-        // Declenchement de la coroutine
-        StartCoroutine(ChangerDestination());
+        if (!agent.isStopped)
+        {
+            // Declenchement de la coroutine
+            StartCoroutine(ChangerDestination());
+        }
     }
 
     void Update()
     {
         // On regarde si le NPC a atteint sa destination
-        if (!agent.pathPending && agent.remainingDistance < 0.5f && agent.enabled)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && agent.enabled && !agent.isStopped)
         {
             StartCoroutine(ChangerDestination());
         }

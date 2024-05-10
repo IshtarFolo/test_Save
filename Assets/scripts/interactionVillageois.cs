@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.AI;
 
 public class interactionVillageois : MonoBehaviour
 {
@@ -17,10 +18,13 @@ public class interactionVillageois : MonoBehaviour
     public static bool aParleVillageois1 = false;
     public bool dialoguesTermines = false; // Variable pour vérifier si tous les dialogues ont été affichés
 
-
     public string[] dialogues; // Tableau de textes pour les dialogues
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
+
+    public GameObject Kirie; // Reference a Kirie
+
+    NavMeshAgent agent; // Variable raccourcis NavMesh
 
 
     // Start is called before the first frame update
@@ -28,6 +32,9 @@ public class interactionVillageois : MonoBehaviour
     {
         dialogueVillageois.enabled = true;
         bulle.SetActive(true);
+
+        // Raccourcis NavMesh
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -38,19 +45,22 @@ public class interactionVillageois : MonoBehaviour
             if (dialogueCoroutine == null)
             {
                 dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto());
+                // Le villageois s'arrete
+                this.agent.isStopped = true;
+                // Le personnage regarde le joueur
+                StartCoroutine(RotationVersJoueur());
+                // On relance le mouvement du villageois
+                StartCoroutine(ArretDuVillageois());
             }
         }
-
-        //Debug.Log(DialogueActuelleIndex);
     }
 
     private void OnTriggerEnter(Collider infoCollision)
     {
         if(infoCollision.gameObject.tag == "Player" && !aParle)
         {
-        lettreE.SetActive(true);
-        veutParler = true;
-
+            lettreE.SetActive(true);
+            veutParler = true;
         }
     }
 
@@ -60,9 +70,7 @@ public class interactionVillageois : MonoBehaviour
         {
             lettreE.SetActive(false);
             veutParler = false;
-
         }
-
     }
 
     //Méthode coroutine pour faire défiler le dialogue automatiquement
@@ -100,7 +108,31 @@ public class interactionVillageois : MonoBehaviour
         }
 
         aParle = true; // Marquer que le joueur a parlé au villageois
-
     }
+
+    private IEnumerator ArretDuVillageois()
+    {
+        // Le villageois reprend son deplacement apres un certain temps
+        yield return new WaitForSeconds(20f);
+        this.agent.isStopped = false;
+    }
+
+    IEnumerator RotationVersJoueur()
+    {
+        while (true)
+        {
+            // Le villageois regarde dans la direction du joueur
+            Vector3 direction = (Kirie.transform.position - this.transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            this.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+
+            // Si le personnage fait presque face au joueur on arete la coroutine
+            if (Quaternion.Angle(this.transform.rotation, lookRotation) < 5f)
+            {
+                break;
+            }
+            yield return null;
+        }
+}
 
 }
