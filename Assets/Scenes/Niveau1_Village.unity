@@ -30094,8 +30094,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
-  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
+  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65347,8 +65347,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
-  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
+  m_LocalRotation: {x: 0.16245954, y: -0.6881937, z: 0.16246082, w: 0.68818814}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -75714,9 +75714,11 @@ MonoBehaviour:
   cle: {fileID: 0}
   armoireFerme: {fileID: 0}
   armoireOuverte: {fileID: 0}
+  planche2Quai: {fileID: 964566801}
   notification: 0
   cleRamasse: 0
   audioJoue: 0
+  cannePecheRamasse: 0
   UIJournalKirie: {fileID: 1810911502}
   UInotification: {fileID: 1113341616}
   UInoirFadeIn: {fileID: 184628780}
@@ -81364,7 +81366,7 @@ GameObject:
   - component: {fileID: 1348816342}
   m_Layer: 0
   m_Name: CtrlCannePecheCacheCache
-  m_TagString: Untagged
+  m_TagString: cannePeche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

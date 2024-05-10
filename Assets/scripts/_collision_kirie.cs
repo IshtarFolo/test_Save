@@ -14,11 +14,13 @@ public class _collision_kirie : MonoBehaviour
     public GameObject cle;
     public GameObject armoireFerme;
     public GameObject armoireOuverte;
+    public GameObject planche2Quai; //La planche pour passer au mini jeu de pêche
 
     [Header("Booléennes")]
     public bool notification;
     public bool cleRamasse;
     public bool audioJoue;
+    public bool cannePecheRamasse = false;
 
     [Header("Booléennes des scènes Unity")]
     public static bool tutorielTermine = false;
@@ -118,6 +120,9 @@ public class _collision_kirie : MonoBehaviour
 
         // au debut du jeu, on trouve l'index de la scene a activer
         noScene = SceneManager.GetActiveScene().buildIndex;
+
+        //S'assurer que le boxCollider de la planche2 du quai soit désactiver
+        planche2Quai.GetComponent<BoxCollider>().enabled = false;
     }
 
     // INFO TRIGGER
@@ -248,11 +253,17 @@ public class _collision_kirie : MonoBehaviour
 
                 Invoke("accesALinventaire", 0.1f);
             }
+
+           
+        }
+        if (cannePecheRamasse == true)
+        {
+            //Activer le box collider de la planche2
+            planche2Quai.GetComponent<BoxCollider>().enabled = true;
         }
 
-
-        //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
-        if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
+            //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
+            if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
@@ -276,6 +287,15 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
         {
             Invoke("niveau4", 2f);
+        }
+
+        //POUR ACTIVER LA PLANCHE2 POUR MINI JEU DE PECHE
+        //Si le joueur touche la canne à pêche on peut activer la zone pour passer au niveau de la pêche
+        if(infoCollision.gameObject.tag == "cannePeche")
+        {
+            cannePecheRamasse = true;
+            //On va le détruire et changer de cible ou désactiver la scrollbar
+            //Destroy(gameObject);
         }
     }
 

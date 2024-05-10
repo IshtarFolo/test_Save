@@ -12,6 +12,7 @@ TagManager:
   - zonePeche
   - villageois1
   - piege
+  - cannePeche
   layers:
   - Default
   - TransparentFX
