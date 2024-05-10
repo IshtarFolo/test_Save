@@ -84,7 +84,6 @@ public class DialogueGatitoVillage : MonoBehaviour
             veutParler = false;
 
         }
-
     }
 
     // Méthode pour exécuter l'action spécifique du joueur
