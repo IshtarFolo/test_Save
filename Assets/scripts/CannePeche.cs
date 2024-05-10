@@ -126,9 +126,4 @@ public class CannePeche : MonoBehaviour
         //Commencer le miniJeu
         SystemePeche.Instance.SetEstEnTrainDeTirer();
     }
-
-    private void ArreterAnimCanne()
-    {
-        
-    }
 }

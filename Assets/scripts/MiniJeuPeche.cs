@@ -22,8 +22,10 @@ public class MiniJeuPeche : MonoBehaviour
     float echecLimite = -100; //le joueur perd, bye
     float compteurReussite = 0; //compteur qui va déterminer si gagne ou perd
 
+    //Poissons ramassés lorsque le joueur à réussi le miniJeu UI
+    public static int poissonsPeches = 0;
 
-
+    //Petite animation de poisson qui sort de l'eau lorsque la pêche est réussie
     public Animator animatorPoisson; 
       
     
