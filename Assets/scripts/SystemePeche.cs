@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Script pour le système de pêche du niveau 2 de lac - Le joueur devra pêcher 3 poissons pour continuer la quête
 //Par Camilia El Moustarih
@@ -122,6 +123,8 @@ public class SystemePeche : MonoBehaviour
             //Jouer le son de poisson capturé
             audioSource.PlayOneShot(poissonCapture);
 
+            
+
             //Ajouter à l'inventaire
 
             //CommencerMiniJeuPeche();
@@ -138,14 +141,17 @@ public class SystemePeche : MonoBehaviour
             estEnTrainDeTirer = false;
 
             //CommencerMiniJeuPeche();
+
+            //Recharger la scène en cas d'échec
+            SceneManager­.LoadScene("Niveau1_MiniJeuPeche");
         }
     }
 
     private void CommencerMiniJeuPeche()
     {
-        //Activer le mini jeu de pêche
-        minijeu.SetActive(true);
-       
+        //activer le mini jeu de pêche
+        minijeu.gameObject.SetActive(true);
+
     }
 
     public void SetEstEnTrainDeTirer()
@@ -198,8 +204,12 @@ public class SystemePeche : MonoBehaviour
 
         Debug.Log("Peche terminée");
 
+        
+
         //Trigger pour terminer la manipulation de la canne à pêche
-        OnPecheTerminee?.Invoke();
+        //OnPecheTerminee?.Invoke();
+
+        //CommencerPeche(SourceDeau.Lac);
     }
     private List<InfosPoissons> CapturerPoissonDispo(SourceDeau sourceDeau)
     {

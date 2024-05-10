@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: AucunPoisson
   m_EditorClassIdentifier: 
   nomPoisson: AucunPoisson
-  objetInventaire: {fileID: 0}
-  probabiliteDattraper: 10
+  probabiliteDattraper: 80
