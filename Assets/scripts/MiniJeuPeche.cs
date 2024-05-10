@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 //Script pour le mini-jeu de pêche géré par des barres UI - Par Camilia El Moustarih
 public class MiniJeuPeche : MonoBehaviour
@@ -87,8 +88,11 @@ public class MiniJeuPeche : MonoBehaviour
             SystemePeche.Instance.TerminerMiniJeu(true);
 
             //Recommencer la pêche
-            //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);            
+            //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
+            //
 
+            //Recharger la scène de pêche pour recommencer la pêche
+            Invoke("ReloadPeche", 5f);
         }
         else if(compteurReussite <= echecLimite)
         {
@@ -118,5 +122,9 @@ public class MiniJeuPeche : MonoBehaviour
         return r1.Overlaps(r2);
     }
 
-
+    //DANS L'ESPOIR QUE ÇA GARDE MES POISSONS EN STOCK
+    void ReloadPeche()
+    {
+        SceneManager.LoadScene("Niveau1_MiniJeuPeche");
+    }
 }
