@@ -296,6 +296,7 @@ public class _collision_kirie : MonoBehaviour
             cannePecheRamasse = true;
             //On va le détruire et changer de cible ou désactiver la scrollbar
             //Destroy(gameObject);
+            UIbarreCanne.SetActive(true);
         }
     }
 
