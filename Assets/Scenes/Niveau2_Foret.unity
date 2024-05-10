@@ -623,8 +623,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246037, y: -0.68819004, z: 0.16245998, w: 0.6881918}
-  m_LocalPosition: {x: -631.05585, y: -9.327875, z: -193.70006}
+  m_LocalRotation: {x: 0.16246521, y: -0.6881887, z: 0.1624647, w: 0.6881909}
+  m_LocalPosition: {x: -266.8558, y: -89.227745, z: -363.70007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43053,8 +43053,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246037, y: -0.68819004, z: 0.16245998, w: 0.6881918}
-  m_LocalPosition: {x: -631.05585, y: -9.327875, z: -193.70006}
+  m_LocalRotation: {x: 0.16246521, y: -0.6881887, z: 0.1624647, w: 0.6881909}
+  m_LocalPosition: {x: -266.8558, y: -89.227745, z: -363.70007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60210,7 +60210,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -71955,15 +71955,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -650
+      value: -285.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.8
+      value: -98.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -193.7
+      value: -363.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       propertyPath: m_LocalRotation.w
