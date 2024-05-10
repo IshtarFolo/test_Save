@@ -21,7 +21,6 @@ public class DialogueGatitoVillage : MonoBehaviour
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
-    public interactionVillageois scriptVillageois;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +95,9 @@ public class DialogueGatitoVillage : MonoBehaviour
     // Méthode pour afficher le dialogue suivant
     public void AfficherDialogueSuivant(string[] dialogues)
     {
+        //Désactiver la lettre E après avoir appuyé une seule fois pour démarrer la conversation
+        lettreE.SetActive(false);
+
         if (dialogueActuelIndex < dialogues.Length)
         {
             // Vérifier si la coroutine est déjà en cours d'exécution
@@ -148,4 +150,5 @@ public class DialogueGatitoVillage : MonoBehaviour
         aParle = false;
         veutParler = true; // Permettre au joueur de parler à nouveau
     }
+
 }

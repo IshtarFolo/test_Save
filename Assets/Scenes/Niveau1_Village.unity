@@ -29471,10 +29471,12 @@ MonoBehaviour:
   aParle: 0
   dialoguesTermines: 0
   dialoguesSansAction:
-  - "Je sens le poisson, mais le go\xFBt s'est \xE9vapor\xE9 !"
+  - " Cela creuse l'app\xE9tit de r\xE9pondre aux questions. "
+  - " Ram\xE8ne-moi 3 d\xE9licieux poissons et je te r\xE9pondrais volontiers !"
   dialoguesAvecAction:
-  - Oh des poissons ! Ce n'est pas beaucoup.
-  scriptVillageois: {fileID: 0}
+  - Oh des poissons ! Ce n'est pas beaucoup. Tans pis
+  - "J'ai entendu dire par les animaux du coin, qu'un petit gar\xE7on a \xE9t\xE9
+    vu \xE0 l'or\xE9e de la for\xEAt. Il portait un masque de loup... "
 --- !u!136 &444299241
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30094,8 +30096,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
-  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
+  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65347,8 +65349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
-  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
+  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
