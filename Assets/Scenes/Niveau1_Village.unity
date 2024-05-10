@@ -29475,8 +29475,9 @@ MonoBehaviour:
   - " Ram\xE8ne-moi 3 d\xE9licieux poissons et je te r\xE9pondrais volontiers !"
   dialoguesAvecAction:
   - Oh des poissons ! Ce n'est pas beaucoup. Tans pis
-  - "J'ai entendu dire par les animaux du coin, qu'un petit gar\xE7on a \xE9t\xE9
-    vu \xE0 l'or\xE9e de la for\xEAt. Il portait un masque de loup... "
+  - 'J''ai entendu dire par les animaux du coin, '
+  - "qu'un petit gar\xE7on a \xE9t\xE9 vu \xE0 l'or\xE9e de la for\xEAt. "
+  - 'Il portait un masque de loup... '
 --- !u!136 &444299241
 CapsuleCollider:
   m_ObjectHideFlags: 0

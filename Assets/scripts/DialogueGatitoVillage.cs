@@ -11,7 +11,6 @@ public class DialogueGatitoVillage : MonoBehaviour
 
     public TextMeshPro dialogueGatito; // Référence au texte de Gatito
     public GameObject bulle; // Référence à la bulle de dialogue
-    private int dialogueActuelIndex = 0; // Index du dialogue actuel
 
     public bool aParle = false; // Variable pour vérifier si le joueur a parlé
     public bool dialoguesTermines = false; // Variable pour vérifier si tous les dialogues ont été affichés
@@ -32,32 +31,25 @@ public class DialogueGatitoVillage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (veutParler)
+        if (veutParler && (Input.GetKeyDown(KeyCode.E)) && !aParle)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (dialogueCoroutine != null)
-                {
-                    StopCoroutine(dialogueCoroutine);
-                }
 
-                if (peutActiverAction) // Si Gatito peut activer l'action du joueur
-                {
-                    ExecuteActionDuJoueur();
-                }
-                else // Sinon, gérer le dialogue avec Gatito normalement
-                {
-                    if (aParle) // Si le joueur a déjà parlé, afficher les dialogues avec action préalable
-                    {
-                        AfficherDialogueSuivant(dialoguesAvecAction);
-                    }
-                    else // Sinon, afficher les dialogues sans action préalable
-                    {
-                        AfficherDialogueSuivant(dialoguesSansAction);
-                    }
-                }
+            if (dialogueCoroutine == null)
+            {
+                dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesSansAction));
+            } 
+        }
+
+        if (veutParler && (Input.GetKeyDown(KeyCode.E)) && peutActiverAction)
+        {
+
+            if (dialogueCoroutine == null)
+            {
+                dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesAvecAction));
+
             }
         }
+
 
         if (dialoguesTermines)
         {
@@ -92,62 +84,44 @@ public class DialogueGatitoVillage : MonoBehaviour
         Debug.Log("Action spécifique du joueur activée !");
     }
 
-    // Méthode pour afficher le dialogue suivant
-    public void AfficherDialogueSuivant(string[] dialogues)
+
+    // Méthode coroutine pour faire défiler le dialogue automatiquement
+    public IEnumerator AfficherDialoguesAuto(string[] dialogues)
     {
-        //Désactiver la lettre E après avoir appuyé une seule fois pour démarrer la conversation
+        // Désactiver la lettre E après avoir appuyé une seule fois pour démarrer la conversation
         lettreE.SetActive(false);
 
-        if (dialogueActuelIndex < dialogues.Length)
+        foreach (string dialogue in dialogues)
         {
-            // Vérifier si la coroutine est déjà en cours d'exécution
-            if (dialogueCoroutine != null)
+            dialogueGatito.text = "";
+            bulle.SetActive(true);
+
+            foreach (char lettre in dialogue)
             {
-                StopCoroutine(dialogueCoroutine);
+                dialogueGatito.text += lettre;
+                yield return new WaitForSeconds(0.10f); // Attendre un court laps de temps entre chaque lettre
             }
-            dialogueCoroutine = StartCoroutine(AfficherDialogueCoroutine(dialogues[dialogueActuelIndex]));
-        }
-        else
-        {
-            // Si tous les dialogues ont été affichés, désactiver le dialogue
-            dialogueGatito.enabled = false;
-            bulle.SetActive(false);
-            lettreE.SetActive(false);
-            veutParler = false;
-            dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
+
+            yield return new WaitForSeconds(0.5f); // Attendre un court laps de temps avant d'afficher le prochain dialogue
         }
 
-        // Si tous les dialogues ont été terminés et que le joueur appuie sur la touche "E", recommencer le dialogue
-        if (dialoguesTermines && Input.GetKeyDown(KeyCode.E))
-        {
-            RecommencerDialogue();
-        }
+        // Si tous les dialogues ont été affichés, désactiver le dialogue
+        dialogueGatito.enabled = false;
+        bulle.SetActive(false);
+        lettreE.SetActive(false);
+        veutParler = false;
+        dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
+        aParle = true;
     }
 
-    // Coroutine pour afficher les dialogues lettre par lettre
-    IEnumerator AfficherDialogueCoroutine(string dialogue)
-    {
-        dialogueGatito.text = "";
-        bulle.SetActive(true);
-
-        foreach (char lettre in dialogue)
-        {
-            dialogueGatito.text += lettre;
-            yield return new WaitForSeconds(0.10f); // Attendre un court laps de temps entre chaque lettre
-        }
-
-        dialogueActuelIndex++;
-    }
-
-    // Méthode pour réinitialiser le dialogue
+    //// Méthode pour réinitialiser le dialogue
     public void RecommencerDialogue()
     {
-        dialogueActuelIndex = 0;
         lettreE.SetActive(true);
         dialogueGatito.enabled = true;
         bulle.SetActive(true);
         dialoguesTermines = false;
-        aParle = false;
+        aParle = true;
         veutParler = true; // Permettre au joueur de parler à nouveau
     }
 
