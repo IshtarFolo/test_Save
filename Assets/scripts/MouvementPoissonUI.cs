@@ -11,7 +11,7 @@ public class MouvementPoissonUI : MonoBehaviour
     public float maxDroiteUI = 250f;
 
     //Gestion de la vitesse du poisson sur la barre UI
-    public float vitessePoisson = 250f;
+    public float vitessePoisson = 100f;
     public float changerFrequence = 0.005f; //le poisson changera son mouvement à cette fréquence
 
     //Gestion de la position du poisson
