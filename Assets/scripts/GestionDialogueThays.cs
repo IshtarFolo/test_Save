@@ -31,7 +31,7 @@ public class GestionDialogueThays : MonoBehaviour
     public bool choixColere = false;
 
     [Header("Variables pour animation des lettres")]
-    float delaiEntreLettres = 0.10f;
+    float delaiEntreLettres = 0.05f;
     bool ecrit = false;
 
     void Start()
