@@ -125,6 +125,7 @@ public class deplacementPerso : MonoBehaviour
                 break;
         }
 
+
         // Fin du Saut Droite
         if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut") && toucheSol)
         {
@@ -136,6 +137,7 @@ public class deplacementPerso : MonoBehaviour
         if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Gauche") && toucheSol)
         {
             animateur.Play("FinSaut_Gauche");
+            animateur.SetTrigger("idleGauche");
             StartCoroutine(RecupSaut());
         }
 
@@ -251,13 +253,14 @@ public class deplacementPerso : MonoBehaviour
         if (direction != Vector3.zero)
         {
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+            Debug.Log(angle);
 
             // On lance la bonne animation dependemment de l'angle du perso
             if (angle > 0)
             {
                 animateur.SetTrigger("idleGauche");
             }
-            else
+            else if (angle <= 0)
             {
                 animateur.SetTrigger("idleDroite");
             }
