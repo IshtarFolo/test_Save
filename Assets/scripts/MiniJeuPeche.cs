@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 //Script pour le mini-jeu de pêche géré par des barres UI - Par Camilia El Moustarih
 public class MiniJeuPeche : MonoBehaviour
@@ -25,9 +26,11 @@ public class MiniJeuPeche : MonoBehaviour
     //Poissons ramassés lorsque le joueur à réussi le miniJeu UI
     public static int poissonsPeches = 0;
 
+    //TextMeshPro
+    public TextMeshProUGUI compteurPoissons;
+
     //Petite animation de poisson qui sort de l'eau lorsque la pêche est réussie
-    public Animator animatorPoisson; 
-      
+    public Animator animatorPoisson;       
     
     //Pour calculer le chevauchement entre les deux éléments du UI (le poisson et l'attrape poisson)
     private void Update()
@@ -72,7 +75,9 @@ public class MiniJeuPeche : MonoBehaviour
             //Jouer une animation d'un poisson sorti de l'eau
             animatorPoisson.SetTrigger("PoissonSorti");
 
-            /////////////////////////Ajouter le poisson à l'inventaire!/////////////////////////////
+            //Ajouter le poisson à l'inventaire
+            poissonsPeches += 1;
+            compteurPoissons.text = poissonsPeches.ToString();
 
             //Remettre le compteur à 0
             compteurReussite = 0;
