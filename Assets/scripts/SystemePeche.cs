@@ -112,7 +112,7 @@ public class SystemePeche : MonoBehaviour
     internal void TerminerMiniJeu(bool reussite)
     {
         //Désactiver le mini jeu et son canvas
-        minijeu.gameObject.SetActive(false);
+        minijeu.SetActive(false);
 
         //Terminer la session de pêche
         if (reussite)
@@ -195,6 +195,8 @@ public class SystemePeche : MonoBehaviour
     {
         siContactPoisson = false;
         estEnTrainDeTirer = false;
+
+        Debug.Log("Peche terminée");
 
         //Trigger pour terminer la manipulation de la canne à pêche
         OnPecheTerminee?.Invoke();
