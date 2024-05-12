@@ -59,6 +59,7 @@ public class SystemePeche : MonoBehaviour
 
     //TextMeshPro
     public TextMeshProUGUI instructionsMiniJeu;
+    public TextMeshProUGUI notifPoissonMordu;
 
     //Variables de son
     [SerializeField] AudioClip poissonCapture, poissonPerdu;
@@ -77,9 +78,14 @@ public class SystemePeche : MonoBehaviour
         if((poisson.nomPoisson == "Saumon") || (poisson.nomPoisson == "Truite") || (poisson.nomPoisson == "Morue"))
         {
             Debug.Log(poisson.nomPoisson + " a mordu !");
+
+            //Activer la notification qu'un poisson a mordu
+            notifPoissonMordu.gameObject.SetActive(true);
+            notifPoissonMordu.enabled = true;
+
             StartCoroutine(CommencerResistancePoisson(poisson));
 
-            //afficher le canvas du mini jeu
+            //Afficher le canvas du mini jeu
             canvas.SetActive(true);
         }
     }
@@ -106,6 +112,10 @@ public class SystemePeche : MonoBehaviour
 
         //Commencer le mini-jeu de p�che avec le ui
         CommencerMiniJeuPeche();
+
+        //Désactiver la notification 
+        notifPoissonMordu.gameObject.SetActive(false);
+        notifPoissonMordu.enabled = false;
     }
 
     internal void TerminerMiniJeu(bool reussite)
@@ -150,6 +160,7 @@ public class SystemePeche : MonoBehaviour
         //activer le mini jeu de p�che
         minijeu.gameObject.SetActive(true);
 
+        //Activer les instructions
         instructionsMiniJeu.gameObject.SetActive(true);
         instructionsMiniJeu.enabled = true;
 
