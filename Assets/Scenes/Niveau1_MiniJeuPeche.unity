@@ -16476,8 +16476,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.68819416, z: 0.16246112, w: 0.68818754}
-  m_LocalPosition: {x: 27.114267, y: 120.22217, z: 740.8001}
+  m_LocalRotation: {x: 0.16245952, y: -0.6881952, z: 0.16246162, w: 0.6881864}
+  m_LocalPosition: {x: 27.114265, y: 120.22219, z: 740.8003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32594,8 +32594,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245957, y: -0.68819416, z: 0.16246112, w: 0.68818754}
-  m_LocalPosition: {x: 27.114267, y: 120.22217, z: 740.8001}
+  m_LocalRotation: {x: 0.16245952, y: -0.6881952, z: 0.16246162, w: 0.6881864}
+  m_LocalPosition: {x: 27.114265, y: 120.22219, z: 740.8003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33006,7 +33006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lancer '
+  m_text: "Commencer la p\xEAche"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
   m_sharedMaterial: {fileID: 848359281622569271, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
@@ -33069,7 +33069,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -234.60419, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -33492,7 +33492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tirer
+  m_text: 'Tirer '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
   m_sharedMaterial: {fileID: 848359281622569271, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
@@ -33555,7 +33555,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -263.7156, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -36411,12 +36411,12 @@ GameObject:
   - component: {fileID: 1481649741}
   - component: {fileID: 1481649740}
   m_Layer: 5
-  m_Name: TexDirectivesFleches
+  m_Name: TextInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1481649739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38042,6 +38042,7 @@ MonoBehaviour:
   siContactPoisson: 0
   canvas: {fileID: 1784996173}
   minijeu: {fileID: 147571527}
+  instructionsMiniJeu: {fileID: 1481649740}
   poissonCapture: {fileID: 8300000, guid: 0e943ea3204f30244bd12e92b2d04078, type: 3}
   poissonPerdu: {fileID: 8300000, guid: 88de831f26ff50b41a914a2b8082c4b9, type: 3}
 --- !u!82 &2075105503
