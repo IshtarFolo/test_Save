@@ -58,6 +58,7 @@ public class SystemePeche : MonoBehaviour
     public GameObject minijeu;
 
     //TextMeshPro
+    public TextMeshProUGUI introPeche;
     public TextMeshProUGUI instructionsMiniJeu;
     public TextMeshProUGUI notifPoissonMordu;
 
@@ -78,6 +79,10 @@ public class SystemePeche : MonoBehaviour
         if((poisson.nomPoisson == "Saumon") || (poisson.nomPoisson == "Truite") || (poisson.nomPoisson == "Morue"))
         {
             Debug.Log(poisson.nomPoisson + " a mordu !");
+
+            //Désactiver le texte de la mission
+            introPeche.gameObject.SetActive(false);
+            introPeche.enabled = false;
 
             //Activer la notification qu'un poisson a mordu
             notifPoissonMordu.gameObject.SetActive(true);
@@ -131,7 +136,10 @@ public class SystemePeche : MonoBehaviour
             //Jouer le son de poisson captur�
             audioSource.PlayOneShot(poissonCapture);
 
-            
+            //Désactiver les instructions
+            instructionsMiniJeu.gameObject.SetActive(false);
+            instructionsMiniJeu.enabled = false;
+
 
             //Ajouter � l'inventaire
 
@@ -148,10 +156,9 @@ public class SystemePeche : MonoBehaviour
             SystemePeche.Instance.PecheTerminee();
             estEnTrainDeTirer = false;
 
-            //CommencerMiniJeuPeche();
-
-            //Recharger la sc�ne en cas d'�chec
-            SceneManager.LoadScene("Niveau1_MiniJeuPeche");
+            //Désactiver les instructions
+            instructionsMiniJeu.gameObject.SetActive(false);
+            instructionsMiniJeu.enabled = false;
         }
     }
 

@@ -29,10 +29,11 @@ public class MiniJeuPeche : MonoBehaviour
 
     //TextMeshPro
     public TextMeshProUGUI compteurPoissons;
+    public TextMeshProUGUI captureReussie;
+    public TextMeshProUGUI capturePerdue;
 
     //Petite animation de poisson qui sort de l'eau lorsque la pêche est réussie
     public Animator animatorPoisson;
-
 
     //Pour calculer le chevauchement entre les deux éléments du UI (le poisson et l'attrape poisson)
     private void Update()
@@ -77,6 +78,10 @@ public class MiniJeuPeche : MonoBehaviour
             //Jouer une animation d'un poisson sorti de l'eau
             animatorPoisson.SetTrigger("PoissonSorti");
 
+            //Activer la notification qu'un poisson a mordu
+            captureReussie.gameObject.SetActive(true);
+            captureReussie.enabled = true;
+
             //Ajouter le poisson à l'inventaire
             poissonsPeches += 1;
             compteurPoissons.text = poissonsPeches.ToString();
@@ -99,6 +104,10 @@ public class MiniJeuPeche : MonoBehaviour
         {
             Debug.Log("Échec... Gatito commence à avoir faim là...");
 
+            //Activer la notification qu'un poisson a mordu
+            capturePerdue.gameObject.SetActive(true);
+            capturePerdue.enabled = true;
+
             //Remettre le compteur à 0
             compteurReussite = 0;
             reussiteSlider.value = 0;
@@ -109,6 +118,9 @@ public class MiniJeuPeche : MonoBehaviour
             //Terminer la pêche
             SystemePeche.Instance.PecheTerminee();
             SystemePeche.Instance.ResetEstEnTrainDeTirer();
+
+            //Relancer le jeu après 5 secondes
+            Invoke("ReloadPeche", 5f);
 
             //Recommencer le jeu
             //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
@@ -123,6 +135,7 @@ public class MiniJeuPeche : MonoBehaviour
         return r1.Overlaps(r2);
     }
 
+    //Recharger la scène
     //DANS L'ESPOIR QUE ÇA GARDE MES POISSONS EN STOCK
     void ReloadPeche()
     {
