@@ -140,6 +140,7 @@ public class MiniJeuPeche : MonoBehaviour
     void ReloadPeche()
     {
         //DontDestroyOnLoad(compteurPoissons);
+        //DontDestroyOnLoad(AudioSource);
         SceneManager.LoadScene("Niveau1_MiniJeuPeche");
     }
 }
