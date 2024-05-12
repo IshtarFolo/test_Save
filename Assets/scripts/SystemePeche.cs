@@ -70,13 +70,7 @@ public class SystemePeche : MonoBehaviour
 
         //S'il y a contact avec des poissons
         //Si le poisson touch� s'appelle AucunPoisson, le jeu s'arr�te. Sinon, continuer avec les autres probabilit�s
-        if (poisson.nomPoisson == "AucunPoisson")
-        {
-            Debug.Log("Aucun contact, la session de p�che est termin�e");
-            //La session de p�che se termine
-            PecheTerminee();
-        }
-        else
+        if((poisson.nomPoisson == "Saumon") || (poisson.nomPoisson == "Truite") || (poisson.nomPoisson == "Morue"))
         {
             Debug.Log(poisson.nomPoisson + " a mordu !");
             StartCoroutine(CommencerResistancePoisson(poisson));
