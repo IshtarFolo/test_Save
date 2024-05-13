@@ -60,6 +60,9 @@ public class savePosition : MonoBehaviour
     private void Update()
     {
         scene = _collision_kirie.noScene;
+        poissons = MiniJeuPeche.poissonsPeches;
+
+       // Debug.Log("poissons Save: " + poissons);
     }
 
     public void NouvellePartie()
@@ -92,6 +95,10 @@ public class savePosition : MonoBehaviour
         // Sauvegarde de l,acquisition du journal
         PlayerPrefsX.SetBool("Journal", tutoFini);
 
+        //
+        poissons = MiniJeuPeche.poissonsPeches;
+        PlayerPrefs.SetInt("poissons", poissons);
+
         PlayerPrefs.Save();
     }
 
@@ -122,6 +129,9 @@ public class savePosition : MonoBehaviour
 
         // On charge l'index de la scene enregistre dans PlayerPrefs
         scene = PlayerPrefs.GetInt("laScene", scene);
+
+        //
+        PlayerPrefs.GetInt("poissons", poissons);
 
         // Chargement de l'acquisition du journal
         PlayerPrefsX.GetBool("Journal", tutoFini);
