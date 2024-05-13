@@ -54,7 +54,7 @@ public class GestionDialogueThays : MonoBehaviour
         choixDiplomateThays[0] = "Comment es-tu rentrée chez moi ? Personne n’a trouvé ma cachette ! Impossible ! (Devrais-je déménager ?) Je ne sais pas de quoi tu parles. Aucun enfant ne vit ici contre son gré. Pour qui me prenez-vous ?";
         choixDiplomateThays[1] = "Argh ! Gatito, ce petit chat de gouttière qui n’en fait qu’à sa tête ! La prochaine fois, il va le regretter quand j’aurais sa langue dans mes mains HAHAH ! ";
         choixDiplomateThays[2] = "Aasha… Il m’appartient désormais : Il s’est jeté dans la gueule du loup ! Haha ! Ils m’appartiennent tous. C’est la famille que je n’ai jamais eue ! ";
-        choixDiplomateThays[3] = "On m’a tout pris, les tiens m’ont abandonnée pour. D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS ! ";
+        choixDiplomateThays[3] = "On m’a tout pris, les tiens m’ont abandonnée. D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS ! ";
         choixDiplomateThays[4] = "Vraiment !?! Hors de question !";
         choixDiplomateThays[5] = "Si tu le dis. Gare à toi si tu me mens. Rusée comme un renard, il faut se méfier….";
     }
