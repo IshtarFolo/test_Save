@@ -194,7 +194,7 @@ public class _collision_kirie : MonoBehaviour
             }
         }
 
-        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true)
+        if (interactionVillageois.aParleVillageois1 == true)
         {
             UIbarrevillageois.SetActive(true);
             UIgatito.SetActive(true);
