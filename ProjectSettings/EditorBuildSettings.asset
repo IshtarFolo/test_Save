@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niveau1_MiniJeuPeche.unity
     guid: 8448eb32dd89b1343b7280180fe6e809
+  - enabled: 1
+    path: Assets/Scenes/Niveau2_Foret.unity
+    guid: 6ea2aa841064c5b48a0870fb6940dbbc
+  - enabled: 1
+    path: Assets/Scenes/Niveau2_JeuCartes.unity
+    guid: b81091d668a1a6746b093b4dfd33cb90
   - enabled: 0
     path: Assets/Scenes/MsgFinDemo.unity
     guid: 0a5d71ec0816d494bbf11acffc346c3a
