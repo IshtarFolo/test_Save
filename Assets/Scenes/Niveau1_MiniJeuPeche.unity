@@ -16052,16 +16052,10 @@ PrefabInstance:
       addedObject: {fileID: 1155865127}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1155865126}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1155865125}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1155865130}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1155865135}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1155865136}
@@ -16478,8 +16472,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245937, y: -0.6881963, z: 0.162462, w: 0.6881852}
-  m_LocalPosition: {x: 27.114267, y: 120.22223, z: 740.8004}
+  m_LocalRotation: {x: 0.16245982, y: -0.6881931, z: 0.16246085, w: 0.6881887}
+  m_LocalPosition: {x: 27.114265, y: 120.22218, z: 740.8002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32864,8 +32858,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245937, y: -0.6881963, z: 0.162462, w: 0.6881852}
-  m_LocalPosition: {x: 27.114267, y: 120.22223, z: 740.8004}
+  m_LocalRotation: {x: 0.16245982, y: -0.6881931, z: 0.16246085, w: 0.6881887}
+  m_LocalPosition: {x: 27.114265, y: 120.22218, z: 740.8002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33450,8 +33444,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155865124}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3f409f5661489b54095e803f28cff50d, type: 2}
+  m_Avatar: {fileID: 9000000, guid: d3d865bdf58ce494d81def6d1d86cc15, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3df649253356d5a478c637eed8bb05f2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -33462,18 +33456,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1155865126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155865124}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa44b0f61a091444b13cad43c9c6245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1155865127
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33543,67 +33525,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joueur: {fileID: 1155865124}
   cam1: {fileID: 948943987}
---- !u!114 &1155865135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155865124}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21ff007e6c624bccb02f7e7b5febc41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cle: {fileID: 0}
-  armoireFerme: {fileID: 0}
-  armoireOuverte: {fileID: 0}
-  planche2Quai: {fileID: 0}
-  notification: 0
-  cleRamasse: 0
-  audioJoue: 0
-  cannePecheRamasse: 0
-  UIJournalKirie: {fileID: 0}
-  UInotification: {fileID: 0}
-  UInoirFadeIn: {fileID: 0}
-  UInoirFadeOut: {fileID: 0}
-  UIcontenu1: {fileID: 0}
-  UIcontenu2: {fileID: 0}
-  UIcontenu3: {fileID: 0}
-  OBJimageGatito: {fileID: 0}
-  OBJimageThays: {fileID: 0}
-  INVcle: {fileID: 0}
-  INVcanne: {fileID: 0}
-  INVpoisson: {fileID: 0}
-  INVechelle: {fileID: 0}
-  INVcarotte: {fileID: 0}
-  INVlettre: {fileID: 0}
-  UItutoriel: {fileID: 0}
-  UIcle: {fileID: 0}
-  UIbarreCle: {fileID: 0}
-  UIarmoire: {fileID: 0}
-  UIfiniTuto: {fileID: 0}
-  UIfiniTuto2: {fileID: 0}
-  UIvillage: {fileID: 0}
-  UIvillageois: {fileID: 0}
-  UIbarrevillageois: {fileID: 0}
-  UIgatito: {fileID: 0}
-  UIbarregatito: {fileID: 0}
-  UIcanne: {fileID: 0}
-  UIbarreCanne: {fileID: 0}
-  UIpoisson: {fileID: 0}
-  UIbarrePoisson: {fileID: 0}
-  UIfiniVillage: {fileID: 0}
-  UIforet: {fileID: 0}
-  UIbarreLettre: {fileID: 0}
-  UInotifSauve: {fileID: 0}
-  gameManager: {fileID: 0}
-  prendreCle: {fileID: 0}
-  armoireBarre: {fileID: 0}
-  armoireSouvre: {fileID: 0}
-  ouvrirPorte: {fileID: 0}
-  scene:
-    m_Handle: 0
 --- !u!114 &1155865136
 MonoBehaviour:
   m_ObjectHideFlags: 0

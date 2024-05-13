@@ -42,7 +42,10 @@ public class CannePeche : MonoBehaviour
 
         //Activer l'animation de pêche de Kirie
         animatorKirie = kiriePerso.GetComponent<Animator>();
-           
+        //
+        kiriePerso.transform.position = debutCanne.transform.position;
+        kiriePerso.transform.position -= new Vector3(0, 3, 0);
+
     }
 
     private void OnEnable()
