@@ -623,8 +623,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246007, y: -0.68818885, z: 0.16245908, w: 0.6881932}
-  m_LocalPosition: {x: -68.45572, y: -78.62788, z: -726.00006}
+  m_LocalRotation: {x: 0.16246049, y: -0.68818563, z: 0.16245791, w: 0.68819666}
+  m_LocalPosition: {x: -68.455734, y: -78.62792, z: -726.0003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1260,6 +1260,7 @@ MonoBehaviour:
   armoireFerme: {fileID: 0}
   armoireOuverte: {fileID: 0}
   planche2Quai: {fileID: 0}
+  cannePeche: {fileID: 0}
   notification: 0
   cleRamasse: 0
   audioJoue: 0
@@ -1295,6 +1296,7 @@ MonoBehaviour:
   UIpoisson: {fileID: 0}
   UIbarrePoisson: {fileID: 0}
   UIfiniVillage: {fileID: 0}
+  UIminiJeuChaudFroid: {fileID: 0}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
   UInotifSauve: {fileID: 0}
@@ -43569,8 +43571,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 0.734557, g: 0.9811321, b: 0.2745935, a: 1}
+  m_Intensity: 3
   m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -44227,8 +44229,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246007, y: -0.68818885, z: 0.16245908, w: 0.6881932}
-  m_LocalPosition: {x: -68.45572, y: -78.62788, z: -726.00006}
+  m_LocalRotation: {x: 0.16246049, y: -0.68818563, z: 0.16245791, w: 0.68819666}
+  m_LocalPosition: {x: -68.455734, y: -78.62792, z: -726.0003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -73262,9 +73264,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 1000
+  m_Color: {r: 1, g: 0, b: 0.4385209, a: 1}
+  m_Intensity: 1.5
+  m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
