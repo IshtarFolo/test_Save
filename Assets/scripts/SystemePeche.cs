@@ -99,6 +99,7 @@ public class SystemePeche : MonoBehaviour
     {
         //Looper � travers la liste de poissons et leurs probabilit�s de p�che
         StartCoroutine(PecheCoroutine(sourceDeau));
+        MiniJeuPeche.joue = true;
         Debug.Log("peche commenc�e");
     }
 
@@ -127,6 +128,7 @@ public class SystemePeche : MonoBehaviour
     {
         //D�sactiver le mini jeu et son canvas
         minijeu.SetActive(false);
+        MiniJeuPeche.joue = false;
 
         //Terminer la session de p�che
         if (reussite)
@@ -135,6 +137,7 @@ public class SystemePeche : MonoBehaviour
             Debug.Log("poisson attrap�");
             //Jouer le son de poisson captur�
             audioSource.PlayOneShot(poissonCapture);
+            //MiniJeuPeche.poissonsPeches = 3;
 
             //Désactiver les instructions
             instructionsMiniJeu.gameObject.SetActive(false);

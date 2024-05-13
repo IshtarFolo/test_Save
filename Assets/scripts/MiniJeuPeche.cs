@@ -6,38 +6,48 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-//Script pour le mini-jeu de pêche géré par des barres UI - Par Camilia El Moustarih
+//Script pour le mini-jeu de pï¿½che gï¿½rï¿½ par des barres UI - Par Camilia El Moustarih
 public class MiniJeuPeche : MonoBehaviour
 {
     //Variables pour les barres ui images
     public RectTransform poissonTransform;
     public RectTransform attrapePoissonTransform;
 
-    //Vérifier s'il y a chevauchement
+    //Vï¿½rifier s'il y a chevauchement
     public bool siOverlap;
 
     //Variables pour les calculs du mini-jeu
-    public Slider reussiteSlider; //montrer au joueur s'il est sur le point de réussir ou de perdre
-    float reussiteIncrement = 15; //tant que le poisson et l'attrape poisson sont en overlap, incrémenter les chances de réussites de 15
-    float echecIncrement = 12; //s'il n'y PAS overlap, décrémenter de 12 les chances de réussite
+    public Slider reussiteSlider; //montrer au joueur s'il est sur le point de rï¿½ussir ou de perdre
+    float reussiteIncrement = 15; //tant que le poisson et l'attrape poisson sont en overlap, incrï¿½menter les chances de rï¿½ussites de 15
+    float echecIncrement = 12; //s'il n'y PAS overlap, dï¿½crï¿½menter de 12 les chances de rï¿½ussite
     float reussiteLimite = 100; //le joueur gagne le mini jeu
     float echecLimite = -100; //le joueur perd, bye
-    float compteurReussite = 0; //compteur qui va déterminer si gagne ou perd
+    float compteurReussite = 0; //compteur qui va dï¿½terminer si gagne ou perd
 
-    //Poissons ramassés lorsque le joueur à réussi le miniJeu UI
-    public static int poissonsPeches = 0;
+    //Poissons ramassï¿½s lorsque le joueur ï¿½ rï¿½ussi le miniJeu UI
+    public static int poissonsPeches;
+
+    public static bool joue = false;
 
     //TextMeshPro
     public TextMeshProUGUI compteurPoissons;
     public TextMeshProUGUI captureReussie;
     public TextMeshProUGUI capturePerdue;
 
-    //Petite animation de poisson qui sort de l'eau lorsque la pêche est réussie
+    //Petite animation de poisson qui sort de l'eau lorsque la pï¿½che est rï¿½ussie
     public Animator animatorPoisson;
 
-    //Pour calculer le chevauchement entre les deux éléments du UI (le poisson et l'attrape poisson)
+    private void Start() 
+    {
+        poissonsPeches = savePosition.poissons;
+        compteurPoissons.text = poissonsPeches.ToString();
+    }
+
+    //Pour calculer le chevauchement entre les deux ï¿½lï¿½ments du UI (le poisson et l'attrape poisson)
     private void Update()
     {
+        compteurPoissons.text = poissonsPeches.ToString();
+
         if (TesterOverlap(poissonTransform, attrapePoissonTransform))
         {
             siOverlap = true;
@@ -47,33 +57,35 @@ public class MiniJeuPeche : MonoBehaviour
             siOverlap = false;
         }
 
-        //Pour le calcul de la victoire ou l'échec du mini-jeu
+        //Pour le calcul de la victoire ou l'ï¿½chec du mini-jeu
         OverlapCalcul();
+
+        Debug.Log(poissonsPeches);
     }
 
     private void OverlapCalcul()
     {
         if (siOverlap)
         {
-            //incrémenter le compteur lorsqu'il y a overlap
+            //incrï¿½menter le compteur lorsqu'il y a overlap
             compteurReussite += reussiteIncrement * Time.deltaTime;
         }
         else
         {
-            //décrémenter le compteur lorsqu'il n'y PAS de overlap
+            //dï¿½crï¿½menter le compteur lorsqu'il n'y PAS de overlap
             compteurReussite -= echecIncrement * Time.deltaTime;
         }
 
         //Avec limites
         compteurReussite = Mathf.Clamp(compteurReussite, echecLimite, reussiteLimite);
 
-        //Mettre à jour le slider
+        //Mettre ï¿½ jour le slider
         reussiteSlider.value = compteurReussite;
 
-        //Vérifier si les limites sont atteintes
-        if (compteurReussite >= reussiteLimite)
+        //Vï¿½rifier si les limites sont atteintes
+        if (compteurReussite >= reussiteLimite && joue)
         {
-            Debug.Log("Bravo! 1 poisson ajouté à l'inventaire !");          
+            Debug.Log("Bravo! 1 poisson ajoutï¿½ ï¿½ l'inventaire !");          
 
             //Jouer une animation d'un poisson sorti de l'eau
             animatorPoisson.SetTrigger("PoissonSorti");
@@ -82,44 +94,45 @@ public class MiniJeuPeche : MonoBehaviour
             captureReussie.gameObject.SetActive(true);
             captureReussie.enabled = true;
 
-            //Ajouter le poisson à l'inventaire
-            poissonsPeches += 1;
+            //Ajouter le poisson ï¿½ l'inventaire
+            poissonsPeches++;
+            
             compteurPoissons.text = poissonsPeches.ToString();
 
-            //Remettre le compteur à 0
+            //Remettre le compteur ï¿½ 0
             compteurReussite = 0;
             reussiteSlider.value = 0;
 
             //Terminer le jeu
             SystemePeche.Instance.TerminerMiniJeu(true);
 
-            //Recommencer la pêche
+            //Recommencer la pï¿½che
             //SystemePeche.Instance.CommencerPeche(SourceDeau.Lac);
             //
 
-            //Recharger la scène de pêche pour recommencer la pêche
+            //Recharger la scï¿½ne de pï¿½che pour recommencer la pï¿½che
             Invoke("ReloadPeche", 5f);
         }
         else if(compteurReussite <= echecLimite)
         {
-            Debug.Log("Échec... Gatito commence à avoir faim là...");
+            Debug.Log("ï¿½chec... Gatito commence ï¿½ avoir faim lï¿½...");
 
             //Activer la notification qu'un poisson a mordu
             capturePerdue.gameObject.SetActive(true);
             capturePerdue.enabled = true;
 
-            //Remettre le compteur à 0
+            //Remettre le compteur ï¿½ 0
             compteurReussite = 0;
             reussiteSlider.value = 0;
 
             //Terminer le jeu
             SystemePeche.Instance.TerminerMiniJeu(false);
 
-            //Terminer la pêche
+            //Terminer la pï¿½che
             SystemePeche.Instance.PecheTerminee();
             SystemePeche.Instance.ResetEstEnTrainDeTirer();
 
-            //Relancer le jeu après 5 secondes
+            //Relancer le jeu aprï¿½s 5 secondes
             Invoke("ReloadPeche", 5f);
 
             //Recommencer le jeu
@@ -127,7 +140,7 @@ public class MiniJeuPeche : MonoBehaviour
         }
     }
 
-    //Transforms et méthode overlaps pour vérifier le chevauchement et retournera vrai ou faux
+    //Transforms et mï¿½thode overlaps pour vï¿½rifier le chevauchement et retournera vrai ou faux
     private bool TesterOverlap(RectTransform rect1, RectTransform rect2)
     {
         Rect r1 = new Rect(rect1.position.x, rect1.position.y, rect1.rect.width / 5, rect1.rect.height);
@@ -135,8 +148,8 @@ public class MiniJeuPeche : MonoBehaviour
         return r1.Overlaps(r2);
     }
 
-    //Recharger la scène
-    //DANS L'ESPOIR QUE ÇA GARDE MES POISSONS EN STOCK
+    //Recharger la scï¿½ne
+    //DANS L'ESPOIR QUE ï¿½A GARDE MES POISSONS EN STOCK
     void ReloadPeche()
     {
         //DontDestroyOnLoad(compteurPoissons);

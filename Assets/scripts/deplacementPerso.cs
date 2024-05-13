@@ -148,16 +148,9 @@ public class deplacementPerso : MonoBehaviour
         // On regarde si le joueur bouge vers le haut a droite et appuie sur espace
         if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
         {
-            animateur.Play("MilieuSaut_DiagoHDroite");
-            animateur.SetBool("tombe", false);
+            StartCoroutine(JumpRoutine("MilieuSaut_DiagoHDroite", "FinSaut_DiagoHDroite"));
         }
-        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHDroite") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_DiagoHDroite");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut());
-        }
+
         /* A Droite en Bas */
         // On regarde si le joueur bouge vers le bas a droite et appuie sur espace
         if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
@@ -285,5 +278,15 @@ public class deplacementPerso : MonoBehaviour
         peutBouger = false;
         yield return new WaitForSeconds(0.8f);
         peutBouger = true;
+    }
+
+    IEnumerator JumpRoutine(string animJump, string animTombe)
+    {
+        animateur.Play(animJump);
+        animateur.SetBool("tombe", false);
+        yield return new WaitUntil(() => animateur.GetCurrentAnimatorStateInfo(0).IsName(animJump) && toucheSol);
+        animateur.SetBool("tombe", true);
+        animateur.Play(animTombe);
+        StartCoroutine(RecupSaut());
     }
 }
