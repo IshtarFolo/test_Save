@@ -14,7 +14,9 @@ public class _collision_kirie : MonoBehaviour
     public GameObject cle;
     public GameObject armoireFerme;
     public GameObject armoireOuverte;
+
     public GameObject planche2Quai; //La planche pour passer au mini jeu de pêche
+    public GameObject cannePeche;
 
     [Header("Booléennes")]
     public bool notification;
@@ -73,6 +75,8 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarrePoisson;
     public GameObject UIfiniVillage;
 
+    public GameObject UIminiJeuChaudFroid;
+
     [Header("Gameobjects des quêtes de la forêt")]
     public GameObject UIforet;
     public GameObject UIbarreLettre;
@@ -116,13 +120,13 @@ public class _collision_kirie : MonoBehaviour
         {
             Invoke("village", 0.1f);
             Invoke("enleverNoirFadeOut", 1f);
+
+            //S'assurer que le boxCollider de la planche2 du quai soit désactiver
+            planche2Quai.GetComponent<BoxCollider>().enabled = false;
         }
 
         // au debut du jeu, on trouve l'index de la scene a activer
         noScene = SceneManager.GetActiveScene().buildIndex;
-
-        //S'assurer que le boxCollider de la planche2 du quai soit désactiver
-        planche2Quai.GetComponent<BoxCollider>().enabled = false;
     }
 
     // INFO TRIGGER
@@ -194,16 +198,17 @@ public class _collision_kirie : MonoBehaviour
             }
         }
 
-        if (interactionVillageois.aParleVillageois1 == true)
+        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true)
         {
-            UIbarrevillageois.SetActive(true);
+            //Debug.Log("Entrée");
+            UIvillageois.SetActive(false);
             UIgatito.SetActive(true);
 
             UIcontenu1.SetActive(false);
             UIcontenu2.SetActive(true);
         }
 
-        if (infoTrigger.gameObject.tag == "Gatito" && UIbarrevillageois.activeInHierarchy == true)
+        if (infoTrigger.gameObject.tag == "Gatito" && UIgatito.activeInHierarchy == true)
         {
             UIbarrevillageois.SetActive(false);
             UIvillageois.SetActive(false);
@@ -211,6 +216,8 @@ public class _collision_kirie : MonoBehaviour
 
             UIpoisson.SetActive(true);
             UIcanne.SetActive(true);
+
+            UIminiJeuChaudFroid.SetActive(true);
 
             if (UIcontenu2.activeInHierarchy == false)
             {
@@ -291,12 +298,17 @@ public class _collision_kirie : MonoBehaviour
 
         //POUR ACTIVER LA PLANCHE2 POUR MINI JEU DE PECHE
         //Si le joueur touche la canne à pêche on peut activer la zone pour passer au niveau de la pêche
-        if(infoCollision.gameObject.tag == "cannePeche")
+        if(infoCollision.gameObject.tag == "cannePeche" && UIminiJeuChaudFroid.activeInHierarchy == true)
         {
             cannePecheRamasse = true;
             //On va le détruire et changer de cible ou désactiver la scrollbar
             //Destroy(gameObject);
             UIbarreCanne.SetActive(true);
+            cannePeche.SetActive(false);
+            UIminiJeuChaudFroid.SetActive(false);
+        }else
+        {
+
         }
     }
 
