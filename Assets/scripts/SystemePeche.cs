@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 //Script pour le syst�me de p�che du niveau 2 de lac - Le joueur devra p�cher 3 poissons pour continuer la qu�te
 //Par Camilia El Moustarih
@@ -61,11 +62,17 @@ public class SystemePeche : MonoBehaviour
     public TextMeshProUGUI introPeche;
     public TextMeshProUGUI instructionsMiniJeu;
     public TextMeshProUGUI notifPoissonMordu;
+    public TextMeshProUGUI compteurPoissons;
 
     //Variables de son
     [SerializeField] AudioClip poissonCapture, poissonPerdu;
     private AudioSource audioSource;    
 
+
+    void Start() 
+    {
+        compteurPoissons.text = MiniJeuPeche.poissonsPeches.ToString();
+    }
     IEnumerator PecheCoroutine(SourceDeau sourceDeau)
     {
         //D�lai de 5 secondes avant contact avec poisson
@@ -173,7 +180,7 @@ public class SystemePeche : MonoBehaviour
         //Activer les instructions
         instructionsMiniJeu.gameObject.SetActive(true);
         instructionsMiniJeu.enabled = true;
-
+        Debug.Log(MiniJeuPeche.poissonsPeches);
     }
 
     public void SetEstEnTrainDeTirer()
