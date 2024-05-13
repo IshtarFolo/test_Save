@@ -105,6 +105,7 @@ public class interactionVillageois : MonoBehaviour
         if (gameObject.CompareTag("villageois1") && dialoguesTermines)
         {
             aParleVillageois1 = true;
+            //Debug.Log("Test Villageois");
         }
 
         aParle = true; // Marquer que le joueur a parlé au villageois
