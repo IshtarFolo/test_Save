@@ -39,6 +39,24 @@ public class GestionDialogueThays : MonoBehaviour
         //bulleKirie.SetActive(false);
         //bulleThays.SetActive(false);
 
+        //Le dialogue Choix Diplomate
+
+        //Choix diplomate  de Kirie
+        choixDiplomateKirie[0] = "Thays ! Enfin je te trouve. Je suis venue libérer mon frère et tous les enfants que tu as enlevés pour ton bon plaisir !";
+        choixDiplomateKirie[1] = "Oh…. Un certain détective m’a parlé de cette entrée de cave. La lettre que j’ai en ma possession est la preuve de tes méfaits (Un mensonge pas si loin de la vérité)";
+        choixDiplomateKirie[2] = "Donc, c’était vrai ! Il travaille pour vous…. (Moi qui lui faisais confiance) Peu importe. Rends-moi mon frère Aasha ! Je ne repartirai pas sans lui !";
+        choixDiplomateKirie[3] = "C’est moi sa seule famille ! Pourquoi fais-tu tout cela Thays ? Tu sembles malheureuse…";
+        choixDiplomateKirie[4] = "Il n’est pas trop tard ! Relâche tous les enfants et viens avec nous.";
+        choixDiplomateKirie[5] = "Je n’étais pas présente lors de ton bannissement, mais je te promets sur la tête d’Aasha que je ferais tout pour qu’on te pardonne. FORMONS UNE NOUVELLE FAMILLE ENSEMBLE !";
+
+
+        //Choix diplomate  de Thays
+        choixDiplomateThays[0] = "Comment es-tu rentrée chez moi ? Personne n’a trouvé ma cachette ! Impossible ! (Devrais-je déménager ?) Je ne sais pas de quoi tu parles. Aucun enfant ne vit ici contre son gré. Pour qui me prenez-vous ?";
+        choixDiplomateThays[1] = "Argh ! Gatito, ce petit chat de gouttière qui n’en fait qu’à sa tête ! La prochaine fois, il va le regretter quand j’aurais sa langue dans mes mains HAHAH ! ";
+        choixDiplomateThays[2] = "Aasha… Il m’appartient désormais : Il s’est jeté dans la gueule du loup ! Haha ! Ils m’appartiennent tous. C’est la famille que je n’ai jamais eue ! ";
+        choixDiplomateThays[3] = "On m’a tout pris, les tiens m’ont abandonnée pour. D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS ! ";
+        choixDiplomateThays[4] = "Vraiment !?! Hors de question !";
+        choixDiplomateThays[5] = "Si tu le dis. Gare à toi si tu me mens. Rusée comme un renard, il faut se méfier….";
     }
 
 
