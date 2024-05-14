@@ -51,12 +51,17 @@ public class SystemePeche : MonoBehaviour
     //V�rifier s'il y a contact et terminer la session de p�che
     public bool siContactPoisson;
     private bool estEnTrainDeTirer;
+    public bool finiPeche;
 
     //public static event Action OnPecheTerminee;
 
     //Variables pour le mini jeu UI
     public GameObject canvas;
     public GameObject minijeu;
+    public GameObject poissonJeu;
+
+    public GameObject boutonRetour;
+    public GameObject boutonPlaceholder;
 
     //TextMeshPro
     public TextMeshProUGUI introPeche;
@@ -102,6 +107,14 @@ public class SystemePeche : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if(compteurPoissons.text == "3")
+        {
+            Debug.Log("3");
+        }
+    }
+
     internal void CommencerPeche(SourceDeau sourceDeau)
     {
         //Looper � travers la liste de poissons et leurs probabilit�s de p�che
@@ -129,6 +142,7 @@ public class SystemePeche : MonoBehaviour
         //Désactiver la notification 
         notifPoissonMordu.gameObject.SetActive(false);
         notifPoissonMordu.enabled = false;
+        poissonJeu.SetActive(true);
     }
 
     internal void TerminerMiniJeu(bool reussite)
