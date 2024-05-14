@@ -16472,8 +16472,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624594, y: -0.6881984, z: 0.16246307, w: 0.6881829}
-  m_LocalPosition: {x: 27.114256, y: 120.222176, z: 740.8002}
+  m_LocalRotation: {x: 0.16245976, y: -0.68819416, z: 0.16246133, w: 0.6881875}
+  m_LocalPosition: {x: 27.114265, y: 120.22218, z: 740.80023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32930,8 +32930,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624594, y: -0.6881984, z: 0.16246307, w: 0.6881829}
-  m_LocalPosition: {x: 27.114256, y: 120.222176, z: 740.8002}
+  m_LocalRotation: {x: 0.16245976, y: -0.68819416, z: 0.16246133, w: 0.6881875}
+  m_LocalPosition: {x: 27.114265, y: 120.22218, z: 740.80023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38447,6 +38447,7 @@ MonoBehaviour:
   introPeche: {fileID: 2096568418}
   instructionsMiniJeu: {fileID: 1481649740}
   notifPoissonMordu: {fileID: 1443226546}
+  compteurPoissons: {fileID: 165671255}
   poissonCapture: {fileID: 8300000, guid: 0e943ea3204f30244bd12e92b2d04078, type: 3}
   poissonPerdu: {fileID: 8300000, guid: 88de831f26ff50b41a914a2b8082c4b9, type: 3}
 --- !u!82 &2075105503
