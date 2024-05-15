@@ -13,6 +13,7 @@ TagManager:
   - villageois1
   - piege
   - cannePeche
+  - lettre
   layers:
   - Default
   - TransparentFX

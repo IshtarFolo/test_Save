@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.085362546, g: 0.18886697, b: 0.43178445, a: 1}
+  m_IndirectSpecularColor: {r: 0.08540144, g: 0.18890482, b: 0.4318778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -623,8 +623,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246, y: -0.68818676, z: 0.16245791, w: 0.6881956}
-  m_LocalPosition: {x: -73.21573, y: -90.117874, z: -726.0001}
+  m_LocalRotation: {x: 0.16245991, y: -0.68818986, z: 0.16245934, w: 0.6881922}
+  m_LocalPosition: {x: -73.21574, y: -90.117874, z: -726.00006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1098,6 +1098,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f00b40fe2c5bf4ea9b2f5b09c2054969, type: 3}
       propertyPath: m_Name
       value: lettre_partie4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f00b40fe2c5bf4ea9b2f5b09c2054969, type: 3}
+      propertyPath: m_TagString
+      value: lettre
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15791,6 +15795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lettre_partie1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
+      propertyPath: m_TagString
+      value: lettre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -28404,6 +28412,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 46775603c97294d21a88263a5373d285, type: 3}
       propertyPath: m_Name
       value: lettre_partie3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46775603c97294d21a88263a5373d285, type: 3}
+      propertyPath: m_TagString
+      value: lettre
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44330,8 +44342,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246, y: -0.68818676, z: 0.16245791, w: 0.6881956}
-  m_LocalPosition: {x: -73.21573, y: -90.117874, z: -726.0001}
+  m_LocalRotation: {x: 0.16245991, y: -0.68818986, z: 0.16245934, w: 0.6881922}
+  m_LocalPosition: {x: -73.21574, y: -90.117874, z: -726.00006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44922,6 +44934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lettre_partie5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f51b9cda2370e425795bd9ce71327aff, type: 3}
+      propertyPath: m_TagString
+      value: lettre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -45062,6 +45078,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9ab5269e1caf1447898f0d0d44ee9774, type: 3}
       propertyPath: m_Name
       value: lettre_partie2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ab5269e1caf1447898f0d0d44ee9774, type: 3}
+      propertyPath: m_TagString
+      value: lettre
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
