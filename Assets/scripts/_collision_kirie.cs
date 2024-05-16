@@ -128,7 +128,7 @@ public class _collision_kirie : MonoBehaviour
 
         if(SystemePeche.finiPeche == true)
         {
-            Invoke("derniereEtapeVillage", 1f);
+            Invoke("derniereEtapeVillage", 0.1f);
         }
 
         // au debut du jeu, on trouve l'index de la scene a activer
@@ -224,6 +224,7 @@ public class _collision_kirie : MonoBehaviour
             UIcanne.SetActive(true);
 
             UIminiJeuChaudFroid.SetActive(true);
+            //Debug.Log("AAAAAAAAAAAAAAAH");
 
             if (UIcontenu2.activeInHierarchy == false)
             {
@@ -231,12 +232,13 @@ public class _collision_kirie : MonoBehaviour
                 UIcontenu3.SetActive(true);
                 OBJimageGatito.SetActive(true);
             }
+        }
 
-            if (SystemePeche.finiPeche == true)
-            {
-                UIvoirGatito.SetActive(false);
-                UIfiniVillage.SetActive(true);
-            }
+        if(infoTrigger.gameObject.tag == "Gatito" && SystemePeche.finiPeche == true)
+        {
+            //Debug.Log("Ceci est la suite des choses");
+            UIvoirGatito.SetActive(false);
+            UIfiniVillage.SetActive(true);
         }
 
         if (infoTrigger.gameObject.tag == "save")
@@ -340,7 +342,7 @@ public class _collision_kirie : MonoBehaviour
 // ////////////////////////////////////////////////
     public void derniereEtapeVillage()
     {
-        Debug.Log("Vous avez presque fini! Allez voir Gatito!");
+        //Debug.Log("Vous avez presque fini! Allez voir Gatito!");
         UIvillageois.SetActive(false);
         UIvoirGatito.SetActive(true);
     }
