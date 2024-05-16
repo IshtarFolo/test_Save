@@ -59,8 +59,6 @@ public class MiniJeuPeche : MonoBehaviour
 
         //Pour le calcul de la victoire ou l'�chec du mini-jeu
         OverlapCalcul();
-
-        Debug.Log(poissonsPeches);
     }
 
     private void OverlapCalcul()
@@ -85,7 +83,8 @@ public class MiniJeuPeche : MonoBehaviour
         //V�rifier si les limites sont atteintes
         if (compteurReussite >= reussiteLimite && joue)
         {
-            Debug.Log("Bravo! 1 poisson ajout� � l'inventaire !");          
+            Debug.Log("Bravo! 1 poisson ajout� � l'inventaire !");
+            //Debug.Log(poissonsPeches);
 
             //Jouer une animation d'un poisson sorti de l'eau
             animatorPoisson.SetTrigger("PoissonSorti");

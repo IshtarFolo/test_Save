@@ -51,7 +51,7 @@ public class SystemePeche : MonoBehaviour
     //V�rifier s'il y a contact et terminer la session de p�che
     public bool siContactPoisson;
     private bool estEnTrainDeTirer;
-    public bool finiPeche;
+    public static bool finiPeche;
 
     //public static event Action OnPecheTerminee;
 
@@ -77,6 +77,12 @@ public class SystemePeche : MonoBehaviour
     void Start() 
     {
         compteurPoissons.text = MiniJeuPeche.poissonsPeches.ToString();
+
+        if(finiPeche == true)
+        {
+            boutonRetour.SetActive(true);
+            boutonPlaceholder.SetActive(false);
+        }
     }
     IEnumerator PecheCoroutine(SourceDeau sourceDeau)
     {
@@ -107,13 +113,6 @@ public class SystemePeche : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        if(compteurPoissons.text == "3")
-        {
-            Debug.Log("3");
-        }
-    }
 
     internal void CommencerPeche(SourceDeau sourceDeau)
     {
@@ -194,7 +193,7 @@ public class SystemePeche : MonoBehaviour
         //Activer les instructions
         instructionsMiniJeu.gameObject.SetActive(true);
         instructionsMiniJeu.enabled = true;
-        Debug.Log(MiniJeuPeche.poissonsPeches);
+        //Debug.Log(MiniJeuPeche.poissonsPeches);
     }
 
     public void SetEstEnTrainDeTirer()
@@ -247,7 +246,13 @@ public class SystemePeche : MonoBehaviour
 
         Debug.Log("Peche termin�e");
 
-        
+        if (compteurPoissons.text == "3")
+        {
+            Debug.Log("3");
+            boutonRetour.SetActive(true);
+            boutonPlaceholder.SetActive(false);
+            finiPeche = true;
+        }
 
         //Trigger pour terminer la manipulation de la canne � p�che
         //OnPecheTerminee?.Invoke();
