@@ -14,6 +14,7 @@ TagManager:
   - piege
   - cannePeche
   - lettre
+  - triggerNiv2
   layers:
   - Default
   - TransparentFX

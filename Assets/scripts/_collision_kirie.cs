@@ -29,7 +29,6 @@ public class _collision_kirie : MonoBehaviour
     public static bool niveau1Termine = false;
     public static bool niveau2Termine = false;
     public static bool niveau3Termine = false;
-    public static bool niveau4Termine = false;
     public static bool journalRamasse = false;
 
     [Header("Gameobjects des UI généraux")]
@@ -124,6 +123,11 @@ public class _collision_kirie : MonoBehaviour
 
             //S'assurer que le boxCollider de la planche2 du quai soit désactiver
             planche2Quai.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if(scene.name == "Niveau2_foret")
+        {
+            //gameObject.transform.position = Vector3(-92.1600037, -99.5899963, -726)
         }
 
         if(SystemePeche.finiPeche == true)
@@ -239,6 +243,7 @@ public class _collision_kirie : MonoBehaviour
             //Debug.Log("Ceci est la suite des choses");
             UIvoirGatito.SetActive(false);
             UIfiniVillage.SetActive(true);
+            niveau1Termine = true;
         }
 
         if (infoTrigger.gameObject.tag == "save")
@@ -295,19 +300,20 @@ public class _collision_kirie : MonoBehaviour
         //Lorsque le joueur a TERMINÉ le niveau1, on lui permet d'aller dans le niveau2
         if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
         {
-            Invoke("niveau2", 2f);
+            UInoirFadeIn.SetActive(true);
+            Invoke("niveau2", 1f);
         }
 
         //Lorsque le joueur a TERMINÉ le niveau2, on lui permet d'aller dans le niveau3
         if (infoCollision.gameObject.tag == "triggerNiv3" && niveau2Termine == true)
         {
-            Invoke("niveau3", 2f);
+            Invoke("niveau3", 1f);
         }
 
         // Allons-nous garder le niveau 4?**
         if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
         {
-            Invoke("niveau4", 2f);
+            Invoke("niveau4", 1f);
         }
 
         //POUR ACTIVER LA PLANCHE2 POUR MINI JEU DE PECHE
@@ -382,7 +388,8 @@ public class _collision_kirie : MonoBehaviour
 
     void niveau2()
     {
-        SceneManager.LoadScene("MsgFinDemo");
+        SceneManager.LoadScene("Niveau2_Foret");
+        noScene = SceneManager.GetSceneByName("Niveau2_Foret").buildIndex;
     }
 
     void niveau3()
