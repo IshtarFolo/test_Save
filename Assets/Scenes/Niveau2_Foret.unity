@@ -623,8 +623,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245991, y: -0.68818986, z: 0.16245934, w: 0.6881922}
-  m_LocalPosition: {x: -73.21574, y: -90.117874, z: -726.00006}
+  m_LocalRotation: {x: 0.16246018, y: -0.6881867, z: 0.16245808, w: 0.6881956}
+  m_LocalPosition: {x: -73.21572, y: -90.117905, z: -726.0002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1137,6 +1137,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f00b40fe2c5bf4ea9b2f5b09c2054969, type: 3}
       insertIndex: -1
       addedObject: {fileID: 63553677}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f00b40fe2c5bf4ea9b2f5b09c2054969, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 63553678}
   m_SourcePrefab: {fileID: 100100000, guid: f00b40fe2c5bf4ea9b2f5b09c2054969, type: 3}
 --- !u!4 &63553675 stripped
 Transform:
@@ -1169,6 +1172,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.035074234
   m_Center: {x: 0.018497085, y: 0, z: 0}
+--- !u!114 &63553678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63553676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8ed289169e40dca5bfa48649651e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kirie: {fileID: 1371432882}
+  distanceAlerte: 5
+  fuiteMax: 3
+  distanceDeplacement: 15
+  fuitesRestantes: 0
 --- !u!1 &87654546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e91edd0cb700fc2448a5c51303da01b0, type: 3}
@@ -20572,7 +20592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -117.555
+      value: -110.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20580,7 +20600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -728.871
+      value: -727.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20676,6 +20696,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 593966692}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 593966693}
   m_SourcePrefab: {fileID: 100100000, guid: 53bc72c5237764c10bb4ccfab1a0cdd4, type: 3}
 --- !u!4 &593966690 stripped
 Transform:
@@ -20708,6 +20731,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.04630356
   m_Center: {x: -0.07224198, y: 0, z: -0.05999999}
+--- !u!114 &593966693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593966691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8ed289169e40dca5bfa48649651e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kirie: {fileID: 1371432882}
+  distanceAlerte: 5
+  fuiteMax: 3
+  distanceDeplacement: 15
+  fuitesRestantes: 0
 --- !u!1 &601303819
 GameObject:
   m_ObjectHideFlags: 0
@@ -33318,6 +33358,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46775603c97294d21a88263a5373d285, type: 3}
       insertIndex: -1
       addedObject: {fileID: 911831635}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46775603c97294d21a88263a5373d285, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 911831636}
   m_SourcePrefab: {fileID: 100100000, guid: 46775603c97294d21a88263a5373d285, type: 3}
 --- !u!4 &911831633 stripped
 Transform:
@@ -33350,6 +33393,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.03696125
   m_Center: {x: -0.08, y: 0.003299445, z: -0.013661802}
+--- !u!114 &911831636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911831634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8ed289169e40dca5bfa48649651e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kirie: {fileID: 1371432882}
+  distanceAlerte: 5
+  fuiteMax: 3
+  distanceDeplacement: 15
+  fuitesRestantes: 0
 --- !u!1001 &925635307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58831,8 +58891,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245991, y: -0.68818986, z: 0.16245934, w: 0.6881922}
-  m_LocalPosition: {x: -73.21574, y: -90.117874, z: -726.00006}
+  m_LocalRotation: {x: 0.16246018, y: -0.6881867, z: 0.16245808, w: 0.6881956}
+  m_LocalPosition: {x: -73.21572, y: -90.117905, z: -726.0002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59465,6 +59525,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f51b9cda2370e425795bd9ce71327aff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1455110031}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f51b9cda2370e425795bd9ce71327aff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1455110032}
   m_SourcePrefab: {fileID: 100100000, guid: f51b9cda2370e425795bd9ce71327aff, type: 3}
 --- !u!4 &1455110029 stripped
 Transform:
@@ -59497,6 +59560,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05890137
   m_Center: {x: -0.04, y: 0, z: 0.029999996}
+--- !u!114 &1455110032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455110030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8ed289169e40dca5bfa48649651e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kirie: {fileID: 1371432882}
+  distanceAlerte: 5
+  fuiteMax: 3
+  distanceDeplacement: 15
+  fuitesRestantes: 0
 --- !u!1 &1456339344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5197c75338f7b5941a9af68977859702, type: 3}
@@ -59634,6 +59714,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ab5269e1caf1447898f0d0d44ee9774, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1463758052}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ab5269e1caf1447898f0d0d44ee9774, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1463758053}
   m_SourcePrefab: {fileID: 100100000, guid: 9ab5269e1caf1447898f0d0d44ee9774, type: 3}
 --- !u!4 &1463758050 stripped
 Transform:
@@ -59666,6 +59749,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.049005736
   m_Center: {x: 0.02, y: 0, z: -0.06}
+--- !u!114 &1463758053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463758051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8ed289169e40dca5bfa48649651e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kirie: {fileID: 1371432882}
+  distanceAlerte: 5
+  fuiteMax: 3
+  distanceDeplacement: 15
+  fuitesRestantes: 0
 --- !u!1001 &1465753921
 PrefabInstance:
   m_ObjectHideFlags: 0
