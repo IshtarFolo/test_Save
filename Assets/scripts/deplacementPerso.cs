@@ -246,7 +246,7 @@ public class deplacementPerso : MonoBehaviour
         if (direction != Vector3.zero)
         {
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-            Debug.Log(angle);
+            //Debug.Log(angle);
 
             // On lance la bonne animation dependemment de l'angle du perso
             if (angle > 0)
