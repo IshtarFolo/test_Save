@@ -41,7 +41,7 @@ public class GestionDialogueThays : MonoBehaviour
 
         //Le dialogue Choix Diplomate
 
-        //Choix diplomate  de Kirie
+        //Choix diplomate de Kirie
         choixDiplomateKirie[0] = "Thays ! Enfin je te trouve. Je suis venue libérer mon frère et tous les enfants que tu as enlevés pour ton bon plaisir !";
         choixDiplomateKirie[1] = "Oh…. Un certain détective m’a parlé de cette entrée de cave. La lettre que j’ai en ma possession est la preuve de tes méfaits. (un mensonge pas si loin de la vérité)";
         choixDiplomateKirie[2] = "Donc, c’était vrai ! Il travaille pour vous…. (moi qui lui faisais confiance) Peu importe. Rends-moi mon frère Aasha ! Je ne repartirai pas sans lui !";
@@ -50,13 +50,31 @@ public class GestionDialogueThays : MonoBehaviour
         choixDiplomateKirie[5] = "Je n’étais pas présente lors de ton bannissement, mais je te promets sur la tête d’Aasha que je ferais tout pour qu’on te pardonne. FORMONS UNE NOUVELLE FAMILLE ENSEMBLE !";
 
 
-        //Choix diplomate  de Thays
+        //Choix diplomate de Thays
         choixDiplomateThays[0] = "Comment es-tu rentrée chez moi ? Personne n’a trouvé ma cachette ! Impossible ! (devrais-je déménager ?) Je ne sais pas de quoi tu parles. Aucun enfant ne vit ici contre son gré. Pour qui me prenez-vous ?";
         choixDiplomateThays[1] = "Argh ! Gatito, ce petit chat de gouttière qui n’en fait qu’à sa tête ! La prochaine fois, il va le regretter quand j’aurais sa langue dans mes mains HAHAH ! ";
         choixDiplomateThays[2] = "Aasha… Il m’appartient désormais : il s’est jeté dans la gueule du loup ! Haha ! Ils m’appartiennent tous. C’est la famille que je n’ai jamais eue ! ";
         choixDiplomateThays[3] = "On m’a tout pris, les tiens m’ont abandonnée. D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS ! ";
         choixDiplomateThays[4] = "Vraiment !?! Hors de question !";
-        choixDiplomateThays[5] = "Si tu le dis. Gare à toi si tu me mens. Rusée comme un renard, il faut se méfier….";
+        choixDiplomateThays[5] = "Si tu le dis. Gare à toi si tu me mens. Rusée comme un renard, il faut se méfier…";
+
+        //Choix colère de Kirie
+        choixDiplomateKirie[0] = "THAYS ! REDONNE-MOI MON FRÈRE SUR-LE-CHAMPS !";
+        choixDiplomateKirie[1] = "Moi, j’ai osé ! Et je ne partirai pas sans mon frère. AASHA ! Où est-il ?";
+        choixDiplomateKirie[2] = "Oh… Un certain détective m’a parlé de cette entrée de cave. La lettre que j’ai en ma possession est la preuve de tes méfaits. (un mensonge pas si loin de la vérité.)";
+        choixDiplomateKirie[3] = "Peu importe tes petits jeux, Thays ! Rends-moi mon frère Aasha ! Je ne repartirai pas sans lui !";
+        choixDiplomateKirie[4] = "Ils ne t’appartiennent pas ! C’est moi la seule famille d’Aasha ! Et si tu ne le libères pas maintenant, je te ferai regretter d’avoir croisé mon chemin. Je suis certaine que plusieurs parents voudront ta tête décapitée entre leurs mains….";
+        choixDiplomateKirie[5] = "Je me souviens des rumeurs... C’était donc toi ! Depuis, tu n'as fait que semer la terreur et enlever des enfants pour assouvir ta vengeance. Ta douleur ne justifie pas tes actes monstrueux ! Libère-les, ou je te ferai comprendre la vraie douleur.";
+
+
+        //Choix colère de Thays
+        choixDiplomateThays[0] = "QUI A OSÉ PÉNÉTRER DANS MON ANTRE SANS PERMISSION ?!?";
+        choixDiplomateThays[1] = "SORS D’ICI ! Tu as peut-être trouvé ma cachette, mais tu ne reverras plus jamais la lumière du jour ! Personne n’a trouvé aucune piste menant jusqu’à moi.";
+        choixDiplomateThays[2] = "Argh ! Gatito, ce petit chat de gouttière qui n’en fait qu’à sa tête ! La prochaine fois, il va le regretter quand j’aurai sa langue entre mes mains. HAHAH !";
+        choixDiplomateThays[3] = "Aasha… Oui… JAMAIS ! Il m’appartient désormais : il s’est jeté dans la gueule du loup ! Haha ! Ils m’appartiennent tous. C’est la famille que je n’ai jamais eue !";
+        choixDiplomateThays[4] = "Tu oses me menacer ? Toi, une simple gamine ? On m’a tout pris, les tiens m’ont abandonnée. SES SOIT-DISANT PARENTS M’ONT REJETÉE ME METTANT LA FAUTE SUR LA MORT DE MES PARENTS ! D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS !";
+        choixDiplomateThays[5] = "Tu crois me faire peur ? Je suis plus forte que tu ne le penses. Ils m'ont pris ma famille, alors j'ai créé la mienne. Mais très bien, viens, essaye donc de me stopper !";
+
     }
 
 
