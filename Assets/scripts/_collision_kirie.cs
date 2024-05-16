@@ -24,6 +24,8 @@ public class _collision_kirie : MonoBehaviour
     public bool audioJoue;
     public bool cannePecheRamasse = false;
 
+    private bool trouveGatito;
+
     [Header("Booléennes des scènes Unity")]
     public static bool tutorielTermine = false;
     public static bool niveau1Termine = false;
@@ -43,9 +45,15 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIcontenu1;
     public GameObject UIcontenu2;
     public GameObject UIcontenu3;
+    public GameObject UIcontenu4;
+    public GameObject UIcontenu5;
 
     public GameObject OBJimageGatito;
     public GameObject OBJimageThays;
+    public GameObject DESCpointsgatito;
+    public GameObject DESCpointsthays;
+    public GameObject DESCgatito;
+    public GameObject DESCthays;
 
     public GameObject INVcle;
     public GameObject INVcanne;
@@ -61,6 +69,8 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIarmoire;
     public GameObject UIfiniTuto;
     public GameObject UIfiniTuto2;
+
+    public GameObject UIanimationJournal;
 
     [Header("Gameobjects des quêtes du village")]
     public GameObject UIvillage;
@@ -235,6 +245,8 @@ public class _collision_kirie : MonoBehaviour
                 UIcontenu2.SetActive(false);
                 UIcontenu3.SetActive(true);
                 OBJimageGatito.SetActive(true);
+                DESCpointsgatito.SetActive(false);
+                DESCgatito.SetActive(true);
             }
         }
 
@@ -244,6 +256,9 @@ public class _collision_kirie : MonoBehaviour
             UIvoirGatito.SetActive(false);
             UIfiniVillage.SetActive(true);
             niveau1Termine = true;
+            INVpoisson.SetActive(false);
+            UIcontenu4.SetActive(false);
+            UIcontenu5.SetActive(true);
         }
 
         if (infoTrigger.gameObject.tag == "save")
@@ -277,7 +292,10 @@ public class _collision_kirie : MonoBehaviour
                 tutorielTermine = true;
                 gameManager.PlayOneShot(armoireSouvre, 0.7f);
 
+                UIanimationJournal.SetActive(true);
+
                 Invoke("accesALinventaire", 0.1f);
+                Invoke("enleverAnimation", 5f);
             }
 
            
@@ -326,7 +344,10 @@ public class _collision_kirie : MonoBehaviour
             UIbarreCanne.SetActive(true);
             cannePeche.SetActive(false);
             UIminiJeuChaudFroid.SetActive(false);
-        }else
+            INVcanne.SetActive(true);
+
+        }
+        else
         {
 
         }
@@ -344,6 +365,13 @@ public class _collision_kirie : MonoBehaviour
         UIarmoire.SetActive(true);
     }
 
+// DANS LE TUTORIEL - Animation journal
+// ////////////////////////////////////////////////
+    private void enleverAnimation()
+    {
+        UIanimationJournal.SetActive(false);
+    }
+
 // DERNIÈRE ÉTAPE AVANT LA FIN DU VILLAGE
 // ////////////////////////////////////////////////
     public void derniereEtapeVillage()
@@ -351,6 +379,11 @@ public class _collision_kirie : MonoBehaviour
         //Debug.Log("Vous avez presque fini! Allez voir Gatito!");
         UIvillageois.SetActive(false);
         UIvoirGatito.SetActive(true);
+
+        UIcontenu1.SetActive(false);
+        UIcontenu4.SetActive(true);
+
+        INVpoisson.SetActive(true);
     }
 
 // ACCÈS À L'INVENTAIRE
