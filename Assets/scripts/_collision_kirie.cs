@@ -73,6 +73,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarreCanne;
     public GameObject UIpoisson;
     public GameObject UIbarrePoisson;
+    public GameObject UIvoirGatito;
     public GameObject UIfiniVillage;
 
     public GameObject UIminiJeuChaudFroid;
@@ -123,6 +124,11 @@ public class _collision_kirie : MonoBehaviour
 
             //S'assurer que le boxCollider de la planche2 du quai soit désactiver
             planche2Quai.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if(SystemePeche.finiPeche == true)
+        {
+            Invoke("derniereEtapeVillage", 1f);
         }
 
         // au debut du jeu, on trouve l'index de la scene a activer
@@ -225,6 +231,12 @@ public class _collision_kirie : MonoBehaviour
                 UIcontenu3.SetActive(true);
                 OBJimageGatito.SetActive(true);
             }
+
+            if (SystemePeche.finiPeche == true)
+            {
+                UIvoirGatito.SetActive(false);
+                UIfiniVillage.SetActive(true);
+            }
         }
 
         if (infoTrigger.gameObject.tag == "save")
@@ -322,6 +334,15 @@ public class _collision_kirie : MonoBehaviour
         UItutoriel.SetActive(true);
         UIcle.SetActive(true);
         UIarmoire.SetActive(true);
+    }
+
+// DERNIÈRE ÉTAPE AVANT LA FIN DU VILLAGE
+// ////////////////////////////////////////////////
+    public void derniereEtapeVillage()
+    {
+        Debug.Log("Vous avez presque fini! Allez voir Gatito!");
+        UIvillageois.SetActive(false);
+        UIvoirGatito.SetActive(true);
     }
 
 // ACCÈS À L'INVENTAIRE
