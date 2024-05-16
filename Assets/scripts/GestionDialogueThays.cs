@@ -36,8 +36,8 @@ public class GestionDialogueThays : MonoBehaviour
 
     void Start()
     {
-        //bulleKirie.SetActive(false);
-        //bulleThays.SetActive(false);
+        bulleKirie.SetActive(false);
+        bulleThays.SetActive(false);
 
         //Le dialogue Choix Diplomate
 
@@ -69,15 +69,19 @@ public class GestionDialogueThays : MonoBehaviour
             {
                 dialogueKirie.text = "";
                 dialogueThays.text = "";
+                bulleKirie.SetActive(true);
                 ecrit = true;
                 //WaitUntil - Pour attendre que la variable devienne false pour continuer la conversation
                 StartCoroutine(AfficherDialogueParLettre(dialogueKirie, choixDiplomateKirie[i]));
                 yield return new WaitUntil(() => !ecrit);
                 yield return new WaitForSeconds(2f);
+                bulleKirie.SetActive(false);
+                bulleThays.SetActive(true);
                 ecrit = true;
                 StartCoroutine(AfficherDialogueParLettre(dialogueThays, choixDiplomateThays[i]));
                 yield return new WaitUntil(() => !ecrit);
                 yield return new WaitForSeconds(2f);
+                bulleThays.SetActive(false);
             }
         }
         else if (choixColere)
