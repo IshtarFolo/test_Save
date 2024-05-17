@@ -14,7 +14,7 @@ public class JeuCartes : MonoBehaviour
     [SerializeField] List<Sprite> listeItems = new List<Sprite>();
 
     //Variables de son
-    [SerializeField] AudioClip sonMatchCarte, sonTourneCarte;
+    [SerializeField] AudioClip sonMatchCarte, sonTourneCarte, sonCarteBombe;
     private AudioSource audioSource;
 
     //Variables pour compter les cartes retournées en paires
@@ -95,6 +95,15 @@ public class JeuCartes : MonoBehaviour
                     //Si les cartes sont identiques de par le nom de leurs sprites
                     if (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name)
                         PaireTrouvee(premiereCarte, secondeCarte);
+
+                    //Si le joueur combine des cartes de bombes
+                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
+                    {
+                        audioSource.PlayOneShot(sonCarteBombe);
+                        Debug.Log("Partie terminée");
+                        //Recharger la scène
+                        SceneManager.GetActiveScene();
+                    }
                 }
                 
                 //Jouer le son de carte tournée

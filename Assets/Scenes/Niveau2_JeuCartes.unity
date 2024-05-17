@@ -1545,16 +1545,17 @@ MonoBehaviour:
   listeItems:
   - {fileID: 21300000, guid: baebf22e8ccb59245a4d052bd21ea33b, type: 3}
   - {fileID: 21300000, guid: 63210f9335875484b82d96833b5785b0, type: 3}
-  - {fileID: 21300000, guid: 282370b8dc7b1cc409b1624bb149c88c, type: 3}
-  - {fileID: 21300000, guid: 09c00a11abf4fdc49b35d98e749a6ee0, type: 3}
+  - {fileID: 21300000, guid: 6675056f92b05294685da95d6da55b9d, type: 3}
+  - {fileID: 21300000, guid: 6675056f92b05294685da95d6da55b9d, type: 3}
   - {fileID: 21300000, guid: c9830a73f9c5bd6409a1f01a8bad06a9, type: 3}
   - {fileID: 21300000, guid: 51a656d29135efc43981c7feb7df4657, type: 3}
   - {fileID: 21300000, guid: e181b5b8e87e21243bad1b3f7d4db354, type: 3}
   - {fileID: 21300000, guid: 28e03e365c50f38449963db421a062dd, type: 3}
-  - {fileID: 21300000, guid: 31071f50a45136744b25cc89cc0ed000, type: 3}
-  - {fileID: 21300000, guid: 15d07826dfd581c4f8612b792cb6dc35, type: 3}
+  - {fileID: 21300000, guid: 6675056f92b05294685da95d6da55b9d, type: 3}
+  - {fileID: 21300000, guid: 6675056f92b05294685da95d6da55b9d, type: 3}
   sonMatchCarte: {fileID: 8300000, guid: d47a733424ca28f42bb385f73dbffa80, type: 3}
   sonTourneCarte: {fileID: 8300000, guid: 7359751756a9bd94f9b3c8e9451be1f4, type: 3}
+  sonCarteBombe: {fileID: 8300000, guid: fc498cc5df593454c8262e9cdf4dc436, type: 3}
   txtCompteur: {fileID: 1119018618}
 --- !u!82 &548715057
 AudioSource:
