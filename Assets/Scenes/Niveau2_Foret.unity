@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.085362546, g: 0.18886697, b: 0.43178445, a: 1}
+  m_IndirectSpecularColor: {r: 0.08550141, g: 0.18893352, b: 0.4318913, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2384,9 +2384,8 @@ MonoBehaviour:
   cleRamasse: 0
   audioJoue: 0
   cannePecheRamasse: 0
-  Debutlvl2: 0
   UIJournalKirie: {fileID: 0}
-  UInotification: {fileID: 0}
+  UInotification: {fileID: 1111197238}
   UInoirFadeIn: {fileID: 0}
   UInoirFadeOut: {fileID: 0}
   UIcontenu1: {fileID: 0}
@@ -2427,7 +2426,11 @@ MonoBehaviour:
   UIminiJeuChaudFroid: {fileID: 0}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
-  UInotifSauve: {fileID: 0}
+  UINombreLettre: {fileID: 0}
+  UIIndexLettres: {fileID: 0}
+  lettres: []
+  lettresRamassee: 0
+  UInotifSauve: {fileID: 119604273}
   gameManager: {fileID: 0}
   prendreCle: {fileID: 0}
   armoireBarre: {fileID: 0}
