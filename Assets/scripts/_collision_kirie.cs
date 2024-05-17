@@ -483,9 +483,22 @@ public class _collision_kirie : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
     // Lors du chargement de la scene
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         noScene = SceneManager.GetActiveScene().buildIndex;
+
+        // Mettre la booléenne à true
+        Debug.Log($"Scene loaded: {scene.name}, SystemePeche.finiPeche: {SystemePeche.finiPeche}");
+        if (scene.name == "Niveau1_Village" && SystemePeche.finiPeche == true)
+        {
+            DialogueGatitoVillage.SetPoissonMange(true);
+            Debug.Log("DialogueGatitoVillage.poissonMange set to true");
+        }
+        else
+        {
+            Debug.Log("encore des poissons");
+        }
     }
 }

@@ -30010,7 +30010,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettreE: {fileID: 126932175}
   veutParler: 0
-  peutActiverAction: 0
   dialogueGatito: {fileID: 1510778979}
   bulle: {fileID: 610323901}
   aParle: 0
@@ -30019,7 +30018,7 @@ MonoBehaviour:
   - " Cela creuse l'app\xE9tit de r\xE9pondre aux questions. "
   - " Ram\xE8ne-moi 3 d\xE9licieux poissons et je te r\xE9pondrais volontiers !"
   dialoguesAvecAction:
-  - Oh des poissons ! Ce n'est pas beaucoup. Tans pis
+  - Oh des poissons ! Ce n'est pas beaucoup. Tant pis
   - 'J''ai entendu dire par les animaux du coin, '
   - "qu'un petit gar\xE7on a \xE9t\xE9 vu \xE0 l'or\xE9e de la for\xEAt. "
   - 'Il portait un masque de loup... '
@@ -30642,8 +30641,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
-  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
+  m_LocalRotation: {x: 0.16245982, y: -0.688192, z: 0.16246031, w: 0.68818986}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65896,8 +65895,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
-  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
+  m_LocalRotation: {x: 0.16245982, y: -0.688192, z: 0.16246031, w: 0.68818986}
+  m_LocalPosition: {x: 118.04428, y: 115.51217, z: 478.92014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

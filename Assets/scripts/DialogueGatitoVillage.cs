@@ -7,7 +7,7 @@ public class DialogueGatitoVillage : MonoBehaviour
 {
     public GameObject lettreE;
     public bool veutParler = false;
-    public bool peutActiverAction = false; // Indique si Gatito peut activer l'action du joueur
+    public static bool poissonMange = false; // Indique si Gatito peut activer l'action du joueur
 
     public TextMeshPro dialogueGatito; // Référence au texte de Gatito
     public GameObject bulle; // Référence à la bulle de dialogue
@@ -26,34 +26,26 @@ public class DialogueGatitoVillage : MonoBehaviour
     {
         dialogueGatito.enabled = true;
         bulle.SetActive(true);
+        Debug.Log($"poissonMange initial state: {poissonMange}");
     }
+
 
     // Update is called once per frame
     void Update()
     {
         if (veutParler && (Input.GetKeyDown(KeyCode.E)) && !aParle)
         {
-
             if (dialogueCoroutine == null)
             {
-                dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesSansAction));
-            } 
-        }
-
-        if (veutParler && (Input.GetKeyDown(KeyCode.E)) && peutActiverAction)
-        {
-
-            if (dialogueCoroutine == null)
-            {
-                dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesAvecAction));
-
+                if (poissonMange)
+                {
+                    dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesAvecAction));
+                }
+                else
+                {
+                    dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesSansAction));
+                }
             }
-        }
-
-
-        if (dialoguesTermines)
-        {
-            RecommencerDialogue();
         }
     }
 
@@ -102,7 +94,7 @@ public class DialogueGatitoVillage : MonoBehaviour
                 yield return new WaitForSeconds(0.10f); // Attendre un court laps de temps entre chaque lettre
             }
 
-            yield return new WaitForSeconds(0.5f); // Attendre un court laps de temps avant d'afficher le prochain dialogue
+            yield return new WaitForSeconds(1f); // Attendre un court laps de temps avant d'afficher le prochain dialogue
         }
 
         // Si tous les dialogues ont été affichés, désactiver le dialogue
@@ -114,15 +106,11 @@ public class DialogueGatitoVillage : MonoBehaviour
         aParle = true;
     }
 
-    //// Méthode pour réinitialiser le dialogue
-    public void RecommencerDialogue()
+    //Fonction pour pouvoir changer la valeur de la booléenne poissonMange
+    public static void SetPoissonMange(bool value)
     {
-        lettreE.SetActive(true);
-        dialogueGatito.enabled = true;
-        bulle.SetActive(true);
-        dialoguesTermines = false;
-        aParle = true;
-        veutParler = true; // Permettre au joueur de parler à nouveau
+        poissonMange = value;
+        Debug.Log($"poissonMange set to: {poissonMange}");
     }
 
 }
