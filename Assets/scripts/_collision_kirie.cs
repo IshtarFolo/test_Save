@@ -6,6 +6,7 @@ using static UnityEngine.ParticleSystem;
 using UnityEngine.Playables;
 using Scene = UnityEngine.SceneManagement.Scene;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class _collision_kirie : MonoBehaviour
 {
@@ -90,6 +91,10 @@ public class _collision_kirie : MonoBehaviour
     [Header("Gameobjects des quêtes de la forêt")]
     public GameObject UIforet;
     public GameObject UIbarreLettre;
+    public GameObject UINombreLettre;
+    public TextMeshProUGUI UIIndexLettres;
+    public GameObject[] lettres;
+    public int lettresRamassee;
 
     [Header("Gameobjects des Notifications")]
     public GameObject UInotifSauve;
@@ -266,6 +271,22 @@ public class _collision_kirie : MonoBehaviour
             //Debug.Log("Partie Sauvegardée");
             UInotification.SetActive(true);
             Invoke("notifSauvegarde", 0.1f);
+        }
+
+        //InfoTrigger pour attraper les 5 letres
+
+    if(infoTrigger.gameObject.tag == "lettre")
+        {
+            Destroy(infoTrigger.gameObject);
+            UINombreLettre.SetActive(true);
+
+            foreach(GameObject lettre in lettres)
+            {
+                lettresRamassee+=1;
+                Debug.Log("Lettre trouvée");
+                UIIndexLettres.text = lettresRamassee.ToString();
+            }
+
         }
     }
 
