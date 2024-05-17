@@ -59,21 +59,21 @@ public class GestionDialogueThays : MonoBehaviour
         choixDiplomateThays[5] = "Si tu le dis. Gare à toi si tu me mens. Rusée comme un renard, il faut se méfier…";
 
         //Choix colère de Kirie
-        choixDiplomateKirie[0] = "THAYS ! REDONNE-MOI MON FRÈRE SUR-LE-CHAMPS !";
-        choixDiplomateKirie[1] = "Moi, j’ai osé ! Et je ne partirai pas sans mon frère. AASHA ! Où est-il ?";
-        choixDiplomateKirie[2] = "Oh… Un certain détective m’a parlé de cette entrée de cave. La lettre que j’ai en ma possession est la preuve de tes méfaits. (un mensonge pas si loin de la vérité.)";
-        choixDiplomateKirie[3] = "Peu importe tes petits jeux, Thays ! Rends-moi mon frère Aasha ! Je ne repartirai pas sans lui !";
-        choixDiplomateKirie[4] = "Ils ne t’appartiennent pas ! C’est moi la seule famille d’Aasha ! Et si tu ne le libères pas maintenant, je te ferai regretter d’avoir croisé mon chemin. Je suis certaine que plusieurs parents voudront ta tête décapitée entre leurs mains….";
-        choixDiplomateKirie[5] = "Je me souviens des rumeurs... C’était donc toi ! Depuis, tu n'as fait que semer la terreur et enlever des enfants pour assouvir ta vengeance. Ta douleur ne justifie pas tes actes monstrueux ! Libère-les, ou je te ferai comprendre la vraie douleur.";
+        choixColereKirie[0] = "THAYS ! REDONNE-MOI MON FRÈRE SUR-LE-CHAMPS !";
+        choixColereKirie[1] = "Moi, j’ai osé ! Et je ne partirai pas sans mon frère. AASHA ! Où est-il ?";
+        choixColereKirie[2] = "Oh… Un certain détective m’a parlé de cette entrée de cave. La lettre que j’ai en ma possession est la preuve de tes méfaits. (un mensonge pas si loin de la vérité.)";
+        choixColereKirie[3] = "Peu importe tes petits jeux, Thays ! Rends-moi mon frère Aasha ! Je ne repartirai pas sans lui !";
+        choixColereKirie[4] = "Ils ne t’appartiennent pas ! C’est moi la seule famille d’Aasha ! Et si tu ne le libères pas maintenant, je te ferai regretter d’avoir croisé mon chemin. Je suis certaine que plusieurs parents voudront ta tête décapitée entre leurs mains….";
+        choixColereKirie[5] = "Je me souviens des rumeurs... C’était donc toi ! Depuis, tu n'as fait que semer la terreur et enlever des enfants pour assouvir ta vengeance. Ta douleur ne justifie pas tes actes monstrueux ! Libère-les, ou je te ferai comprendre la vraie douleur.";
 
 
         //Choix colère de Thays
-        choixDiplomateThays[0] = "QUI A OSÉ PÉNÉTRER DANS MON ANTRE SANS PERMISSION ?!?";
-        choixDiplomateThays[1] = "SORS D’ICI ! Tu as peut-être trouvé ma cachette, mais tu ne reverras plus jamais la lumière du jour ! Personne n’a trouvé aucune piste menant jusqu’à moi.";
-        choixDiplomateThays[2] = "Argh ! Gatito, ce petit chat de gouttière qui n’en fait qu’à sa tête ! La prochaine fois, il va le regretter quand j’aurai sa langue entre mes mains. HAHAH !";
-        choixDiplomateThays[3] = "Aasha… Oui… JAMAIS ! Il m’appartient désormais : il s’est jeté dans la gueule du loup ! Haha ! Ils m’appartiennent tous. C’est la famille que je n’ai jamais eue !";
-        choixDiplomateThays[4] = "Tu oses me menacer ? Toi, une simple gamine ? On m’a tout pris, les tiens m’ont abandonnée. SES SOIT-DISANT PARENTS M’ONT REJETÉE ME METTANT LA FAUTE SUR LA MORT DE MES PARENTS ! D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS !";
-        choixDiplomateThays[5] = "Tu crois me faire peur ? Je suis plus forte que tu ne le penses. Ils m'ont pris ma famille, alors j'ai créé la mienne. Mais très bien, viens, essaye donc de me stopper !";
+        choixColereThays[0] = "QUI A OSÉ PÉNÉTRER DANS MON ANTRE SANS PERMISSION ?!?";
+        choixColereThays[1] = "SORS D’ICI ! Tu as peut-être trouvé ma cachette, mais tu ne reverras plus jamais la lumière du jour ! Personne n’a trouvé aucune piste menant jusqu’à moi.";
+        choixColereThays[2] = "Argh ! Gatito, ce petit chat de gouttière qui n’en fait qu’à sa tête ! La prochaine fois, il va le regretter quand j’aurai sa langue entre mes mains. HAHAH !";
+        choixColereThays[3] = "Aasha… Oui… JAMAIS ! Il m’appartient désormais : il s’est jeté dans la gueule du loup ! Haha ! Ils m’appartiennent tous. C’est la famille que je n’ai jamais eue !";
+        choixColereThays[4] = "Tu oses me menacer ? Toi, une simple gamine ? On m’a tout pris, les tiens m’ont abandonnée. SES SOIT-DISANT PARENTS M’ONT REJETÉE ME METTANT LA FAUTE SUR LA MORT DE MES PARENTS ! D’une enfance joyeuse à une vie recluse. ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS !";
+        choixColereThays[5] = "Tu crois me faire peur ? Je suis plus forte que tu ne le penses. Ils m'ont pris ma famille, alors j'ai créé la mienne. Mais très bien, viens, essaye donc de me stopper !";
 
     }
 
@@ -109,15 +109,19 @@ public class GestionDialogueThays : MonoBehaviour
             {
                 dialogueKirie.text = "";
                 dialogueThays.text = "";
+                bulleKirie.SetActive(true);
                 ecrit = true;
                 //WaitUntil - Pour attendre que la variable devienne false pour continuer la conversation
                 StartCoroutine(AfficherDialogueParLettre(dialogueKirie, choixColereKirie[i]));
                 yield return new WaitUntil(() => !ecrit);
                 yield return new WaitForSeconds(2f);
+                bulleKirie.SetActive(false);
+                bulleThays.SetActive(true);
                 ecrit = true;
                 StartCoroutine(AfficherDialogueParLettre(dialogueThays, choixColereThays[i]));
                 yield return new WaitUntil(() => !ecrit);
                 yield return new WaitForSeconds(2f);
+                bulleThays.SetActive(false);
             }
         }
     }
