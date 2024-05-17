@@ -94,7 +94,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UINombreLettre;
     public TextMeshProUGUI UIIndexLettres;
     public GameObject[] lettres;
-    public int lettresRamassee;
+    public int lettreRamassee = 0;
 
     [Header("Gameobjects des Notifications")]
     public GameObject UInotifSauve;
@@ -280,11 +280,16 @@ public class _collision_kirie : MonoBehaviour
             Destroy(infoTrigger.gameObject);
             UINombreLettre.SetActive(true);
 
-            foreach(GameObject lettre in lettres)
+            // Incrémentez lettresRamassee d'une seule unité
+            lettreRamassee += 1;
+            Debug.Log("Lettre trouvée");
+
+            // Mettez à jour l'index de l'UI avec le nombre de lettres ramassées
+            UIIndexLettres.text = lettreRamassee.ToString();
+
+            if(lettreRamassee == 5)
             {
-                lettresRamassee+=1;
-                Debug.Log("Lettre trouvée");
-                UIIndexLettres.text = lettresRamassee.ToString();
+                Debug.Log("La lettre est complète");
             }
 
         }
