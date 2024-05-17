@@ -130,6 +130,10 @@ public class Scene_credits : MonoBehaviour
         // ICI, il faut programmer le changement de scènes selon
         // la progression du joueur.
         SceneManager.LoadScene("EcranTitre");
+        if (SystemePeche.finiPeche)
+        {
+            SceneManager.LoadScene("Niveau1_Village");
+        }
     }
 
     private void cinematiqueDebutFini()
