@@ -6,6 +6,7 @@ using static UnityEngine.ParticleSystem;
 using UnityEngine.Playables;
 using Scene = UnityEngine.SceneManagement.Scene;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class _collision_kirie : MonoBehaviour
 {
@@ -90,6 +91,9 @@ public class _collision_kirie : MonoBehaviour
     [Header("Gameobjects des quêtes de la forêt")]
     public GameObject UIforet;
     public GameObject UIbarreLettre;
+    public GameObject UINombreLettre;
+    public TextMeshProUGUI UIIndexLettres;
+    public int lettresRamassee = 5;
 
     [Header("Gameobjects des Notifications")]
     public GameObject UInotifSauve;
@@ -267,6 +271,22 @@ public class _collision_kirie : MonoBehaviour
             UInotification.SetActive(true);
             Invoke("notifSauvegarde", 0.1f);
         }
+
+        //InfoTrigger pour attraper les 5 letres
+
+    if(infoTrigger.gameObject.tag == "lettre")
+        {
+            Destroy(infoTrigger.gameObject);
+            UINombreLettre.SetActive(true);
+
+           for(int i = 1; i <= lettresRamassee; i++)
+            {
+                lettresRamassee++;
+                Debug.Log("Lettre trouvée");
+                UIIndexLettres.text = lettresRamassee.ToString();
+            }
+
+        }
     }
 
     void AudioPeutJouer()
@@ -345,10 +365,6 @@ public class _collision_kirie : MonoBehaviour
             cannePeche.SetActive(false);
             UIminiJeuChaudFroid.SetActive(false);
             INVcanne.SetActive(true);
-
-        }
-        else
-        {
 
         }
     }
