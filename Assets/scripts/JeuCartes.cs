@@ -29,7 +29,7 @@ public class JeuCartes : MonoBehaviour
 
     //Variables de texte pour le compteur
     public TextMeshProUGUI txtCompteur;
-    public int valeurCompteur = 120; //Le joueur aura 120 secondes pour trouver les bonnes combinaisons
+    private int valeurCompteur = 30; //Le joueur aura 60 secondes pour trouver les bonnes combinaisons
 
     public void Awake()
     {
@@ -140,7 +140,7 @@ public class JeuCartes : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    //Le joueur aura 120 secondes pour trouver les bonnes combinaisons
+    //Le joueur aura 30 secondes pour trouver les bonnes combinaisons
     void Compteur()
     {
         valeurCompteur -= 1;
@@ -151,6 +151,7 @@ public class JeuCartes : MonoBehaviour
         {            
             //Annuler la fonction "Compteur"
             CancelInvoke("Compteur");
+            Debug.Log("trop lent");
             //Recharger la scène
             SceneManager.GetActiveScene();
         }
