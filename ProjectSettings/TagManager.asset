@@ -15,6 +15,7 @@ TagManager:
   - cannePeche
   - lettre
   - triggerNiv2
+  - lac
   layers:
   - Default
   - TransparentFX

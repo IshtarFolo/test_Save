@@ -137,7 +137,7 @@ public class _collision_kirie : MonoBehaviour
 
         if(scene.name == "Niveau2_foret")
         {
-            //gameObject.transform.position = Vector3(-92.1600037, -99.5899963, -726)
+
         }
 
         if(SystemePeche.finiPeche == true)
@@ -345,10 +345,6 @@ public class _collision_kirie : MonoBehaviour
             cannePeche.SetActive(false);
             UIminiJeuChaudFroid.SetActive(false);
             INVcanne.SetActive(true);
-
-        }
-        else
-        {
 
         }
     }

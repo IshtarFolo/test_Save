@@ -55,20 +55,12 @@ public class savePosition : MonoBehaviour
                 tutoFini = PlayerPrefsX.GetBool("tutoFini");
             }
         }
-
-        if (_collision_kirie.noScene == 6) 
-        {
-            joueur.transform.position = new Vector3(-92.16f,-99.59f,-726f);
-            joueur.transform.rotation = new Quaternion(0,0,0,1);
-        }
     }
 
     private void Update()
     {
         scene = _collision_kirie.noScene;
         poissons = MiniJeuPeche.poissonsPeches;
-
-        Debug.Log(_collision_kirie.noScene);
     }
 
     public void NouvellePartie()
@@ -86,13 +78,16 @@ public class savePosition : MonoBehaviour
     // Sauvegarder les valeurs de positions 
     public void Save()
     {
-        PlayerPrefs.SetFloat("laPositionX", joueur.transform.position.x);
-        PlayerPrefs.SetFloat("laPositionY", joueur.transform.position.y);
-        PlayerPrefs.SetFloat("laPositionZ", joueur.transform.position.z);
 
-        PlayerPrefs.SetFloat("laRotationX", joueur.transform.eulerAngles.x);
-        PlayerPrefs.SetFloat("laRotationY", joueur.transform.eulerAngles.y);
-        PlayerPrefs.SetFloat("laRotationZ", joueur.transform.eulerAngles.z);
+        string sceneKey = "Scene" + scene;
+
+        PlayerPrefs.SetFloat(sceneKey + "laPositionX", joueur.transform.position.x);
+        PlayerPrefs.SetFloat(sceneKey + "laPositionY", joueur.transform.position.y);
+        PlayerPrefs.SetFloat(sceneKey + "laPositionZ", joueur.transform.position.z);
+
+        PlayerPrefs.SetFloat(sceneKey + "laRotationX", joueur.transform.eulerAngles.x);
+        PlayerPrefs.SetFloat(sceneKey + "laRotationY", joueur.transform.eulerAngles.y);
+        PlayerPrefs.SetFloat(sceneKey + "laRotationZ", joueur.transform.eulerAngles.z);
 
         // On cree une sauvegarde du numero de la scene
         scene = SceneManager.GetActiveScene().buildIndex;
@@ -146,23 +141,47 @@ public class savePosition : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (joueur != null)
-        {
-            // On passe les valeurs de position et de rotation au joueur
-            joueur.transform.position = new Vector3(positionX, positionY, positionZ);
-            joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
 
-            tutoFini = _collision_kirie.journalRamasse;
-        }
+    // Load the scene-specific position and rotation
+    string sceneKey = "Scene" + scene.buildIndex;
+
+    if (PlayerPrefs.HasKey(sceneKey + "laPositionX") && PlayerPrefs.HasKey(sceneKey + "laPositionY") && PlayerPrefs.HasKey(sceneKey + "laPositionZ"))
+    {
+        float positionX = PlayerPrefs.GetFloat(sceneKey + "laPositionX");
+        float positionY = PlayerPrefs.GetFloat(sceneKey + "laPositionY");
+        float positionZ = PlayerPrefs.GetFloat(sceneKey + "laPositionZ");
+
+        joueur.transform.position = new Vector3(positionX, positionY, positionZ);
+    }
+
+    if (PlayerPrefs.HasKey(sceneKey + "laRotationX") && PlayerPrefs.HasKey(sceneKey + "laRotationY") && PlayerPrefs.HasKey(sceneKey + "laRotationZ"))
+    {
+        float rotationX = PlayerPrefs.GetFloat(sceneKey + "laRotationX");
+        float rotationY = PlayerPrefs.GetFloat(sceneKey + "laRotationY");
+        float rotationZ = PlayerPrefs.GetFloat(sceneKey + "laRotationZ");
+
+        joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
+    }
+
+
+    tutoFini = _collision_kirie.journalRamasse;
+
 
         // On d�sactive l'�cran de chargement
         loadingScreen.SetActive(false); 
         // On arrete la pause
        // Time.timeScale = 1f;
-
-        // On unsubscribe de l'evenement de loadScene pour prevenir les leaks de memoire
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
