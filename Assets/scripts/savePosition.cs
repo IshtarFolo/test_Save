@@ -55,6 +55,12 @@ public class savePosition : MonoBehaviour
                 tutoFini = PlayerPrefsX.GetBool("tutoFini");
             }
         }
+
+        if (_collision_kirie.noScene == 6) 
+        {
+            joueur.transform.position = new Vector3(-92.16f,-99.59f,-726f);
+            joueur.transform.rotation = new Quaternion(0,0,0,1);
+        }
     }
 
     private void Update()
@@ -62,7 +68,7 @@ public class savePosition : MonoBehaviour
         scene = _collision_kirie.noScene;
         poissons = MiniJeuPeche.poissonsPeches;
 
-       // Debug.Log("poissons Save: " + poissons);
+        Debug.Log(_collision_kirie.noScene);
     }
 
     public void NouvellePartie()
@@ -95,7 +101,7 @@ public class savePosition : MonoBehaviour
         // Sauvegarde de l,acquisition du journal
         PlayerPrefsX.SetBool("Journal", tutoFini);
 
-        //
+        // Les poissons sont egaux au nombre de poissons dans le script du jeu de peche 
         poissons = MiniJeuPeche.poissonsPeches;
         PlayerPrefs.SetInt("poissons", poissons);
 
@@ -130,7 +136,7 @@ public class savePosition : MonoBehaviour
         // On charge l'index de la scene enregistre dans PlayerPrefs
         scene = PlayerPrefs.GetInt("laScene", scene);
 
-        //
+        // On recupere les poissons
         PlayerPrefs.GetInt("poissons", poissons);
 
         // Chargement de l'acquisition du journal
@@ -140,23 +146,23 @@ public class savePosition : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-{
-    if (joueur != null)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // On passe les valeurs de position et de rotation au joueur
-        joueur.transform.position = new Vector3(positionX, positionY, positionZ);
-        joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
+        if (joueur != null)
+        {
+            // On passe les valeurs de position et de rotation au joueur
+            joueur.transform.position = new Vector3(positionX, positionY, positionZ);
+            joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
 
-        tutoFini = _collision_kirie.journalRamasse;
+            tutoFini = _collision_kirie.journalRamasse;
+        }
+
+        // On d�sactive l'�cran de chargement
+        loadingScreen.SetActive(false); 
+        // On arrete la pause
+       // Time.timeScale = 1f;
+
+        // On unsubscribe de l'evenement de loadScene pour prevenir les leaks de memoire
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
-    // On d�sactive l'�cran de chargement
-    loadingScreen.SetActive(false); 
-    // On arrete la pause
-   // Time.timeScale = 1f;
-
-    // On unsubscribe de l'evenement de loadScene pour prevenir les leaks de memoire
-    SceneManager.sceneLoaded -= OnSceneLoaded;
-}
 }
