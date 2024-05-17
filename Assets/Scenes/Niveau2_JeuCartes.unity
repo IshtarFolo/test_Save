@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 198291085}
   - component: {fileID: 198291087}
   - component: {fileID: 198291086}
+  - component: {fileID: 198291088}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -556,6 +557,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198291084}
   m_CullTransparentMesh: 1
+--- !u!114 &198291088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198291084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &266186827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,14 +1107,14 @@ RectTransform:
   m_GameObject: {fileID: 356060526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.44331, y: 0.44331, z: 0.44331}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1370262535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 65, y: -25}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356060528
@@ -1121,7 +1137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72e2ff5cf4da27c4e9671a6f5bc2034b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6b44dd197eac9945aa23652038a346e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1347,7 +1363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &546617361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1531,9 +1547,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0893fb738c4280e499464a2a5a0085ae, type: 3}
   - {fileID: 21300000, guid: cc171ecaa06625248ba1ac195657340d, type: 3}
   - {fileID: 21300000, guid: d641fde6ac581a840b8e5038ab56b89a, type: 3}
-  - {fileID: 21300000, guid: 1be5f4264d75cb84db60fda1a1b67a24, type: 3}
+  - {fileID: 21300000, guid: c9830a73f9c5bd6409a1f01a8bad06a9, type: 3}
   - {fileID: 21300000, guid: c1ddc1d1189dda44dbc2b39765627830, type: 3}
-  - {fileID: 21300000, guid: 0a6000b22ab4265409d1fc984fde2091, type: 3}
+  - {fileID: 21300000, guid: e181b5b8e87e21243bad1b3f7d4db354, type: 3}
   - {fileID: 21300000, guid: ebcba2af4cf4a504c91a3336394a01d1, type: 3}
   - {fileID: 21300000, guid: 31071f50a45136744b25cc89cc0ed000, type: 3}
   - {fileID: 21300000, guid: 15d07826dfd581c4f8612b792cb6dc35, type: 3}
