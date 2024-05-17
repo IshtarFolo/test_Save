@@ -27,9 +27,9 @@ public class JeuCartes : MonoBehaviour
     //Récupérer les slots de chaque carte
     private GameObject[] slot;
 
-    //Variables de texte
-    [SerializeField] TMP_Text txtCompteur;
-    private int compteur = 0;
+    //Variables de texte pour le compteur
+    public TextMeshProUGUI txtCompteur;
+    public int valeurCompteur = 120; //Le joueur aura 120 secondes pour trouver les bonnes combinaisons
 
     public void Awake()
     {
@@ -43,6 +43,9 @@ public class JeuCartes : MonoBehaviour
     {
         //Mélanger et afficher les cartes
         Shuffle();
+
+        //Initialiser le compteur
+        InvokeRepeating("Compteur", 1, 1);
     }
 
     // Update is called once per frame
@@ -65,8 +68,7 @@ public class JeuCartes : MonoBehaviour
                 {
                     spritePremiereCarte.enabled = false;
                     spriteSecondeCarte.enabled = false;
-                }
-                
+                }                
             }
 
             //pour la position de la souris sur l'écran
@@ -97,9 +99,6 @@ public class JeuCartes : MonoBehaviour
                 
                 //Jouer le son de carte tournée
                 audioSource.PlayOneShot(sonTourneCarte);
-                //Incrémenter le compteur
-                compteur++;
-                txtCompteur.text = compteur.ToString("00");
             }
         }
     }
@@ -139,5 +138,21 @@ public class JeuCartes : MonoBehaviour
     {
         //Recharger la scène courante
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    //Le joueur aura 120 secondes pour trouver les bonnes combinaisons
+    void Compteur()
+    {
+        valeurCompteur -= 1;
+        txtCompteur.text = valeurCompteur.ToString();
+
+        //Arrêter le compteur lorsqu'il est rendu à 0
+        if (valeurCompteur <= 0)
+        {            
+            //Annuler la fonction "Compteur"
+            CancelInvoke("Compteur");
+            //Recharger la scène
+            SceneManager.GetActiveScene();
+        }
     }
 }

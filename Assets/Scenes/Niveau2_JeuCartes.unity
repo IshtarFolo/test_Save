@@ -1599,6 +1599,7 @@ MonoBehaviour:
   sonMatchCarte: {fileID: 8300000, guid: d47a733424ca28f42bb385f73dbffa80, type: 3}
   sonTourneCarte: {fileID: 8300000, guid: 7359751756a9bd94f9b3c8e9451be1f4, type: 3}
   txtCompteur: {fileID: 1119018618}
+  valeurCompteur: 120
 --- !u!82 &548715057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2848,7 +2849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 120
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
   m_sharedMaterial: {fileID: 848359281622569271, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
