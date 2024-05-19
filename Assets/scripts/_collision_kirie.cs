@@ -93,7 +93,6 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarreLettre;
     public GameObject UINombreLettre;
     public TextMeshProUGUI UIIndexLettres;
-    public GameObject[] lettres;
     public int lettreRamassee = 0;
 
     [Header("Gameobjects des Notifications")]
