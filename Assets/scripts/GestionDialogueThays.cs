@@ -34,6 +34,9 @@ public class GestionDialogueThays : MonoBehaviour
     float delaiEntreLettres = 0.05f;
     bool ecrit = false;
 
+    // Déclaration de l'événement pour indiquer la fin des dialogues
+    public event System.Action OnDialogueComplete;
+
     void Start()
     {
         bulleKirie.SetActive(false);
@@ -75,6 +78,9 @@ public class GestionDialogueThays : MonoBehaviour
         choixColereThays[4] = "Une sale gamine ose me menacer !?! CES PARENTS M’ONT ACCUSÉ D'AVOIR MANIGANCÉ LA MORT DE MES PARENTS ! ILS DOIVENT COMPRENDRE MA DOULEUR DEPUIS 40 ANS !";
         choixColereThays[5] = "Tu crois me faire peur ? Je suis plus forte que tu ne le penses. Ils m'ont pris ma famille, alors j'ai créé la mienne. Mais très bien, viens, essaye donc de m'arrêter !";
 
+        // Si l'événènement est invoke la fonction DialogueTermine est appelé
+        //Connexion des deux éléments (+=)
+        OnDialogueComplete += DialogueTermine;
     }
 
 
@@ -92,13 +98,13 @@ public class GestionDialogueThays : MonoBehaviour
                 //WaitUntil - Pour attendre que la variable devienne false pour continuer la conversation
                 StartCoroutine(AfficherDialogueParLettre(dialogueKirie, choixDiplomateKirie[i]));
                 yield return new WaitUntil(() => !ecrit);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
                 bulleKirie.SetActive(false);
                 bulleThays.SetActive(true);
                 ecrit = true;
                 StartCoroutine(AfficherDialogueParLettre(dialogueThays, choixDiplomateThays[i]));
                 yield return new WaitUntil(() => !ecrit);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
                 bulleThays.SetActive(false);
             }
         }
@@ -114,16 +120,18 @@ public class GestionDialogueThays : MonoBehaviour
                 //WaitUntil - Pour attendre que la variable devienne false pour continuer la conversation
                 StartCoroutine(AfficherDialogueParLettre(dialogueKirie, choixColereKirie[i]));
                 yield return new WaitUntil(() => !ecrit);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
                 bulleKirie.SetActive(false);
                 bulleThays.SetActive(true);
                 ecrit = true;
                 StartCoroutine(AfficherDialogueParLettre(dialogueThays, choixColereThays[i]));
                 yield return new WaitUntil(() => !ecrit);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
                 bulleThays.SetActive(false);
             }
         }
+        // Déclencher l'événement de fin de dialogue
+        OnDialogueComplete?.Invoke();
     }
 
     public void ChoixDiplomate()
@@ -150,5 +158,19 @@ public class GestionDialogueThays : MonoBehaviour
             yield return new WaitForSeconds(delaiEntreLettres);
         }
         ecrit = false;
+    }
+
+    private void DialogueTermine()
+    {
+        // Code à exécuter lorsque les dialogues sont terminés
+        if (choixDiplomate)
+        {
+            Debug.Log("Tous les dialogues choix diplomate sont terminés.");
+        }
+
+        if (choixColere)
+        {
+            Debug.Log("Tous les dialogues choix colère sont terminés.");
+        }
     }
 }
