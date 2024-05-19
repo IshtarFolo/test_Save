@@ -94,6 +94,8 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UINombreLettre;
     public TextMeshProUGUI UIIndexLettres;
     public int lettreRamassee = 0;
+    public GameObject parchemin;
+    public GameObject UITrahisonGatito;
 
     [Header("Gameobjects des Notifications")]
     public GameObject UInotifSauve;
@@ -277,6 +279,7 @@ public class _collision_kirie : MonoBehaviour
     if(infoTrigger.gameObject.tag == "lettre")
         {
             Destroy(infoTrigger.gameObject);
+            UIforet.SetActive(false);
             UINombreLettre.SetActive(true);
 
             // Incrémentez lettresRamassee d'une seule unité
@@ -289,9 +292,17 @@ public class _collision_kirie : MonoBehaviour
             if(lettreRamassee == 5)
             {
                 Debug.Log("La lettre est complète");
+                parchemin.SetActive(true);
+                Invoke("DesactiverParchemin", 10f);
+                UITrahisonGatito.SetActive(true);
             }
 
         }
+    }
+
+    void DesactiverParchemin()
+    {
+        parchemin.SetActive(false);
     }
 
     void AudioPeutJouer()
