@@ -100,9 +100,12 @@ public class JeuCartes : MonoBehaviour
                     if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
                     {
                         audioSource.PlayOneShot(sonCarteBombe);
+
                         Debug.Log("Partie terminée");
-                        //Recharger la scène
-                        SceneManager.GetActiveScene();
+
+                        //Recharger la scène après un délai de 5 secondes
+                        Invoke("DelaiChargementScene", 5f);
+                        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     }
                 }
                 
@@ -164,5 +167,11 @@ public class JeuCartes : MonoBehaviour
             //Recharger la scène
             SceneManager.GetActiveScene();
         }
+    }
+
+    //Invoke pour le chargement de scène
+    void DelaiChargementScene() 
+    { 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
