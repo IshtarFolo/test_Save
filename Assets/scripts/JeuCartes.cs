@@ -14,7 +14,7 @@ public class JeuCartes : MonoBehaviour
     [SerializeField] List<Sprite> listeItems = new List<Sprite>();
 
     //Variables de son
-    [SerializeField] AudioClip sonMatchCarte, sonTourneCarte, sonCarteBombe;
+    [SerializeField] AudioClip sonMatchCarte, sonTourneCarte, sonCarteBombe, sonReussite;
     private AudioSource audioSource;
 
     //Variables pour compter les cartes retournées en paires
@@ -104,7 +104,7 @@ public class JeuCartes : MonoBehaviour
                     if (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name)
                         PaireTrouvee(premiereCarte, secondeCarte);
 
-                    //Si le joueur combine des cartes de bombes
+                    //Si le joueur combine des cartes de bombes -- La partie est perdue et elle recommencera
                     if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
                     {
                         audioSource.PlayOneShot(sonCarteBombe);
@@ -123,6 +123,16 @@ public class JeuCartes : MonoBehaviour
                         //Recharger la scène après un délai de 5 secondes
                         Invoke("DelaiChargementScene", 5f);
                         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    }
+
+                    //Si le joueur combine deux cartes de Aasha et deux cartes de clés - Il accèdera à la scene finale
+                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite"))
+                    {
+                        //Jouer le son de réussite
+                        audioSource.PlayOneShot(sonReussite);
+
+                        //Charger la scène de la cave de Thays - Boss final - Niveau3_Delivrance
+                        Invoke("ChargerSceneFinale", 5f);
                     }
                 }
                 

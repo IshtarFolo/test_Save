@@ -1824,6 +1824,7 @@ MonoBehaviour:
   sonMatchCarte: {fileID: 8300000, guid: d47a733424ca28f42bb385f73dbffa80, type: 3}
   sonTourneCarte: {fileID: 8300000, guid: 7359751756a9bd94f9b3c8e9451be1f4, type: 3}
   sonCarteBombe: {fileID: 8300000, guid: fc498cc5df593454c8262e9cdf4dc436, type: 3}
+  sonReussite: {fileID: 8300000, guid: 0e943ea3204f30244bd12e92b2d04078, type: 3}
   txtCompteur: {fileID: 1119018618}
   notifEchec: {fileID: 245321025}
   texteInstructions: {fileID: 1463859602}
@@ -2327,7 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
