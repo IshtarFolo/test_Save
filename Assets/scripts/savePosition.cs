@@ -25,8 +25,13 @@ public class savePosition : MonoBehaviour
     public float rotationZ;
 
     public static int scene; // Numero de la scene a charger
+
+    // Les Quetes
     public static bool tutoFini; // Le journal est en la possession du joueur
     public static int poissons; // Les poissons ramasses
+    public static bool finPeche;
+    public static bool cannePeche;
+    public static bool villageoisAParle;
 
     // Passer les valeurs de la save
     public void Start()
@@ -50,10 +55,8 @@ public class savePosition : MonoBehaviour
             scene = _collision_kirie.noScene;
 
             // Load la variable tutoFini si tutoFini existe
-            if (PlayerPrefs.HasKey("tutoFini"))
-            {
-                tutoFini = PlayerPrefsX.GetBool("tutoFini");
-            }
+            tutoFini = PlayerPrefsX.GetBool("tutoFini");
+     
         }
     }
 
@@ -61,16 +64,30 @@ public class savePosition : MonoBehaviour
     {
         scene = _collision_kirie.noScene;
         poissons = MiniJeuPeche.poissonsPeches;
+        finPeche = SystemePeche.finiPeche;
+        cannePeche = _collision_kirie.cannePecheRamasse;
+        villageoisAParle = interactionVillageois.aParleVillageois1;
+
+        Debug.Log(tutoFini);
     }
 
     public void NouvellePartie()
     {
         // Supprime toutes les sauvegardes
         PlayerPrefs.DeleteAll();
+        //
+        DeleteAllPlayerPrefsX();
         // tutoFini redevient false
         _collision_kirie.journalRamasse = false;
         // Supprime les données de PlayerPrefsX
         PlayerPrefsX.SetBool("tutoFini", tutoFini);
+
+        PlayerPrefsX.SetBool("finPeche", finPeche);
+
+        PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
+
+        PlayerPrefsX.SetBool("vilParle", villageoisAParle);
+
         // Load la premiere scene
         SceneManager.LoadScene(1);
     }
@@ -98,7 +115,14 @@ public class savePosition : MonoBehaviour
 
         // Les poissons sont egaux au nombre de poissons dans le script du jeu de peche 
         poissons = MiniJeuPeche.poissonsPeches;
+
         PlayerPrefs.SetInt("poissons", poissons);
+
+        PlayerPrefsX.SetBool("finPeche", finPeche);
+
+        PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
+
+        PlayerPrefsX.SetBool("vilParle", villageoisAParle);
 
         PlayerPrefs.Save();
     }
@@ -135,7 +159,14 @@ public class savePosition : MonoBehaviour
         PlayerPrefs.GetInt("poissons", poissons);
 
         // Chargement de l'acquisition du journal
-        PlayerPrefsX.GetBool("Journal", tutoFini);
+        tutoFini = PlayerPrefsX.GetBool("Journal");
+
+        // Les quetes: 
+        finPeche = PlayerPrefsX.GetBool("finPeche");
+
+        cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
+
+        villageoisAParle = PlayerPrefsX.GetBool("vilParle");
 
         // On charge la scene
         SceneManager.LoadScene(scene);
@@ -154,7 +185,7 @@ public class savePosition : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
-    // Load the scene-specific position and rotation
+    // Load la position et rotation specifiques a la scene chargee
     string sceneKey = "Scene" + scene.buildIndex;
 
     if (PlayerPrefs.HasKey(sceneKey + "laPositionX") && PlayerPrefs.HasKey(sceneKey + "laPositionY") && PlayerPrefs.HasKey(sceneKey + "laPositionZ"))
@@ -176,12 +207,35 @@ public class savePosition : MonoBehaviour
     }
 
 
-    tutoFini = _collision_kirie.journalRamasse;
+    tutoFini = PlayerPrefsX.GetBool("Journal");
+
+    finPeche = PlayerPrefsX.GetBool("finPeche", finPeche);
+
+    cannePeche = PlayerPrefsX.GetBool("CanneRamassee", cannePeche);
+
+    villageoisAParle = PlayerPrefsX.GetBool("vilParle", villageoisAParle);
 
 
         // On d�sactive l'�cran de chargement
         loadingScreen.SetActive(false); 
         // On arrete la pause
        // Time.timeScale = 1f;
+    }
+
+    // Efface PlayerPrefsX
+    public static void DeleteAllPlayerPrefsX()
+    {
+        string[] keysToDelete = new string[]
+        {
+        "tutoFini",
+        "finPeche",
+        "CanneRamassee",
+        "vilParle",
+        };
+
+        foreach (string key in keysToDelete)
+        {
+            PlayerPrefs.DeleteKey(key);
+        }
     }
 }
