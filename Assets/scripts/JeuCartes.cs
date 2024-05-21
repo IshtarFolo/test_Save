@@ -35,6 +35,7 @@ public class JeuCartes : MonoBehaviour
     public TextMeshProUGUI notifEchec;
     public TextMeshProUGUI texteInstructions;
     public TextMeshProUGUI texteBombe;
+    public TextMeshProUGUI notifReussiteCle;
 
     //Activer un écran noir quand deux cartes de bombes sont agencées
     public GameObject ecranNoirBombe;
@@ -128,12 +129,18 @@ public class JeuCartes : MonoBehaviour
                         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     }
 
-                    //Si le joueur combine deux cartes de Aasha et deux cartes de clés - Il accèdera à la scene finale
-                    if (  (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name)
-                         && (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name)    )
+                    //Si le joueur combine deux cartes de clés - Il accèdera à la scene finale
+                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite"))
+                         
                     {
                         //Jouer le son de réussite
                         audioSource.PlayOneShot(sonReussite);
+
+                        //Désactiver les instructions
+                        texteInstructions.gameObject.SetActive (false);
+                        
+                        //Activer la notification de réussite
+                        notifReussiteCle.gameObject.SetActive(true);
 
                         Debug.Log("2Aasha + 2clés");
 
