@@ -129,56 +129,17 @@ public class JeuCartes : MonoBehaviour
                     }
 
                     //Si le joueur combine deux cartes de Aasha et deux cartes de clés - Il accèdera à la scene finale
-                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite") 
-                        && 
-                        (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite"))
+                    if (  (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name)
+                         && (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name)    )
                     {
                         //Jouer le son de réussite
                         audioSource.PlayOneShot(sonReussite);
 
-                        //Charger la scène de la cave de Thays - Boss final - Niveau3_Delivrance
-                        Invoke("ChargerSceneFinale", 5f);
-                    }
-
-                    // Count variables for "aashaSprite" and "cleSprite" cards
-                    int aashaCount = 0;
-                    int cleCount = 0;
-
-                    // Check the sprites of the first card
-                    if (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite")
-                    {
-                        aashaCount++;
-                        Debug.Log("aasha+1");
-                    }
-                    else if (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite")
-                    {
-                        cleCount++;
-                        Debug.Log("clé+1");
-                    }
-
-                    // Check the sprites of the second card
-                    if (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite")
-                    {
-                        aashaCount++;
-                        Debug.Log("aasha+1");
-                    }
-                    else if (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite")
-                    {
-                        cleCount++;
-                        Debug.Log("clé+1");
-                    }
-
-                    // Check if both "aashaSprite" and "cleSprite" counts are equal to 2
-                    if (aashaCount == 2 && cleCount == 2)
-                    {
-                        //Jouer le son de réussite
-                        audioSource.PlayOneShot(sonReussite);
+                        Debug.Log("2Aasha + 2clés");
 
                         //Charger la scène de la cave de Thays - Boss final - Niveau3_Delivrance
                         Invoke("ChargerSceneFinale", 5f);
-                    }
-
-
+                    }                 
                 }
 
                 //Jouer le son de carte tournée
