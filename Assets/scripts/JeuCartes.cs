@@ -31,6 +31,9 @@ public class JeuCartes : MonoBehaviour
     public TextMeshProUGUI txtCompteur;
     private int valeurCompteur = 30; //Le joueur aura 60 secondes pour trouver les bonnes combinaisons
 
+    //TextMeshPro
+    public TextMeshProUGUI notifEchec;
+
     public void Awake()
     {
         //Assigner dans le tableau slot, toutes les slots de la liste qui ont le tag "slot"
@@ -97,7 +100,7 @@ public class JeuCartes : MonoBehaviour
                         PaireTrouvee(premiereCarte, secondeCarte);
 
                     //Si le joueur combine des cartes de bombes
-                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
+                    else if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
                     {
                         audioSource.PlayOneShot(sonCarteBombe);
 
@@ -164,8 +167,10 @@ public class JeuCartes : MonoBehaviour
             //Annuler la fonction "Compteur"
             CancelInvoke("Compteur");
             Debug.Log("trop lent");
+
             //Recharger la scène
-            SceneManager.GetActiveScene();
+            Invoke("DelaiChargementScene", 1f);
+            //SceneManager.GetActiveScene();
         }
     }
 
