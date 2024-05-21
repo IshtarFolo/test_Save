@@ -109,13 +109,18 @@ public class _collision_kirie : MonoBehaviour
     public AudioClip armoireSouvre;
     public AudioClip ouvrirPorte;
 
+    [Header("Scenes")]
+    public Scene scene;
     // Le numero de l'index de la scene a charger 
     public static int noScene;
 
-    [Header("Scenes")]
-    public Scene scene;
-
-
+    /*
+     * Gestion des quetes avec des variables statiques pour sauvegarder
+     * le progres du joueur tout au long du jeu
+     */
+    public static bool finTuto; // Variable du tutoriel
+    public static bool GatitoParle; // variable de la conversation avec Gatito
+    public static bool canneRamassee; //
 
     // Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
     public void Start()
@@ -153,6 +158,75 @@ public class _collision_kirie : MonoBehaviour
 
         // au debut du jeu, on trouve l'index de la scene a activer
         noScene = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void Update()
+    {
+        /*
+         * Dans l'update on regarde si les booleens des quetes sont bel et bien true pour pouvoir
+         * sauvegarder et charger la partie avec le progres du joueur et ainsi modifier l'etat du jeu et 
+         * des notifications du UI
+         */
+        // Si le tutoriel est fini...
+        if (finTuto)
+        {
+            gameManager.PlayOneShot(ouvrirPorte, 1f);
+            audioJoue = true;
+            finTuto = true;
+            Invoke("AudioPeutJouer", 2f);
+        }
+
+        // Si le joueur a parle au bon villageois...
+        if (interactionVillageois.aParleVillageois1)
+        {
+            UIvillageois.SetActive(false);
+            UIgatito.SetActive(true);
+
+            UIcontenu1.SetActive(false);
+            UIcontenu2.SetActive(true);
+        }
+
+        // Si le joueur a parle a Gatito...
+        if (GatitoParle)
+        {
+            UIbarrevillageois.SetActive(false);
+            UIvillageois.SetActive(false);
+            UIgatito.SetActive(false);
+
+            UIpoisson.SetActive(true);
+            UIcanne.SetActive(true);
+            GatitoParle = true;
+
+            UIminiJeuChaudFroid.SetActive(true);
+
+            if (UIcontenu2.activeInHierarchy == false)
+            {
+                UIcontenu2.SetActive(false);
+                UIcontenu3.SetActive(true);
+                OBJimageGatito.SetActive(true);
+                DESCpointsgatito.SetActive(false);
+                DESCgatito.SetActive(true);
+            }
+        }
+        // Si le joueur ramasse la canne a peche...
+        if (cannePecheRamasse)
+        {
+            UIbarreCanne.SetActive(true);
+            cannePeche.SetActive(false);
+            UIminiJeuChaudFroid.SetActive(false);
+            INVcanne.SetActive(true);
+        }
+        // Si le joueur fini le jeu de peche...
+        if (SystemePeche.finiPeche)
+        {
+            UIvoirGatito.SetActive(false);
+            UIfiniVillage.SetActive(true);
+            niveau1Termine = true;
+            INVpoisson.SetActive(false);
+            UIcontenu4.SetActive(false);
+            UIcontenu5.SetActive(true);
+        }
+
     }
 
     // INFO TRIGGER
@@ -213,16 +287,22 @@ public class _collision_kirie : MonoBehaviour
             }
         }
 
-        if (infoTrigger.gameObject.name == "trigger_porte" && tutorielTermine == true)
+
+        if (!finTuto)
         {
-            //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
-            if(audioJoue == false)
+            if (infoTrigger.gameObject.name == "trigger_porte" && tutorielTermine == true)
             {
-                gameManager.PlayOneShot(ouvrirPorte, 1f);
-                audioJoue = true;
-                Invoke("AudioPeutJouer", 2f);
+                //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
+                if (audioJoue == false)
+                {
+                    gameManager.PlayOneShot(ouvrirPorte, 1f);
+                    audioJoue = true;
+                    finTuto = true;
+                    Invoke("AudioPeutJouer", 2f);
+                }
             }
         }
+
 
         if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true)
         {
@@ -234,27 +314,33 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu2.SetActive(true);
         }
 
-        if (infoTrigger.gameObject.tag == "Gatito" && UIgatito.activeInHierarchy == true)
+
+        if (!GatitoParle)
         {
-            UIbarrevillageois.SetActive(false);
-            UIvillageois.SetActive(false);
-            UIgatito.SetActive(false);
-
-            UIpoisson.SetActive(true);
-            UIcanne.SetActive(true);
-
-            UIminiJeuChaudFroid.SetActive(true);
-            //Debug.Log("AAAAAAAAAAAAAAAH");
-
-            if (UIcontenu2.activeInHierarchy == false)
+            if (infoTrigger.gameObject.tag == "Gatito" && UIgatito.activeInHierarchy == true)
             {
-                UIcontenu2.SetActive(false);
-                UIcontenu3.SetActive(true);
-                OBJimageGatito.SetActive(true);
-                DESCpointsgatito.SetActive(false);
-                DESCgatito.SetActive(true);
+                UIbarrevillageois.SetActive(false);
+                UIvillageois.SetActive(false);
+                UIgatito.SetActive(false);
+
+                UIpoisson.SetActive(true);
+                UIcanne.SetActive(true);
+                GatitoParle = true;
+
+                UIminiJeuChaudFroid.SetActive(true);
+                //Debug.Log("AAAAAAAAAAAAAAAH");
+
+                if (UIcontenu2.activeInHierarchy == false)
+                {
+                    UIcontenu2.SetActive(false);
+                    UIcontenu3.SetActive(true);
+                    OBJimageGatito.SetActive(true);
+                    DESCpointsgatito.SetActive(false);
+                    DESCgatito.SetActive(true);
+                }
             }
         }
+
 
         if(infoTrigger.gameObject.tag == "Gatito" && SystemePeche.finiPeche == true)
         {
@@ -276,7 +362,7 @@ public class _collision_kirie : MonoBehaviour
 
         //InfoTrigger pour attraper les 5 letres
 
-    if(infoTrigger.gameObject.tag == "lettre")
+        if (infoTrigger.gameObject.tag == "lettre")
         {
             Destroy(infoTrigger.gameObject);
             UIforet.SetActive(false);
@@ -296,7 +382,25 @@ public class _collision_kirie : MonoBehaviour
                 Invoke("DesactiverParchemin", 10f);
                 UITrahisonGatito.SetActive(true);
             }
+        }
 
+        //POUR ACTIVER LA PLANCHE2 POUR MINI JEU DE PECHE
+        //Si le joueur touche la canne à pêche on peut activer la zone pour passer au niveau de la pêche
+        if (infoTrigger.gameObject.tag == "cannePeche" && UIminiJeuChaudFroid.activeInHierarchy == true)
+        {
+            cannePecheRamasse = true;
+            //On va le détruire et changer de cible ou désactiver la scrollbar
+            //Destroy(gameObject);
+            UIbarreCanne.SetActive(true);
+            cannePeche.SetActive(false);
+            UIminiJeuChaudFroid.SetActive(false);
+            INVcanne.SetActive(true);
+        }
+
+        if (cannePecheRamasse)
+        {
+            //Activer le box collider de la planche2
+            planche2Quai.GetComponent<BoxCollider>().enabled = true;
         }
     }
 
@@ -336,11 +440,6 @@ public class _collision_kirie : MonoBehaviour
 
            
         }
-        if (cannePecheRamasse == true)
-        {
-            //Activer le box collider de la planche2
-            planche2Quai.GetComponent<BoxCollider>().enabled = true;
-        }
 
             //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
             if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
@@ -368,20 +467,6 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv4" && niveau3Termine == true)
         {
             Invoke("niveau4", 1f);
-        }
-
-        //POUR ACTIVER LA PLANCHE2 POUR MINI JEU DE PECHE
-        //Si le joueur touche la canne à pêche on peut activer la zone pour passer au niveau de la pêche
-        if(infoCollision.gameObject.tag == "cannePeche" && UIminiJeuChaudFroid.activeInHierarchy == true)
-        {
-            cannePecheRamasse = true;
-            //On va le détruire et changer de cible ou désactiver la scrollbar
-            //Destroy(gameObject);
-            UIbarreCanne.SetActive(true);
-            cannePeche.SetActive(false);
-            UIminiJeuChaudFroid.SetActive(false);
-            INVcanne.SetActive(true);
-
         }
     }
 

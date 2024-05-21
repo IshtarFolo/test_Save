@@ -26,12 +26,11 @@ public class savePosition : MonoBehaviour
 
     public static int scene; // Numero de la scene a charger
 
-    // Les Quetes
+    // Les Quetes et leur objectifs en bool
     public static bool tutoFini; // Le journal est en la possession du joueur
-    public static int poissons; // Les poissons ramasses
-    public static bool finPeche;
-    public static bool cannePeche;
-    public static bool villageoisAParle;
+    public static bool finPeche; // La fin du jeu de peche
+    public static bool cannePeche; // L'obtention de la canne a peche
+    public static bool villageoisAParle; // La discussion avec le bon villageois
 
     // Passer les valeurs de la save
     public void Start()
@@ -56,23 +55,23 @@ public class savePosition : MonoBehaviour
 
             // Load la variable tutoFini si tutoFini existe
             tutoFini = PlayerPrefsX.GetBool("tutoFini");
-     
         }
     }
 
     private void Update()
     {
         scene = _collision_kirie.noScene;
+        tutoFini = _collision_kirie.finTuto;
 
-        Debug.Log(interactionVillageois.aParleVillageois1);
+       // Debug.Log();
     }
 
     public void NouvellePartie()
     {
         // Supprime toutes les sauvegardes
         PlayerPrefs.DeleteAll();
-        //
         DeleteAllPlayerPrefsX();
+
         // tutoFini redevient false
         _collision_kirie.journalRamasse = false;
         // Supprime les données de PlayerPrefsX
@@ -92,7 +91,6 @@ public class savePosition : MonoBehaviour
     public void Save()
     {
 
-        poissons = MiniJeuPeche.poissonsPeches;
         finPeche = SystemePeche.finiPeche;
         cannePeche = _collision_kirie.cannePecheRamasse;
         villageoisAParle = interactionVillageois.aParleVillageois1;
@@ -114,17 +112,11 @@ public class savePosition : MonoBehaviour
         // Sauvegarde de l,acquisition du journal
         PlayerPrefsX.SetBool("Journal", tutoFini);
 
-        // Les poissons sont egaux au nombre de poissons dans le script du jeu de peche 
-        poissons = MiniJeuPeche.poissonsPeches;
-
-        // Les quetes
-        PlayerPrefs.SetInt("poissons", poissons);
-
-        PlayerPrefsX.SetBool("finPeche", finPeche);
-
-        PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
-
+        // Les quetes dans l'ordre:
+        PlayerPrefsX.SetBool("tutoFini", tutoFini);
         PlayerPrefsX.SetBool("vilParle", villageoisAParle);
+        PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
+        PlayerPrefsX.SetBool("finPeche", finPeche);
 
         PlayerPrefs.Save();
     }
@@ -157,25 +149,14 @@ public class savePosition : MonoBehaviour
         // On charge l'index de la scene enregistre dans PlayerPrefs
         scene = PlayerPrefs.GetInt("laScene", scene);
 
-        // On recupere les poissons
-        PlayerPrefs.GetInt("poissons", poissons);
-
         // Chargement de l'acquisition du journal
         tutoFini = PlayerPrefsX.GetBool("Journal");
 
-        // Les quetes:
-
-        finPeche = PlayerPrefsX.GetBool("finPeche");
-
-        cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
-
+        // Les quetes dans l'ordre:
+        tutoFini = PlayerPrefsX.GetBool("tutoFini");
         villageoisAParle = PlayerPrefsX.GetBool("vilParle");
-
-
-        MiniJeuPeche.poissonsPeches = poissons;
-        SystemePeche.finiPeche = finPeche;
-        _collision_kirie.cannePecheRamasse = cannePeche;
-        interactionVillageois.aParleVillageois1 = villageoisAParle;
+        cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
+        finPeche = PlayerPrefsX.GetBool("finPeche");
 
         // On charge la scene
         SceneManager.LoadScene(scene);
@@ -217,12 +198,9 @@ public class savePosition : MonoBehaviour
 
 
     tutoFini = PlayerPrefsX.GetBool("Journal");
-
-    finPeche = PlayerPrefsX.GetBool("finPeche", finPeche);
-
-    cannePeche = PlayerPrefsX.GetBool("CanneRamassee", cannePeche);
-
     villageoisAParle = PlayerPrefsX.GetBool("vilParle", villageoisAParle);
+    cannePeche = PlayerPrefsX.GetBool("CanneRamassee", cannePeche);
+    finPeche = PlayerPrefsX.GetBool("finPeche", finPeche);
 
 
         // On d�sactive l'�cran de chargement
@@ -231,7 +209,7 @@ public class savePosition : MonoBehaviour
        // Time.timeScale = 1f;
     }
 
-    // Efface PlayerPrefsX
+    // Efface les variables sauvegardees dans PlayerPrefsX
     public static void DeleteAllPlayerPrefsX()
     {
         string[] keysToDelete = new string[]

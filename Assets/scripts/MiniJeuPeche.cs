@@ -25,7 +25,7 @@ public class MiniJeuPeche : MonoBehaviour
     float compteurReussite = 0; //compteur qui va d�terminer si gagne ou perd
 
     //Poissons ramass�s lorsque le joueur � r�ussi le miniJeu UI
-    public static int poissonsPeches;
+    public static int poissonsPeches = 0;
 
     public static bool joue = false;
 
@@ -39,7 +39,6 @@ public class MiniJeuPeche : MonoBehaviour
 
     private void Start() 
     {
-        poissonsPeches = savePosition.poissons;
         compteurPoissons.text = poissonsPeches.ToString();
     }
 
