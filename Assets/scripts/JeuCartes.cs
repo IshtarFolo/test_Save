@@ -33,6 +33,11 @@ public class JeuCartes : MonoBehaviour
 
     //TextMeshPro
     public TextMeshProUGUI notifEchec;
+    public TextMeshProUGUI texteInstructions;
+    public TextMeshProUGUI texteBombe;
+
+    //Activer un écran noir quand deux cartes de bombes sont agencées
+    public GameObject ecranNoirBombe;
 
     public void Awake()
     {
@@ -100,9 +105,18 @@ public class JeuCartes : MonoBehaviour
                         PaireTrouvee(premiereCarte, secondeCarte);
 
                     //Si le joueur combine des cartes de bombes
-                    else if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
+                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "bombeSprite"))
                     {
                         audioSource.PlayOneShot(sonCarteBombe);
+
+                        //Désactiver les instructions
+                        texteInstructions.gameObject.SetActive(false);
+
+                        //Activer le panel noir
+                        ecranNoirBombe.gameObject.SetActive(true);
+
+                        //Activer la notification de bombe
+                        texteBombe.gameObject.SetActive(true);
 
                         Debug.Log("Partie terminée");
 
@@ -168,8 +182,15 @@ public class JeuCartes : MonoBehaviour
             CancelInvoke("Compteur");
             Debug.Log("trop lent");
 
+            //Désactiver les instructions
+            texteInstructions.gameObject.SetActive(false);
+
+            //Activer la notification d'échec
+            notifEchec.gameObject.SetActive(true);
+
+
             //Recharger la scène
-            Invoke("DelaiChargementScene", 1f);
+            Invoke("DelaiChargementScene", 2f);
             //SceneManager.GetActiveScene();
         }
     }
