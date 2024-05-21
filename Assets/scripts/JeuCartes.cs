@@ -126,7 +126,9 @@ public class JeuCartes : MonoBehaviour
                     }
 
                     //Si le joueur combine deux cartes de Aasha et deux cartes de clés - Il accèdera à la scene finale
-                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite"))
+                    if ((premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite") 
+                        && 
+                        (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite") && (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite"))
                     {
                         //Jouer le son de réussite
                         audioSource.PlayOneShot(sonReussite);
@@ -209,5 +211,11 @@ public class JeuCartes : MonoBehaviour
     void DelaiChargementScene() 
     { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    //Charger la scène de confrontation finale
+    void ChargerSceneFinale()
+    {
+        SceneManager.LoadScene("Niveau3_Delivrance");
     }
 }
