@@ -23,7 +23,7 @@ public class _collision_kirie : MonoBehaviour
     public bool notification;
     public bool cleRamasse;
     public bool audioJoue;
-    public bool cannePecheRamasse = false;
+    public static bool cannePecheRamasse = false;
 
     private bool trouveGatito;
 
