@@ -63,12 +63,8 @@ public class savePosition : MonoBehaviour
     private void Update()
     {
         scene = _collision_kirie.noScene;
-        poissons = MiniJeuPeche.poissonsPeches;
-        finPeche = SystemePeche.finiPeche;
-        cannePeche = _collision_kirie.cannePecheRamasse;
-        villageoisAParle = interactionVillageois.aParleVillageois1;
 
-        Debug.Log(tutoFini);
+        Debug.Log(interactionVillageois.aParleVillageois1);
     }
 
     public void NouvellePartie()
@@ -96,6 +92,11 @@ public class savePosition : MonoBehaviour
     public void Save()
     {
 
+        poissons = MiniJeuPeche.poissonsPeches;
+        finPeche = SystemePeche.finiPeche;
+        cannePeche = _collision_kirie.cannePecheRamasse;
+        villageoisAParle = interactionVillageois.aParleVillageois1;
+
         string sceneKey = "Scene" + scene;
 
         PlayerPrefs.SetFloat(sceneKey + "laPositionX", joueur.transform.position.x);
@@ -116,6 +117,7 @@ public class savePosition : MonoBehaviour
         // Les poissons sont egaux au nombre de poissons dans le script du jeu de peche 
         poissons = MiniJeuPeche.poissonsPeches;
 
+        // Les quetes
         PlayerPrefs.SetInt("poissons", poissons);
 
         PlayerPrefsX.SetBool("finPeche", finPeche);
@@ -161,12 +163,19 @@ public class savePosition : MonoBehaviour
         // Chargement de l'acquisition du journal
         tutoFini = PlayerPrefsX.GetBool("Journal");
 
-        // Les quetes: 
+        // Les quetes:
+
         finPeche = PlayerPrefsX.GetBool("finPeche");
 
         cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
 
         villageoisAParle = PlayerPrefsX.GetBool("vilParle");
+
+
+        MiniJeuPeche.poissonsPeches = poissons;
+        SystemePeche.finiPeche = finPeche;
+        _collision_kirie.cannePecheRamasse = cannePeche;
+        interactionVillageois.aParleVillageois1 = villageoisAParle;
 
         // On charge la scene
         SceneManager.LoadScene(scene);

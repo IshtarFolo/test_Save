@@ -298,13 +298,6 @@ public class _collision_kirie : MonoBehaviour
             }
 
         }
-
-        //Camilia - Lorsque Kirie touche la porte de la cave dans le niveau 2 forêt, le jeu de cartes mémoires est chargé
-        if (infoTrigger.gameObject.name == "porteCave")
-        {
-            SceneManager.LoadScene("Niveau2_JeuCartes");
-        }
-
     }
 
     void DesactiverParchemin()
