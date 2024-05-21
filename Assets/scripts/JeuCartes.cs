@@ -14,7 +14,7 @@ public class JeuCartes : MonoBehaviour
     [SerializeField] List<Sprite> listeItems = new List<Sprite>();
 
     //Variables de son
-    [SerializeField] AudioClip sonMatchCarte, sonTourneCarte, sonCarteBombe, sonReussite;
+    [SerializeField] AudioClip sonMatchCarte, sonTourneCarte, sonCarteBombe, sonReussite, sonEchec, sonBombeTrouvee;
     private AudioSource audioSource;
 
     //Variables pour compter les cartes retournées en paires
@@ -118,6 +118,9 @@ public class JeuCartes : MonoBehaviour
                         //Activer la notification de bombe
                         texteBombe.gameObject.SetActive(true);
 
+                        //Jouer le son d'échec
+                        audioSource.PlayOneShot(sonBombeTrouvee);
+
                         Debug.Log("Partie terminée");
 
                         //Recharger la scène après un délai de 5 secondes
@@ -136,8 +139,48 @@ public class JeuCartes : MonoBehaviour
                         //Charger la scène de la cave de Thays - Boss final - Niveau3_Delivrance
                         Invoke("ChargerSceneFinale", 5f);
                     }
+
+                    // Count variables for "aashaSprite" and "cleSprite" cards
+                    int aashaCount = 0;
+                    int cleCount = 0;
+
+                    // Check the sprites of the first card
+                    if (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite")
+                    {
+                        aashaCount++;
+                        Debug.Log("aasha+1");
+                    }
+                    else if (premiereCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite")
+                    {
+                        cleCount++;
+                        Debug.Log("clé+1");
+                    }
+
+                    // Check the sprites of the second card
+                    if (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "aashaSprite")
+                    {
+                        aashaCount++;
+                        Debug.Log("aasha+1");
+                    }
+                    else if (secondeCarte.GetComponentInChildren<SpriteRenderer>().sprite.name == "cleSprite")
+                    {
+                        cleCount++;
+                        Debug.Log("clé+1");
+                    }
+
+                    // Check if both "aashaSprite" and "cleSprite" counts are equal to 2
+                    if (aashaCount == 2 && cleCount == 2)
+                    {
+                        //Jouer le son de réussite
+                        audioSource.PlayOneShot(sonReussite);
+
+                        //Charger la scène de la cave de Thays - Boss final - Niveau3_Delivrance
+                        Invoke("ChargerSceneFinale", 5f);
+                    }
+
+
                 }
-                
+
                 //Jouer le son de carte tournée
                 audioSource.PlayOneShot(sonTourneCarte);
             }
@@ -200,6 +243,8 @@ public class JeuCartes : MonoBehaviour
             //Activer la notification d'échec
             notifEchec.gameObject.SetActive(true);
 
+            //Jouer le son d'échec
+            audioSource.PlayOneShot(sonEchec);
 
             //Recharger la scène
             Invoke("DelaiChargementScene", 2f);
