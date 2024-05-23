@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08550141, g: 0.18893352, b: 0.4318913, a: 1}
+  m_IndirectSpecularColor: {r: 0.08540144, g: 0.18890482, b: 0.4318778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2484,27 +2484,27 @@ MonoBehaviour:
   notification: 0
   cleRamasse: 0
   audioJoue: 0
-  UIJournalKirie: {fileID: 0}
+  UIJournalKirie: {fileID: 468702161}
   UInotification: {fileID: 1111197238}
-  UInoirFadeIn: {fileID: 0}
-  UInoirFadeOut: {fileID: 0}
-  UIcontenu1: {fileID: 0}
-  UIcontenu2: {fileID: 0}
-  UIcontenu3: {fileID: 0}
-  UIcontenu4: {fileID: 0}
-  UIcontenu5: {fileID: 0}
-  OBJimageGatito: {fileID: 0}
-  OBJimageThays: {fileID: 0}
-  DESCpointsgatito: {fileID: 0}
-  DESCpointsthays: {fileID: 0}
-  DESCgatito: {fileID: 0}
-  DESCthays: {fileID: 0}
-  INVcle: {fileID: 0}
-  INVcanne: {fileID: 0}
-  INVpoisson: {fileID: 0}
-  INVechelle: {fileID: 0}
-  INVcarotte: {fileID: 0}
-  INVlettre: {fileID: 0}
+  UInoirFadeIn: {fileID: 1891024174}
+  UInoirFadeOut: {fileID: 1619007297}
+  UIcontenu1: {fileID: 882235715}
+  UIcontenu2: {fileID: 1020951948}
+  UIcontenu3: {fileID: 503567582}
+  UIcontenu4: {fileID: 881536457}
+  UIcontenu5: {fileID: 534967456}
+  OBJimageGatito: {fileID: 546587013}
+  OBJimageThays: {fileID: 1874392323}
+  DESCpointsgatito: {fileID: 8116781}
+  DESCpointsthays: {fileID: 748977484}
+  DESCgatito: {fileID: 535898370}
+  DESCthays: {fileID: 920778002}
+  INVcle: {fileID: 2125026861}
+  INVcanne: {fileID: 1805529278}
+  INVpoisson: {fileID: 1770667468}
+  INVechelle: {fileID: 1294668089}
+  INVcarotte: {fileID: 56639189}
+  INVlettre: {fileID: 426382419}
   UItutoriel: {fileID: 0}
   UIcle: {fileID: 0}
   UIbarreCle: {fileID: 0}
@@ -2532,7 +2532,7 @@ MonoBehaviour:
   parchemin: {fileID: 1818674622}
   UITrahisonGatito: {fileID: 2025052796}
   UInotifSauve: {fileID: 119604273}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1333720042}
   prendreCle: {fileID: 0}
   armoireBarre: {fileID: 0}
   armoireSouvre: {fileID: 0}
