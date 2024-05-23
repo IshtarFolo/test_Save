@@ -18,7 +18,6 @@ public class CannePeche : MonoBehaviour
     public bool tire;
 
     //Pour les animations de la canne 
-    public Animator animatorCanne;
     public GameObject appatPrefab;
     public GameObject finCorde;
     public GameObject debutCorde;
@@ -34,7 +33,6 @@ public class CannePeche : MonoBehaviour
     public void Start()
     {
         // Récupérer l'animator de la canne peche
-        animatorCanne = GetComponent<Animator>();
         estEquipe = true;
         peutPecher = true;
         //Commencer la peche automatiquement
@@ -103,7 +101,6 @@ public class CannePeche : MonoBehaviour
     IEnumerator LancerCannePeche(Vector3 targetPosition)
     {
             estLance = true;
-            animatorCanne.SetTrigger("LancerCanne");
             yield return new WaitForSeconds(1f);
 
             GameObject instanceAppat = Instantiate(appatPrefab);
@@ -121,7 +118,6 @@ public class CannePeche : MonoBehaviour
     //Methode pour tirer la canne peche
     private void TirerCanne()
     {
-        animatorCanne.SetTrigger("ResistanceCanne");
         Debug.Log("je tire");
         estLance = false;
         tire = true;
