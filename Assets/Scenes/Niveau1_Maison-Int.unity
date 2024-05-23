@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18900925, g: 0.21909639, b: 0.24244127, a: 1}
+  m_IndirectSpecularColor: {r: 0.18900931, g: 0.21909666, b: 0.24244168, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3912,13 +3912,13 @@ PrefabInstance:
       addedObject: {fileID: 357199601}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 357199600}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 357199599}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 357199598}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 357199604}
     - targetCorrespondingSourceObject: {fileID: -8307942509081347529, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1811687831}
@@ -4222,7 +4222,6 @@ MonoBehaviour:
   notification: 0
   cleRamasse: 0
   audioJoue: 0
-  cannePecheRamasse: 0
   UIJournalKirie: {fileID: 1884111926}
   UInotification: {fileID: 0}
   UInoirFadeIn: {fileID: 19192334}
@@ -4234,6 +4233,10 @@ MonoBehaviour:
   UIcontenu5: {fileID: 0}
   OBJimageGatito: {fileID: 24592736}
   OBJimageThays: {fileID: 2332981}
+  DESCpointsgatito: {fileID: 0}
+  DESCpointsthays: {fileID: 0}
+  DESCgatito: {fileID: 0}
+  DESCthays: {fileID: 0}
   INVcle: {fileID: 555738202}
   INVcanne: {fileID: 2064948533}
   INVpoisson: {fileID: 1459059938}
@@ -4261,6 +4264,11 @@ MonoBehaviour:
   UIminiJeuChaudFroid: {fileID: 0}
   UIforet: {fileID: 0}
   UIbarreLettre: {fileID: 0}
+  UINombreLettre: {fileID: 0}
+  UIIndexLettres: {fileID: 0}
+  lettreRamassee: 0
+  parchemin: {fileID: 0}
+  UITrahisonGatito: {fileID: 0}
   UInotifSauve: {fileID: 0}
   gameManager: {fileID: 2074612493}
   prendreCle: {fileID: 8300000, guid: 6de6160b016564958aa8371ee2637613, type: 3}
@@ -4279,7 +4287,7 @@ Animator:
   m_GameObject: {fileID: 357199597}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3f409f5661489b54095e803f28cff50d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 570e7b4315aa560459a2cf481320d5ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4290,18 +4298,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &357199600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357199597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa44b0f61a091444b13cad43c9c6245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &357199601
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4333,9 +4329,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357199597}
   serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 12
-  m_AngularDrag: 12
+  m_Mass: 2
+  m_Drag: 6
+  m_AngularDrag: 6
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4357,6 +4353,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
   m_PrefabInstance: {fileID: 326989777}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &357199604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357199597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d6fd56470166b43a7991df3f43ab48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 50
+  aSaute: 0
 --- !u!1 &403801828
 GameObject:
   m_ObjectHideFlags: 0
@@ -7014,8 +7024,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490633, y: -0.6767702, z: 0.2049085, w: 0.6767629}
-  m_LocalPosition: {x: 403.40054, y: 5.6969957, z: 276.2801}
+  m_LocalRotation: {x: 0.20490605, y: -0.6767711, z: 0.20490879, w: 0.676762}
+  m_LocalPosition: {x: 403.40054, y: 5.6969886, z: 276.28015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22425,8 +22435,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490633, y: -0.6767702, z: 0.2049085, w: 0.6767629}
-  m_LocalPosition: {x: 403.40054, y: 5.6969957, z: 276.2801}
+  m_LocalRotation: {x: 0.20490605, y: -0.6767711, z: 0.20490879, w: 0.676762}
+  m_LocalPosition: {x: 403.40054, y: 5.6969886, z: 276.28015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

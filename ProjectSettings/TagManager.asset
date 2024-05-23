@@ -16,6 +16,7 @@ TagManager:
   - lettre
   - triggerNiv2
   - lac
+  - escalier
   layers:
   - Default
   - TransparentFX
