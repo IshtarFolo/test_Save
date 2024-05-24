@@ -13,7 +13,8 @@ public class deplacementPersoV2 : MonoBehaviour
     private float forceSaut = 50f; // Force du saut
     private float multiplicateurDescente = 15f; // La force de descente du personnage lorsqu'il est en l'air
     bool peutBouger = true; // Verification si le personnage peut bouger
-    public bool aSaute = false; // Verifie si le personnage a saute
+    private bool aSaute = false; // Verifie si le personnage a saute
+    private bool retoucheSol = false;
 
     void Start()
     {
@@ -132,12 +133,23 @@ public class deplacementPersoV2 : MonoBehaviour
                 StartCoroutine(RecupSaut());
                 if (aSaute)
                 {
-                    animateur.SetBool("retombe", true);
-                    aSaute = false;
+                    
+
+                    if (retoucheSol)
+                    {
+                        animateur.SetBool("retombe", true);
+                        aSaute = false;
+                    }
+                    else
+                    {
+                        animateur.SetBool("retombe", false);
+                    }
                 }
                 animateur.SetBool("saute", false);
                 break;
         }
+
+        Debug.Log(retoucheSol);
     }
 
     private void OnDrawGizmos()
@@ -156,6 +168,6 @@ public class deplacementPersoV2 : MonoBehaviour
         peutBouger = false;
         yield return new WaitForSeconds(0.5f);
         peutBouger = true;
-        animateur.SetBool("retombe", false);
+        retoucheSol = false;
     }
 }
