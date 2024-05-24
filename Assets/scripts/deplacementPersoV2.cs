@@ -10,11 +10,12 @@ public class deplacementPersoV2 : MonoBehaviour
 
     public float vitesse = 30f; // Rapidite du personnage
     bool toucheSol; // Booleen pour detecter si le perso touche le sol
-    private float forceSaut = 50f; // Force du saut
+    public float forceSaut = 50f; // Force du saut
     private float multiplicateurDescente = 15f; // La force de descente du personnage lorsqu'il est en l'air
     bool peutBouger = true; // Verification si le personnage peut bouger
     private bool aSaute = false; // Verifie si le personnage a saute
     private bool retoucheSol = false;
+    bool peutCourir = true;
 
     void Start()
     {
@@ -26,74 +27,19 @@ public class deplacementPersoV2 : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update() 
     {
-        /*===========
-        * MOUVEMENT *
-        ============*/
-        if (peutBouger)
+        // Raccourci pour la velocite du saut
+        float velociteY = (rb.velocity.y);
+
+        // Si le personnage touche le sol, sa velocite Y ne change pas sinon elle change
+        if (!toucheSol)
         {
-            float moveHorizontal = -Input.GetAxis("Vertical");
-            float moveVertical = Input.GetAxis("Horizontal");
-
-            // Raccourci pour la velocite du saut
-            float velociteY = (rb.velocity.y);
-
-            // Raccourcis du mouvement et passation de ses valeurs
-            Vector3 mouvement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
-
-            rb.AddForce(mouvement * vitesse);
-
-            // On passe les valeurs des variables aux Floats de l'animator
-            animateur.SetFloat("VelociteX", moveHorizontal);
-            animateur.SetFloat("VelociteZ", moveVertical);
-
-            // Si le personnage touche le sol, sa velocite Y ne change pas sinon elle change
-            if (!toucheSol)
-            {
-              animateur.SetFloat("VelociteY", velociteY);
-            }
-            else
-            {
-                animateur.SetFloat("VelociteY", 0);
-            }
-
-
-            /* 
-            * Gestion des angles dans l'animation idle
-            --------------------------------------------------------------------------------------------------------------------------- */
-            // On verifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
-            // Si la velocite du rigidbody est egale a 0...
-            if (mouvement != Vector3.zero)
-            {
-                float angle = Vector3.SignedAngle(Vector3.forward, mouvement, Vector3.up);
-
-                // On lance la bonne animation dependemment de l'angle du perso
-                if (angle > 0)
-                {
-                    animateur.SetTrigger("idleGauche");
-                }
-                else if (angle <= 0)
-                {
-                    animateur.SetTrigger("idleDroite");
-                }
-            }
-        }
-
-        // On regarde si les param�tres de l'animator sont �gaux � 0...
-        if (animateur.GetFloat("VelociteX") == 0 && animateur.GetFloat("VelociteZ") == 0)
-        {
-            // Si oui, l'animation idle est true
-            animateur.SetBool("idle", true);
-            // l'animation de course se désactive
-            animateur.SetBool("cours", false);
+            animateur.SetFloat("VelociteY", velociteY);
         }
         else
         {
-            // Si non, l'animation idle est false
-            animateur.SetBool("idle", false);
-            // L'animation de course s'active
-            animateur.SetBool("cours", true);
+            animateur.SetFloat("VelociteY", 0);
         }
 
         /*=======
@@ -152,6 +98,63 @@ public class deplacementPersoV2 : MonoBehaviour
         Debug.Log(retoucheSol);
     }
 
+    void FixedUpdate()
+    {
+        /*===========
+        * MOUVEMENT *
+        ============*/
+        if (peutBouger)
+        {
+            float moveHorizontal = -Input.GetAxis("Vertical");
+            float moveVertical = Input.GetAxis("Horizontal");
+
+            // Raccourcis du mouvement et passation de ses valeurs
+            Vector3 mouvement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
+
+            rb.AddForce(mouvement * vitesse);
+
+            // On passe les valeurs des variables aux Floats de l'animator
+            animateur.SetFloat("VelociteX", moveHorizontal);
+            animateur.SetFloat("VelociteZ", moveVertical);
+
+            /* 
+            * Gestion des angles dans l'animation idle
+            --------------------------------------------------------------------------------------------------------------------------- */
+            // On verifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
+            // Si la velocite du rigidbody est egale a 0...
+            if (mouvement != Vector3.zero)
+            {
+                float angle = Vector3.SignedAngle(Vector3.forward, mouvement, Vector3.up);
+
+                // On lance la bonne animation dependemment de l'angle du perso
+                if (angle > 0)
+                {
+                    animateur.SetTrigger("idleGauche");
+                }
+                else if (angle <= 0)
+                {
+                    animateur.SetTrigger("idleDroite");
+                }
+            }
+
+            // On regarde si les param�tres de l'animator sont �gaux � 0...
+            if (animateur.GetFloat("VelociteX") == 0 && animateur.GetFloat("VelociteZ") == 0)
+            {
+                // Si oui, l'animation idle est true
+                animateur.SetBool("idle", true);
+                // l'animation de course se désactive
+                animateur.SetBool("cours", false);
+            }
+            else if(peutCourir)
+            {
+                // Si non, l'animation idle est false
+                animateur.SetBool("idle", false);
+                // L'animation de course s'active
+                animateur.SetBool("cours", true);
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
@@ -166,8 +169,10 @@ public class deplacementPersoV2 : MonoBehaviour
     IEnumerator RecupSaut()
     {
         peutBouger = false;
+        peutCourir = false;
         yield return new WaitForSeconds(0.5f);
         peutBouger = true;
+        peutCourir = true;
         retoucheSol = false;
     }
 }
