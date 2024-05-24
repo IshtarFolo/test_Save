@@ -820,7 +820,7 @@ PrefabInstance:
       addedObject: {fileID: 1164102979}
     - targetCorrespondingSourceObject: {fileID: 5749084721653927270, guid: 1e810540176ff86408fe819b8ab3e916, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1393769276}
+      addedObject: {fileID: 1393769280}
   m_SourcePrefab: {fileID: 100100000, guid: 1e810540176ff86408fe819b8ab3e916, type: 3}
 --- !u!1 &28463464 stripped
 GameObject:
@@ -1740,7 +1740,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2501,6 +2501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: garde_robe_ferme
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c42e920b688274ba1a87f421d255d634, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6201476763856328133, guid: c42e920b688274ba1a87f421d255d634, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2551,11 +2555,11 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.14555593, y: 0.11561052, z: 0.052100718}
-  m_Center: {x: -0.039279502, y: 0.0012790897, z: 0.008500326}
+  m_Size: {x: 0.068879806, y: 0.24286938, z: 0.052100718}
+  m_Center: {x: -0.0009414684, y: 0.06490844, z: 0.008500327}
 --- !u!114 &190530066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4305,7 +4309,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357199597}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7880c86e9aa876342bd7731afee2b18a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7024,8 +7028,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706361330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490679, y: -0.67676926, z: 0.20490845, w: 0.6767638}
-  m_LocalPosition: {x: 403.40057, y: 5.697026, z: 276.2801}
+  m_LocalRotation: {x: 0.20490609, y: -0.67677027, z: 0.20490827, w: 0.67676294}
+  m_LocalPosition: {x: 403.40045, y: 5.69695, z: 276.2801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18749,7 +18753,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387111219}
   m_CullTransparentMesh: 1
---- !u!65 &1393769276
+--- !u!65 &1393769280
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18768,8 +18772,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.22424681, y: 0.5937719, z: 0.22424658}
-  m_Center: {x: -0.00000004842877, y: -0.1598412, z: 0.00000025704503}
+  m_Size: {x: 0.3161297, y: 2.0215259, z: 0.28490907}
+  m_Center: {x: -0.045941427, y: 0.5540352, z: 0.030323561}
 --- !u!4 &1405295580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e810540176ff86408fe819b8ab3e916, type: 3}
@@ -22435,8 +22439,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847092556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20490679, y: -0.67676926, z: 0.20490845, w: 0.6767638}
-  m_LocalPosition: {x: 403.40057, y: 5.697026, z: 276.2801}
+  m_LocalRotation: {x: 0.20490609, y: -0.67677027, z: 0.20490827, w: 0.67676294}
+  m_LocalPosition: {x: 403.40045, y: 5.69695, z: 276.2801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
