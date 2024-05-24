@@ -1699,8 +1699,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7735849, g: 0, b: 0.72704923, a: 1}
-  m_Intensity: 75.93
-  m_Range: 38.2
+  m_Intensity: 36.8
+  m_Range: 38.4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1758,7 +1758,7 @@ Transform:
   m_GameObject: {fileID: 713305954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9, y: -5, z: 164.2}
+  m_LocalPosition: {x: 33.6, y: 0.3, z: 168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3203,7 +3203,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.0014684978, g: 0.31132078, b: 0.08409577, a: 1}
   m_Intensity: 70.59
-  m_Range: 114.97815
+  m_Range: 92.7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3261,7 +3261,7 @@ Transform:
   m_GameObject: {fileID: 1397241027}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120, y: -58, z: 320.5}
+  m_LocalPosition: {x: 78.8, y: -59.8, z: 285.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4120,6 +4120,79 @@ MonoBehaviour:
   bulleThays: {fileID: 1762071227}
   choixDiplomate: 0
   choixColere: 0
+--- !u!1001 &1916496330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.931358
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 201.4338
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
+      propertyPath: m_Name
+      value: saule-pleureur-colore
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4db42d57f4d89434189a1f94deba8bc9, type: 3}
 --- !u!1001 &2030377802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4798,3 +4871,4 @@ SceneRoots:
   - {fileID: 330793679}
   - {fileID: 887619630}
   - {fileID: 37537584}
+  - {fileID: 1916496330}
