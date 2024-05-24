@@ -380,6 +380,8 @@ public class _collision_kirie : MonoBehaviour
                 Debug.Log("La lettre est complète");
                 parchemin.SetActive(true);
                 Invoke("DesactiverParchemin", 10f);
+                UINombreLettre.SetActive(false);
+                UIIndexLettres.enabled = false;
                 UITrahisonGatito.SetActive(true);
             }
         }
