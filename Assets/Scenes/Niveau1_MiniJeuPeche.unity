@@ -28011,7 +28011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxGaucheUI: -250
   maxDroiteUI: 250
-  vitessePoisson: 50
+  vitessePoisson: 100
   changerFrequence: 0.005
   poissonPosition: 0
   mouvementGaucheDroite: 1
