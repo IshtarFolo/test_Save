@@ -30611,8 +30611,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
-  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65865,8 +65865,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
-  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
+  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76373,7 +76373,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 120
+<<<<<<< Updated upstream
   forceSaut: 50
+=======
+  forceSaut: 10
+>>>>>>> Stashed changes
 --- !u!1 &1156071172
 GameObject:
   m_ObjectHideFlags: 0
