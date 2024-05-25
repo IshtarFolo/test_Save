@@ -941,11 +941,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: e658a2bc-4136-428f-8487-0280513f1019
+  cloudProjectId: dd5c1437-f22e-4e56-871b-93b89ef2acb5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project 2024-03-17_20-44-29
-  organizationId: camizumi
+  projectName: test_Save
+  organizationId: whiterabbot
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
