@@ -9,14 +9,13 @@ public class deplacementPersoV2 : MonoBehaviour
     Animator animateur;
 
     public float vitesse = 30f; // Rapidite du personnage
-    bool toucheSol; // Booleen pour detecter si le perso touche le sol
     public float forceSaut = 50f; // Force du saut
     private float multiplicateurDescente = 15f; // La force de descente du personnage lorsqu'il est en l'air
     bool peutBouger = true; // Verification si le personnage peut bouger
-    private bool aSaute = false; // Verifie si le personnage a saute
-    private bool retoucheSol = false;
-    bool peutCourir = true;
-    bool jumpInput;
+    bool toucheSol; // Booleen pour detecter si le perso touche le sol
+    bool saute = false; // Variable qui determine si le perso saute
+    float derniereFoisAuSol; // variable qui calcule le temps de la derniere fois que le perso eatit au sol
+    bool peutSauter = true; // Variable qui determine si le perso peut sauter 
 
     void Start()
     {
@@ -25,15 +24,52 @@ public class deplacementPersoV2 : MonoBehaviour
 
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous; // Pour detecter les collisions de manière permanente et
                                                                        // eviter que le pero ne colle trop au murs
-
     }
 
+    // Pour sauter on appuie sur espace et on active la variable permettant le saut
     private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*
+         * Gestion du Saut *
+         ----------------------------------------------------------------------------------------------------------------------------*/
+        RaycastHit infoCollision;
+
+        // Variable qui regarde si le perso etait precedemment au sol
+        bool etaitAuSol = toucheSol;
+
+        // Cast des spheres vers bas perso + variable infoCollision prends valeurs
+        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.3f, 1f), 0f, -transform.up, out infoCollision, 1.5f);
+
+        // Si le perso peut sauter et qu'on appuie sur espace et que le perso touche le sol, on lance la fonction de saut
+        if (peutSauter)
         {
-            jumpInput = true;
+            if (Input.GetKey(KeyCode.Space) && toucheSol)
+            {
+                FonctionSaut();
+            }
         }
+
+        // Si le perso n'a pas saute precedemment et touche le sol
+        if (!etaitAuSol && toucheSol)
+        {
+            // On calcule le temps que le perso a passe en l'air avant de retoucher le sol
+            derniereFoisAuSol = Time.time;
+        }
+
+        // Puis on enleve au temps present le temps passe en l'air pour determiner si le personnage retombe
+        // et on lance l'animation de retour au sol
+        if (Time.time - derniereFoisAuSol < 1f) 
+        {
+            animateur.SetBool("auSol", true);
+            StartCoroutine(RecupSaut());
+            saute = false;
+        }
+        else
+        {
+            animateur.SetBool("auSol", false);
+        }
+
+        Debug.Log("derniere fois au sol: " + derniereFoisAuSol);
     }
 
     void FixedUpdate()
@@ -83,7 +119,7 @@ public class deplacementPersoV2 : MonoBehaviour
                 // l'animation de course se désactive
                 animateur.SetBool("cours", false);
             }
-            else if(peutCourir)
+            else
             {
                 // Si non, l'animation idle est false
                 animateur.SetBool("idle", false);
@@ -92,7 +128,7 @@ public class deplacementPersoV2 : MonoBehaviour
             }
         }
 
-                // Raccourci pour la velocite du saut
+        // Raccourci pour la velocite du saut
         float velociteY = (rb.velocity.y);
 
         // Si le personnage touche le sol, sa velocite Y ne change pas sinon elle change
@@ -105,75 +141,37 @@ public class deplacementPersoV2 : MonoBehaviour
             animateur.SetFloat("VelociteY", 0);
         }
 
-        /*=======
-         * SAUT *
-         =======*/
-        RaycastHit infoCollision;
-        // Cast des spheres vers bas perso + variable infoCollision prends valeurs
-        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.3f, 1f), 0f, -transform.up, out infoCollision, 1.5f);
-
-        // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
-        if (jumpInput && toucheSol && peutBouger)
-        {
-            rb.AddForce(new Vector3(0, forceSaut, 0), ForceMode.Impulse);
-            animateur.SetBool("saute", true); 
-            animateur.SetBool("retombe", false); 
-            aSaute = true;
-            jumpInput = false;
-        }
         // Si la velocite Y est plus petite que 2...
-        else if (rb.velocity.y < 0 && !toucheSol)
+        if (rb.velocity.y < 0 && !toucheSol)
         {
             // On applique une force de descente au personnage pour le forcer au sol
             rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
-            animateur.SetBool("retombe", true); 
-        }
-        else if (toucheSol && Mathf.Abs(rb.velocity.y) < 0.01f)
-        {
-            animateur.SetBool("saute", false);
-            animateur.SetBool("retombe", false);
-            aSaute = false;
-        }
-        else if (rb.velocity.x == 0 && rb.velocity.z == 0 && animateur.GetBool("saute") == true)
-        {
-            animateur.Play("MilieuSaut");
         }
 
-        // On verifie si le personnage touche le sol ou non
-        switch (toucheSol)
+        // Si le perso ne saute pas et tombe d'un rebord on declenche l'animation ou il tombe
+        if (!saute && !toucheSol && rb.velocity.y < 0)
         {
-            case false:
-                animateur.SetBool("saute", true);
-                break;
-            case true:
-                StartCoroutine(RecupSaut());
-                if (aSaute)
-                {
-                    if (retoucheSol && Mathf.Abs(rb.velocity.y) < 0.01f)
-                    {
-                        animateur.SetBool("retombe", true);
-                        aSaute = false;
-                    }
-                    else
-                    {
-                        animateur.SetBool("retombe", false);
-                    }
-                }
-                animateur.SetBool("saute", false);
-                break;
+            animateur.SetBool("tombe", true);
         }
-        Debug.Log("aSaute: " + aSaute);
-        Debug.Log("peutBouger: " + peutBouger);
-        Debug.Log("peutCourir: " + peutCourir);
+        else
+        {
+            animateur.SetBool("tombe", false);
+        }
     }
 
-
-    private void OnDrawGizmos()
+    /*=======
+     * SAUT *
+     =======*/
+    private void FonctionSaut()
     {
-        // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.3f, 0f), 1f);
-    } 
+        // On ajoute une force pour faire sauter le perso
+        rb.AddForce(new Vector3(0, forceSaut, 0), ForceMode.Impulse);
+        // On active la variable de saut de l'animator
+        animateur.SetBool("saute", true);
+        // Le perso peut sauter
+        saute = true;
+        derniereFoisAuSol = 0;
+    }
 
     /*--------------
      * IENUMERATOR *
@@ -182,10 +180,10 @@ public class deplacementPersoV2 : MonoBehaviour
     IEnumerator RecupSaut()
     {
         peutBouger = false;
-        peutCourir = false;
+        peutSauter = false;
+        animateur.SetBool("saute", false);
         yield return new WaitForSeconds(0.5f);
         peutBouger = true;
-        peutCourir = true;
-        retoucheSol = false;
+        peutSauter = true;
     }
 }
