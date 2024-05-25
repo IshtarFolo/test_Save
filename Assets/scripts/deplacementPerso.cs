@@ -8,13 +8,16 @@ public class deplacementPerso : MonoBehaviour
 {
     /*----------------
      *** VARIABLES ***
-     -----------------*/
-    private float vitesseDeplacement = 15f; // Vitesse de d�placement du personnage
-    private float forceSaut = 500f; // Force du saut
+     -----------------*/   
+    public float vitesse = 30f; // Rapidite du personnage
+    public float forceSaut = 50f; // Force du saut
     private float multiplicateurDescente = 15f; // La force de descente du personnage lorsqu'il est en l'air
-    bool toucheSol; // Booleen pour detecter si le perso touche le sol
     bool peutBouger = true; // Verification si le personnage peut bouger
-    Vector3 dernierMouvement; // Enregistrement du dernier mouvement du joueur
+
+    bool toucheSol; // Booleen pour detecter si le perso touche le sol
+    bool saute = false; // Variable qui determine si le perso saute
+    float derniereFoisAuSol; // variable qui calcule le temps de la derniere fois que le perso eatit au sol
+    bool peutSauter = true; // Variable qui determine si le perso peut sauter 
 
     // Raccourcis GetComponent
     Rigidbody rb;
@@ -24,258 +27,142 @@ public class deplacementPerso : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); //Rigidbody
         animateur = GetComponent<Animator>(); // Animator
+
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous; // Pour detecter les collisions de manière permanente et
+                                                                       // eviter que le pero ne colle trop au murs
     }
-
-    void Update()
+    private void Update() 
     {
-        /*--------------
-         ** MOUVEMENT **
-         ---------------*/
-        // Deplacement horizontal perso
-        var vDeplacement = Input.GetAxis("Horizontal") * vitesseDeplacement * Time.deltaTime;
+        /*
+         * Gestion du Saut *
+         ----------------------------------------------------------------------------------------------------------------------------*/
+        RaycastHit infoCollision;
 
-        // Deplacement vertical perso
-        var vMonte = Input.GetAxis("Vertical") * vitesseDeplacement * Time.deltaTime;
+        // Variable qui regarde si le perso etait precedemment au sol
+        bool etaitAuSol = toucheSol;
 
-        // Raccourci pour la velocite du saut
-        float velociteY = (rb.velocity.y);
+        // Cast des spheres vers bas perso + variable infoCollision prends valeurs
+        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.3f, 1f), 0f, -transform.up, out infoCollision, 1.5f);
 
-        // Normalize pour le vecteur de direction
-        Vector3 direction = new Vector3(-vMonte, 0, vDeplacement).normalized;
-
-        // Multiplier la velocite par le temps
-        direction *= vitesseDeplacement * Time.deltaTime;
-
-        // Controles pour faire avancer le perso avec les touches Horizontales (A and D) et Verticales (W and S)
-        if (peutBouger)
+        // Si le perso peut sauter et qu'on appuie sur espace et que le perso touche le sol, on lance la fonction de saut
+        if (peutSauter)
         {
-            // On regarde avec le raycasting si un obstacle est sur le chemin
-            if (!Physics.Raycast(rb.position, direction, direction.magnitude))
+            if (Input.GetKey(KeyCode.Space) && toucheSol)
             {
-                // Si il n'y a pas d'obstacle, le personnage bouge
-                rb.AddForce(direction * vitesseDeplacement, ForceMode.VelocityChange);
+                FonctionSaut();
             }
         }
 
-        /*-------------
-         * ANIMATIONS *
-         -------------*/
-        // On regarde si les param�tres de l'animator sont �gaux � 0...
-        if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") == 0)
+        // Si le perso n'a pas saute precedemment et touche le sol
+        if (!etaitAuSol && toucheSol)
         {
-            // Si oui, l'animation idle est true
-            animateur.SetBool("idle", true);
+            // On calcule le temps que le perso a passe en l'air avant de retoucher le sol
+            derniereFoisAuSol = Time.time;
+        }
+
+        // Puis on enleve au temps present le temps passe en l'air pour determiner si le personnage retombe
+        // et on lance l'animation de retour au sol
+        if (Time.time - derniereFoisAuSol < 1f) 
+        {
+            animateur.SetBool("auSol", true);
+            StartCoroutine(RecupSaut());
+            saute = false;
         }
         else
         {
-            // Si non, l'animation idle est false
-            animateur.SetBool("idle", false);
+            animateur.SetBool("auSol", false);
         }
 
-        // Association des param�tres de l'animator avec les directions de d�placement du personnage
-        animateur.SetFloat("VelocityX", vDeplacement);
-        animateur.SetFloat("VelocityZ", vMonte);
-        animateur.SetFloat("VelocityY", velociteY);
+        Debug.Log("derniere fois au sol: " + derniereFoisAuSol);
+    }
 
-        // Si le joueur a tourn� � gauche, le personnage va faire face � gauche et il fera de m�me pour la droite
-        if (vDeplacement > 0 || vDeplacement < 0)
+    void FixedUpdate()
+    {
+        /*===========
+        * MOUVEMENT *
+        ============*/
+        if (peutBouger)
         {
-            dernierMouvement = new Vector3(vDeplacement, 0f, vMonte).normalized;
-        }
+            float moveHorizontal = -Input.GetAxis("Vertical");
+            float moveVertical = Input.GetAxis("Horizontal");
 
-        /*---------
-         ** SAUT **
-         ----------*/
-        // Si on est dans le tutoriel, Kirie saute moins haut que dans les autres scènes
-    /*    switch (_collision_kirie.journalRamasse)
-        {
-            case false:
-                forceSaut = 500f;
-                vitesseDeplacement = 14f;
-                break;
-            case true:
-                forceSaut = 1000f;
-                vitesseDeplacement = 15f;
-                break;
-        }*/
+            // Raccourcis du mouvement et passation de ses valeurs
+            Vector3 mouvement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
 
-        RaycastHit infoCollision;
-        // Cast des spheres vers bas perso + variable infoCollision prends valeurs
-        toucheSol = Physics.SphereCast(transform.position + new Vector3(0f, 0.3f, 1f), 0f, -transform.up, out infoCollision, 1f);
+            rb.AddForce(mouvement * vitesse);
 
-        // Si le jouer appuie sur espace la velocitee Y augmente et le personnage saute  
-        if (Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            rb.AddForce(new Vector3(0, forceSaut, 0), ForceMode.Impulse);
-        }
-        // Si la velocite Y est plus petite que 2...
-        else if (rb.velocity.y < 0 && !toucheSol)
-        {
-            // On applique une force de descente au personnage pour le forcer au sol
-             rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
-        }
-        // On v�rifie si le personnage touche le sol ou non
-        switch (toucheSol)
-        {
-            case false:
-                animateur.SetBool("saute", true);
-                break;
-            case true:
-                animateur.SetBool("saute", false);
-                break;
-        }
+            // On passe les valeurs des variables aux Floats de l'animator
+            animateur.SetFloat("VelociteX", moveHorizontal);
+            animateur.SetFloat("VelociteZ", moveVertical);
 
-
-        // Fin du Saut Droite
-        if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut") && toucheSol)
-        {
-            animateur.Play("FinSaut");
-            StartCoroutine(RecupSaut());
-        }
-
-        // Fin Saut gauche
-        if (animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Gauche") && toucheSol)
-        {
-            animateur.Play("FinSaut_Gauche");
-            animateur.SetTrigger("idleGauche");
-            StartCoroutine(RecupSaut());
-        }
-
-        /*
-        * Gestion des animations de saut dans differents angles
-        -------------------------------------------------------------------------------------------------------------------------------------------*/
-        /* A Droite en Haut */
-        // On regarde si le joueur bouge vers le haut a droite et appuie sur espace
-        if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            animateur.Play("MilieuSaut_DiagoHDroite");
-            animateur.SetBool("tombe", false);
-        }
-        // On regarde si l'animation a fini de jouer et si la velocite est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHDroite") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_DiagoHDroite");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut());
-        }
-
-        /* A Droite en Bas */
-        // On regarde si le joueur bouge vers le bas a droite et appuie sur espace
-        if (animateur.GetFloat("VelocityX") > 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            animateur.Play("MilieuSaut_DiagoBDroite");
-            animateur.SetBool("tombe", false);
-        }
-        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoBDroite") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_DiagoBDroite");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut());
-        }
-        /* A Gauche en Haut */
-        // On regarde si le joueur bouge vers le haut a gauche et appuie sur espace
-        if (animateur.GetFloat("VelocityX") < 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            animateur.Play("MilieuSaut_DiagoHGauche");
-            animateur.SetBool("tombe", false);
-        }
-        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoHGauche") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_DiagoHGauche");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut());
-        }
-        /* A Gauche en Bas */
-        // On regarde si le joueur bouge vers le bas a gauche et appuie sur espace
-        if (animateur.GetFloat("VelocityX") < 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            animateur.Play("MilieuSaut_DiagoBGauche");
-            animateur.SetBool("tombe", false);
-        }
-        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_DiagoBGauche") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_DiagoBGauche");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut());
-        }
-        /* Vers le Bas */
-        // On regarde si le joueur bouge vers le bas
-        if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") < 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            animateur.Play("MilieuSaut_Bas");
-            animateur.SetBool("tombe", false);
-        }
-        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Bas") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_Bas");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut()); 
-        }
-        /* Vers le Haut */ 
-        // On regarde si le joueur bouge vers le bas
-        if (animateur.GetFloat("VelocityX") == 0 && animateur.GetFloat("VelocityZ") > 0 && Input.GetKeyDown(KeyCode.Space) && toucheSol && peutBouger)
-        {
-            animateur.Play("MilieuSaut_Haut");
-            animateur.SetBool("tombe", false);
-        }
-        // On regarde si l'animation a fini de jouer et si la velocite Y est plus petite que 0
-        if (animateur.GetFloat("VelocityY") < 0 && animateur.GetCurrentAnimatorStateInfo(0).IsName("MilieuSaut_Haut") && toucheSol && peutBouger)
-        {
-            animateur.Play("FinSaut_Haut");
-            animateur.SetBool("tombe", true);
-            StartCoroutine(RecupSaut());
-        }
-      
-        // On verifie, ici, si le saut est active a partir de la gauche ou de la droite 
-        // on regarde si la velocite X est plus grande que 0...
-        if (animateur.GetFloat("VelocityX") > 0)
-        {
-            // Si oui, on confirme que le mouvement ne se fait pas a gauche
-            animateur.SetBool("aGauche", false);
-        }
-        // Sinon, on confirme que le mouvement se fait a gauche
-        else if (animateur.GetFloat("VelocityX") < 0)
-        {
-            animateur.SetBool("aGauche", true);
-        }
-        /*
-        * Fin de la gestion des angles de saut
-        ------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-        /* 
-        * Gestion des angles dans l'animation idle
-        --------------------------------------------------------------------------------------------------------------------------- */
-        // On verifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
-        // Si la velocite du rigidbody est egale a 0...
-        if (direction != Vector3.zero)
-        {
-            float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-            //Debug.Log(angle);
-
-            // On lance la bonne animation dependemment de l'angle du perso
-            if (angle > 0)
+            /* 
+            * Gestion des angles dans l'animation idle
+            --------------------------------------------------------------------------------------------------------------------------- */
+            // On verifie dans quel angle le personnage se dirige et on active l'animation idle correspondante � son mouvement
+            // Si la velocite du rigidbody est egale a 0...
+            if (mouvement != Vector3.zero)
             {
-                animateur.SetTrigger("idleGauche");
+                float angle = Vector3.SignedAngle(Vector3.forward, mouvement, Vector3.up);
+
+                // On lance la bonne animation dependemment de l'angle du perso
+                if (angle > 0)
+                {
+                    animateur.SetTrigger("idleGauche");
+                }
+                else if (angle <= 0)
+                {
+                    animateur.SetTrigger("idleDroite");
+                }
             }
-            else if (angle <= 0)
+
+            // On regarde si les param�tres de l'animator sont �gaux � 0...
+            if (animateur.GetFloat("VelociteX") == 0 && animateur.GetFloat("VelociteZ") == 0)
             {
-                animateur.SetTrigger("idleDroite");
+                // Si oui, l'animation idle est true
+                animateur.SetBool("idle", true);
+                // l'animation de course se désactive
+                animateur.SetBool("cours", false);
+            }
+            else
+            {
+                // Si non, l'animation idle est false
+                animateur.SetBool("idle", false);
+                // L'animation de course s'active
+                animateur.SetBool("cours", true);
+            }
+
+            if (rb.velocity.y < 0 && !toucheSol)
+            {
+            // On applique une force de descente au personnage pour le forcer au sol
+            rb.velocity += Vector3.up * Physics.gravity.y * (multiplicateurDescente - 1) * Time.deltaTime;
+            }
+
+            // Si le perso ne saute pas et tombe d'un rebord on declenche l'animation ou il tombe
+            if (!saute && !toucheSol && rb.velocity.y < 0)
+            {
+                animateur.SetBool("tombe", true);
+            }
+            else
+            {
+                animateur.SetBool("tombe", false);
             }
         }
     }
 
-    /* Pour voir le spherecast 
-     ---------------------------------------------------------------------------*/
-    private void OnDrawGizmos()
+    /*=======
+     * SAUT *
+     =======*/
+    private void FonctionSaut()
     {
-        // On dessine la sph�re sous la capsule (perso), l� o� le sphereCast se fait
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.3f, 0f), 1f);
-    } 
+        // On ajoute une force pour faire sauter le perso
+        rb.AddForce(new Vector3(0, forceSaut, 0), ForceMode.Impulse);
+        // On active la variable de saut de l'animator
+        animateur.SetBool("saute", true);
+        // Le perso peut sauter
+        saute = true;
+        derniereFoisAuSol = 0;
+    }
+
 
     /*--------------
      * IENUMERATOR *
@@ -284,7 +171,10 @@ public class deplacementPerso : MonoBehaviour
     IEnumerator RecupSaut()
     {
         peutBouger = false;
-        yield return new WaitForSeconds(0.8f);
+        peutSauter = false;
+        animateur.SetBool("saute", false);
+        yield return new WaitForSeconds(0.5f);
         peutBouger = true;
+        peutSauter = true;
     }
 }
