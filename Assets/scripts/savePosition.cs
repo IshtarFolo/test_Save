@@ -31,6 +31,7 @@ public class savePosition : MonoBehaviour
     public static bool finPeche; // La fin du jeu de peche
     public static bool cannePeche; // L'obtention de la canne a peche
     public static bool villageoisAParle; // La discussion avec le bon villageois
+    public static bool queteLettresFinie;
 
     // Passer les valeurs de la save
     public void Start()
@@ -83,6 +84,8 @@ public class savePosition : MonoBehaviour
 
         PlayerPrefsX.SetBool("vilParle", villageoisAParle);
 
+        PlayerPrefsX.SetBool("finLettres", queteLettresFinie);
+
         // Load la premiere scene
         SceneManager.LoadScene(1);
     }
@@ -94,6 +97,7 @@ public class savePosition : MonoBehaviour
         finPeche = SystemePeche.finiPeche;
         cannePeche = _collision_kirie.cannePecheRamasse;
         villageoisAParle = interactionVillageois.aParleVillageois1;
+        queteLettresFinie = _collision_kirie.finQueteLettres;
 
         string sceneKey = "Scene" + scene;
 
@@ -117,6 +121,7 @@ public class savePosition : MonoBehaviour
         PlayerPrefsX.SetBool("vilParle", villageoisAParle);
         PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
         PlayerPrefsX.SetBool("finPeche", finPeche);
+        PlayerPrefsX.SetBool("finLettres", queteLettresFinie);
 
         PlayerPrefs.Save();
     }
@@ -157,6 +162,7 @@ public class savePosition : MonoBehaviour
         villageoisAParle = PlayerPrefsX.GetBool("vilParle");
         cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
         finPeche = PlayerPrefsX.GetBool("finPeche");
+        PlayerPrefsX.GetBool("finLettres", queteLettresFinie);
 
         // On charge la scene
         SceneManager.LoadScene(scene);
@@ -201,6 +207,7 @@ public class savePosition : MonoBehaviour
     villageoisAParle = PlayerPrefsX.GetBool("vilParle", villageoisAParle);
     cannePeche = PlayerPrefsX.GetBool("CanneRamassee", cannePeche);
     finPeche = PlayerPrefsX.GetBool("finPeche", finPeche);
+    queteLettresFinie = PlayerPrefsX.GetBool("finLettres", queteLettresFinie);
 
 
         // On d�sactive l'�cran de chargement
@@ -218,6 +225,7 @@ public class savePosition : MonoBehaviour
         "finPeche",
         "CanneRamassee",
         "vilParle",
+        "finLettres",
         };
 
         foreach (string key in keysToDelete)

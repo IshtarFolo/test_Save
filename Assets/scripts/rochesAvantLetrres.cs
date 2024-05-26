@@ -40,6 +40,11 @@ public class rochesAvantLetrres : MonoBehaviour
             // On lance la coroutine de changement de camera
             StartCoroutine(changementCam());
         }
+
+        if (_collision_kirie.finQueteLettres)
+        {
+            animateur.SetBool("monte", true);
+        }
     }
 
 

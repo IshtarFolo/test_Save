@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08540144, g: 0.18890482, b: 0.4318778, a: 1}
+  m_IndirectSpecularColor: {r: 0.08550141, g: 0.18893352, b: 0.4318913, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -906,8 +906,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624606, y: -0.68819, z: 0.16246021, w: 0.68819165}
-  m_LocalPosition: {x: -645.6059, y: -52.247902, z: -185.80006}
+  m_LocalRotation: {x: 0.16246098, y: -0.6881896, z: 0.16246048, w: 0.6881919}
+  m_LocalPosition: {x: -645.6058, y: -52.247856, z: -185.80005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1333720043}
         m_TargetAssemblyTypeName: Scene_credits, Assembly-CSharp
         m_MethodName: allerMenuPrincipal
         m_Mode: 1
@@ -1372,7 +1372,7 @@ GameObject:
   - component: {fileID: 27952214}
   m_Layer: 0
   m_Name: cubeSauvegarde (3)
-  m_TagString: Untagged
+  m_TagString: save
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22907,7 +22907,7 @@ MonoBehaviour:
   interfacejeu: {fileID: 537165412}
   journal: {fileID: 468702161}
   menuPause: {fileID: 1295519515}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1333720042}
   ouvrirJournal: {fileID: 8300000, guid: 9cd62c772cf2c2c4dab8f4149c590024, type: 3}
   fermerJournal: {fileID: 8300000, guid: d44586c83aab4d543810b4f4b08b6832, type: 3}
 --- !u!114 &428090893
@@ -29079,7 +29079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1333720043}
         m_TargetAssemblyTypeName: Scene_credits, Assembly-CSharp
         m_MethodName: allerSurReglages
         m_Mode: 1
@@ -30808,7 +30808,7 @@ GameObject:
   - component: {fileID: 608083518}
   m_Layer: 0
   m_Name: cubeSauvegarde (1)
-  m_TagString: Untagged
+  m_TagString: save
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49952,7 +49952,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1333720043}
         m_TargetAssemblyTypeName: Scene_credits, Assembly-CSharp
         m_MethodName: allerSurCredits
         m_Mode: 1
@@ -70413,7 +70413,7 @@ GameObject:
   - component: {fileID: 1141145239}
   m_Layer: 0
   m_Name: cubeSauvegarde (4)
-  m_TagString: Untagged
+  m_TagString: save
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72987,7 +72987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joueur: {fileID: 2090023902}
   newG: {fileID: 0}
-  load: {fileID: 0}
+  load: {fileID: 2081216946}
   loadingScreen: {fileID: 526510319}
   positionX: 0
   positionY: 0
@@ -78696,8 +78696,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624606, y: -0.68819, z: 0.16246021, w: 0.68819165}
-  m_LocalPosition: {x: -645.6059, y: -52.247902, z: -185.80006}
+  m_LocalRotation: {x: 0.16246098, y: -0.6881896, z: 0.16246048, w: 0.6881919}
+  m_LocalPosition: {x: -645.6058, y: -52.247856, z: -185.80005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -123098,7 +123098,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1333720041}
         m_TargetAssemblyTypeName: savePosition, Assembly-CSharp
         m_MethodName: Load
         m_Mode: 1

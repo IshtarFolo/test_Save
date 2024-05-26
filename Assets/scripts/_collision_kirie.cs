@@ -24,6 +24,7 @@ public class _collision_kirie : MonoBehaviour
     public bool cleRamasse;
     public bool audioJoue;
     public static bool cannePecheRamasse = false;
+    public static bool finQueteLettres = false;
 
     private bool trouveGatito;
 
@@ -227,6 +228,13 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu5.SetActive(true);
         }
 
+        if (finQueteLettres)
+        {   
+            UINombreLettre.SetActive(false);
+            UIIndexLettres.enabled = false;
+            UITrahisonGatito.SetActive(true);
+        }
+
     }
 
     // INFO TRIGGER
@@ -383,6 +391,7 @@ public class _collision_kirie : MonoBehaviour
                 UINombreLettre.SetActive(false);
                 UIIndexLettres.enabled = false;
                 UITrahisonGatito.SetActive(true);
+                finQueteLettres = true;
             }
         }
 
