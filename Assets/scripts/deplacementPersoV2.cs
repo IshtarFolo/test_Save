@@ -70,8 +70,6 @@ public class deplacementPersoV2 : MonoBehaviour
         {
             animateur.SetBool("auSol", false);
         }
-
-        Debug.Log("derniere fois au sol: " + derniereFoisAuSol);
     }
 
     void FixedUpdate()
