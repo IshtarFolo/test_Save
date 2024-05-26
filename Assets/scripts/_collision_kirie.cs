@@ -597,6 +597,13 @@ public class _collision_kirie : MonoBehaviour
 
             notification = false;
         }
+        else if (scene.name == "Niveau2_Foret")
+        {
+            UInotification.SetActive(false);
+            UInotifSauve.SetActive(false);
+
+            notification = false;
+        }
     }
 
 
