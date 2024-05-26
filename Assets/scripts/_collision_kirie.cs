@@ -174,6 +174,7 @@ public class _collision_kirie : MonoBehaviour
             gameManager.PlayOneShot(ouvrirPorte, 1f);
             audioJoue = true;
             finTuto = true;
+            journalRamasse = true;
             Invoke("AudioPeutJouer", 2f);
         }
 
