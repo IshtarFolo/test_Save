@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DialogueGatitoVillage : MonoBehaviour
+public class DialogueGatitoForet : MonoBehaviour
 {
     public GameObject lettreE;
     public bool veutParler = false;
@@ -15,8 +15,7 @@ public class DialogueGatitoVillage : MonoBehaviour
     public bool aParle = false; // Variable pour vérifier si le joueur a parlé
     public bool dialoguesTermines = false; // Variable pour vérifier si tous les dialogues ont été affichés
 
-    public string[] dialoguesSansAction; // Dialogues lorsque l'action préalable n'a pas été effectuée
-    public string[] dialoguesAvecAction; // Dialogues lorsque l'action préalable a été effectuée
+    public string[] dialoguesForet; // Dialogues de Gatito
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
@@ -26,7 +25,6 @@ public class DialogueGatitoVillage : MonoBehaviour
     {
         dialogueGatito.enabled = true;
         bulle.SetActive(true);
-        Debug.Log($"poissonMange initial state: {poissonMange}");
     }
 
 
@@ -37,21 +35,14 @@ public class DialogueGatitoVillage : MonoBehaviour
         {
             if (dialogueCoroutine == null)
             {
-                if (poissonMange)
-                {
-                    dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesAvecAction));
-                }
-                else
-                {
-                    dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesSansAction));
-                }
+                    dialogueCoroutine = StartCoroutine(AfficherDialoguesAuto(dialoguesForet));
             }
         }
     }
 
     private void OnTriggerEnter(Collider infoCollision)
     {
-        if (infoCollision.gameObject.tag == "Player")
+        if (infoCollision.gameObject.tag == "Player" && !aParle)
         {
             lettreE.SetActive(true);
             veutParler = true;
@@ -61,7 +52,7 @@ public class DialogueGatitoVillage : MonoBehaviour
 
     private void OnTriggerExit(Collider infoCollision)
     {
-        if (infoCollision.gameObject.tag == "Player")
+        if (infoCollision.gameObject.tag == "Player" && !aParle)
         {
             lettreE.SetActive(false);
             veutParler = false;
@@ -97,13 +88,6 @@ public class DialogueGatitoVillage : MonoBehaviour
         veutParler = false;
         dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
         aParle = true;
-    }
-
-    //Fonction pour pouvoir changer la valeur de la booléenne poissonMange
-    public static void SetPoissonMange(bool value)
-    {
-        poissonMange = value;
-        Debug.Log($"poissonMange set to: {poissonMange}");
     }
 
 }

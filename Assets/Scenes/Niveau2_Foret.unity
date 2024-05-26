@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08550141, g: 0.18893352, b: 0.4318913, a: 1}
+  m_IndirectSpecularColor: {r: 0.08540144, g: 0.18890482, b: 0.4318778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -906,8 +906,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246009, y: -0.6881907, z: 0.16245997, w: 0.68819124}
-  m_LocalPosition: {x: -645.6059, y: -52.24791, z: -185.80005}
+  m_LocalRotation: {x: 0.1624606, y: -0.68819, z: 0.16246021, w: 0.68819165}
+  m_LocalPosition: {x: -645.6059, y: -52.247902, z: -185.80006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42483,12 +42483,6 @@ PrefabInstance:
       addedObject: {fileID: 730998979}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 730998978}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 730998977}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 730998976}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
       insertIndex: -1
@@ -42496,6 +42490,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 730998974}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 730998980}
   m_SourcePrefab: {fileID: 100100000, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
 --- !u!1 &730998972 stripped
 GameObject:
@@ -42576,55 +42573,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &730998977
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730998972}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.8780518
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9380768, z: 0}
---- !u!114 &730998978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730998972}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f4a5a032a4248618fb12b15b67e721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lettreE: {fileID: 0}
-  veutParler: 0
-  dialogueGatito: {fileID: 750968350}
-  bulle: {fileID: 1262226030}
-  aParle: 0
-  dialoguesTermines: 0
-  dialoguesSansAction:
-  - " Cela creuse l'app\xE9tit de r\xE9pondre aux questions. "
-  - " Ram\xE8ne-moi 3 d\xE9licieux poissons et je te r\xE9pondrais volontiers !"
-  dialoguesAvecAction:
-  - Oh des poissons ! Ce n'est pas beaucoup. Tant pis
-  - 'J''ai entendu dire par les animaux du coin, '
-  - "qu'un petit gar\xE7on a \xE9t\xE9 vu \xE0 l'or\xE9e de la for\xEAt. "
-  - 'Il portait un masque de loup... '
 --- !u!65 &730998979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42646,6 +42594,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7567838, y: 2.219507, z: 2.9267778}
   m_Center: {x: 0.021376707, y: 0.8605866, z: 0.05270481}
+--- !u!114 &730998980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730998972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042352df6b56146b6b491ac21cf439b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lettreE: {fileID: 1744514448}
+  veutParler: 0
+  dialogueGatito: {fileID: 750968350}
+  bulle: {fileID: 899733155}
+  aParle: 0
+  dialoguesTermines: 0
+  dialoguesForet:
+  - "J'ai r\xE9pondu \xE0 ta question. D\xE9brouille-toi pour la suite ! "
+  - Quel dommage que mon poil ne supporte pas le contact de l'eau,
+  - "j'aurais aim\xE9 attraper les poissons que j'aper\xE7ois au loin."
 --- !u!1 &731395175
 GameObject:
   m_ObjectHideFlags: 0
@@ -50159,7 +50129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899733155}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be2a03337978545ceb0d3fbbbc473cf4, type: 3}
   m_Name: 
@@ -78726,8 +78696,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246009, y: -0.6881907, z: 0.16245997, w: 0.68819124}
-  m_LocalPosition: {x: -645.6059, y: -52.24791, z: -185.80005}
+  m_LocalRotation: {x: 0.1624606, y: -0.68819, z: 0.16246021, w: 0.68819165}
+  m_LocalPosition: {x: -645.6059, y: -52.247902, z: -185.80006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -123312,6 +123282,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
