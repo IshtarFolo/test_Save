@@ -8481,7 +8481,7 @@ MonoBehaviour:
   aParle: 0
   dialoguesTermines: 0
   dialogues:
-  - Eh... Bonjour!
+  - "Salut Kirie ! Tu cherches ton fr\xE8re... Comme tous ces pauvres enfants !"
   - "J'ai entendu dire qu'un d\xE9tective priv\xE9 louait ses services..."
   - "J'ai retrouv\xE9 des objets perdus gr\xE2ce \xE0 lui!"
   Kirie: {fileID: 1155865124}
@@ -30586,8 +30586,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
-  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
+  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
+  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58525,7 +58525,8 @@ MonoBehaviour:
   dialoguesTermines: 0
   dialogues:
   - "Deux lapins! Deux lapins \xE0 vendre!"
-  - "Offre limit\xE9!"
+  - "Offre limit\xE9e!"
+  - "Va prendre une bouff\xE9e d'air frais au bord du lac, la vue est mgnifique."
   Kirie: {fileID: 1155865124}
 --- !u!65 &811774511
 BoxCollider:
@@ -65840,8 +65841,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245969, y: -0.6881931, z: 0.16246076, w: 0.6881887}
-  m_LocalPosition: {x: 118.04427, y: 115.51214, z: 478.92007}
+  m_LocalRotation: {x: 0.16245957, y: -0.6881921, z: 0.1624601, w: 0.6881899}
+  m_LocalPosition: {x: 118.04431, y: 115.512184, z: 478.92023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

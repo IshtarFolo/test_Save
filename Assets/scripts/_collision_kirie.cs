@@ -201,7 +201,7 @@ public class _collision_kirie : MonoBehaviour
 
             UIminiJeuChaudFroid.SetActive(true);
 
-            if (UIcontenu2.activeInHierarchy == false)
+            if (UIcontenu2.activeInHierarchy == true)
             {
                 UIcontenu2.SetActive(false);
                 UIcontenu3.SetActive(true);
@@ -339,7 +339,7 @@ public class _collision_kirie : MonoBehaviour
                 UIminiJeuChaudFroid.SetActive(true);
                 //Debug.Log("AAAAAAAAAAAAAAAH");
 
-                if (UIcontenu2.activeInHierarchy == false)
+                if (UIcontenu2.activeInHierarchy == true)
                 {
                     UIcontenu2.SetActive(false);
                     UIcontenu3.SetActive(true);
