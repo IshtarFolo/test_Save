@@ -212,8 +212,6 @@ public class savePosition : MonoBehaviour
 
         // On d�sactive l'�cran de chargement
         loadingScreen.SetActive(false); 
-        // On arrete la pause
-       // Time.timeScale = 1f;
     }
 
     // Efface les variables sauvegardees dans PlayerPrefsX

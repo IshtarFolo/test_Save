@@ -46,14 +46,15 @@ public class control_ui : MonoBehaviour
             interfacejeu.SetActive(false);
             journal.SetActive(false);
             //Debug.Log("Esc est actif");
-
+            Time.timeScale = 0f;
             pasOuvrirJournal = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && menuPause.activeSelf == true)
         {
             menuPause.SetActive(false);
             interfacejeu.SetActive(true);
-
+            // On arrete la pause
+            Time.timeScale = 1f;
             pasOuvrirJournal = false;
         }
 

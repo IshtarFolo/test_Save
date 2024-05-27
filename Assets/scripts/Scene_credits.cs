@@ -102,6 +102,7 @@ public class Scene_credits : MonoBehaviour
 
     IEnumerator DelaiChargementMenu()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("EcranTitre");
     }
