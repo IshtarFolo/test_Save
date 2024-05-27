@@ -135,7 +135,7 @@ public class savePosition : MonoBehaviour
 
     IEnumerator LoadDelai()
     {
-        // 
+        // On arrete la pause
         Time.timeScale = 1f;
         // l'�cran de chargement est activ�
         loadingScreen.SetActive(true);
