@@ -189,7 +189,7 @@ public class _collision_kirie : MonoBehaviour
         }
 
         // Si le joueur a parle a Gatito...
-        if (DialogueGatitoVillage.finiParler)
+        if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
         {
             UIbarrevillageois.SetActive(false);
             UIvillageois.SetActive(false);
@@ -219,12 +219,34 @@ public class _collision_kirie : MonoBehaviour
             INVcanne.SetActive(true);
         }
         // Si le joueur fini le jeu de peche...
-        if (SystemePeche.finiPeche)
+        if (SystemePeche.finiPeche == true && trouveGatito == false)
         {
             UIvoirGatito.SetActive(false);
+            UIgatito.SetActive(false);
+            DESCpointsgatito.SetActive(false);
+            DESCgatito.SetActive(true);
+
+            UIbarreCanne.SetActive(false);
+            UIfiniVillage.SetActive(true);
+            niveau1Termine = true;
+
+            INVpoisson.SetActive(false);
+            OBJimageGatito.SetActive(true);
+
+            UIcontenu2.SetActive(false);
+            UIcontenu4.SetActive(false);
+            UIcontenu5.SetActive(true);
+        }
+
+        if(SystemePeche.finiPeche == true && trouveGatito == true)
+        {
+            UIvoirGatito.SetActive(false);
+            UIbarreCanne.SetActive(false);
+            UIgatito.SetActive(false);
             UIfiniVillage.SetActive(true);
             niveau1Termine = true;
             INVpoisson.SetActive(false);
+            UIcontenu2.SetActive(false);
             UIcontenu4.SetActive(false);
             UIcontenu5.SetActive(true);
         }
@@ -323,7 +345,7 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu2.SetActive(true);
         }
 
-        if (infoTrigger.gameObject.tag == "Gatito" && DialogueGatitoVillage.finiParler)
+        if (infoTrigger.gameObject.tag == "Gatito" && DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
         {
             UIbarrevillageois.SetActive(false);
             UIvillageois.SetActive(false);
@@ -369,12 +391,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoTrigger.gameObject.tag == "Gatito" && SystemePeche.finiPeche == true)
         {
             //Debug.Log("Ceci est la suite des choses");
-            UIvoirGatito.SetActive(false);
-            UIfiniVillage.SetActive(true);
-            niveau1Termine = true;
-            INVpoisson.SetActive(false);
-            UIcontenu4.SetActive(false);
-            UIcontenu5.SetActive(true);
+            trouveGatito = true;
         }
 
         if (infoTrigger.gameObject.tag == "save")
