@@ -20,6 +20,8 @@ public class DialogueGatitoVillage : MonoBehaviour
 
     private Coroutine dialogueCoroutine; // Coroutine pour afficher les dialogues lettre par lettre
 
+    public static bool finiParler = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,8 @@ public class DialogueGatitoVillage : MonoBehaviour
                 }
             }
         }
+
+        Debug.Log(finiParler);
     }
 
     private void OnTriggerEnter(Collider infoCollision)
@@ -97,6 +101,11 @@ public class DialogueGatitoVillage : MonoBehaviour
         veutParler = false;
         dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
         aParle = true;
+
+        if (gameObject.CompareTag("Gatito") && dialoguesTermines)
+        {
+            finiParler = true;
+        }
     }
 
     //Fonction pour pouvoir changer la valeur de la booléenne poissonMange

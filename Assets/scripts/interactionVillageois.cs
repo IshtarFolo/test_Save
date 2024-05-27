@@ -57,7 +57,7 @@ public class interactionVillageois : MonoBehaviour
 
     private void OnTriggerEnter(Collider infoCollision)
     {
-        if(infoCollision.gameObject.tag == "Player" && !aParle)
+        if (infoCollision.gameObject.tag == "Player" && !aParle)
         {
             lettreE.SetActive(true);
             veutParler = true;

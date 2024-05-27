@@ -147,12 +147,12 @@ public class _collision_kirie : MonoBehaviour
             planche2Quai.GetComponent<BoxCollider>().enabled = false;
         }
 
-        if(scene.name == "Niveau2_foret")
+        if (scene.name == "Niveau2_foret")
         {
 
         }
 
-        if(SystemePeche.finiPeche == true)
+        if (SystemePeche.finiPeche == true)
         {
             Invoke("derniereEtapeVillage", 0.1f);
         }
@@ -189,7 +189,7 @@ public class _collision_kirie : MonoBehaviour
         }
 
         // Si le joueur a parle a Gatito...
-        if (GatitoParle)
+        if (DialogueGatitoVillage.finiParler)
         {
             UIbarrevillageois.SetActive(false);
             UIvillageois.SetActive(false);
@@ -230,7 +230,7 @@ public class _collision_kirie : MonoBehaviour
         }
 
         if (finQueteLettres)
-        {   
+        {
             UINombreLettre.SetActive(false);
             UIIndexLettres.enabled = false;
             UITrahisonGatito.SetActive(true);
@@ -286,7 +286,7 @@ public class _collision_kirie : MonoBehaviour
         {
             if (cleRamasse == false)
             {
-                if(audioJoue == false)
+                if (audioJoue == false)
                 {
                     //Debug.Log("Armoire barré");
                     gameManager.PlayOneShot(armoireBarre, 0.7f);
@@ -323,11 +323,22 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu2.SetActive(true);
         }
 
-
-        if (!GatitoParle)
+        if (infoTrigger.gameObject.tag == "Gatito" && DialogueGatitoVillage.finiParler)
         {
-            if (infoTrigger.gameObject.tag == "Gatito" && UIgatito.activeInHierarchy == true)
+            UIbarrevillageois.SetActive(false);
+            UIvillageois.SetActive(false);
+            UIgatito.SetActive(false);
+
+            UIpoisson.SetActive(true);
+            UIcanne.SetActive(true);
+            GatitoParle = true;
+
+            UIminiJeuChaudFroid.SetActive(true);
+            //Debug.Log("AAAAAAAAAAAAAAAH");
+
+            if (UIcontenu2.activeInHierarchy == false)
             {
+<<<<<<< Updated upstream
                 UIbarrevillageois.SetActive(false);
                 UIvillageois.SetActive(false);
                 UIgatito.SetActive(false);
@@ -347,11 +358,18 @@ public class _collision_kirie : MonoBehaviour
                     DESCpointsgatito.SetActive(false);
                     DESCgatito.SetActive(true);
                 }
+=======
+                UIcontenu2.SetActive(false);
+                UIcontenu3.SetActive(true);
+                OBJimageGatito.SetActive(true);
+                DESCpointsgatito.SetActive(false);
+                DESCgatito.SetActive(true);
+>>>>>>> Stashed changes
             }
         }
 
 
-        if(infoTrigger.gameObject.tag == "Gatito" && SystemePeche.finiPeche == true)
+        if (infoTrigger.gameObject.tag == "Gatito" && SystemePeche.finiPeche == true)
         {
             //Debug.Log("Ceci est la suite des choses");
             UIvoirGatito.SetActive(false);
@@ -384,7 +402,7 @@ public class _collision_kirie : MonoBehaviour
             // Mettez à jour l'index de l'UI avec le nombre de lettres ramassées
             UIIndexLettres.text = lettreRamassee.ToString();
 
-            if(lettreRamassee == 5)
+            if (lettreRamassee == 5)
             {
                 Debug.Log("La lettre est complète");
                 parchemin.SetActive(true);
@@ -433,11 +451,11 @@ public class _collision_kirie : MonoBehaviour
     {
         if (infoCollision.gameObject.name == "garde_robe_ferme")
         {
-            if(cleRamasse == false)
+            if (cleRamasse == false)
             {
                 //Debug.Log("Armoire barré");
             }
-            else if(cleRamasse == true)
+            else if (cleRamasse == true)
             {
                 armoireFerme.SetActive(false);
                 armoireOuverte.SetActive(true);
@@ -450,11 +468,11 @@ public class _collision_kirie : MonoBehaviour
                 Invoke("enleverAnimation", 5f);
             }
 
-           
+
         }
 
-            //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
-            if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
+        //Lorsque le joueur a TERMINÉ le tutoriel, on lui permet d'aller dans le niveau1
+        if (infoCollision.gameObject.tag == "porte" && tutorielTermine == true)
         {
             //Debug.Log("Vous avez terminé le niveau et vous allez être téléporté!");
             UInoirFadeIn.SetActive(true);
@@ -482,8 +500,8 @@ public class _collision_kirie : MonoBehaviour
         }
     }
 
-// DANS LE TUTORIEL
-// ////////////////////////////////////////////////
+    // DANS LE TUTORIEL
+    // ////////////////////////////////////////////////
     private void tutoriel()
     {
         //Debug.Log("Le script tutoriel roule");
@@ -494,15 +512,15 @@ public class _collision_kirie : MonoBehaviour
         UIarmoire.SetActive(true);
     }
 
-// DANS LE TUTORIEL - Animation journal
-// ////////////////////////////////////////////////
+    // DANS LE TUTORIEL - Animation journal
+    // ////////////////////////////////////////////////
     private void enleverAnimation()
     {
         UIanimationJournal.SetActive(false);
     }
 
-// DERNIÈRE ÉTAPE AVANT LA FIN DU VILLAGE
-// ////////////////////////////////////////////////
+    // DERNIÈRE ÉTAPE AVANT LA FIN DU VILLAGE
+    // ////////////////////////////////////////////////
     public void derniereEtapeVillage()
     {
         //Debug.Log("Vous avez presque fini! Allez voir Gatito!");
@@ -515,8 +533,8 @@ public class _collision_kirie : MonoBehaviour
         INVpoisson.SetActive(true);
     }
 
-// ACCÈS À L'INVENTAIRE
-// ////////////////////////////////////////////////
+    // ACCÈS À L'INVENTAIRE
+    // ////////////////////////////////////////////////
     public void accesALinventaire()
     {
         UIbarreCle.SetActive(false);
@@ -579,7 +597,7 @@ public class _collision_kirie : MonoBehaviour
 
     void notifSauvegarde()
     {
-        if(notification == false)
+        if (notification == false)
         {
             UInotifSauve.SetActive(true);
             Invoke("fermerNotif", 6f);
@@ -591,7 +609,7 @@ public class _collision_kirie : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
 
-        if(scene.name == "Niveau1_Village")
+        if (scene.name == "Niveau1_Village")
         {
             UInotification.SetActive(false);
             UInotifSauve.SetActive(false);
