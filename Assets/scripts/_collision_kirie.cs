@@ -338,7 +338,6 @@ public class _collision_kirie : MonoBehaviour
 
             if (UIcontenu2.activeInHierarchy == false)
             {
-<<<<<<< Updated upstream
                 UIbarrevillageois.SetActive(false);
                 UIvillageois.SetActive(false);
                 UIgatito.SetActive(false);
@@ -358,13 +357,11 @@ public class _collision_kirie : MonoBehaviour
                     DESCpointsgatito.SetActive(false);
                     DESCgatito.SetActive(true);
                 }
-=======
                 UIcontenu2.SetActive(false);
                 UIcontenu3.SetActive(true);
                 OBJimageGatito.SetActive(true);
                 DESCpointsgatito.SetActive(false);
                 DESCgatito.SetActive(true);
->>>>>>> Stashed changes
             }
         }
 
