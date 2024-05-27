@@ -66,6 +66,7 @@ public class Scene_credits : MonoBehaviour
 
     IEnumerator DelaiChargementCredits()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Credits");
     }
@@ -89,6 +90,7 @@ public class Scene_credits : MonoBehaviour
 
     IEnumerator DelaiChargementReglages()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Reglages");
     }
@@ -136,6 +138,7 @@ public class Scene_credits : MonoBehaviour
 
     IEnumerator DelaiChargementJeu()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(1);
         // ICI, il faut programmer le changement de scènes selon
         // la progression du joueur.
