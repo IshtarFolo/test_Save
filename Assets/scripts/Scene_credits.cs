@@ -27,6 +27,16 @@ public class Scene_credits : MonoBehaviour
         {
             Invoke("cinematiqueDebutFini", nbSecondes);
         }
+
+        if (scene.name == "CinematiqueBonneFin")
+        {
+            Invoke("cinematiqueFinFini", nbSecondes);
+        }
+
+        if (scene.name == "CinematiqueMauvaiseFin")
+        {
+            Invoke("cinematiqueFinFini", nbSecondes);
+        }
     }
 
     public void Update()
@@ -138,5 +148,10 @@ public class Scene_credits : MonoBehaviour
     private void cinematiqueDebutFini()
     {
         SceneManager.LoadScene("Niveau1_Maison-Int");
+    }
+
+    private void cinematiqueFinFini()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
