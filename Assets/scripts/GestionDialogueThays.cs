@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GestionDialogueThays : MonoBehaviour
@@ -166,11 +167,23 @@ public class GestionDialogueThays : MonoBehaviour
         if (choixDiplomate)
         {
             Debug.Log("Tous les dialogues choix diplomate sont terminés.");
+            Invoke("bonneFin", 1f);
         }
 
         if (choixColere)
         {
             Debug.Log("Tous les dialogues choix colère sont terminés.");
+            Invoke("mauvaiseFin", 1f);
         }
+    }
+
+    void bonneFin()
+    {
+        SceneManager.LoadScene("CinematiqueBonneFin");
+    }
+
+    void mauvaiseFin()
+    {
+        SceneManager.LoadScene("CinematiqueMauvaiseFin");
     }
 }
