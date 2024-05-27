@@ -17,6 +17,7 @@ TagManager:
   - triggerNiv2
   - lac
   - escalier
+  - enfants
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - arbres
   - rig
   - parchemin
-  - 
+  - enfants
   - 
   - 
   - 
