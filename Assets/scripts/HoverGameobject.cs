@@ -17,7 +17,7 @@ public class HoverGameobject : MonoBehaviour
         if (gameObject.name == "garde_robe_ferme" && gameObject.activeInHierarchy)
         {
             //Debug.Log(" Ceci est le test de la roche 1");
-            kiriePense.text = "L'armoire est barré...";
+            kiriePense.text = "L'armoire est barrée...";
         }
 
         if (gameObject.name == "PorteSortie")
