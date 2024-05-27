@@ -171,7 +171,7 @@ public class _collision_kirie : MonoBehaviour
         // Si le tutoriel est fini...
         if (finTuto)
         {
-            gameManager.PlayOneShot(ouvrirPorte, 1f);
+            //gameManager.PlayOneShot(ouvrirPorte, 1f);
             audioJoue = true;
             finTuto = true;
             journalRamasse = true;
@@ -525,9 +525,16 @@ public class _collision_kirie : MonoBehaviour
         UIvoirGatito.SetActive(true);
 
         UIcontenu1.SetActive(false);
-        UIcontenu4.SetActive(true);
+        UIcontenu2.SetActive(false);
+        UIcontenu3.SetActive(false);
+        UIcontenu4.SetActive(false);
+
+        UIcanne.SetActive(false);
+        UIbarreCanne.SetActive(false);
+        UIpoisson.SetActive(false);
 
         INVpoisson.SetActive(true);
+        INVcanne.SetActive(true);
     }
 
     // ACCÈS À L'INVENTAIRE

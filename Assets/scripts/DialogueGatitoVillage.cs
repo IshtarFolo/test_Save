@@ -50,7 +50,7 @@ public class DialogueGatitoVillage : MonoBehaviour
             }
         }
 
-        Debug.Log(finiParler);
+        //Debug.Log(finiParler);
     }
 
     private void OnTriggerEnter(Collider infoCollision)
