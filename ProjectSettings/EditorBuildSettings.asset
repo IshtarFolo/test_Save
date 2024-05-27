@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Reglages.unity
     guid: 47a4459ef843fb34e82e17e30fd276e8
+  - enabled: 1
+    path: Assets/Scenes/CinematiqueBonneFin.unity
+    guid: 5d82d93851f724d7c94360115ed9833f
+  - enabled: 1
+    path: Assets/Scenes/CinematiqueMauvaiseFin.unity
+    guid: 0940e1065176e4e7bb8e828fcbae72a8
   m_configObjects: {}
