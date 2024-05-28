@@ -251,13 +251,18 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu5.SetActive(true);
         }
 
+        if (lettreRamassee == 5)
+        {
+            finQueteLettres = true;
+        }
+
         if (finQueteLettres)
         {
+            UIforet.SetActive(false);
             UINombreLettre.SetActive(false);
             UIIndexLettres.enabled = false;
             UITrahisonGatito.SetActive(true);
         }
-
     }
 
     // INFO TRIGGER
@@ -421,7 +426,6 @@ public class _collision_kirie : MonoBehaviour
                 Debug.Log("La lettre est complète");
                 parchemin.SetActive(true);
                 Invoke("DesactiverParchemin", 10f);
-                finQueteLettres = true;
             }
         }
 

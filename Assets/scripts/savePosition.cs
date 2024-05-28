@@ -63,8 +63,7 @@ public class savePosition : MonoBehaviour
     {
         scene = _collision_kirie.noScene;
         tutoFini = _collision_kirie.finTuto;
-
-       // Debug.Log();
+        queteLettresFinie = _collision_kirie.finQueteLettres;
     }
 
     public void NouvellePartie()
