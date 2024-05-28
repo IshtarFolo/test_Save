@@ -56,6 +56,8 @@ public class savePosition : MonoBehaviour
 
             // Load la variable tutoFini si tutoFini existe
             tutoFini = PlayerPrefsX.GetBool("tutoFini");
+
+            Load();
         }
     }
 
@@ -161,7 +163,7 @@ public class savePosition : MonoBehaviour
         villageoisAParle = PlayerPrefsX.GetBool("vilParle");
         cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
         finPeche = PlayerPrefsX.GetBool("finPeche");
-        PlayerPrefsX.GetBool("finLettres", queteLettresFinie);
+        queteLettresFinie = PlayerPrefsX.GetBool("finLettres", queteLettresFinie);
 
         // On charge la scene
         SceneManager.LoadScene(scene);
@@ -201,8 +203,11 @@ public class savePosition : MonoBehaviour
         joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
     }
 
+    if (PlayerPrefs.HasKey("Journal"))
+    {
+        tutoFini = PlayerPrefsX.GetBool("Journal");
+    }
 
-    tutoFini = PlayerPrefsX.GetBool("Journal");
     villageoisAParle = PlayerPrefsX.GetBool("vilParle", villageoisAParle);
     cannePeche = PlayerPrefsX.GetBool("CanneRamassee", cannePeche);
     finPeche = PlayerPrefsX.GetBool("finPeche", finPeche);
