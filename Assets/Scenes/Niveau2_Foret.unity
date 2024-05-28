@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8116782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -760,8 +760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624603, y: -0.68818665, z: 0.16245817, w: 0.6881956}
-  m_LocalPosition: {x: -76.65572, y: -90.50389, z: -733.53015}
+  m_LocalRotation: {x: 0.16246061, y: -0.6881856, z: 0.16245799, w: 0.68819666}
+  m_LocalPosition: {x: -76.65573, y: -90.50391, z: -733.5303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1086,7 +1086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: -189}
+  m_AnchoredPosition: {x: -341, y: -189}
   m_SizeDelta: {x: 270, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23682929
@@ -2337,7 +2337,7 @@ MonoBehaviour:
   armoireFerme: {fileID: 0}
   armoireOuverte: {fileID: 0}
   planche2Quai: {fileID: 0}
-  cannePeche: {fileID: 0}
+  cannePeche: {fileID: 627979274}
   notification: 0
   cleRamasse: 0
   audioJoue: 0
@@ -2369,17 +2369,17 @@ MonoBehaviour:
   UIfiniTuto: {fileID: 0}
   UIfiniTuto2: {fileID: 0}
   UIanimationJournal: {fileID: 0}
-  UIvillage: {fileID: 0}
-  UIvillageois: {fileID: 0}
-  UIbarrevillageois: {fileID: 0}
-  UIgatito: {fileID: 0}
-  UIbarregatito: {fileID: 0}
-  UIcanne: {fileID: 0}
-  UIbarreCanne: {fileID: 0}
-  UIpoisson: {fileID: 0}
-  UIbarrePoisson: {fileID: 0}
-  UIvoirGatito: {fileID: 0}
-  UIfiniVillage: {fileID: 0}
+  UIvillage: {fileID: 1076242263}
+  UIvillageois: {fileID: 635903226}
+  UIbarrevillageois: {fileID: 47410959}
+  UIgatito: {fileID: 558815119}
+  UIbarregatito: {fileID: 66902810}
+  UIcanne: {fileID: 726767695}
+  UIbarreCanne: {fileID: 1005792374}
+  UIpoisson: {fileID: 2037078699}
+  UIbarrePoisson: {fileID: 2040144892}
+  UIvoirGatito: {fileID: 1279509868}
+  UIfiniVillage: {fileID: 1971780504}
   UIminiJeuChaudFroid: {fileID: 0}
   UIforet: {fileID: 299650155}
   UIbarreLettre: {fileID: 0}
@@ -15204,7 +15204,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -28819,7 +28819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: 48}
+  m_AnchoredPosition: {x: -341, y: 48}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497484141
@@ -29541,7 +29541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &535898371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29917,7 +29917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &546587014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40789,6 +40789,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627901122}
   m_CullTransparentMesh: 1
+--- !u!1 &627979274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627979275}
+  m_Layer: 0
+  m_Name: placeholderCannePeche
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627979275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627979274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 425, y: 239, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &633929689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49647,7 +49678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Parlez avec les villageois au centre du village.
+  m_text: Trouvez les morceaux de lettre (_/5 morceaux).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
   m_sharedMaterial: {fileID: 848359281622569271, guid: 8a684271fe9fcb44a97531c15f218d2d, type: 2}
@@ -49760,7 +49791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: -14}
+  m_AnchoredPosition: {x: -341, y: -14}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883430873
@@ -69899,9 +69930,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -7.252, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 224.5, y: 25}
+  m_AnchoredPosition: {x: 920, y: -3}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1111197240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78509,8 +78540,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624603, y: -0.68818665, z: 0.16245817, w: 0.6881956}
-  m_LocalPosition: {x: -76.65572, y: -90.50389, z: -733.53015}
+  m_LocalRotation: {x: 0.16246061, y: -0.6881856, z: 0.16245799, w: 0.68819666}
+  m_LocalPosition: {x: -76.65573, y: -90.50391, z: -733.5303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -91239,7 +91270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 288}
+  m_AnchoredPosition: {x: -296, y: 288}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1604714885
@@ -122009,7 +122040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301, y: 25}
+  m_AnchoredPosition: {x: -339, y: 25}
   m_SizeDelta: {x: 100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049961799
@@ -122732,7 +122763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: 105}
+  m_AnchoredPosition: {x: -341, y: 105}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081216946
@@ -123964,3 +123995,4 @@ SceneRoots:
   - {fileID: 1473766939}
   - {fileID: 1051449053}
   - {fileID: 518928445}
+  - {fileID: 627979275}
