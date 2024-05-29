@@ -448,9 +448,10 @@ public class _collision_kirie : MonoBehaviour
             planche2Quai.GetComponent<BoxCollider>().enabled = true;
         }
 
-        if (infoTrigger.gameObject.tag == "EnleverQueteVillage")
+        if (infoTrigger.gameObject.tag == "EnleverQueteVillage" && niveau1Termine == true)
         {
-            DesactiverQueteVillage();
+            //DesactiverQueteVillage();
+            SystemePeche.finiPeche = false;
         }
     }
 
@@ -509,7 +510,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
         {
             UInoirFadeIn.SetActive(true);
-            //UIfiniVillage.SetActive(false);
+            UIfiniVillage.SetActive(false);
             Invoke("niveau2", 1f);
         }
 

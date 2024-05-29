@@ -17,7 +17,7 @@ TagManager:
   - triggerNiv2
   - lac
   - escalier
-  - EnleverQueteVillage
+  - EnleverFiniPeche
   layers:
   - Default
   - TransparentFX
