@@ -448,6 +448,7 @@ public class _collision_kirie : MonoBehaviour
             planche2Quai.GetComponent<BoxCollider>().enabled = true;
         }
 
+        //Mettre la booléenne finiPeche à false pour enlever le texte des quêtes
         if (infoTrigger.gameObject.tag == "EnleverFiniPeche" && niveau1Termine == true)
         {
             SystemePeche.finiPeche = false;
