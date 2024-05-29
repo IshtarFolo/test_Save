@@ -186,7 +186,7 @@ public class _collision_kirie : MonoBehaviour
          * LE VILLAGE
          -----------------------------------------------------------------------------------------------------*/
         // Si le joueur a parle au bon villageois...
-        if (interactionVillageois.aParleVillageois1)
+        if (interactionVillageois.aParleVillageois1 && SystemePeche.finiPeche == false)
         {
             UIvillageois.SetActive(false);
             UIgatito.SetActive(true);
@@ -218,7 +218,7 @@ public class _collision_kirie : MonoBehaviour
             }
         }
         // Si le joueur ramasse la canne a peche...
-        if (cannePecheRamasse)
+        if (cannePecheRamasse && SystemePeche.finiPeche == false)
         {
             UIbarreCanne.SetActive(true);
             cannePeche.SetActive(false);
@@ -338,7 +338,7 @@ public class _collision_kirie : MonoBehaviour
         }
 
 
-        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true)
+        if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true && SystemePeche.finiPeche == false)
         {
             //Debug.Log("Entrée");
             UIvillageois.SetActive(false);
