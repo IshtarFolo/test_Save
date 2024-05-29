@@ -17,7 +17,7 @@ TagManager:
   - triggerNiv2
   - lac
   - escalier
-  - enfants
+  - EnleverQueteVillage
   layers:
   - Default
   - TransparentFX

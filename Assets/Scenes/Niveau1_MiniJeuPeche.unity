@@ -16237,9 +16237,6 @@ PrefabInstance:
       addedObject: {fileID: 1155865130}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1155865136}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1155865137}
     - targetCorrespondingSourceObject: {fileID: -8307942509081347529, guid: 4c2fd65d53508f2428314d9c228077b7, type: 3}
       insertIndex: -1
@@ -16785,8 +16782,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245966, y: -0.68819416, z: 0.1624612, w: 0.6881875}
-  m_LocalPosition: {x: 27.914268, y: 119.72216, z: 740.52844}
+  m_LocalRotation: {x: 0.1624592, y: -0.68819845, z: 0.16246282, w: 0.688183}
+  m_LocalPosition: {x: 27.91426, y: 119.722206, z: 740.5287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33353,8 +33350,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245966, y: -0.68819416, z: 0.1624612, w: 0.6881875}
-  m_LocalPosition: {x: 27.914268, y: 119.72216, z: 740.52844}
+  m_LocalRotation: {x: 0.1624592, y: -0.68819845, z: 0.16246282, w: 0.688183}
+  m_LocalPosition: {x: 27.91426, y: 119.722206, z: 740.5287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34162,19 +34159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joueur: {fileID: 1155865124}
   cam1: {fileID: 948943987}
---- !u!114 &1155865136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155865124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4c16baa5ec74e59a7c48b52411e4ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lettreE: {fileID: 0}
 --- !u!114 &1155865137
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -149,7 +149,7 @@ public class _collision_kirie : MonoBehaviour
 
         if (scene.name == "Niveau2_foret")
         {
-
+            //Destroy(UIfiniVillage);
         }
 
         if (SystemePeche.finiPeche == true)
@@ -238,18 +238,18 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu5.SetActive(true);
         }
 
-        if(SystemePeche.finiPeche == true && trouveGatito == true)
-        {
-            UIvoirGatito.SetActive(false);
-            UIbarreCanne.SetActive(false);
-            UIgatito.SetActive(false);
-            UIfiniVillage.SetActive(true);
-            niveau1Termine = true;
-            INVpoisson.SetActive(false);
-            UIcontenu2.SetActive(false);
-            UIcontenu4.SetActive(false);
-            UIcontenu5.SetActive(true);
-        }
+        //if(SystemePeche.finiPeche == true && trouveGatito == true)
+        //{
+        //    UIvoirGatito.SetActive(false);
+        //    UIbarreCanne.SetActive(false);
+        //    UIgatito.SetActive(false);
+        //    UIfiniVillage.SetActive(true);
+        //    niveau1Termine = true;
+        //    INVpoisson.SetActive(false);
+        //    UIcontenu2.SetActive(false);
+        //    UIcontenu4.SetActive(false);
+        //    UIcontenu5.SetActive(true);
+        //}
 
         if (lettreRamassee == 5)
         {
@@ -447,11 +447,21 @@ public class _collision_kirie : MonoBehaviour
             //Activer le box collider de la planche2
             planche2Quai.GetComponent<BoxCollider>().enabled = true;
         }
+
+        if (infoTrigger.gameObject.tag == "EnleverQueteVillage")
+        {
+            DesactiverQueteVillage();
+        }
     }
 
     void DesactiverParchemin()
     {
         parchemin.SetActive(false);
+    }
+
+    void DesactiverQueteVillage()
+    {
+        UIfiniVillage.SetActive(false);
     }
 
     void AudioPeutJouer()
@@ -499,6 +509,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
         {
             UInoirFadeIn.SetActive(true);
+            //UIfiniVillage.SetActive(false);
             Invoke("niveau2", 1f);
         }
 
@@ -671,10 +682,6 @@ public class _collision_kirie : MonoBehaviour
         {
             DialogueGatitoVillage.SetPoissonMange(true);
             Debug.Log("DialogueGatitoVillage.poissonMange set to true");
-        }
-        else
-        {
-            Debug.Log("encore des poissons");
         }
     }
 }
