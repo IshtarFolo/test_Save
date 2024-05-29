@@ -7,6 +7,16 @@ using Unity.VisualScripting;
 
 public class savePosition : MonoBehaviour
 {
+    /*
+     * Systeme de sauvegarde par Xavier Arbour:
+     * 
+     * Le joueur passe sur un des nombreux points de sauvegarde dujeu dissemines dans chaque niveaux.
+     * Le systeme sauvegarde la positionet rotation du personnage joueur (Kirie) et certains booleens
+     * confirmant la fin de quetes importantes au progres du joueur. Lorsque le joueur appuie sur "charger une partie"
+     * on recharge a la derniere sauvegarde, s'il appuie sur "Nouvelle partie" la derniere sauvegarde est effacee et on
+     * recommence le jeu a 0.
+     * 
+     */
     /*============
      * VARIABLES *
      ============*/
@@ -15,7 +25,7 @@ public class savePosition : MonoBehaviour
     public Button load; // Bouton de chargement
     public GameObject loadingScreen; // L'�cran de chargement
 
-    // Les positions et rotations � enregistrer
+    // Les positions et rotations a enregistrer
     public float positionX;
     public float positionY;
     public float positionZ;
@@ -31,7 +41,7 @@ public class savePosition : MonoBehaviour
     public static bool finPeche; // La fin du jeu de peche
     public static bool cannePeche; // L'obtention de la canne a peche
     public static bool villageoisAParle; // La discussion avec le bon villageois
-    public static bool queteLettresFinie;
+    public static bool queteLettresFinie; // La fin de la quete de la lettre
 
     // Passer les valeurs de la save
     public void Start()
@@ -54,8 +64,16 @@ public class savePosition : MonoBehaviour
             // Enregistrement du numero de la scene au depart
             scene = _collision_kirie.noScene;
 
-            // Load la variable tutoFini si tutoFini existe
+            // Load la variable qui contient les infos si le tutoriel est fini
             tutoFini = PlayerPrefsX.GetBool("tutoFini");
+            // Load la variable qui contient les infos si le la peche est finie 
+            finPeche = PlayerPrefsX.GetBool("finPeche");
+            // Load la variable qui contient les infos si le la quete pour trouver la canne a peche est finie
+            cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
+            // Load la variable qui contient les infos si Kirie a parle au bon villageois 
+            villageoisAParle = PlayerPrefsX.GetBool("vilParle");
+            //
+            queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
 
             Load();
         }
@@ -156,7 +174,7 @@ public class savePosition : MonoBehaviour
         scene = PlayerPrefs.GetInt("laScene", scene);
 
         // Chargement de l'acquisition du journal
-        tutoFini = PlayerPrefsX.GetBool("Journal");
+        tutoFini = PlayerPrefsX.GetBool("tutoFini");
 
         // Les quetes dans l'ordre:
         tutoFini = PlayerPrefsX.GetBool("tutoFini");
@@ -203,9 +221,9 @@ public class savePosition : MonoBehaviour
         joueur.transform.rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
     }
 
-    if (PlayerPrefs.HasKey("Journal"))
+    if (PlayerPrefs.HasKey("tutoFini"))
     {
-        tutoFini = PlayerPrefsX.GetBool("Journal");
+        tutoFini = PlayerPrefsX.GetBool("tutoFini");
     }
 
     villageoisAParle = PlayerPrefsX.GetBool("vilParle", villageoisAParle);

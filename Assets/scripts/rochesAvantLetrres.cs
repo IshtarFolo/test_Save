@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class rochesAvantLetrres : MonoBehaviour
 {
+    /*
+     * Controle du chemin de roches avant et apres la quete des lettres par Xavier Arbour:
+     * 
+     * On regarde si la quete de la lettre est terminee, si c'est le cas on change de camera pour montrer le chemin vers la caverne et
+     * l'animation de son apparition. On bloque egalement le mouvement de Kirie. Puis on retourne a la camera principale et on redonne
+     * le controle du personnage au joueur.
+     * 
+     */
     /*============
      * VARIABLES *
      ============*/
@@ -41,6 +49,7 @@ public class rochesAvantLetrres : MonoBehaviour
             StartCoroutine(changementCam());
         }
 
+        // Si la quete est finie, on fait monter le chemin de roches
         if (_collision_kirie.finQueteLettres)
         {
             animateur.SetBool("monte", true);

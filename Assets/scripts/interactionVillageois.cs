@@ -111,13 +111,19 @@ public class interactionVillageois : MonoBehaviour
         aParle = true; // Marquer que le joueur a parlé au villageois
     }
 
+    /*----------------------------------
+     * COROUTINE D'ARRET DU VILLAGEOIS *
+     ----------------------------------*/
     private IEnumerator ArretDuVillageois()
     {
         // Le villageois reprend son deplacement apres un certain temps
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(30f);
         this.agent.isStopped = false;
     }
 
+    /*---------------------------------------------------------------------------
+     * COROUTINE DE ROTATION DU VILLAGEOIS VERS LE JOUEUR LORS DE LA CONVERSTION *
+     ----------------------------------------------------------------------------*/
     IEnumerator RotationVersJoueur()
     {
         while (true)

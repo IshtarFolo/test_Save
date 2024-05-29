@@ -166,18 +166,25 @@ public class _collision_kirie : MonoBehaviour
         /*
          * Dans l'update on regarde si les booleens des quetes sont bel et bien true pour pouvoir
          * sauvegarder et charger la partie avec le progres du joueur et ainsi modifier l'etat du jeu et 
-         * des notifications du UI
+         * des notifications du UI.
+         * 
          */
-        // Si le tutoriel est fini...
+        /*
+         * LE TUTORIEL
+         -------------------------------------------------------------------------------------------------*/
+        // Si le tutoriel est termine...
         if (finTuto)
         {
             //gameManager.PlayOneShot(ouvrirPorte, 1f);
             audioJoue = true;
             finTuto = true;
-            journalRamasse = true;
+            journalRamasse = true; // Pour donner acces au journal meme quand on quitte le jeu !MUCHO IMPORTANT!
             Invoke("AudioPeutJouer", 2f);
         }
 
+        /*
+         * LE VILLAGE
+         -----------------------------------------------------------------------------------------------------*/
         // Si le joueur a parle au bon villageois...
         if (interactionVillageois.aParleVillageois1)
         {
@@ -238,19 +245,10 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu5.SetActive(true);
         }
 
-        //if(SystemePeche.finiPeche == true && trouveGatito == true)
-        //{
-        //    UIvoirGatito.SetActive(false);
-        //    UIbarreCanne.SetActive(false);
-        //    UIgatito.SetActive(false);
-        //    UIfiniVillage.SetActive(true);
-        //    niveau1Termine = true;
-        //    INVpoisson.SetActive(false);
-        //    UIcontenu2.SetActive(false);
-        //    UIcontenu4.SetActive(false);
-        //    UIcontenu5.SetActive(true);
-        //}
-
+        /*
+         * LA FORET
+         --------------------------------------------------------------------------------------------------*/
+        // Si le joueur a rammasse toutes les parties de lettres
         if (lettreRamassee == 5)
         {
             finQueteLettres = true;
@@ -659,17 +657,20 @@ public class _collision_kirie : MonoBehaviour
     // Lorsque la scene commence
     private void OnEnable()
     {
+        // On purge la memoire
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Lorsque la scene est quittee
     private void OnDisable()
     {
+        // Ici aussi, on purge la memoire
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     // Lors du chargement de la scene
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Le noScene est egal a l'index de la scene 
         noScene = SceneManager.GetActiveScene().buildIndex;
 
         // Mettre la booléenne à true

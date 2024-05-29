@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class deplacementPersoV2 : MonoBehaviour
 {
+    /**
+     * Deplacement perso V2 par Xavier Arbour: 
+     * 
+     * Version amelioree de Deplacement perso, ce script permet le mouvement du personnage joueur (Kirie).
+     * On applique une force au mouvement lateral, horizontal et sur l,axe des Y (pour le saut) a l'aide de la methode AddForce().
+     * On applique egalement un temps de recuperation entre les saut pour faire jouer l'animation du personnage qui retombe au complet
+     * en evitant de permettre au personnage de bouger pendant ce court delai. Aussi, on regarde dans quel angle le personnage se trouve
+     * pour qu'il fasse face dans la direction desiree sans revenir automatiquement a sa position idle a droite. Ainsi, on garde la 
+     * position idle a gauche ou a droite dependemment de la direction dans laquelle le joueur allait auparavant.
+     * 
+     */
     /*----------------
     *** VARIABLES ***
     -----------------*/
@@ -144,7 +155,9 @@ public class deplacementPersoV2 : MonoBehaviour
             }
         }
     }
-
+    /*
+     * FONCTIONS SUPPLEMENTAIRES
+     ------------------------------------------------------------------------------------------------------------*/
     /*=======
      * SAUT *
      =======*/
@@ -159,10 +172,12 @@ public class deplacementPersoV2 : MonoBehaviour
         derniereFoisAuSol = 0;
     }
 
-
-    /*--------------
-     * IENUMERATOR *
-     --------------*/
+    /*
+     * COROUTINES
+     -----------------------------------------------------------------------------------------------------------*/
+    /*----------------------
+     * RECUPERAION DU SAUT *
+     ----------------------*/
     // La couroutine qui permet de donner un effet de r�cup�ration du saut
     IEnumerator RecupSaut()
     {

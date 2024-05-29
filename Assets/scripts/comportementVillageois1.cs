@@ -6,6 +6,14 @@ using UnityEngine.AI;
 
 public class comportementVillageois1 : MonoBehaviour
 {
+    /*
+     * Comportement du premier villageois (rouge) par Xavier Arbour: 
+     * 
+     * Le villageois se deplace entre le marche et le tableau des affiches des enfants perdus du village.
+     * Devant le tableau, on lance son animation de "villageois triste" Egalement, lorsque Kirie (le joueur) lui parle,
+     * il s'arrete et se tourne vers Kirie pour lui parler (Pour plus d'info sur cette partie regarder le script "interactionVillageois".
+     * 
+     */
     /*============
      * VARIABLES *
      ============*/
@@ -31,7 +39,7 @@ public class comportementVillageois1 : MonoBehaviour
 
     void Update()
     {
-        // On regarde si le NPC a atteint sa destination
+        // On regarde si le NPC a atteint sa destination, et si c'est le cas, on relance sa "patrouille"
         if (!agent.pathPending && agent.remainingDistance < 0.5f && agent.enabled && !agent.isStopped)
         {
             StartCoroutine(ChangerDestination());
@@ -60,7 +68,12 @@ public class comportementVillageois1 : MonoBehaviour
         }
     }
 
-    // Pour changer de destination
+    /*
+     * COROUTINES
+     -----------------------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------
+     * COROUTINE DE CHANGEMENT DE DESTINATION *
+     -----------------------------------------*/
     IEnumerator ChangerDestination()
     {
         // Retourne if si il n'y a pas de destinations
