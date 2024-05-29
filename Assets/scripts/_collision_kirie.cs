@@ -448,9 +448,8 @@ public class _collision_kirie : MonoBehaviour
             planche2Quai.GetComponent<BoxCollider>().enabled = true;
         }
 
-        if (infoTrigger.gameObject.tag == "EnleverQueteVillage" && niveau1Termine == true)
+        if (infoTrigger.gameObject.tag == "EnleverFiniPeche" && niveau1Termine == true)
         {
-            //DesactiverQueteVillage();
             SystemePeche.finiPeche = false;
         }
     }
@@ -458,11 +457,6 @@ public class _collision_kirie : MonoBehaviour
     void DesactiverParchemin()
     {
         parchemin.SetActive(false);
-    }
-
-    void DesactiverQueteVillage()
-    {
-        UIfiniVillage.SetActive(false);
     }
 
     void AudioPeutJouer()
