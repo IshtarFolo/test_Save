@@ -150,6 +150,9 @@ public class _collision_kirie : MonoBehaviour
         if (scene.name == "Niveau2_foret")
         {
             //Destroy(UIfiniVillage);
+            UIbarreCanne.SetActive(false);
+            UIpoisson.SetActive(false);
+            UIcanne.SetActive(false);
         }
 
         if (SystemePeche.finiPeche == true)
@@ -163,6 +166,7 @@ public class _collision_kirie : MonoBehaviour
 
     private void Update()
     {
+        Scene scene = SceneManager.GetActiveScene();
         /*
          * Dans l'update on regarde si les booleens des quetes sont bel et bien true pour pouvoir
          * sauvegarder et charger la partie avec le progres du joueur et ainsi modifier l'etat du jeu et 
@@ -186,27 +190,30 @@ public class _collision_kirie : MonoBehaviour
          * LE VILLAGE
          -----------------------------------------------------------------------------------------------------*/
         // Si le joueur a parle au bon villageois...
-        if (interactionVillageois.aParleVillageois1 && SystemePeche.finiPeche == false)
+        if (scene.name == "Niveau1_Village")
         {
-            UIvillageois.SetActive(false);
-            UIgatito.SetActive(true);
 
-            UIcontenu1.SetActive(false);
-            UIcontenu2.SetActive(true);
-        }
+            if (interactionVillageois.aParleVillageois1 && SystemePeche.finiPeche == false)
+            {
+                UIvillageois.SetActive(false);
+                UIgatito.SetActive(true);
 
-        // Si le joueur a parle a Gatito...
-        if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
-        {
-            UIbarrevillageois.SetActive(false);
-            UIvillageois.SetActive(false);
-            UIgatito.SetActive(false);
+                UIcontenu1.SetActive(false);
+                UIcontenu2.SetActive(true);
+            }
 
-            UIpoisson.SetActive(true);
-            UIcanne.SetActive(true);
-            GatitoParle = true;
+            // Si le joueur a parle a Gatito...
+            if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
+            {
+                UIbarrevillageois.SetActive(false);
+                UIvillageois.SetActive(false);
+                UIgatito.SetActive(false);
 
-            UIminiJeuChaudFroid.SetActive(true);
+                UIpoisson.SetActive(true);
+                UIcanne.SetActive(true);
+                GatitoParle = true;
+
+                UIminiJeuChaudFroid.SetActive(true);
 
             if (UIcontenu2.activeInHierarchy == true)
             {
@@ -217,34 +224,35 @@ public class _collision_kirie : MonoBehaviour
                 DESCgatito.SetActive(true);
             }
         }
-        // Si le joueur ramasse la canne a peche...
-        if (cannePecheRamasse && SystemePeche.finiPeche == false)
-        {
-            UIbarreCanne.SetActive(true);
-            cannePeche.SetActive(false);
-            UIminiJeuChaudFroid.SetActive(false);
-            INVcanne.SetActive(true);
+            // Si le joueur ramasse la canne a peche...
+            if (cannePecheRamasse && SystemePeche.finiPeche == false)
+            {
+                UIbarreCanne.SetActive(true);
+                cannePeche.SetActive(false);
+                UIminiJeuChaudFroid.SetActive(false);
+                INVcanne.SetActive(true);
         }
-        // Si le joueur fini le jeu de peche...
-        if (SystemePeche.finiPeche == true && trouveGatito == false)
-        {
-            UIvoirGatito.SetActive(false);
-            UIgatito.SetActive(false);
-            DESCpointsgatito.SetActive(false);
-            DESCgatito.SetActive(true);
+            // Si le joueur fini le jeu de peche...
+            if (SystemePeche.finiPeche == true && trouveGatito == false)
+            {
+                UIvoirGatito.SetActive(false);
+                UIgatito.SetActive(false);
+                DESCpointsgatito.SetActive(false);
+                DESCgatito.SetActive(true);
 
-            UIbarreCanne.SetActive(false);
-            UIfiniVillage.SetActive(true);
-            niveau1Termine = true;
+                UIbarreCanne.SetActive(false);
+                UIfiniVillage.SetActive(true);
+                niveau1Termine = true;
 
-            INVpoisson.SetActive(false);
-            OBJimageGatito.SetActive(true);
+                INVpoisson.SetActive(false);
+                OBJimageGatito.SetActive(true);
 
-            UIcontenu2.SetActive(false);
-            UIcontenu4.SetActive(false);
-            UIcontenu5.SetActive(true);
+                UIcontenu2.SetActive(false);
+                UIcontenu4.SetActive(false);
+                UIcontenu5.SetActive(true);
         }
 
+        }
         /*
          * LA FORET
          --------------------------------------------------------------------------------------------------*/
