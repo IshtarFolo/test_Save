@@ -26,7 +26,7 @@ public class _collision_kirie : MonoBehaviour
     public static bool cannePecheRamasse = false;
     public static bool finQueteLettres = false;
 
-    private bool trouveGatito;
+    public static bool trouveGatito;
 
     [Header("Booléennes des scènes Unity")]
     public static bool tutorielTermine = false;
@@ -121,7 +121,8 @@ public class _collision_kirie : MonoBehaviour
      */
     public static bool finTuto; // Variable du tutoriel
     public static bool GatitoParle; // variable de la conversation avec Gatito
-    public static bool canneRamassee; //
+    public static bool canneRamassee; // Variable qui regarde si la canne est ramassee ou non
+    public static bool finJeuPeche = false; //
 
     // Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
     public void Start()
@@ -167,6 +168,12 @@ public class _collision_kirie : MonoBehaviour
         if (PlayerPrefs.HasKey("CanneRamassee"))
         {
             cannePecheRamasse = savePosition.cannePeche;
+        }
+
+        //
+        if (PlayerPrefs.HasKey("finPeche"))
+        {
+            finJeuPeche = savePosition.finPeche;
         }
     }
 
@@ -238,37 +245,49 @@ public class _collision_kirie : MonoBehaviour
         }
 
         // Si le joueur fini le jeu de peche...
-        if (SystemePeche.finiPeche == true && trouveGatito == false)
-            {
-                UIvoirGatito.SetActive(true);
-                UIgatito.SetActive(false);
-                DESCpointsgatito.SetActive(false);
-                DESCgatito.SetActive(true);
-
-                UIbarreCanne.SetActive(false);
-                UIfiniVillage.SetActive(false);
-
-                INVpoisson.SetActive(false);
-                OBJimageGatito.SetActive(true);
-
-                UIcontenu2.SetActive(false);
-                UIcontenu4.SetActive(true);
-                UIcontenu5.SetActive(false);
+        if (SystemePeche.finiPeche == true)
+        {
+            finJeuPeche = true;
         }
-            //lorsqu'on finit de parler à Gatito en lui donnant les poissons pêchés
-            if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == true)
-            {
-                UIvoirGatito.SetActive(false);
-                UIfiniVillage.SetActive(true);
-                niveau1Termine = true;
 
-                INVpoisson.SetActive(false);
-                OBJimageGatito.SetActive(true);
-                UIbarreCanne.SetActive(false);
-                UIcontenu2.SetActive(false);
-                UIcontenu4.SetActive(false);
-                UIcontenu5.SetActive(true);
-            }
+        if (finJeuPeche)
+        {
+            UIvoirGatito.SetActive(true);
+            UIgatito.SetActive(false);
+            DESCpointsgatito.SetActive(false);
+            DESCgatito.SetActive(true);
+
+            UIbarreCanne.SetActive(false);
+            UIfiniVillage.SetActive(false);
+
+            INVpoisson.SetActive(false);
+            OBJimageGatito.SetActive(true);
+
+            UIcontenu2.SetActive(false);
+            UIcontenu3.SetActive(false);
+            UIcontenu4.SetActive(true);
+            UIcontenu5.SetActive(false);
+            UIcanne.SetActive(false);
+            UIpoisson.SetActive(false);
+        }
+
+        //lorsqu'on finit de parler à Gatito en lui donnant les poissons pêchés
+        if (trouveGatito)
+        {
+            UIvoirGatito.SetActive(false);
+            UIfiniVillage.SetActive(true);
+            niveau1Termine = true;
+
+            INVpoisson.SetActive(false);
+            OBJimageGatito.SetActive(true);
+            UIbarreCanne.SetActive(false);
+            UIcontenu2.SetActive(false);
+            UIcontenu3.SetActive(false);
+            UIcontenu4.SetActive(false);
+            UIcontenu5.SetActive(true);
+        }
+
+        Debug.Log("fini la peche: " + finJeuPeche);
 
         /*
          * LA FORET

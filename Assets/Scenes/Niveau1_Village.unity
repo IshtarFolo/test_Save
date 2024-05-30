@@ -8485,7 +8485,6 @@ MonoBehaviour:
   - "J'ai entendu dire qu'un d\xE9tective priv\xE9 louait ses services..."
   - "J'ai retrouv\xE9 des objets perdus gr\xE2ce \xE0 lui!"
   Kirie: {fileID: 1155865124}
-  gameManager: {fileID: 535191519}
 --- !u!65 &182733817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30412,8 +30411,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
-  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
+  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
+  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36650,9 +36649,6 @@ MonoBehaviour:
   rotationY: 0
   rotationZ: 0
   tutoFini: 0
-  finPeche: 0
-  cannePeche: 0
-  villageoisAParle: 0
   queteLettresFinie: 0
 --- !u!114 &535191524
 MonoBehaviour:
@@ -53144,7 +53140,6 @@ MonoBehaviour:
   - "Offre limit\xE9e!"
   - "Va prendre une bouff\xE9e d'air frais au bord du lac, la vue est mgnifique."
   Kirie: {fileID: 1155865124}
-  gameManager: {fileID: 535191519}
 --- !u!65 &811774511
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60324,8 +60319,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245943, y: -0.68819475, z: 0.16246125, w: 0.688187}
-  m_LocalPosition: {x: 118.04427, y: 115.51217, z: 478.9202}
+  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
+  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -83,6 +83,11 @@ public class SystemePeche : MonoBehaviour
             boutonRetour.SetActive(true);
             boutonPlaceholder.SetActive(false);
         }
+        //
+        if (PlayerPrefs.HasKey("finPeche"))
+        {
+            finiPeche = savePosition.finPeche;
+        }
     }
     IEnumerator PecheCoroutine(SourceDeau sourceDeau)
     {

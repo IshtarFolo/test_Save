@@ -30,6 +30,7 @@ public class DialogueGatitoVillage : MonoBehaviour
         bulle.SetActive(true);
         Debug.Log($"poissonMange initial state: {poissonMange}");
 
+        // Verification si la clee de fin de dialogue de Gatito existe et si oui on passe les valeurs sauvegardees a finiParler * SAUVEGARDE * 
         if (PlayerPrefs.HasKey("finiGatito"))
         {
             finiParler = savePosition.parleGatito;

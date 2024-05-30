@@ -38,11 +38,12 @@ public class savePosition : MonoBehaviour
 
     // Les Quetes et leur objectifs en bool
     public bool tutoFini; // Le journal est en la possession du joueur
-    public bool finPeche; // La fin du jeu de peche
+    public static bool finPeche; // La fin du jeu de peche
     public static bool cannePeche; // L'obtention de la canne a peche
     public static bool villageoisAParle; // La discussion avec le bon villageois
     public bool queteLettresFinie; // La fin de la quete de la lettre
     public static bool parleGatito; // Si Gatito a parle au joueur dans le village
+    public static bool retrouveGatito; // Si on retrouve Gatito apres la quete de peche --> Association avec trouveGatito
 
     // Passer les valeurs de la save
     public void Start()
@@ -85,6 +86,7 @@ public class savePosition : MonoBehaviour
         villageoisAParle = interactionVillageois.aParleVillageois1;
         cannePeche = _collision_kirie.cannePecheRamasse;
         parleGatito = DialogueGatitoVillage.finiParler;
+        finPeche = _collision_kirie.finJeuPeche;
     }
 
     public void NouvellePartie()
@@ -116,7 +118,7 @@ public class savePosition : MonoBehaviour
     public void Save()
     {
 
-        finPeche = SystemePeche.finiPeche;
+        finPeche = _collision_kirie.finJeuPeche;
         cannePeche = _collision_kirie.cannePecheRamasse;
         villageoisAParle = interactionVillageois.aParleVillageois1;
         queteLettresFinie = _collision_kirie.finQueteLettres;
