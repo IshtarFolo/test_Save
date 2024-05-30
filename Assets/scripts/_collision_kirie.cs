@@ -235,22 +235,34 @@ public class _collision_kirie : MonoBehaviour
             // Si le joueur fini le jeu de peche...
             if (SystemePeche.finiPeche == true && trouveGatito == false)
             {
-                UIvoirGatito.SetActive(false);
+                UIvoirGatito.SetActive(true);
                 UIgatito.SetActive(false);
                 DESCpointsgatito.SetActive(false);
                 DESCgatito.SetActive(true);
 
                 UIbarreCanne.SetActive(false);
-                UIfiniVillage.SetActive(true);
-                niveau1Termine = true;
+                UIfiniVillage.SetActive(false);
 
                 INVpoisson.SetActive(false);
                 OBJimageGatito.SetActive(true);
 
                 UIcontenu2.SetActive(false);
+                UIcontenu4.SetActive(true);
+                UIcontenu5.SetActive(false);
+        }
+            if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == true)
+            {
+                UIvoirGatito.SetActive(false);
+                UIfiniVillage.SetActive(true);
+                niveau1Termine = true;
+
+                INVpoisson.SetActive(false);
+                OBJimageGatito.SetActive(true);
+                UIbarreCanne.SetActive(false);
+                UIcontenu2.SetActive(false);
                 UIcontenu4.SetActive(false);
                 UIcontenu5.SetActive(true);
-        }
+            }
 
         }
         /*
