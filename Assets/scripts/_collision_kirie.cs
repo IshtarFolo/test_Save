@@ -162,6 +162,12 @@ public class _collision_kirie : MonoBehaviour
 
         // au debut du jeu, on trouve l'index de la scene a activer
         noScene = SceneManager.GetActiveScene().buildIndex;
+
+        // Verifie si la clee existe pour charger la valeur de la variable persistante de la canne a peche * SAUVEGARDE *
+        if (PlayerPrefs.HasKey("CanneRamassee"))
+        {
+            cannePecheRamasse = savePosition.cannePeche;
+        }
     }
 
     private void Update()
@@ -191,50 +197,50 @@ public class _collision_kirie : MonoBehaviour
          * LE VILLAGE
          -----------------------------------------------------------------------------------------------------*/
         // Si le joueur a parle au bon villageois...
+        if (interactionVillageois.aParleVillageois1 == true)
+        {
+            UIvillageois.SetActive(false);
+            UIgatito.SetActive(true);
 
-            if (interactionVillageois.aParleVillageois1 == true)
-            {
-                UIvillageois.SetActive(false);
-                UIgatito.SetActive(true);
-
-                UIcontenu1.SetActive(false);
-                UIcontenu2.SetActive(true);
-            }
-
-            Debug.Log("Canne: " + cannePecheRamasse);
+            UIcontenu1.SetActive(false);
+            UIcontenu2.SetActive(true);
+        }
 
         // Si le joueur a parle a Gatito...
         if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
-            {
-                UIbarrevillageois.SetActive(false);
-                UIvillageois.SetActive(false);
-                UIgatito.SetActive(false);
+        {
+            UIbarrevillageois.SetActive(false);
+            UIvillageois.SetActive(false);
+            UIgatito.SetActive(false);
 
-                UIpoisson.SetActive(true);
-                UIcanne.SetActive(true);
-                GatitoParle = true;
+            UIpoisson.SetActive(true);
+            UIcanne.SetActive(true);
+            GatitoParle = true;
 
-                UIminiJeuChaudFroid.SetActive(true);
+            UIminiJeuChaudFroid.SetActive(true);
 
-            if (UIcontenu2.activeInHierarchy == true)
-            {
-                UIcontenu2.SetActive(false);
-                UIcontenu3.SetActive(true);
-                OBJimageGatito.SetActive(true);
-                DESCpointsgatito.SetActive(false);
-                DESCgatito.SetActive(true);
-            }
+        if (UIcontenu2.activeInHierarchy == true)
+        {
+            UIcontenu2.SetActive(false);
+            UIcontenu3.SetActive(true);
+            OBJimageGatito.SetActive(true);
+            DESCpointsgatito.SetActive(false);
+            DESCgatito.SetActive(true);
         }
-            // Si le joueur ramasse la canne a peche...
-            if (cannePecheRamasse && SystemePeche.finiPeche == false)
-            {
-                UIbarreCanne.SetActive(true);
-                cannePeche.SetActive(false);
-                UIminiJeuChaudFroid.SetActive(false);
-                INVcanne.SetActive(true);
+    }
+        // Si le joueur ramasse la canne a peche...
+        if (cannePecheRamasse)
+        {
+            UIbarreCanne.SetActive(true);
+            cannePeche.SetActive(false);
+            UIminiJeuChaudFroid.SetActive(false);
+            INVcanne.SetActive(true);
         }
-            // Si le joueur fini le jeu de peche...
-            if (SystemePeche.finiPeche == true && trouveGatito == false)
+
+        Debug.Log("Canne: " + cannePecheRamasse);
+
+        // Si le joueur fini le jeu de peche...
+        if (SystemePeche.finiPeche == true && trouveGatito == false)
             {
                 UIvoirGatito.SetActive(true);
                 UIgatito.SetActive(false);
@@ -342,7 +348,6 @@ public class _collision_kirie : MonoBehaviour
             }
         }
 
-
         if (!finTuto)
         {
             if (infoTrigger.gameObject.name == "trigger_porte" && tutorielTermine == true)
@@ -357,7 +362,6 @@ public class _collision_kirie : MonoBehaviour
                 }
             }
         }
-
 
         if (infoTrigger.gameObject.tag == "villageois1" && interactionVillageois.aParleVillageois1 == true && SystemePeche.finiPeche == false)
         {

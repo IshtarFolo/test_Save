@@ -39,7 +39,7 @@ public class savePosition : MonoBehaviour
     // Les Quetes et leur objectifs en bool
     public bool tutoFini; // Le journal est en la possession du joueur
     public bool finPeche; // La fin du jeu de peche
-    public bool cannePeche; // L'obtention de la canne a peche
+    public static bool cannePeche; // L'obtention de la canne a peche
     public static bool villageoisAParle; // La discussion avec le bon villageois
     public bool queteLettresFinie; // La fin de la quete de la lettre
 
@@ -81,6 +81,7 @@ public class savePosition : MonoBehaviour
         tutoFini = _collision_kirie.journalRamasse;
         queteLettresFinie = _collision_kirie.finQueteLettres;
         villageoisAParle = interactionVillageois.aParleVillageois1;
+        cannePeche = _collision_kirie.cannePecheRamasse;
     }
 
     public void NouvellePartie()
