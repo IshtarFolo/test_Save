@@ -199,13 +199,12 @@ public class _collision_kirie : MonoBehaviour
 
                 UIcontenu1.SetActive(false);
                 UIcontenu2.SetActive(true);
-
-                Debug.Log("vil1Parle: " + interactionVillageois.aParleVillageois1);
-                Debug.Log("save Villageois:" + gameManager.GetComponent<savePosition>().villageoisAParle);
             }
 
-            // Si le joueur a parle a Gatito...
-            if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
+            Debug.Log("Canne: " + cannePecheRamasse);
+
+        // Si le joueur a parle a Gatito...
+        if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
             {
                 UIbarrevillageois.SetActive(false);
                 UIvillageois.SetActive(false);

@@ -40,7 +40,7 @@ public class savePosition : MonoBehaviour
     public bool tutoFini; // Le journal est en la possession du joueur
     public bool finPeche; // La fin du jeu de peche
     public bool cannePeche; // L'obtention de la canne a peche
-    public bool villageoisAParle; // La discussion avec le bon villageois
+    public static bool villageoisAParle; // La discussion avec le bon villageois
     public bool queteLettresFinie; // La fin de la quete de la lettre
 
     // Passer les valeurs de la save

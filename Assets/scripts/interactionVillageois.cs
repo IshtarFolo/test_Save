@@ -35,6 +35,12 @@ public class interactionVillageois : MonoBehaviour
 
         // Raccourcis NavMesh
         agent = GetComponent<NavMeshAgent>();
+
+        // Si on a sauvegarde auparavant, on recharge la partie avec aParleVillageois1 qui prends la valeur de la clee sauvegardee * SAUVEGARDE *
+        if (PlayerPrefs.HasKey("vilParle"))
+        {
+            aParleVillageois1 = savePosition.villageoisAParle;
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +58,11 @@ public class interactionVillageois : MonoBehaviour
                 // On relance le mouvement du villageois
                 StartCoroutine(ArretDuVillageois());
             }
+        }
+
+        if (dialoguesTermines)
+        {
+            aParleVillageois1 = true;
         }
     }
 
@@ -107,8 +118,6 @@ public class interactionVillageois : MonoBehaviour
             aParleVillageois1 = true;
             //Debug.Log("Test Villageois");
         }
-
-        aParle = true; // Marquer que le joueur a parlé au villageois
     }
 
     /*----------------------------------
