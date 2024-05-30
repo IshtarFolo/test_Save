@@ -250,6 +250,7 @@ public class _collision_kirie : MonoBehaviour
                 UIcontenu4.SetActive(true);
                 UIcontenu5.SetActive(false);
         }
+            //lorsqu'on finit de parler à Gatito en lui donnant les poissons pêchés
             if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == true)
             {
                 UIvoirGatito.SetActive(false);
