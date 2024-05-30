@@ -760,8 +760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624603, y: -0.68818665, z: 0.16245817, w: 0.6881956}
-  m_LocalPosition: {x: -76.65572, y: -90.50389, z: -733.53015}
+  m_LocalRotation: {x: 0.16246, y: -0.68818986, z: 0.16245948, w: 0.6881921}
+  m_LocalPosition: {x: -76.65573, y: -90.503876, z: -733.5301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42309,7 +42309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
       propertyPath: m_TagString
-      value: Gatito
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9085358947606866709, guid: 64d7b958716fca8438a75e182b0996eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78540,8 +78540,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1624603, y: -0.68818665, z: 0.16245817, w: 0.6881956}
-  m_LocalPosition: {x: -76.65572, y: -90.50389, z: -733.53015}
+  m_LocalRotation: {x: 0.16246, y: -0.68818986, z: 0.16245948, w: 0.6881921}
+  m_LocalPosition: {x: -76.65573, y: -90.503876, z: -733.5301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
