@@ -28,17 +28,25 @@ public class PlayerPrefsX
 		return true;
 	}
 
-	public static bool GetBool (String name)
-	{
-		return PlayerPrefs.GetInt(name) == 1;
-	}
+    public static bool GetBool(String name)
+    {
+        if (PlayerPrefs.HasKey(name))
+        {
+            return PlayerPrefs.GetInt(name) == 1;
+        }
+        return false; // Default value if the key does not exist
+    }
 
-	public static bool GetBool (String name, bool defaultValue)
-	{
-		return (1==PlayerPrefs.GetInt(name, defaultValue?1:0));
-	}
+    public static bool GetBool(String name, bool defaultValue)
+    {
+        if (PlayerPrefs.HasKey(name))
+        {
+            return PlayerPrefs.GetInt(name) == 1;
+        }
+        return defaultValue;
+    }
 
-	public static long GetLong(string key, long defaultValue)
+    public static long GetLong(string key, long defaultValue)
 	{
 		int lowBits, highBits;
 		SplitLong(defaultValue, out lowBits, out highBits);

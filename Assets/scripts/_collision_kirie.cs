@@ -94,7 +94,7 @@ public class _collision_kirie : MonoBehaviour
     public GameObject UIbarreLettre;
     public GameObject UINombreLettre;
     public TextMeshProUGUI UIIndexLettres;
-    public int lettreRamassee = 0;
+    public int lettreRamassee = Mathf.Clamp(5, 0, 5); // MathfClamp permet de mettre une limite au nombre de lettres ramassees, ici 5
     public GameObject parchemin;
     public GameObject UITrahisonGatito;
 
@@ -177,7 +177,8 @@ public class _collision_kirie : MonoBehaviour
          * LE TUTORIEL
          -------------------------------------------------------------------------------------------------*/
         // Si le tutoriel est termine...
-        if (finTuto)
+
+        if (tutorielTermine)
         {
             //gameManager.PlayOneShot(ouvrirPorte, 1f);
             audioJoue = true;
@@ -190,16 +191,17 @@ public class _collision_kirie : MonoBehaviour
          * LE VILLAGE
          -----------------------------------------------------------------------------------------------------*/
         // Si le joueur a parle au bon villageois...
-        if (scene.name == "Niveau1_Village")
-        {
 
-            if (interactionVillageois.aParleVillageois1 && SystemePeche.finiPeche == false)
+            if (interactionVillageois.aParleVillageois1 == true)
             {
                 UIvillageois.SetActive(false);
                 UIgatito.SetActive(true);
 
                 UIcontenu1.SetActive(false);
                 UIcontenu2.SetActive(true);
+
+                Debug.Log("vil1Parle: " + interactionVillageois.aParleVillageois1);
+                Debug.Log("save Villageois:" + gameManager.GetComponent<savePosition>().villageoisAParle);
             }
 
             // Si le joueur a parle a Gatito...
@@ -265,7 +267,6 @@ public class _collision_kirie : MonoBehaviour
                 UIcontenu5.SetActive(true);
             }
 
-        }
         /*
          * LA FORET
          --------------------------------------------------------------------------------------------------*/
@@ -434,7 +435,7 @@ public class _collision_kirie : MonoBehaviour
             UINombreLettre.SetActive(true);
 
             // Incrémentez lettresRamassee d'une seule unité
-            lettreRamassee += 1;
+            lettreRamassee++;
             Debug.Log("Lettre trouvée");
 
             // Mettez à jour l'index de l'UI avec le nombre de lettres ramassées
