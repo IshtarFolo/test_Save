@@ -42,6 +42,7 @@ public class savePosition : MonoBehaviour
     public static bool cannePeche; // L'obtention de la canne a peche
     public static bool villageoisAParle; // La discussion avec le bon villageois
     public bool queteLettresFinie; // La fin de la quete de la lettre
+    public static bool parleGatito; // Si Gatito a parle au joueur dans le village
 
     // Passer les valeurs de la save
     public void Start()
@@ -70,6 +71,7 @@ public class savePosition : MonoBehaviour
             cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
             villageoisAParle = PlayerPrefsX.GetBool("vilParle");
             queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
+            parleGatito = PlayerPrefsX.GetBool("finiGatito");
 
             Load();
         }
@@ -82,6 +84,7 @@ public class savePosition : MonoBehaviour
         queteLettresFinie = _collision_kirie.finQueteLettres;
         villageoisAParle = interactionVillageois.aParleVillageois1;
         cannePeche = _collision_kirie.cannePecheRamasse;
+        parleGatito = DialogueGatitoVillage.finiParler;
     }
 
     public void NouvellePartie()
@@ -103,6 +106,7 @@ public class savePosition : MonoBehaviour
         PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
         PlayerPrefsX.SetBool("vilParle", villageoisAParle);
         PlayerPrefsX.SetBool("finLettres", queteLettresFinie);
+        PlayerPrefsX.SetBool("finiGatito", parleGatito);
 
         // Load la premiere scene
         SceneManager.LoadScene(1);
@@ -116,6 +120,7 @@ public class savePosition : MonoBehaviour
         cannePeche = _collision_kirie.cannePecheRamasse;
         villageoisAParle = interactionVillageois.aParleVillageois1;
         queteLettresFinie = _collision_kirie.finQueteLettres;
+        parleGatito = DialogueGatitoVillage.finiParler;
 
         string sceneKey = "Scene" + scene;
 
@@ -137,6 +142,7 @@ public class savePosition : MonoBehaviour
         PlayerPrefsX.SetBool("CanneRamassee", cannePeche);
         PlayerPrefsX.SetBool("finPeche", finPeche);
         PlayerPrefsX.SetBool("finLettres", queteLettresFinie);
+        PlayerPrefsX.SetBool("finiGatito", parleGatito);
 
         PlayerPrefs.Save();
     }
@@ -175,6 +181,7 @@ public class savePosition : MonoBehaviour
         cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
         finPeche = PlayerPrefsX.GetBool("finPeche");
         queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
+        parleGatito = PlayerPrefsX.GetBool("finiGatito");
 
         // On charge la scene
         SceneManager.LoadScene(scene);
@@ -185,6 +192,7 @@ public class savePosition : MonoBehaviour
         Debug.Log("Load cannePeche: " + cannePeche);
         Debug.Log("Load villageoisAParle: " + villageoisAParle);
         Debug.Log("Load queteLettresFinie: " + queteLettresFinie);
+        Debug.Log("Load finiGatito: " + parleGatito);
 
         _collision_kirie.finTuto = tutoFini;
     }
@@ -228,6 +236,7 @@ public class savePosition : MonoBehaviour
         cannePeche = PlayerPrefsX.GetBool("CanneRamassee");
         finPeche = PlayerPrefsX.GetBool("finPeche");
         queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
+        parleGatito = PlayerPrefsX.GetBool("finiGatito");
 
 
         // On d�sactive l'�cran de chargement
@@ -244,6 +253,7 @@ public class savePosition : MonoBehaviour
         "CanneRamassee",
         "vilParle",
         "finLettres",
+        "finiGatito",
         };
 
         foreach (string key in keysToDelete)

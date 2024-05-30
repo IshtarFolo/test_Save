@@ -207,7 +207,7 @@ public class _collision_kirie : MonoBehaviour
         }
 
         // Si le joueur a parle a Gatito...
-        if (DialogueGatitoVillage.finiParler == true && SystemePeche.finiPeche == false)
+        if (DialogueGatitoVillage.finiParler == true)
         {
             UIbarrevillageois.SetActive(false);
             UIvillageois.SetActive(false);
@@ -236,8 +236,6 @@ public class _collision_kirie : MonoBehaviour
             UIminiJeuChaudFroid.SetActive(false);
             INVcanne.SetActive(true);
         }
-
-        Debug.Log("Canne: " + cannePecheRamasse);
 
         // Si le joueur fini le jeu de peche...
         if (SystemePeche.finiPeche == true && trouveGatito == false)

@@ -29,6 +29,11 @@ public class DialogueGatitoVillage : MonoBehaviour
         dialogueGatito.enabled = true;
         bulle.SetActive(true);
         Debug.Log($"poissonMange initial state: {poissonMange}");
+
+        if (PlayerPrefs.HasKey("finiGatito"))
+        {
+            finiParler = savePosition.parleGatito;
+        }
     }
 
 
