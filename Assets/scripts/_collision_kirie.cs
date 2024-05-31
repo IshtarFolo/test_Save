@@ -34,6 +34,7 @@ public class _collision_kirie : MonoBehaviour
     public static bool niveau2Termine = false;
     public static bool niveau3Termine = false;
     public static bool journalRamasse = false;
+    public static bool debutNiveau2 = false;
 
     [Header("Gameobjects des UI généraux")]
     //public GameObject UIMaisonKirie;
@@ -122,7 +123,7 @@ public class _collision_kirie : MonoBehaviour
     public static bool finTuto; // Variable du tutoriel
     public static bool GatitoParle; // variable de la conversation avec Gatito
     public static bool canneRamassee; // Variable qui regarde si la canne est ramassee ou non
-    public static bool finJeuPeche = false; //
+    public static bool finJeuPeche = false; // Variable qui determnie si le jeu de peche est fini ou non
 
     // Ce script remplace le script de l'organigramme. (Plus facile collision et scènes)
     public void Start()
@@ -164,12 +165,17 @@ public class _collision_kirie : MonoBehaviour
         // au debut du jeu, on trouve l'index de la scene a activer
         noScene = SceneManager.GetActiveScene().buildIndex;
 
+        // Verifie si la clee pour la fin du tutoriel existe * SAUVEGARDE/ CHARGEMENT * 
+        if (PlayerPrefs.HasKey("tutoFini"))
+        {
+            tutorielTermine = savePosition.tutoFini;
+        }
+
         // Verifie si la clee existe pour charger la valeur de la variable persistante de la canne a peche * SAUVEGARDE/ CHARGEMENT *
         if (PlayerPrefs.HasKey("CanneRamassee"))
         {
             cannePecheRamasse = savePosition.cannePeche;
         }
-
         // Verifie si la clee existe pour le booleen de la fin de la quete de la peche * SAUVEGARDE/ CHARGEMENT *
         if (PlayerPrefs.HasKey("finPeche"))
         {
@@ -179,6 +185,11 @@ public class _collision_kirie : MonoBehaviour
         if (PlayerPrefs.HasKey("retrouveGatito"))
         {
             trouveGatito = savePosition.retrouveGatito;
+        }
+        // Verifie si une clee existe pour confirmer que toutes les lettres sont ramassees * SAUVEGARDE/ CHARGEMENT *
+        if (PlayerPrefs.HasKey("finLettres"))
+        {
+            finQueteLettres = savePosition.queteLettresFinie;
         }
     }
 
@@ -292,13 +303,15 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu5.SetActive(true);
         }
 
-        Debug.Log("fini Gatito: " + trouveGatito);
-
         /*
          * LA FORET
          --------------------------------------------------------------------------------------------------*/
+        if (debutNiveau2)
+        {
+            UIfiniVillage.SetActive(false);
+        }
         // Si le joueur a rammasse toutes les parties de lettres
-        if (lettreRamassee == 5)
+        if (lettreRamassee >= 5)
         {
             finQueteLettres = true;
         }
@@ -309,7 +322,11 @@ public class _collision_kirie : MonoBehaviour
             UINombreLettre.SetActive(false);
             UIIndexLettres.enabled = false;
             UITrahisonGatito.SetActive(true);
+
+            Destroy(GameObject.FindWithTag("lettre"));
         }
+
+        Debug.Log("trouve Gatito: " + trouveGatito);
     }
 
     // INFO TRIGGER
@@ -438,7 +455,7 @@ public class _collision_kirie : MonoBehaviour
         }
 
 
-        if (infoTrigger.gameObject.tag == "Gatito" && SystemePeche.finiPeche == true)
+        if (infoTrigger.gameObject.tag == "Gatito" && DialogueGatitoVillage.poissonMange)
         {
             //Debug.Log("Ceci est la suite des choses");
             trouveGatito = true;
@@ -549,6 +566,7 @@ public class _collision_kirie : MonoBehaviour
         //Lorsque le joueur a TERMINÉ le niveau1, on lui permet d'aller dans le niveau2
         if (infoCollision.gameObject.tag == "triggerNiv2" && niveau1Termine == true)
         {
+            debutNiveau2 = true;
             UInoirFadeIn.SetActive(true);
             UIfiniVillage.SetActive(false);
             Invoke("niveau2", 1f);

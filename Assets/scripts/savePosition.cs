@@ -37,11 +37,11 @@ public class savePosition : MonoBehaviour
     public static int scene; // Numero de la scene a charger
 
     // Les Quetes et leur objectifs en bool
-    public bool tutoFini; // Le journal est en la possession du joueur
+    public static bool tutoFini; // Le journal est en la possession du joueur
     public static bool finPeche; // La fin du jeu de peche
     public static bool cannePeche; // L'obtention de la canne a peche
     public static bool villageoisAParle; // La discussion avec le bon villageois
-    public bool queteLettresFinie; // La fin de la quete de la lettre
+    public static bool queteLettresFinie; // La fin de la quete de la lettre
     public static bool parleGatito; // Si Gatito a parle au joueur dans le village
     public static bool retrouveGatito; // Si on retrouve Gatito apres la quete de peche 
 
@@ -202,8 +202,6 @@ public class savePosition : MonoBehaviour
         Debug.Log("Load queteLettresFinie: " + queteLettresFinie);
         Debug.Log("Load finiGatito: " + parleGatito);
         Debug.Log("Load trouveGatito: " + retrouveGatito);
-
-        _collision_kirie.finTuto = tutoFini;
     }
 
     private void OnEnable()
