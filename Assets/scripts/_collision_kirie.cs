@@ -164,16 +164,21 @@ public class _collision_kirie : MonoBehaviour
         // au debut du jeu, on trouve l'index de la scene a activer
         noScene = SceneManager.GetActiveScene().buildIndex;
 
-        // Verifie si la clee existe pour charger la valeur de la variable persistante de la canne a peche * SAUVEGARDE *
+        // Verifie si la clee existe pour charger la valeur de la variable persistante de la canne a peche * SAUVEGARDE/ CHARGEMENT *
         if (PlayerPrefs.HasKey("CanneRamassee"))
         {
             cannePecheRamasse = savePosition.cannePeche;
         }
 
-        //
+        // Verifie si la clee existe pour le booleen de la fin de la quete de la peche * SAUVEGARDE/ CHARGEMENT *
         if (PlayerPrefs.HasKey("finPeche"))
         {
             finJeuPeche = savePosition.finPeche;
+        }
+        // Verifie si la clee existe pour le booleen de la fin de la in de la quete de la peche (quand on donne les poissons a Gatito) * SAUVEGARDE/ CHARGEMENT *
+        if (PlayerPrefs.HasKey("retrouveGatito"))
+        {
+            trouveGatito = savePosition.retrouveGatito;
         }
     }
 
@@ -287,7 +292,7 @@ public class _collision_kirie : MonoBehaviour
             UIcontenu5.SetActive(true);
         }
 
-        Debug.Log("fini la peche: " + finJeuPeche);
+        Debug.Log("fini Gatito: " + trouveGatito);
 
         /*
          * LA FORET

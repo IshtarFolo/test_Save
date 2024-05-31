@@ -43,7 +43,7 @@ public class savePosition : MonoBehaviour
     public static bool villageoisAParle; // La discussion avec le bon villageois
     public bool queteLettresFinie; // La fin de la quete de la lettre
     public static bool parleGatito; // Si Gatito a parle au joueur dans le village
-    public static bool retrouveGatito; // Si on retrouve Gatito apres la quete de peche --> Association avec trouveGatito
+    public static bool retrouveGatito; // Si on retrouve Gatito apres la quete de peche 
 
     // Passer les valeurs de la save
     public void Start()
@@ -73,6 +73,7 @@ public class savePosition : MonoBehaviour
             villageoisAParle = PlayerPrefsX.GetBool("vilParle");
             queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
             parleGatito = PlayerPrefsX.GetBool("finiGatito");
+            retrouveGatito = PlayerPrefsX.GetBool("retrouveGatito");
 
             Load();
         }
@@ -87,6 +88,7 @@ public class savePosition : MonoBehaviour
         cannePeche = _collision_kirie.cannePecheRamasse;
         parleGatito = DialogueGatitoVillage.finiParler;
         finPeche = _collision_kirie.finJeuPeche;
+        retrouveGatito = _collision_kirie.trouveGatito;
     }
 
     public void NouvellePartie()
@@ -101,6 +103,7 @@ public class savePosition : MonoBehaviour
         cannePeche = false;
         villageoisAParle = false;
         queteLettresFinie = false;
+        retrouveGatito = false;
 
         // Sauvegarder les états initiaux
         PlayerPrefsX.SetBool("tutoFini", tutoFini);
@@ -109,6 +112,7 @@ public class savePosition : MonoBehaviour
         PlayerPrefsX.SetBool("vilParle", villageoisAParle);
         PlayerPrefsX.SetBool("finLettres", queteLettresFinie);
         PlayerPrefsX.SetBool("finiGatito", parleGatito);
+        PlayerPrefsX.SetBool("retrouveGatito", retrouveGatito);
 
         // Load la premiere scene
         SceneManager.LoadScene(1);
@@ -123,6 +127,7 @@ public class savePosition : MonoBehaviour
         villageoisAParle = interactionVillageois.aParleVillageois1;
         queteLettresFinie = _collision_kirie.finQueteLettres;
         parleGatito = DialogueGatitoVillage.finiParler;
+        retrouveGatito = _collision_kirie.trouveGatito;
 
         string sceneKey = "Scene" + scene;
 
@@ -145,6 +150,7 @@ public class savePosition : MonoBehaviour
         PlayerPrefsX.SetBool("finPeche", finPeche);
         PlayerPrefsX.SetBool("finLettres", queteLettresFinie);
         PlayerPrefsX.SetBool("finiGatito", parleGatito);
+        PlayerPrefsX.SetBool("retrouveGatito", retrouveGatito);
 
         PlayerPrefs.Save();
     }
@@ -184,10 +190,10 @@ public class savePosition : MonoBehaviour
         finPeche = PlayerPrefsX.GetBool("finPeche");
         queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
         parleGatito = PlayerPrefsX.GetBool("finiGatito");
+        retrouveGatito = PlayerPrefsX.GetBool("retrouveGatito");
 
         // On charge la scene
         SceneManager.LoadScene(scene);
-
 
         Debug.Log("Load tutoFini: " + tutoFini);
         Debug.Log("Load finPeche: " + finPeche);
@@ -195,6 +201,7 @@ public class savePosition : MonoBehaviour
         Debug.Log("Load villageoisAParle: " + villageoisAParle);
         Debug.Log("Load queteLettresFinie: " + queteLettresFinie);
         Debug.Log("Load finiGatito: " + parleGatito);
+        Debug.Log("Load trouveGatito: " + retrouveGatito);
 
         _collision_kirie.finTuto = tutoFini;
     }
@@ -239,7 +246,7 @@ public class savePosition : MonoBehaviour
         finPeche = PlayerPrefsX.GetBool("finPeche");
         queteLettresFinie = PlayerPrefsX.GetBool("finLettres");
         parleGatito = PlayerPrefsX.GetBool("finiGatito");
-
+        retrouveGatito = PlayerPrefsX.GetBool("retrouveGatito");
 
         // On d�sactive l'�cran de chargement
         loadingScreen.SetActive(false); 
@@ -256,6 +263,7 @@ public class savePosition : MonoBehaviour
         "vilParle",
         "finLettres",
         "finiGatito",
+        "retrouveGatito",
         };
 
         foreach (string key in keysToDelete)
