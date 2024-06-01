@@ -109,7 +109,10 @@ public class MiniJeuPeche : MonoBehaviour
             //
 
             //Recharger la sc�ne de p�che pour recommencer la p�che
-            Invoke("ReloadPeche", 5f);
+            if (SystemePeche.finiPeche != true)
+            {
+                Invoke("ReloadPeche", 5f);
+            }
         }
         else if(compteurReussite <= echecLimite)
         {
