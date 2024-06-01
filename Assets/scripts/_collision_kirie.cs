@@ -65,6 +65,11 @@ public class _collision_kirie : MonoBehaviour
     public GameObject INVcarotte;
     public GameObject INVlettre;
 
+    public GameObject LETpointinterogation;
+    public GameObject LETmessageGatito;
+    public GameObject LETlettre;
+    public GameObject LETboutonLettre;
+
     [Header("Gameobjects des quêtes du tutoriel")]
     public GameObject UItutoriel;
     public GameObject UIcle;
@@ -220,87 +225,92 @@ public class _collision_kirie : MonoBehaviour
          * LE VILLAGE
          -----------------------------------------------------------------------------------------------------*/
         // Si le joueur a parle au bon villageois...
-        if (interactionVillageois.aParleVillageois1 == true)
+
+        // Si on est dans le niveau tutoriel...
+        if (scene.name == "Niveau1_Village")
         {
-            UIvillageois.SetActive(false);
-            UIgatito.SetActive(true);
+            if (interactionVillageois.aParleVillageois1 == true)
+            {
+                UIvillageois.SetActive(false);
+                UIgatito.SetActive(true);
 
-            UIcontenu1.SetActive(false);
-            UIcontenu2.SetActive(true);
-        }
+                UIcontenu1.SetActive(false);
+                UIcontenu2.SetActive(true);
+            }
 
-        // Si le joueur a parle a Gatito...
-        if (DialogueGatitoVillage.finiParler == true)
-        {
-            UIbarrevillageois.SetActive(false);
-            UIvillageois.SetActive(false);
-            UIgatito.SetActive(false);
+            // Si le joueur a parle a Gatito...
+            if (DialogueGatitoVillage.finiParler == true)
+            {
+                UIbarrevillageois.SetActive(false);
+                UIvillageois.SetActive(false);
+                UIgatito.SetActive(false);
 
-            UIpoisson.SetActive(true);
-            UIcanne.SetActive(true);
-            GatitoParle = true;
+                UIpoisson.SetActive(true);
+                UIcanne.SetActive(true);
+                GatitoParle = true;
 
-            UIminiJeuChaudFroid.SetActive(true);
+                UIminiJeuChaudFroid.SetActive(true);
 
-        if (UIcontenu2.activeInHierarchy == true)
-        {
-            UIcontenu2.SetActive(false);
-            UIcontenu3.SetActive(true);
-            OBJimageGatito.SetActive(true);
-            DESCpointsgatito.SetActive(false);
-            DESCgatito.SetActive(true);
-        }
-    }
-        // Si le joueur ramasse la canne a peche...
-        if (cannePecheRamasse)
-        {
-            UIbarreCanne.SetActive(true);
-            cannePeche.SetActive(false);
-            UIminiJeuChaudFroid.SetActive(false);
-            INVcanne.SetActive(true);
-        }
+                if (UIcontenu2.activeInHierarchy == true)
+                {
+                    UIcontenu2.SetActive(false);
+                    UIcontenu3.SetActive(true);
+                    OBJimageGatito.SetActive(true);
+                    DESCpointsgatito.SetActive(false);
+                    DESCgatito.SetActive(true);
+                }
+            }
+            // Si le joueur ramasse la canne a peche...
+            if (cannePecheRamasse)
+            {
+                UIbarreCanne.SetActive(true);
+                cannePeche.SetActive(false);
+                UIminiJeuChaudFroid.SetActive(false);
+                INVcanne.SetActive(true);
+            }
 
-        // Si le joueur fini le jeu de peche...
-        if (SystemePeche.finiPeche == true)
-        {
-            finJeuPeche = true;
-        }
+            // Si le joueur fini le jeu de peche...
+            if (SystemePeche.finiPeche == true)
+            {
+                finJeuPeche = true;
+            }
 
-        if (finJeuPeche)
-        {
-            UIvoirGatito.SetActive(true);
-            UIgatito.SetActive(false);
-            DESCpointsgatito.SetActive(false);
-            DESCgatito.SetActive(true);
+            if (finJeuPeche)
+            {
+                UIvoirGatito.SetActive(true);
+                UIgatito.SetActive(false);
+                DESCpointsgatito.SetActive(false);
+                DESCgatito.SetActive(true);
 
-            UIbarreCanne.SetActive(false);
-            UIfiniVillage.SetActive(false);
+                UIbarreCanne.SetActive(false);
+                UIfiniVillage.SetActive(false);
 
-            INVpoisson.SetActive(false);
-            OBJimageGatito.SetActive(true);
+                INVpoisson.SetActive(false);
+                OBJimageGatito.SetActive(true);
 
-            UIcontenu2.SetActive(false);
-            UIcontenu3.SetActive(false);
-            UIcontenu4.SetActive(true);
-            UIcontenu5.SetActive(false);
-            UIcanne.SetActive(false);
-            UIpoisson.SetActive(false);
-        }
+                UIcontenu2.SetActive(false);
+                UIcontenu3.SetActive(false);
+                UIcontenu4.SetActive(true);
+                UIcontenu5.SetActive(false);
+                UIcanne.SetActive(false);
+                UIpoisson.SetActive(false);
+            }
 
-        //lorsqu'on finit de parler à Gatito en lui donnant les poissons pêchés
-        if (trouveGatito)
-        {
-            UIvoirGatito.SetActive(false);
-            UIfiniVillage.SetActive(true);
-            niveau1Termine = true;
+            //lorsqu'on finit de parler à Gatito en lui donnant les poissons pêchés
+            if (trouveGatito)
+            {
+                UIvoirGatito.SetActive(false);
+                UIfiniVillage.SetActive(true);
+                niveau1Termine = true;
 
-            INVpoisson.SetActive(false);
-            OBJimageGatito.SetActive(true);
-            UIbarreCanne.SetActive(false);
-            UIcontenu2.SetActive(false);
-            UIcontenu3.SetActive(false);
-            UIcontenu4.SetActive(false);
-            UIcontenu5.SetActive(true);
+                INVpoisson.SetActive(false);
+                OBJimageGatito.SetActive(true);
+                UIbarreCanne.SetActive(false);
+                UIcontenu2.SetActive(false);
+                UIcontenu3.SetActive(false);
+                UIcontenu4.SetActive(false);
+                UIcontenu5.SetActive(true);
+            }
         }
 
         /*
@@ -322,11 +332,23 @@ public class _collision_kirie : MonoBehaviour
             UINombreLettre.SetActive(false);
             UIIndexLettres.enabled = false;
             UITrahisonGatito.SetActive(true);
+            UIcontenu1.SetActive(false);
+            UIcontenu2.SetActive(true);
+
+            LETpointinterogation.SetActive(false);
+            LETmessageGatito.SetActive(true);
+            LETlettre.SetActive(true);
+            LETboutonLettre.SetActive(true);
+            INVlettre.SetActive(true);
+
+            DESCpointsthays.SetActive(false);
+            OBJimageThays.SetActive(true);
+            DESCthays.SetActive(true);
 
             Destroy(GameObject.FindWithTag("lettre"));
         }
 
-        Debug.Log("trouve Gatito: " + trouveGatito);
+        //Debug.Log("trouve Gatito: " + trouveGatito);
     }
 
     // INFO TRIGGER
@@ -489,6 +511,12 @@ public class _collision_kirie : MonoBehaviour
                 parchemin.SetActive(true);
                 Invoke("DesactiverParchemin", 10f);
             }
+        }
+
+        if(infoTrigger.gameObject.name == "porteCave")
+        {
+            UInoirFadeIn.SetActive(true);
+            Invoke("niveau3", 1f);
         }
 
         //POUR ACTIVER LA PLANCHE2 POUR MINI JEU DE PECHE
@@ -666,9 +694,9 @@ public class _collision_kirie : MonoBehaviour
 
     void niveau3()
     {
-        SceneManager.LoadScene("niveau3");
+        SceneManager.LoadScene("Niveau2_JeuCartes");
         // On prends l'index de la scene et on sauvegarde sa valeur pour le script de sauvegarde
-        noScene = SceneManager.GetSceneByName("niveau3").buildIndex;
+        noScene = SceneManager.GetSceneByName("Niveau2_JeuCartes").buildIndex;
     }
 
     // Allons-nous garder le niveau 4?**
