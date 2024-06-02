@@ -8481,7 +8481,7 @@ MonoBehaviour:
   aParle: 0
   dialoguesTermines: 0
   dialogues:
-  - "Salut Kirie ! Tu cherches ton fr\xE8re... Comme tous ces pauvres enfants !"
+  - "Salut Kirie ! Tu cherches ton fr\xE8re... Comme tous ces pauvres enfants kidnapp\xE9s!"
   - "J'ai entendu dire qu'un d\xE9tective priv\xE9 louait ses services..."
   - "J'ai retrouv\xE9 des objets perdus gr\xE2ce \xE0 lui!"
   Kirie: {fileID: 1155865124}
@@ -30411,8 +30411,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486395321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
-  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245937, y: -0.6881953, z: 0.16246144, w: 0.68818647}
+  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36648,8 +36648,6 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
-  tutoFini: 0
-  queteLettresFinie: 0
 --- !u!114 &535191524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53138,7 +53136,7 @@ MonoBehaviour:
   dialogues:
   - "Deux lapins! Deux lapins \xE0 vendre!"
   - "Offre limit\xE9e!"
-  - "Va prendre une bouff\xE9e d'air frais au bord du lac, la vue est mgnifique."
+  - "Va prendre une bouff\xE9e d'air frais au bord du lac, la vue est magnifique."
   Kirie: {fileID: 1155865124}
 --- !u!65 &811774511
 BoxCollider:
@@ -60319,8 +60317,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948943986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16245958, y: -0.6881937, z: 0.16246088, w: 0.68818814}
-  m_LocalPosition: {x: 118.0443, y: 115.512184, z: 478.92023}
+  m_LocalRotation: {x: 0.16245937, y: -0.6881953, z: 0.16246144, w: 0.68818647}
+  m_LocalPosition: {x: 118.04429, y: 115.512184, z: 478.92026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70489,6 +70487,10 @@ MonoBehaviour:
   INVechelle: {fileID: 1065633863}
   INVcarotte: {fileID: 1779998513}
   INVlettre: {fileID: 1703928036}
+  LETpointinterogation: {fileID: 0}
+  LETmessageGatito: {fileID: 0}
+  LETlettre: {fileID: 0}
+  LETboutonLettre: {fileID: 0}
   UItutoriel: {fileID: 0}
   UIcle: {fileID: 0}
   UIbarreCle: {fileID: 0}
