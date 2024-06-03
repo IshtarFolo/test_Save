@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.085362546, g: 0.18886697, b: 0.43178445, a: 1}
+  m_IndirectSpecularColor: {r: 0.08540144, g: 0.18890482, b: 0.4318778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -760,8 +760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14457982}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246061, y: -0.6881856, z: 0.16245799, w: 0.68819666}
-  m_LocalPosition: {x: -76.65573, y: -90.50391, z: -733.5303}
+  m_LocalRotation: {x: 0.1624603, y: -0.68818665, z: 0.16245817, w: 0.6881956}
+  m_LocalPosition: {x: -76.65572, y: -90.50389, z: -733.53015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43193,10 +43193,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 1
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 3
   m_fontStyle: 0
@@ -43229,7 +43229,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 39.740746, y: 49.912354, z: 39.735916, w: 50.042538}
+  m_margin: {x: 36.46169, y: 45.646763, z: 35.37375, w: 46.98006}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -79256,8 +79256,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426156929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16246061, y: -0.6881856, z: 0.16245799, w: 0.68819666}
-  m_LocalPosition: {x: -76.65573, y: -90.50391, z: -733.5303}
+  m_LocalRotation: {x: 0.1624603, y: -0.68818665, z: 0.16245817, w: 0.6881956}
+  m_LocalPosition: {x: -76.65572, y: -90.50389, z: -733.53015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
