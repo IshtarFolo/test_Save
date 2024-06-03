@@ -115,7 +115,7 @@ public class _collision_kirie : MonoBehaviour
     public AudioClip armoireBarre;
     public AudioClip armoireSouvre;
     public AudioClip ouvrirPorte;
-    public AudioClip sonLettre;
+    public AudioClip sonObjetRamasse;
 
     [Header("Scenes")]
     public Scene scene;
@@ -498,7 +498,7 @@ public class _collision_kirie : MonoBehaviour
             Destroy(infoTrigger.gameObject);
             UIforet.SetActive(false);
             UINombreLettre.SetActive(true);
-            gameManager.PlayOneShot(sonLettre);
+            gameManager.PlayOneShot(sonObjetRamasse);
 
             // Incrémentez lettresRamassee d'une seule unité
             lettreRamassee++;
@@ -526,6 +526,7 @@ public class _collision_kirie : MonoBehaviour
         if (infoTrigger.gameObject.tag == "cannePeche" && UIminiJeuChaudFroid.activeInHierarchy == true)
         {
             cannePecheRamasse = true;
+            gameManager.PlayOneShot(sonObjetRamasse);
             //On va le détruire et changer de cible ou désactiver la scrollbar
             //Destroy(gameObject);
             UIbarreCanne.SetActive(true);
