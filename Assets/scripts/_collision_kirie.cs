@@ -115,6 +115,7 @@ public class _collision_kirie : MonoBehaviour
     public AudioClip armoireBarre;
     public AudioClip armoireSouvre;
     public AudioClip ouvrirPorte;
+    public AudioClip sonLettre;
 
     [Header("Scenes")]
     public Scene scene;
@@ -497,6 +498,7 @@ public class _collision_kirie : MonoBehaviour
             Destroy(infoTrigger.gameObject);
             UIforet.SetActive(false);
             UINombreLettre.SetActive(true);
+            gameManager.PlayOneShot(sonLettre);
 
             // Incrémentez lettresRamassee d'une seule unité
             lettreRamassee++;
