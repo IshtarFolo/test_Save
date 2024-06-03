@@ -26,6 +26,8 @@ public class interactionVillageois : MonoBehaviour
 
     NavMeshAgent agent; // Variable raccourcis NavMesh
 
+    public bool villageois1; // Identifiant pour le villageois1
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,9 +62,14 @@ public class interactionVillageois : MonoBehaviour
             }
         }
 
-        if (dialoguesTermines)
+        // Mise à jour de la booléenne après la fin des dialogues
+        if (dialoguesTermines && !aParle)
         {
-            aParleVillageois1 = true;
+            aParle = true;
+            if (villageois1)
+            {
+                aParleVillageois1 = true;
+            }
         }
     }
 
@@ -113,10 +120,11 @@ public class interactionVillageois : MonoBehaviour
         veutParler = false;
         dialoguesTermines = true; // Marquer que tous les dialogues ont été affichés
 
-        if (gameObject.CompareTag("villageois1") && dialoguesTermines)
+        // Mise à jour des booléens après la fin des dialogues
+        aParle = true;
+        if (villageois1)
         {
             aParleVillageois1 = true;
-            //Debug.Log("Test Villageois");
         }
     }
 
