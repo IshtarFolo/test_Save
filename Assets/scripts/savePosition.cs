@@ -162,6 +162,12 @@ public class savePosition : MonoBehaviour
         StartCoroutine(LoadDelai());
     }
 
+    // pour quitter le jeu
+    public void Quitter()
+    {
+        Application.Quit();
+    }
+
     IEnumerator LoadDelai()
     {
         // On arrete la pause
@@ -268,10 +274,5 @@ public class savePosition : MonoBehaviour
         {
             PlayerPrefs.DeleteKey(key);
         }
-    }
-
-    private void OnApplicationQuit()
-    {
-        Save();
     }
 }
