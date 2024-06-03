@@ -2398,7 +2398,7 @@ MonoBehaviour:
   armoireBarre: {fileID: 0}
   armoireSouvre: {fileID: 0}
   ouvrirPorte: {fileID: 0}
-  sonLettre: {fileID: 8300000, guid: ec13a6465e199464aac209dfff30e8f4, type: 3}
+  sonObjetRamasse: {fileID: 8300000, guid: ec13a6465e199464aac209dfff30e8f4, type: 3}
   scene:
     m_Handle: 0
 --- !u!114 &106215476
