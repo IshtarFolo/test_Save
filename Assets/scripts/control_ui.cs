@@ -60,4 +60,9 @@ public class control_ui : MonoBehaviour
 
 
     }
+
+    public void arretJeuOk()
+    {
+        Time.timeScale = 1f;
+    }
 }
